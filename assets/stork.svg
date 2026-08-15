@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" fill="none" aria-hidden="true">
+  <title>AIST Exchange — stork with a GPU in its beak</title>
+  <!-- legs -->
+  <path d="M58 118 L54 78 M70 118 L66 80" stroke="#e8c56b" stroke-width="2.2" stroke-linecap="round"/>
+  <path d="M50 118 H62 M64 118 H76" stroke="#e8c56b" stroke-width="2" stroke-linecap="round"/>
+  <!-- body -->
+  <ellipse cx="62" cy="62" rx="22" ry="16" transform="rotate(-18 62 62)" fill="#f4f1ea"/>
+  <ellipse cx="54" cy="58" rx="10" ry="12" transform="rotate(-30 54 58)" fill="#fff"/>
+  <!-- tail -->
+  <path d="M40 68 L22 74 L28 62 Z" fill="#d9d4c8"/>
+  <!-- neck + head -->
+  <path d="M78 50 C92 38 98 28 96 20" stroke="#f4f1ea" stroke-width="7" stroke-linecap="round" fill="none"/>
+  <circle cx="97" cy="18" r="7.2" fill="#f4f1ea"/>
+  <circle cx="99.2" cy="16.6" r="1.5" fill="#111"/>
+  <!-- beak -->
+  <path d="M103 19 L122 16 L104 23 Z" fill="#e8c56b"/>
+  <!-- GPU card in beak -->
+  <g transform="translate(108 6) rotate(-12)">
+    <rect x="0" y="0" width="18" height="12" rx="1.4" fill="#1a1f18" stroke="#3dff8a" stroke-width="1"/>
+    <rect x="1.4" y="1.6" width="7" height="4.2" rx="0.5" fill="#3dff8a" opacity=".85"/>
+    <circle cx="12.4" cy="3.6" r="1.5" fill="#3dff8a" opacity=".55"/>
+    <path d="M2 9.4 H16 M2 10.8 H14" stroke="#3dff8a" stroke-width=".7" opacity=".7"/>
+  </g>
+  <!-- wing mark -->
+  <path d="M50 54 C58 48 70 50 74 58" stroke="#1a1f18" stroke-width="1.2" opacity=".25" fill="none"/>
+</svg>

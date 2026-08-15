@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Market — AIST Exchange</title>
+  <link rel="icon" href="assets/stork.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,600;0,9..40,700&family=IBM+Plex+Mono:wght@400;500&family=Sora:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/app.css">
+</head>
+<body data-page="market">
+  <header class="top" id="top"></header>
+  <main class="wrap wrap-wide">
+    <div class="page-h">
+      <h1 data-i18n="mkt.h">Markets</h1>
+      <p data-i18n="mkt.sub">Last is the book mid. 24h change is not sampled yet.</p>
+    </div>
+    <div class="note" id="note" hidden></div>
+    <div class="tools">
+      <input class="search" id="q" data-i18n-placeholder="mkt.search" placeholder="Filter pairs">
+    </div>
+    <div style="margin-top:16px">
+      <div id="currency-filters" style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px"></div>
+      <div id="network-filters-wrapper" style="display:none">
+        <small style="color:var(--muted);display:block;margin-bottom:8px">Network</small>
+        <div id="network-filters" style="display:flex;gap:6px;flex-wrap:wrap"></div>
+      </div>
+    </div>
+    <div id="markets"></div>
+  </main>
+  <footer class="foot" id="foot"></footer>
+  <script src="js/i18n.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/wallets.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/market.js"></script>
+</body>
+</html>

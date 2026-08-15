@@ -1,4 +1,4 @@
-# aist.exchange
+# AIST Exchange
 
 Web P2P market for compute coins. Talks only to the endpoints in
 `../todo/P2P-API-FOR-AIST.md`.

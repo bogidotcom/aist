@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Exchange — AIST Exchange</title>
+  <link rel="icon" href="assets/stork.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,600;0,9..40,700&family=IBM+Plex+Mono:wght@400;500&family=Sora:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/app.css">
+</head>
+<body data-page="exchange">
+  <header class="top" id="top"></header>
+  <main class="wrap wrap-wide">
+    <div class="page-h">
+      <h1 data-i18n="ex.h">Exchange</h1>
+      <p data-i18n="ex.p">Trade USDT, KGST and compute coins on the P2P market.</p>
+    </div>
+    <div class="field" style="max-width:360px;margin-bottom:16px;position:relative">
+      <label data-i18n="mkt.pair">Pair</label>
+      <input id="pair-search" type="text" placeholder="Search pairs..." style="width:100%">
+      <select id="pair-select" style="display:none"></select>
+      <div id="pair-dropdown" style="position:absolute;top:100%;left:0;right:0;background:var(--bg);border:1px solid var(--line);border-top:none;border-radius:0 0 10px 10px;max-height:300px;overflow-y:auto;z-index:10;display:none;box-shadow:0 4px 12px rgba(0,0,0,0.15)"></div>
+    </div>
+    <p class="hint" id="gelt-note" hidden data-i18n="ex.comingGelt"></p>
+    <div class="ex-grid">
+      <div>
+        <div class="panel">
+          <div class="pair-bar">
+            <div class="sym" id="pair-sym">—</div>
+            <div class="last" id="pair-last">—</div>
+            <div class="chg" id="pair-chg"></div>
+          </div>
+          <div class="chart-head">
+            <h2 data-i18n="ex.chart">Price chart</h2>
+            <div class="iv" id="iv">
+              <button type="button" data-iv="1m">1m</button>
+              <button type="button" data-iv="1h" class="on">1h</button>
+              <button type="button" data-iv="1d">1d</button>
+            </div>
+          </div>
+          <div class="chart" id="chart"></div>
+        </div>
+        <div class="panel" style="margin-top:16px">
+          <h2 data-i18n="ex.book">Order book</h2>
+          <div class="book" id="book"></div>
+        </div>
+      </div>
+      <div class="panel" id="ticket"></div>
+    </div>
+  </main>
+  <footer class="foot" id="foot"></footer>
+  <script src="js/i18n.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/wallets.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/exchange.js"></script>
+</body>
+</html>
