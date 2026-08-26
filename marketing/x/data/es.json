@@ -1,0 +1,182 @@
+[
+ {
+  "id": "01",
+  "kicker": "FOREX DE CÓMPUTO P2P",
+  "head": "USDT entra.\nCómputo sale.",
+  "post": "AIST P2P ya está en vivo.\n\nUn solo libro: BTC, USDT en cinco redes, KGST, ETH, SOL — y fiat. Transferencia bancaria, tarjeta, billetera móvil, efectivo.\n\nEscrow en cada operación. Sin SWIFT.\n\nassetux.com"
+ },
+ {
+  "id": "02",
+  "kicker": "NUEVO · GUÍA",
+  "head": "8 formas de\nganar el spread",
+  "post": "Escribimos la guía que nos hubiera servido al empezar.\n\n8 estrategias P2P, cada una con los pasos, un ejemplo resuelto en números reales y el riesgo que de verdad cuesta dinero.\n\nassetux.com/strategies"
+ },
+ {
+  "id": "03",
+  "kicker": "PAGO POR CÓMPUTO",
+  "head": "Retira lo que\nganas con tu GPU",
+  "post": "Tu GPU procesa trabajos de IA y cobra en compute coins.\n\nAquí es donde esas monedas se convierten en algo que tu banco, tu billetera o tu casero aceptan.\n\nassetux.com"
+ },
+ {
+  "id": "04",
+  "kicker": "ESTRATEGIA 01 · BÁSICA",
+  "head": "Arbitraje de\nspread simple",
+  "post": "El mismo par, el mismo minuto, dos makers que no coinciden en el precio.\n\nEn un libro P2P delgado el mejor ask y el mejor bid se cruzan más de lo que deberían: el maker deja la orden puesta y se va.\n\nassetux.com/strategies#spread"
+ },
+ {
+  "id": "05",
+  "kicker": "ESTRATEGIA 02 · BÁSICA",
+  "head": "Arbitraje de\nmétodo de pago",
+  "post": "El mismo USDT vale distinto según cómo se mueve el dinero.\n\nComprar con efectivo sale barato. La transferencia instantánea sale cara. La diferencia entre las dos es la operación.\n\nassetux.com/strategies#payment"
+ },
+ {
+  "id": "06",
+  "kicker": "ESTRATEGIA 03 · MEDIA",
+  "head": "Arbitraje entre\nexchanges",
+  "post": "KGST cotiza en Binance y en nuestro libro al mismo tiempo.\n\nDos plazas, dos libros, un activo — y ninguna regla que los obligue a coincidir.\n\nTen saldo en ambas: perseguir el hueco es llegar tarde.\n\nassetux.com/strategies#cross"
+ },
+ {
+  "id": "07",
+  "kicker": "ESTRATEGIA 04 · MEDIA",
+  "head": "Arbitraje\ngeográfico",
+  "post": "Las stablecoins cuestan más donde la moneda local está bajo presión.\n\nBishkek, Tiflis y Adís Abeba no le ponen el mismo precio al USDT el mismo martes.\n\nassetux.com/strategies#geo"
+ },
+ {
+  "id": "08",
+  "kicker": "ESTRATEGIA 05 · MEDIA",
+  "head": "Market making\nen P2P",
+  "post": "Deja de buscar el spread y cotízalo tú.\n\nPones las dos puntas, esperas, y te paga quien tiene prisa. No estás apostando dirección: estás vendiendo inmediatez.\n\nassetux.com/strategies#mm"
+ },
+ {
+  "id": "09",
+  "kicker": "ESTRATEGIA 06 · AVANZADA",
+  "head": "Inventario y\nvolatilidad",
+  "post": "Aguantar un cobro cuatro días en vez de venderlo el lunes es una posición, la llames como la llames.\n\nEs la única estrategia de la guía que puede costarte el principal, no el spread.\n\nassetux.com/strategies#inventory"
+ },
+ {
+  "id": "10",
+  "kicker": "ESTRATEGIA 07 · MEDIA",
+  "head": "Provisión de\nliquidez P2P",
+  "post": "Market making en un par, pero industrializado.\n\nComprometes un float en varios activos y métodos de pago, y tratas las ejecuciones como rendimiento sobre capital.\n\nassetux.com/strategies#liquidity"
+ },
+ {
+  "id": "11",
+  "kicker": "ESTRATEGIA 08 · AVANZADA",
+  "head": "Arbitraje\ntriangular",
+  "post": "Tres pares cuyos precios implican un cuarto que no existe.\n\nRecorre el ciclo. Si la tasa implícita no coincide con la real, vuelves con más de lo que saliste.\n\nassetux.com/strategies#triangular"
+ },
+ {
+  "id": "12",
+  "kicker": "REGLA 01",
+  "head": "Calcula el\nciclo completo",
+  "post": "Un spread del 1,4% parece dinero hasta que cuentas el ciclo entero.\n\nDos comisiones on-chain y un cargo bancario lo pueden dejar bajo cero en tamaño pequeño.\n\nEl spread no es la ganancia. El ciclo sí.\n\nassetux.com/strategies"
+ },
+ {
+  "id": "13",
+  "kicker": "REGLA 02",
+  "head": "El escrow dura\n15 minutos",
+  "post": "Si una pata no se cierra dentro de la ventana del escrow, no es una operación.\n\nSon dos posiciones.\n\nDimensiona y planifica en consecuencia.\n\nassetux.com/strategies"
+ },
+ {
+  "id": "14",
+  "kicker": "REGLA 03",
+  "head": "La profundidad\nmanda",
+  "post": "La mejor cotización para 200 KGST no te dice nada sobre dónde se ejecutan 200.000 KGST.\n\nTodos capturan el tope del libro. La ejecución ocurre en otro sitio.\n\nassetux.com/strategies"
+ },
+ {
+  "id": "15",
+  "kicker": "REGLA 04",
+  "head": "Ten saldo en\nambos lados",
+  "post": "Una oportunidad que primero tienes que fondear suele desaparecer antes de que llegue el dinero.\n\nCapital en el lugar equivocado es lo mismo que no tener capital.\n\nassetux.com/strategies"
+ },
+ {
+  "id": "16",
+  "kicker": "RIESGO DEL MAKER",
+  "head": "Selección\nadversa",
+  "post": "En un mercado de una sola dirección solo te ejecutan la punta perdedora.\n\nCompras todo el camino hacia abajo y nunca vendes.\n\nAbre o retira la cotización cuando el mid deja de oscilar y arranca en tendencia.\n\nassetux.com/strategies#mm"
+ },
+ {
+  "id": "17",
+  "kicker": "RIESGO DEL MAKER",
+  "head": "El costo real:\nsaldo parado",
+  "post": "El escrow inmoviliza capital mientras la orden está viva.\n\nUn libro lleno de tus órdenes puede parecer activo mientras la mayor parte de tu dinero no gana nada.\n\nMide el retorno sobre todo el float.\n\nassetux.com/strategies#liquidity"
+ },
+ {
+  "id": "18",
+  "kicker": "RIESGO DEL TRIÁNGULO",
+  "head": "La tercera pata\nes la delgada",
+  "post": "Los libros de compute coins son poco profundos.\n\nLa tasa por la que multiplicaste no suele ser la que consigues, y la posición que te queda es la más difícil de soltar.\n\nassetux.com/strategies#triangular"
+ },
+ {
+  "id": "19",
+  "kicker": "REDES",
+  "head": "USDT en\ncinco redes",
+  "post": "Elige la red en el ticket, no en el par.\n\nTRC20 para liquidar barato. ERC20 cuando la contraparte insiste. BEP20, TON o SOL cuando la comisión pesa más que la costumbre.\n\nassetux.com"
+ },
+ {
+  "id": "20",
+  "kicker": "REDES",
+  "head": "Bitcoin",
+  "post": "La liquidez más profunda de todo el libro.\n\nEl maker publica una dirección de cobro, tú envías desde cualquier billetera y el escrow retiene el lado base hasta que llega.\n\nassetux.com"
+ },
+ {
+  "id": "21",
+  "kicker": "EL RIEL",
+  "head": "KGST",
+  "post": "Ya cotiza en Binance, así que el precio no lo inventamos nosotros.\n\nCada compute coin cotiza contra él, que es justo lo que hace funcionar los triángulos.\n\nassetux.com"
+ },
+ {
+  "id": "22",
+  "kicker": "MÉTODOS",
+  "head": "Métodos fiat",
+  "post": "Transferencia bancaria, tarjeta a tarjeta, billetera móvil, efectivo en persona.\n\nEl maker define el método y la ventana. El escrow solo libera cuando tú confirmas que el dinero llegó.\n\nassetux.com"
+ },
+ {
+  "id": "23",
+  "kicker": "REDES",
+  "head": "ETH y SOL",
+  "post": "ETH nativo directo desde MetaMask: la interfaz arma la transacción, tú la firmas.\n\nConecta Phantom en Solana para autocompletar tu dirección de cobro. Comisiones de centavos hacen viables las patas pequeñas y frecuentes.\n\nassetux.com"
+ },
+ {
+  "id": "24",
+  "kicker": "MINEROS",
+  "head": "Cobra cada\nsemana",
+  "post": "Sin pago mínimo. Sin cola de listado. Sin SWIFT.\n\nUn minero que gana 4.000 KGST por semana cobra cada semana, en vez de esperar un umbral que nunca termina de llegar.\n\nassetux.com"
+ },
+ {
+  "id": "25",
+  "kicker": "MINEROS",
+  "head": "Tres pasos:\nGPU al banco",
+  "post": "Procesa los trabajos: tu nodo liquida el cómputo de IA en KGST o en un compute coin regional.\n\nPublica el cobro en el libro P2P a tu precio.\n\nRetíralo en USDT, BTC, ETH, SOL o fiat.\n\nassetux.com"
+ },
+ {
+  "id": "26",
+  "kicker": "MINEROS",
+  "head": "Pago mínimo",
+  "post": "Cero.\n\nSin umbral que alcanzar, sin cola a la que sumarse, sin transferencia que explicarle a un área de cumplimiento.\n\nLo ganaste, lo publicas, lo retiras.\n\nassetux.com"
+ },
+ {
+  "id": "27",
+  "kicker": "COMPUTE COINS",
+  "head": "Lo que tu nodo\nte paga",
+  "post": "KGST es el riel. aiGEL, aiETB y aiBTN son los compute coins regionales.\n\nNada que reclamar, nada que desbloquear: el trabajo terminado liquida directo en el activo.\n\nassetux.com"
+ },
+ {
+  "id": "28",
+  "kicker": "LIQUIDEZ P2P",
+  "head": "Sé el libro,\nno el taker",
+  "post": "Todo el que quiere salir ahora mismo le paga a alguien por el privilegio.\n\nPon el float que se lo permite y ese pago es tu rendimiento, ganado sobre inventario que ya tenías.\n\nassetux.com/strategies#liquidity"
+ },
+ {
+  "id": "29",
+  "kicker": "LIQUIDEZ P2P",
+  "head": "Dónde está\nel margen",
+  "post": "Los pares delgados pagan el margen más ancho y se ejecutan lento.\n\nKGST-USDT paga lo mínimo y se ejecuta sin parar.\n\nReparte tu float entre métodos y deja que las ejecuciones lleguen solas.\n\nassetux.com/strategies#liquidity"
+ },
+ {
+  "id": "30",
+  "kicker": "ESCROW",
+  "head": "Nunca adelantas\na un extraño",
+  "post": "El lado base se bloquea en cuanto se selecciona la orden, y queda bloqueado 15 minutos.\n\nHacer mercado en un libro P2P no significa dar crédito de buena fe.\n\nassetux.com/strategies"
+ }
+]

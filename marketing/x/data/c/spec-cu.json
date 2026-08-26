@@ -1,0 +1,42 @@
+[
+ {
+  "id": "1",
+  "v": "stat",
+  "mono": "pair   aiCUP-USDT-TRC20\npair   aiCUP-KGST\n──────────────────\n1 aiCUP ≈ 1 CUP\nescrow on every trade"
+ },
+ {
+  "id": "2",
+  "v": "stat",
+  "mono": "USDT · BTC · KGST\nETH · SOL · aiCUP\n──────────────────\nbank · card · mobile · cash"
+ },
+ {
+  "id": "3",
+  "v": "stat",
+  "mono": "pair      aiCUP-USDT-TRC20\nbest ask  0.003078\nbest bid  0.003166\n──────────────────\nsize  750,000 aiCUP\nnet   +65.62 USDT  (2.8%)"
+ },
+ {
+  "id": "4",
+  "v": "stat",
+  "mono": "01  you pick an order\n02  escrow locks the asset\n03  you pay the maker\n04  escrow releases"
+ },
+ {
+  "id": "5",
+  "v": "stat",
+  "mono": "01  share your link\n02  they trade\n03  you earn"
+ },
+ {
+  "id": "6",
+  "v": "stat",
+  "mono": "GPU   →  AI jobs\njobs  →  aiCUP\naiCUP →  P2P  →  CUP"
+ },
+ {
+  "id": "7",
+  "v": "stat",
+  "mono": "you  ⇄  maker\n──────────────────\nno broker\nno correspondent bank\nno wire to explain"
+ },
+ {
+  "id": "8",
+  "v": "stat",
+  "mono": "asset  USDT-TRC20, in CUP\nbuy   via cash    317.44\nsell  via bank    325.12\n──────────────────\nsize  1,000 USDT\nnet   +7,680.00 CUP  (2.4%)"
+ }
+]

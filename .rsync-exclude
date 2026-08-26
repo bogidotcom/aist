@@ -1,0 +1,4 @@
+.git
+.rsync-exclude
+marketing
+node_modules

@@ -29,6 +29,16 @@ node serve.mjs
 # http://127.0.0.1:8788
 ```
 
+## Deploy
+
+```bash
+rsync -av --delete --exclude-from=.rsync-exclude ./ root@203.18.98.51:/var/www/aist/
+```
+
+`marketing/` holds campaign assets, not site files — `.rsync-exclude` keeps it
+off the web root. nginx routes `/`, `/market`, `/exchange` and `/strategies`;
+a new page needs a matching `location =` block in `/etc/nginx/sites-available/assetux`.
+
 Default API: `http://127.0.0.1:3456` on localhost, otherwise `https://miner.iamai.kg`.
 Change it with the gear control or `?api=http://127.0.0.1:3456`.
 

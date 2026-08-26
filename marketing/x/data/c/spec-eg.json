@@ -1,0 +1,42 @@
+[
+ {
+  "id": "1",
+  "v": "stat",
+  "mono": "pair   aiEGP-USDT-TRC20\npair   aiEGP-KGST\n──────────────────\n1 aiEGP ≈ 1 EGP\nescrow on every trade"
+ },
+ {
+  "id": "2",
+  "v": "stat",
+  "mono": "USDT · BTC · KGST\nETH · SOL · aiEGP\n──────────────────\nbank · card · mobile · cash"
+ },
+ {
+  "id": "3",
+  "v": "stat",
+  "mono": "pair      aiEGP-USDT-TRC20\nbest ask  0.02052\nbest bid  0.0211\n──────────────────\nsize  100,000 aiEGP\nnet   +58.33 USDT  (2.8%)"
+ },
+ {
+  "id": "4",
+  "v": "stat",
+  "mono": "01  you pick an order\n02  escrow locks the asset\n03  you pay the maker\n04  escrow releases"
+ },
+ {
+  "id": "5",
+  "v": "stat",
+  "mono": "01  share your link\n02  they trade\n03  you earn"
+ },
+ {
+  "id": "6",
+  "v": "stat",
+  "mono": "GPU   →  AI jobs\njobs  →  aiEGP\naiEGP →  P2P  →  EGP"
+ },
+ {
+  "id": "7",
+  "v": "stat",
+  "mono": "you  ⇄  maker\n──────────────────\nno broker\nno correspondent bank\nno wire to explain"
+ },
+ {
+  "id": "8",
+  "v": "stat",
+  "mono": "asset  USDT-TRC20, in EGP\nbuy   via cash    47.62\nsell  via bank    48.77\n──────────────────\nsize  1,000 USDT\nnet   +1,152.00 EGP  (2.4%)"
+ }
+]

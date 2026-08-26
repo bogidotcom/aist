@@ -1,0 +1,42 @@
+[
+ {
+  "id": "1",
+  "v": "stat",
+  "mono": "pair   aiBTN-USDT-TRC20\npair   aiBTN-KGST\n──────────────────\n1 aiBTN ≈ 1 BTN\nescrow on every trade"
+ },
+ {
+  "id": "2",
+  "v": "stat",
+  "mono": "USDT · BTC · KGST\nETH · SOL · aiBTN\n──────────────────\nbank · card · mobile · cash"
+ },
+ {
+  "id": "3",
+  "v": "stat",
+  "mono": "pair      aiBTN-USDT-TRC20\nbest ask  0.01187\nbest bid  0.0122\n──────────────────\nsize  200,000 aiBTN\nnet   +67.47 USDT  (2.8%)"
+ },
+ {
+  "id": "4",
+  "v": "stat",
+  "mono": "01  you pick an order\n02  escrow locks the asset\n03  you pay the maker\n04  escrow releases"
+ },
+ {
+  "id": "5",
+  "v": "stat",
+  "mono": "01  share your link\n02  they trade\n03  you earn"
+ },
+ {
+  "id": "6",
+  "v": "stat",
+  "mono": "GPU   →  AI jobs\njobs  →  aiBTN\naiBTN →  P2P  →  BTN"
+ },
+ {
+  "id": "7",
+  "v": "stat",
+  "mono": "you  ⇄  maker\n──────────────────\nno broker\nno correspondent bank\nno wire to explain"
+ },
+ {
+  "id": "8",
+  "v": "stat",
+  "mono": "asset  USDT-TRC20, in BTN\nbuy   via cash    82.34\nsell  via bank    84.33\n──────────────────\nsize  1,000 USDT\nnet   +1,992.00 BTN  (2.4%)"
+ }
+]

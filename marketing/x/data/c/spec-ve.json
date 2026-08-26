@@ -1,0 +1,42 @@
+[
+ {
+  "id": "1",
+  "v": "stat",
+  "mono": "pair   aiVES-USDT-TRC20\npair   aiVES-KGST\n──────────────────\n1 aiVES ≈ 1 VES\nescrow on every trade"
+ },
+ {
+  "id": "2",
+  "v": "stat",
+  "mono": "USDT · BTC · KGST\nETH · SOL · aiVES\n──────────────────\nbank · card · mobile · cash"
+ },
+ {
+  "id": "3",
+  "v": "stat",
+  "mono": "pair      aiVES-USDT-TRC20\nbest ask  0.02462\nbest bid  0.02532\n──────────────────\nsize  100,000 aiVES\nnet   +70.00 USDT  (2.8%)"
+ },
+ {
+  "id": "4",
+  "v": "stat",
+  "mono": "01  you pick an order\n02  escrow locks the asset\n03  you pay the maker\n04  escrow releases"
+ },
+ {
+  "id": "5",
+  "v": "stat",
+  "mono": "01  share your link\n02  they trade\n03  you earn"
+ },
+ {
+  "id": "6",
+  "v": "stat",
+  "mono": "GPU   →  AI jobs\njobs  →  aiVES\naiVES →  P2P  →  VES"
+ },
+ {
+  "id": "7",
+  "v": "stat",
+  "mono": "you  ⇄  maker\n──────────────────\nno broker\nno correspondent bank\nno wire to explain"
+ },
+ {
+  "id": "8",
+  "v": "stat",
+  "mono": "asset  USDT-TRC20, in VES\nbuy   via cash    39.68\nsell  via bank    40.64\n──────────────────\nsize  1,000 USDT\nnet   +960.00 VES  (2.4%)"
+ }
+]

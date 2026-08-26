@@ -1,0 +1,175 @@
+[
+ {
+  "id": "01",
+  "v": "stat",
+  "mono": "USDT · BTC · KGST\nETH · SOL · FIAT\n──────────────────\nescrow on every trade"
+ },
+ {
+  "id": "02",
+  "v": "stat",
+  "mono": "01 Spread      05 Market making\n02 Payment     06 Inventory\n03 Cross-exch  07 Liquidity\n04 Geographic  08 Triangular"
+ },
+ {
+  "id": "03",
+  "v": "stat",
+  "mono": "GPU  →  KGST\nKGST →  P2P book\nbook →  USDT / BTC / FIAT"
+ },
+ {
+  "id": "04",
+  "v": "stat",
+  "mono": "best ask  0.01188\nbest bid  0.01243\n──────────────────\n50,000 KGST\nnet  +25.50 USDT  (4.3%)"
+ },
+ {
+  "id": "05",
+  "v": "stat",
+  "mono": "buy  via cash      87.90\nsell via bank      89.60\n──────────────────\n1,000 USDT\nnet  +1,700 KGS  (1.9%)"
+ },
+ {
+  "id": "06",
+  "v": "stat",
+  "mono": "Binance   ask  0.01180\nAIST P2P  bid  0.01245\n──────────────────\n100,000 KGST\nnet  +61.80 USDT  (5.2%)"
+ },
+ {
+  "id": "07",
+  "v": "stat",
+  "mono": "87,900 KGS → 1,000 USDT\n 1,000 USDT → 2,690 GEL\n 2,690 GEL  → 89,400 KGS\n──────────────────\nnet  +1,500 KGS  (1.7%)"
+ },
+ {
+  "id": "08",
+  "v": "stat",
+  "mono": "mid        0.01200\nyour bid   0.01188  -1.0%\nyour ask   0.01212  +1.0%\n──────────────────\nround trip  +6.00 USDT"
+ },
+ {
+  "id": "09",
+  "v": "stat",
+  "mono": "day 1  buy  @ 0.01150\nday 4  sell @ 0.01245\n──────────────────\nnet   +190 USDT  (8.3%)\nbut   -10% = -230 USDT"
+ },
+ {
+  "id": "10",
+  "v": "stat",
+  "mono": "float     10,000 USDT\nfills     ~18 / day\navg edge  0.55%\n──────────────────\ngross  +59 USDT / day"
+ },
+ {
+  "id": "11",
+  "v": "stat",
+  "mono": "1,000 USDT → 83,330 KGST\n83,330 KGST →  1,206 aiGEL\n 1,206 aiGEL →  1,019 USDT\n──────────────────\nnet  +16.00 USDT  (1.6%)"
+ },
+ {
+  "id": "12",
+  "v": "stat",
+  "mono": "spread  1.40%  =  +14.00\nTRC20 out         -1.00\nTRC20 in          -1.00\nbank fee          -2.30\n──────────────────\nnet     +9.70  (0.97%)"
+ },
+ {
+  "id": "13",
+  "v": "num",
+  "mono": "15:00"
+ },
+ {
+  "id": "14",
+  "v": "stat",
+  "mono": "best quote      200 KGST\nyour size   200,000 KGST\n──────────────────\nthe quote tells you\nnothing about the fill"
+ },
+ {
+  "id": "15",
+  "v": "stat",
+  "mono": "side A   funded  ✓\nside B   funded  ✓\n──────────────────\nfund-first = arrive late"
+ },
+ {
+  "id": "16",
+  "v": "stat",
+  "mono": "trending market\n──────────────────\nyour bid   hit  ✓✓✓✓\nyour ask   hit\n= buying all the way down"
+ },
+ {
+  "id": "17",
+  "v": "stat",
+  "mono": "float        10,000 USDT\nin escrow    ~2,500 USDT\n──────────────────\nearning       7,500 USDT"
+ },
+ {
+  "id": "18",
+  "v": "stat",
+  "mono": "leg 1  deep   ✓\nleg 2  ok     ✓\nleg 3  thin   ✗\n──────────────────\nleg 3 is where it dies"
+ },
+ {
+  "id": "19",
+  "v": "list",
+  "chips": [
+   "TRC20",
+   "ERC20",
+   "BEP20",
+   "TON",
+   "SOL"
+  ],
+  "mono": ""
+ },
+ {
+  "id": "20",
+  "v": "stat",
+  "mono": "BTC\n──────────────────\ndeepest quote on the book\nmaker posts the address\nescrow holds the base"
+ },
+ {
+  "id": "21",
+  "v": "stat",
+  "mono": "KGST\n──────────────────\nlisted on Binance\nevery compute coin\nquotes against it"
+ },
+ {
+  "id": "22",
+  "v": "list",
+  "chips": [
+   "Bank Transfer",
+   "Card",
+   "Mobile",
+   "Cash"
+  ],
+  "mono": ""
+ },
+ {
+  "id": "23",
+  "v": "list",
+  "chips": [
+   "MetaMask · ETH",
+   "Phantom · SOL"
+  ],
+  "mono": ""
+ },
+ {
+  "id": "24",
+  "v": "stat",
+  "mono": "4,000 KGST / week\n──────────────────\nno minimum payout\nno listing queue\nno SWIFT"
+ },
+ {
+  "id": "25",
+  "v": "stat",
+  "mono": "01  run the jobs\n02  list the payout\n03  take it out"
+ },
+ {
+  "id": "26",
+  "v": "num",
+  "mono": "0"
+ },
+ {
+  "id": "27",
+  "v": "list",
+  "chips": [
+   "KGST",
+   "aiGEL",
+   "aiETB",
+   "aiBTN"
+  ],
+  "mono": ""
+ },
+ {
+  "id": "28",
+  "v": "stat",
+  "mono": "taker   pays for speed\nmaker   sells it\n──────────────────\nthe spread is the fee"
+ },
+ {
+  "id": "29",
+  "v": "stat",
+  "mono": "thin pair   wide edge, slow\nKGST-USDT   thin edge, constant\n──────────────────\nsplit the float"
+ },
+ {
+  "id": "30",
+  "v": "stat",
+  "mono": "order selected\n──────────────────\nbase side locked  15 min\nyou never front\nan unknown counterparty"
+ }
+]
