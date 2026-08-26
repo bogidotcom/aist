@@ -1,12 +1,12 @@
 /* Public P2P reads — only endpoints in P2P-API-FOR-AIST.md */
 (function (global) {
-  const ONCHAIN = ['POH', 'aiGEL', 'KGST', 'aiETB', 'aiBTN'];
+  const ONCHAIN = ['DAI', 'aiGEL', 'KGST', 'aiETB', 'aiBTN'];
   const OFFCHAIN = [
     'USDT-ERC20', 'USDT-TRC20', 'USDT-TON', 'USDT-SOL', 'USDT-BEP20',
     'USDC-ERC20', 'BTC', 'ETH', 'SOL', 'Bank Transfer',
   ];
   const ALL_QUOTES = ONCHAIN.concat(OFFCHAIN);
-  const LEGACY_TO_CANON = { aiKGS: 'KGST', αιKGS: 'KGST' };
+  const LEGACY_TO_CANON = { aiKGS: 'KGST', αιKGS: 'KGST', POH: 'DAI' };
   const DROPPED = { aiAMD: 1, αιAMD: 1, AMD: 1 };
   let _legacyKgs = false;
 
@@ -68,11 +68,13 @@
       const q = normalizeTicker(next.quoteCurrency);
       if (q) next.quoteCurrency = q;
     }
+    if (next.daiAmount == null && next.pohAmount != null) next.daiAmount = next.pohAmount;
+    if (next.pricePerDAI == null && next.pricePerPOH != null) next.pricePerDAI = next.pricePerPOH;
     return next;
   }
 
   const LOCAL_API = 'http://127.0.0.1:3456';
-  const PUBLIC_API = 'https://miner.poh.ge';
+  const PUBLIC_API = 'https://miner.iamai.kg';
   const DEFAULT_API = (typeof location !== 'undefined' && /localhost|127\.0\.0\.1/.test(location.hostname))
     ? LOCAL_API
     : PUBLIC_API;
@@ -84,8 +86,11 @@
       try { localStorage.setItem('aist_api', q.replace(/\/$/, '')); } catch {}
     }
     try {
-      const saved = localStorage.getItem('aist_api');
-      if (saved) return saved.replace(/\/$/, '');
+      let saved = localStorage.getItem('aist_api');
+      if (saved) {
+        saved = saved.replace(/\/$/, '').replace(/poh\.ge/gi, 'iamai.kg');
+        return saved;
+      }
     } catch {}
     return _resolved || DEFAULT_API;
   }
@@ -93,8 +98,12 @@
   async function resolveApi() {
     if (_resolved) return _resolved;
     try {
-      const saved = localStorage.getItem('aist_api');
-      if (saved) { _resolved = saved.replace(/\/$/, ''); return _resolved; }
+      let saved = localStorage.getItem('aist_api');
+      if (saved) {
+        saved = saved.replace(/\/$/, '').replace(/poh\.ge/gi, 'iamai.kg');
+        _resolved = saved;
+        return _resolved;
+      }
     } catch {}
     if (typeof location !== 'undefined' && /localhost|127\.0\.0\.1/.test(location.hostname)) {
       try {
@@ -137,7 +146,7 @@
   function parsePair(s) {
     if (!s) return null;
     const raw = String(s).trim();
-    const quotes = ALL_QUOTES.concat(['aiKGS']).sort((a, b) => b.length - a.length);
+    const quotes = ALL_QUOTES.concat(['aiKGS', 'POH']).sort((a, b) => b.length - a.length);
     for (const q of quotes) {
       const suf = '-' + q;
       if (raw.endsWith(suf)) {
@@ -152,7 +161,7 @@
   function pairId(base, quote) { return base + '-' + quote; }
 
   function decimals(ticker) {
-    if (ticker === 'POH') return 9;
+    if (ticker === 'DAI') return 9;
     if (ONCHAIN.includes(ticker)) return 2;
     if (ticker === 'ETH') return 18;
     if (ticker === 'SOL') return 9;
@@ -177,7 +186,7 @@
     if (ticker === 'USDT-TON') return 'ton';
     if (ticker === 'BTC') return 'btc';
     if (ticker === 'Bank Transfer') return 'bank';
-    if (ONCHAIN.includes(ticker)) return 'poh';
+    if (ONCHAIN.includes(ticker)) return 'dai';
     return 'other';
   }
 
@@ -212,10 +221,14 @@
     return n.toPrecision(4);
   }
 
-  function orderBase(order) { return normalizeTicker(order.baseAsset) || order.baseAsset || 'POH'; }
+  function orderBase(order) { return normalizeTicker(order.baseAsset) || order.baseAsset || 'DAI'; }
 
   function orderSizeDisplay(order) {
-    return formatRaw(orderBase(order), order.pohAmount);
+    return formatRaw(orderBase(order), order.daiAmount);
+  }
+
+  function orderPrice(order) {
+    return order.pricePerDAI;
   }
 
   function noteLegacy(list) {
@@ -316,7 +329,7 @@
     ONCHAIN, OFFCHAIN, ALL_QUOTES, DEFAULT_API,
     apiBase, setApiBase, resolveApi, getJSON, parsePair, pairId,
     normalizeTicker, decimals, displayOf, family, evmChainId, tokenContract,
-    formatRaw, formatPrice, orderBase, orderSizeDisplay,
+    formatRaw, formatPrice, orderBase, orderSizeDisplay, orderPrice,
     fetchCurrencies, fetchMarkets, fetchOrders, fetchOrder, fetchCandles,
   };
 })(window);

@@ -139,7 +139,7 @@
 
   function fillPairSelect(list) {
     if (!els.pairSelect || els.pairSelect.dataset.ready) return;
-    const featured = ['KGST-USDT-TRC20', 'KGST-USDT-ERC20', 'aiGEL-KGST', 'aiETB-KGST', 'aiBTN-KGST', 'POH-USDT-TRC20'];
+    const featured = ['KGST-USDT-TRC20', 'KGST-USDT-ERC20', 'aiGEL-KGST', 'aiETB-KGST', 'aiBTN-KGST', 'DAI-USDT-TRC20'];
     const opts = [];
     const have = new Set((list || []).map((m) => m.pair));
     for (const id of featured) if (have.has(id) || !list.length) opts.push(id);
@@ -216,11 +216,11 @@
   }
 
   function renderBook() {
-    const asks = orders.filter((o) => o.side === 'sell').sort((a, b) => a.pricePerPOH - b.pricePerPOH);
-    const bids = orders.filter((o) => o.side === 'buy').sort((a, b) => b.pricePerPOH - a.pricePerPOH);
+    const asks = orders.filter((o) => o.side === 'sell').sort((a, b) => AistApi.orderPrice(a) - AistApi.orderPrice(b));
+    const bids = orders.filter((o) => o.side === 'buy').sort((a, b) => AistApi.orderPrice(b) - AistApi.orderPrice(a));
     const row = (o, kind) => `
       <div class="row ${selected && selected.id === o.id ? 'on' : ''}" data-id="${o.id}">
-        <span class="px ${kind}">${AistApi.formatPrice(o.pricePerPOH)}</span>
+        <span class="px ${kind}">${AistApi.formatPrice(AistApi.orderPrice(o))}</span>
         <span class="sz">${AistApi.orderSizeDisplay(o)} ${AistApi.displayOf(AistApi.orderBase(o))}</span>
       </div>`;
     els.book.innerHTML = `
@@ -248,7 +248,7 @@
   function defaultAmount() {
     if (!selected) return '';
     if (giveIsQuote) return String(selected.quoteAmount != null ? selected.quoteAmount : (selected.maxTrade || ''));
-    return AistApi.formatRaw(AistApi.orderBase(selected), selected.pohAmount);
+    return AistApi.formatRaw(AistApi.orderBase(selected), selected.daiAmount);
   }
 
   function renderTicket() {

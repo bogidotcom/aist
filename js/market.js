@@ -12,7 +12,7 @@
 
   const FEATURED = [
     'KGST-USDT-TRC20', 'KGST-USDT-ERC20', 'KGST-USDT-BEP20', 'KGST-USDT-TON', 'KGST-USDT-SOL',
-    'aiGEL-KGST', 'aiETB-KGST', 'aiBTN-KGST', 'aiGEL-USDT-TRC20', 'POH-USDT-TRC20',
+    'aiGEL-KGST', 'aiETB-KGST', 'aiBTN-KGST', 'aiGEL-USDT-TRC20', 'DAI-USDT-TRC20',
   ];
 
   // Extract network from pair (e.g., "USDT-TRC20" -> "TRC20", "aiGEL-KGST" -> null/on-chain)
