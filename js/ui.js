@@ -7,6 +7,7 @@
   function setLang(l) {
     localStorage.setItem('aist_lang', l);
     apply();
+    window.dispatchEvent(new CustomEvent('aist:lang', { detail: l }));
   }
   function t(key) {
     const pack = window.AIST_I18N || {};
@@ -32,6 +33,7 @@
     const p = location.pathname.replace(/\/+$/, '') || '/';
     if (p.endsWith('/market') || p.endsWith('/market.html')) return 'market';
     if (p.endsWith('/exchange') || p.endsWith('/exchange.html')) return 'exchange';
+    if (p.endsWith('/strategies') || p.endsWith('/strategies.html')) return 'strategies';
     return 'home';
   }
 
@@ -53,7 +55,8 @@
           <nav class="nav" id="nav">
             <a href="${href('market')}" class="${page === 'market' ? 'on' : ''}" data-i18n="nav.market">Market</a>
             <a href="${href('exchange')}" class="${page === 'exchange' ? 'on' : ''}" data-i18n="nav.exchange">Exchange</a>
-            <a href="https://poh.ge/docs/#p2p" target="_blank" rel="noopener" data-i18n="nav.docs">Docs</a>
+            <a href="${href('strategies')}" class="${page === 'strategies' ? 'on' : ''}" data-i18n="nav.strategies">Strategies</a>
+            <a href="https://iamai.kg/docs/#p2p" target="_blank" rel="noopener" data-i18n="nav.docs">Docs</a>
           </nav>
           <div class="top-right">
             <div class="lang" id="langs">${LANGS.map((l) => `<button type="button" data-lang="${l}">${l.toUpperCase()}</button>`).join('')}</div>

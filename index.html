@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>AIST Exchange — P2P compute forex</title>
-  <meta name="description" content="KGST is the rail: already on Binance. USDT in, compute-market out. No SWIFT.">
+  <meta name="description" content="Trade BTC, USDT, KGST, ETH, SOL and fiat methods on a P2P book. Withdraw AI compute earnings, run arbitrage, provide P2P liquidity. No SWIFT.">
   <link rel="icon" href="assets/stork.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,27 +13,162 @@
 </head>
 <body data-page="home">
   <header class="top" id="top"></header>
-  <main class="hero">
-    <div class="hero-in wrap">
-      <img class="stork" src="assets/stork.svg" alt="Stork carrying a GPU">
-      <p class="kicker" data-i18n="home.kicker">P2P compute forex</p>
-      <h1 data-i18n-html="home.h">USDT in.<br>Compute out.</h1>
-      <p class="lead" data-i18n="home.lead">KGST is the rail: already on Binance. USDT in, compute-market out. No SWIFT.</p>
-      <a class="btn btn-lime" id="cta-market" data-i18n="home.cta">Open market</a>
-      <div class="meshes" aria-label="meshes">
-        <div class="mesh">USDT / KGST / aiETB · aiGEL · aiBTN</div>
-        <div class="mesh">GELt / aiGEL / aiETB · aiBTN · KGST</div>
+
+  <main>
+    <section class="hero">
+      <div class="hero-in wrap">
+        <img class="stork" src="assets/stork.svg" alt="Stork carrying a GPU">
+        <p class="kicker" data-i18n="home.kicker">P2P compute forex</p>
+        <h1 data-i18n-html="home.h">USDT in.<br>Compute out.</h1>
+        <p class="lead" data-i18n="home.lead">KGST is the rail: already on Binance. USDT in, compute-market out. No SWIFT.</p>
+        <div class="cta-row" style="justify-content:center">
+          <a class="btn btn-lime" id="cta-market" data-i18n="home.cta">Open market</a>
+          <a class="btn btn-ghost" id="cta-strategies" data-i18n="home.cta2">Arbitrage strategies</a>
+        </div>
+        <div class="meshes" aria-label="meshes">
+          <div class="mesh">USDT / KGST / aiETB · aiGEL · aiBTN</div>
+          <div class="mesh">GELt / aiGEL / aiETB · aiBTN · KGST</div>
+        </div>
       </div>
-    </div>
+    </section>
+
+    <!-- what you can trade -->
+    <section class="sec wrap wrap-wide" id="assets">
+      <div class="sec-h">
+        <p class="kicker" data-i18n="home.assets.k">Assets & rails</p>
+        <h2 data-i18n="home.assets.h">Trade what you already hold</h2>
+        <p data-i18n="home.assets.p">Six rails on one book. Crypto settles on-chain, fiat settles through the maker's own payment method — the escrow is the same either way.</p>
+      </div>
+      <div class="grid-3">
+        <div class="card">
+          <p class="tick">BTC</p>
+          <h3 data-i18n="home.a.btc.h">Bitcoin</h3>
+          <p data-i18n="home.a.btc.p">Deepest liquidity of any quote here. The maker posts a receiving address; you send from any wallet and the escrow holds the base side.</p>
+          <div class="nets"><span class="tag">on-chain</span><span class="tag">Unisat</span><span class="tag">XFi</span></div>
+        </div>
+        <div class="card">
+          <p class="tick">USDT</p>
+          <h3 data-i18n="home.a.usdt.h">Tether, five networks</h3>
+          <p data-i18n="home.a.usdt.p">Pick the network at the ticket, not at the pair. TRC20 for cheap settlement, ERC20 when the counterparty insists, BEP20 / TON / SOL when the fee matters more than the habit.</p>
+          <div class="nets"><span class="tag">TRC20</span><span class="tag">ERC20</span><span class="tag">BEP20</span><span class="tag">TON</span><span class="tag">SOL</span></div>
+        </div>
+        <div class="card">
+          <p class="tick">KGST</p>
+          <h3 data-i18n="home.a.kgst.h">The rail</h3>
+          <p data-i18n="home.a.kgst.p">Already listed on Binance, so its price is not ours to invent. Every compute coin quotes against it, which is what makes the triangle trades work.</p>
+          <div class="nets"><span class="tag">Binance</span><span class="tag">on-chain</span><span class="tag">quote asset</span></div>
+        </div>
+        <div class="card">
+          <p class="tick">ETH</p>
+          <h3 data-i18n="home.a.eth.h">Ether</h3>
+          <p data-i18n="home.a.eth.p">Native ETH straight out of MetaMask — the UI builds the transaction, you sign it. Useful as a quote when the other side is already an ERC20 desk.</p>
+          <div class="nets"><span class="tag">MetaMask</span><span class="tag">native send</span></div>
+        </div>
+        <div class="card">
+          <p class="tick">SOL</p>
+          <h3 data-i18n="home.a.sol.h">Solana</h3>
+          <p data-i18n="home.a.sol.p">Connect Phantom to autofill your receive address; the send itself is copy-paste from your wallet. Sub-cent fees make small, frequent arbitrage legs viable.</p>
+          <div class="nets"><span class="tag">Phantom</span><span class="tag">USDT-SOL</span></div>
+        </div>
+        <div class="card">
+          <p class="tick">FIAT</p>
+          <h3 data-i18n="home.a.fiat.h">Fiat methods</h3>
+          <p data-i18n="home.a.fiat.p">Bank transfer, card-to-card, mobile wallet, cash in person. The maker names the method and the window; escrow only releases once you confirm the money landed.</p>
+          <div class="nets"><span class="tag">Bank Transfer</span><span class="tag">Card</span><span class="tag">Mobile</span><span class="tag">Cash</span><span class="tag">KGS · GEL · ETB</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- compute payout -->
+    <section class="sec wrap wrap-wide" id="earnings">
+      <div class="sec-h">
+        <p class="kicker" data-i18n="home.earn.k">Compute payout</p>
+        <h2 data-i18n="home.earn.h">Withdraw your AI compute earnings</h2>
+        <p data-i18n="home.earn.p">Your GPU takes AI jobs and gets paid in compute coins. This is where those coins turn into something your bank, your wallet or your landlord accepts.</p>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <h3 data-i18n="home.earn.s1.h">Run the jobs</h3>
+          <p data-i18n="home.earn.s1.p">Your node settles finished AI compute work in KGST or a regional compute coin — aiGEL, aiETB, aiBTN. Nothing to claim, nothing to unstake.</p>
+        </div>
+        <div class="step">
+          <h3 data-i18n="home.earn.s2.h">List the payout</h3>
+          <p data-i18n="home.earn.s2.p">Post an ask on the P2P book at your own price, or hit a standing bid if you want it gone today. Partial fills are normal.</p>
+        </div>
+        <div class="step">
+          <h3 data-i18n="home.earn.s3.h">Take it out</h3>
+          <p data-i18n="home.earn.s3.p">USDT, BTC, ETH, SOL or a fiat method. Escrow releases the moment the quote side lands, typically inside the 15-minute window.</p>
+        </div>
+      </div>
+      <div class="note" style="margin-top:16px" data-i18n="home.earn.note">No SWIFT, no listing queue, no minimum payout — a miner earning 4,000 KGST a week can cash out weekly instead of waiting for a threshold.</div>
+    </section>
+
+    <!-- arbitrage -->
+    <section class="sec wrap wrap-wide" id="arbitrage">
+      <div class="sec-h">
+        <p class="kicker" data-i18n="home.arb.k">Arbitrage trading</p>
+        <h2 data-i18n="home.arb.h">The spread is the product</h2>
+        <p data-i18n="home.arb.p">One asset priced across many payment rails, many exchanges and several countries at once. Those prices drift apart daily, and on a P2P book the drift is yours to take. Eight strategies, each with the steps, a worked example in real numbers, and the risk that actually kills it.</p>
+      </div>
+      <div class="chips" id="strat-chips"></div>
+      <div class="cta-row">
+        <a class="btn btn-lime" id="cta-strat-2" data-i18n="home.arb.cta">Open the strategy guide</a>
+        <a class="btn btn-ghost" id="cta-market-2" data-i18n="home.arb.cta2">See live spreads</a>
+      </div>
+    </section>
+
+    <!-- p2p liquidity -->
+    <section class="sec wrap wrap-wide" id="liquidity">
+      <div class="sec-h">
+        <p class="kicker" data-i18n="home.liq.k">P2P liquidity</p>
+        <h2 data-i18n="home.liq.h">Be the book, not the taker</h2>
+        <p data-i18n="home.liq.p">Every taker who wants out right now pays someone for the privilege. Provide the float that lets them, and that payment is your yield — earned on inventory you were holding anyway.</p>
+      </div>
+      <div class="grid-3">
+        <div class="card">
+          <h3 data-i18n="home.liq.b1.h">Quote both sides</h3>
+          <p data-i18n="home.liq.b1.p">Post a bid under the mid and an ask above it on the same pair. You are not calling direction — you are selling immediacy, and collecting the spread each time the book round-trips.</p>
+        </div>
+        <div class="card">
+          <h3 data-i18n="home.liq.b2.h">Escrow carries the trust</h3>
+          <p data-i18n="home.liq.b2.p">The base side locks the moment an order is selected and stays locked for 15 minutes. You are never fronting an unknown counterparty on good faith.</p>
+        </div>
+        <div class="card">
+          <h3 data-i18n="home.liq.b3.h">Get paid in flow</h3>
+          <p data-i18n="home.liq.b3.p">Thin pairs pay the widest edge and fill slowly; KGST-USDT pays the least and fills constantly. Split your float across methods and let the fills come to you.</p>
+        </div>
+      </div>
+      <div class="cta-row">
+        <a class="btn btn-ghost" id="cta-liq" data-i18n="home.liq.cta">Maker strategies →</a>
+      </div>
+    </section>
+
+    <section class="sec sec-end wrap">
+      <h2 data-i18n="home.end.h">Open the book</h2>
+      <p data-i18n="home.end.p">Live pairs, live spreads, and a pay ticket that tells you exactly what to send and where.</p>
+      <div class="cta-row">
+        <a class="btn btn-lime" id="cta-market-3" data-i18n="home.cta">Open market</a>
+        <a class="btn btn-ghost" href="https://iamai.kg/docs/#p2p" target="_blank" rel="noopener" data-i18n="nav.docs">Docs</a>
+      </div>
+    </section>
   </main>
+
   <footer class="foot" id="foot"></footer>
   <script src="js/i18n.js"></script>
+  <script src="js/i18n.strategies.js"></script>
   <script src="js/api.js"></script>
   <script src="js/wallets.js"></script>
   <script src="js/ui.js"></script>
+  <script src="js/strategies.js"></script>
   <script>
     AistUI.mountChrome();
     document.getElementById('cta-market').href = AistUI.href('market');
+    document.getElementById('cta-market-2').href = AistUI.href('market');
+    document.getElementById('cta-market-3').href = AistUI.href('market');
+    document.getElementById('cta-strategies').href = AistUI.href('strategies');
+    document.getElementById('cta-strat-2').href = AistUI.href('strategies');
+    document.getElementById('cta-liq').href = AistUI.href('strategies') + '#liquidity';
+    AistStrategies.mountChips(document.getElementById('strat-chips'));
   </script>
 </body>
 </html>

@@ -12,6 +12,7 @@ const ROUTES = {
   '/': 'index.html',
   '/market': 'market.html',
   '/exchange': 'exchange.html',
+  '/strategies': 'strategies.html',
 };
 
 const TYPES = {
@@ -53,5 +54,5 @@ createServer((req, res) => {
   }
 }).listen(port, () => {
   console.log(`AIST Exchange  http://127.0.0.1:${port}`);
-  console.log(`  /  /market  /exchange?pair=KGST-USDT-TRC20`);
+  console.log(`  /  /market  /strategies  /exchange?pair=KGST-USDT-TRC20`);
 });

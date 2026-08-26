@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Arbitrage strategies — AIST Exchange</title>
+  <meta name="description" content="Eight P2P trading strategies with worked examples: spread, payment method, cross-exchange, geographic, market making, inventory, liquidity providing and triangular arbitrage.">
+  <link rel="icon" href="assets/stork.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,600;0,9..40,700&family=IBM+Plex+Mono:wght@400;500&family=Sora:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/app.css">
+</head>
+<body data-page="strategies">
+  <header class="top" id="top"></header>
+
+  <main class="wrap wrap-wide">
+    <div class="page-h">
+      <p class="kicker" data-i18n="st.kicker">Tutorials</p>
+      <h1 data-i18n="st.h">Arbitrage strategies</h1>
+      <p data-i18n="st.sub">Eight ways to earn the spread on a P2P compute book — from a two-click first trade to a three-leg triangle. Every one lists the steps, a worked example in real numbers, and the risk that actually costs money.</p>
+    </div>
+
+    <div class="strat-layout">
+      <aside class="toc">
+        <h2 data-i18n="st.toc">Strategies</h2>
+        <ol id="toc"></ol>
+      </aside>
+
+      <div>
+        <div class="disclaim" data-i18n="st.disclaimer">Education, not investment advice. Every number below is an illustration — check the live book before you size a trade. P2P settlement carries counterparty risk that escrow reduces but never removes.</div>
+
+        <section class="strat" id="basics">
+          <div class="strat-head"><span class="n">00</span><h2 data-i18n="st.basics.h">Before your first trade</h2></div>
+          <p class="sum" data-i18n="st.basics.p">Four things decide whether a spread is real profit or just a number on a screen.</p>
+          <div class="two">
+            <div>
+              <p class="sub" data-i18n="st.basics.rules">Rules of thumb</p>
+              <ol class="how">
+                <li data-i18n="st.basics.r1">Price the round trip, not the leg. A 1.4% spread with two on-chain fees and a bank charge can net under zero on small size.</li>
+                <li data-i18n="st.basics.r2">Escrow runs 15 minutes. If a leg cannot finish inside that window, it is not one trade — it is two positions.</li>
+                <li data-i18n="st.basics.r3">Depth beats price. The best quote for 200 KGST tells you nothing about where 200,000 KGST actually fills.</li>
+                <li data-i18n="st.basics.r4">Keep float on both sides. An opportunity you have to fund first is usually gone by the time the funding lands.</li>
+              </ol>
+            </div>
+            <div>
+              <p class="sub" data-i18n="st.example">Worked example</p>
+              <pre class="ex">spread   1.40%  on 1,000 USDT
+gross    <b>+14.00</b> USDT
+─────────────────────────────
+TRC20 out        -1.00
+TRC20 in         -1.00
+bank fee         -2.30
+─────────────────────────────
+net      <b>+9.70</b> USDT  (0.97%)</pre>
+            </div>
+          </div>
+        </section>
+
+        <div id="strats"></div>
+
+        <section class="sec-end" style="border-top:1px solid var(--line);padding-top:56px">
+          <h2 data-i18n="st.end.h">Find the spread yourself</h2>
+          <p data-i18n="st.end.p">The market page lists every pair the node knows about, with the live book mid on each.</p>
+          <div class="cta-row">
+            <a class="btn btn-lime" id="cta-market" data-i18n="st.cta">Open the market</a>
+            <a class="btn btn-ghost" href="https://iamai.kg/docs/#p2p" target="_blank" rel="noopener" data-i18n="nav.docs">Docs</a>
+          </div>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <footer class="foot" id="foot"></footer>
+  <script src="js/i18n.js"></script>
+  <script src="js/i18n.strategies.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/wallets.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/strategies.js"></script>
+  <script>
+    AistUI.mountChrome();
+    document.getElementById('cta-market').href = AistUI.href('market');
+    AistStrategies.mountPage(document.getElementById('toc'), document.getElementById('strats'));
+  </script>
+</body>
+</html>
