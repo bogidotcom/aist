@@ -1,21 +1,111 @@
-/* Injected wallets: EVM, Tron, Solana, TON, Bitcoin. Send when we can; else copy. */
+/* Injected wallets: EVM, Tron, Solana, TON, Bitcoin. Send when we can; else copy.
+
+   EVM goes through EIP-6963. With more than one extension installed they all
+   race to own window.ethereum, and the winner is often a shim that cannot
+   actually connect — that is what "MetaMask extension not found" means when
+   MetaMask is installed and working. EIP-6963 lets every wallet announce
+   itself separately so we can hold a handle on the one the user picked. */
 (function (global) {
   const state = { evm: null, tron: null, sol: null, ton: null, btc: null };
+  const chosen = { evm: null };            // the announced provider in use
+  const announced = new Map();             // rdns -> { info, provider }
 
-  function available(family) {
-    if (family === 'evm') return !!(window.ethereum);
-    if (family === 'tron') return !!(window.tronWeb || window.tronLink);
-    if (family === 'sol') return !!(window.solana || window.phantom?.solana);
-    if (family === 'ton') return !!(window.ton || window.tonkeeper);
-    if (family === 'btc') return !!(window.unisat || window.xfi || window.bitget || window.okx?.bitcoin);
-    return false;
+  global.addEventListener('eip6963:announceProvider', (e) => {
+    const d = e && e.detail;
+    if (d && d.info && d.info.rdns && d.provider) announced.set(d.info.rdns, d);
+  });
+  function requestAnnouncements() {
+    try { global.dispatchEvent(new Event('eip6963:requestProvider')); } catch { /* older browser */ }
+  }
+  requestAnnouncements();
+
+  // Extensions inject late, so give them a moment before we read the list.
+  function refresh(ms) {
+    requestAnnouncements();
+    return new Promise((res) => setTimeout(res, ms == null ? 120 : ms));
   }
 
-  async function connect(family) {
+  const SOL_WALLETS = [
+    ['phantom', 'Phantom', () => global.phantom && global.phantom.solana],
+    ['solflare', 'Solflare', () => global.solflare],
+    ['backpack', 'Backpack', () => global.backpack],
+    ['injected', 'Injected Solana wallet', () => global.solana],
+  ];
+  const BTC_WALLETS = [
+    ['unisat', 'Unisat', () => global.unisat],
+    ['xverse', 'Xverse', () => global.XverseProviders && global.XverseProviders.BitcoinProvider],
+    ['okx', 'OKX', () => global.okxwallet && global.okxwallet.bitcoin],
+    ['xfi', 'XDEFI', () => global.xfi && global.xfi.bitcoin],
+    ['bitget', 'Bitget', () => global.bitget && global.bitget.bitcoin],
+  ];
+  const TRON_WALLETS = [
+    ['tronlink', 'TronLink', () => global.tronLink || global.tronWeb],
+  ];
+  const TON_WALLETS = [
+    ['tonkeeper', 'Tonkeeper', () => global.tonkeeper],
+    ['ton', 'TON wallet', () => global.ton],
+  ];
+
+  function probe(list) {
+    const out = [];
+    for (const [id, name, get] of list) {
+      let p = null;
+      try { p = get(); } catch { p = null; }
+      if (p) out.push({ id, name, provider: p });
+    }
+    return out;
+  }
+
+  /* Every wallet we can actually reach for this family, each individually
+     addressable so the user is never at the mercy of who won window.ethereum. */
+  function discovered(family) {
     if (family === 'evm') {
-      if (!window.ethereum) throw new Error('no-provider');
-      const acc = await window.ethereum.request({ method: 'eth_requestAccounts' });
-      state.evm = acc[0] || null;
+      const out = [];
+      for (const [rdns, d] of announced) {
+        out.push({ id: rdns, name: d.info.name || rdns, icon: d.info.icon || '', provider: d.provider });
+      }
+      if (!out.length && global.ethereum) {
+        const eth = global.ethereum;
+        // Some builds expose every racing provider on .providers
+        const many = Array.isArray(eth.providers) ? eth.providers : [eth];
+        many.forEach((p, i) => out.push({
+          id: 'legacy:' + i,
+          name: p.isMetaMask ? 'MetaMask' : p.isCoinbaseWallet ? 'Coinbase Wallet'
+              : p.isRabby ? 'Rabby' : p.isTrust ? 'Trust' : 'Injected wallet',
+          icon: '', provider: p,
+        }));
+      }
+      return out;
+    }
+    if (family === 'sol') return probe(SOL_WALLETS);
+    if (family === 'btc') return probe(BTC_WALLETS);
+    if (family === 'tron') return probe(TRON_WALLETS);
+    if (family === 'ton') return probe(TON_WALLETS);
+    return [];
+  }
+
+  function available(family) {
+    return discovered(family).length > 0;
+  }
+
+  function pick(family, id) {
+    const list = discovered(family);
+    if (!list.length) return null;
+    return (id && list.find((w) => w.id === id)) || list[0];
+  }
+
+  function evmProvider() {
+    return (chosen.evm && chosen.evm.provider) || (pick('evm') || {}).provider || global.ethereum || null;
+  }
+
+  async function connect(family, id) {
+    if (family === 'evm') {
+      const w = pick('evm', id);
+      if (!w) throw new Error('no-provider');
+      const acc = await w.provider.request({ method: 'eth_requestAccounts' });
+      if (!acc || !acc.length) throw new Error('no-accounts');
+      chosen.evm = w;
+      state.evm = acc[0];
       return state.evm;
     }
     if (family === 'tron') {
@@ -28,10 +118,12 @@
       return state.tron;
     }
     if (family === 'sol') {
-      const p = window.solana || window.phantom?.solana;
-      if (!p) throw new Error('no-provider');
-      const res = await p.connect();
-      state.sol = (res.publicKey || p.publicKey).toString();
+      const w = pick('sol', id);
+      if (!w) throw new Error('no-provider');
+      const res = await w.provider.connect();
+      const key = (res && res.publicKey) || w.provider.publicKey;
+      if (!key) throw new Error('no-accounts');
+      state.sol = key.toString();
       return state.sol;
     }
     if (family === 'ton') {
@@ -57,10 +149,13 @@
       }
     }
     if (family === 'btc') {
-      const provider = window.unisat || window.xfi?.bitcoin || window.bitget?.bitcoin || window.okx?.bitcoin;
-      if (!provider) throw new Error('no-provider');
+      const w = pick('btc', id);
+      if (!w) throw new Error('no-provider');
+      const provider = w.provider;
       try {
-        const accounts = await provider.requestAccounts();
+        const accounts = await (provider.requestAccounts
+          ? provider.requestAccounts()
+          : provider.connect().then((r) => [r && r.address].filter(Boolean)));
         if (accounts && accounts.length > 0) {
           state.btc = accounts[0];
           return state.btc;
@@ -94,10 +189,10 @@
 
   async function ensureChain(chainId) {
     try {
-      await window.ethereum.request({ method: 'wallet_switchEthereumChain', params: [{ chainId }] });
+      await evmProvider().request({ method: 'wallet_switchEthereumChain', params: [{ chainId }] });
     } catch (e) {
       if (e.code === 4902 && chainId === '0x38') {
-        await window.ethereum.request({
+        await evmProvider().request({
           method: 'wallet_addEthereumChain',
           params: [{
             chainId: '0x38',
@@ -116,19 +211,19 @@
   async function send(family, ticker, to, displayAmt) {
     const raw = toRaw(ticker, displayAmt);
     if (family === 'evm') {
-      if (!window.ethereum) throw new Error('no-provider');
+      if (!evmProvider()) throw new Error('no-provider');
       const from = state.evm || (await connect('evm'));
       const chainId = AistApi.evmChainId(ticker);
       await ensureChain(chainId);
       const token = AistApi.tokenContract(ticker);
       if (ticker === 'ETH' || !token) {
         const hex = '0x' + raw.toString(16);
-        return window.ethereum.request({
+        return evmProvider().request({
           method: 'eth_sendTransaction',
           params: [{ from, to, value: hex }],
         });
       }
-      return window.ethereum.request({
+      return evmProvider().request({
         method: 'eth_sendTransaction',
         params: [{ from, to: token.address, data: encodeErc20Transfer(to, raw), value: '0x0' }],
       });
@@ -143,7 +238,7 @@
       return c.transfer(to, raw.toString()).send();
     }
     if (family === 'btc') {
-      const provider = window.unisat || window.xfi?.bitcoin || window.bitget?.bitcoin || window.okx?.bitcoin;
+      const provider = (pick('btc') || {}).provider;
       if (!provider) throw new Error('no-provider');
       if (!state.btc) await connect('btc');
       if (ticker !== 'BTC') throw new Error('btc-only-native');
@@ -154,5 +249,10 @@
     throw new Error('no-provider');
   }
 
-  global.AistWallets = { available, connect, address, disconnect, send, toRaw };
+  function disconnectAll() { for (const k of Object.keys(state)) state[k] = null; chosen.evm = null; }
+
+  global.AistWallets = {
+    available, connect, address, disconnect, disconnectAll, send, toRaw,
+    discovered, refresh,
+  };
 })(window);

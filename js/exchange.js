@@ -327,60 +327,68 @@
     document.getElementById('send-btn')?.addEventListener('click', () => sendPay(giveFam, give, pay && pay.address));
   }
 
-  function openWalletModal(prefer) {
-    const families = [
-      { id: 'evm', key: 'wal.evm' },
-      { id: 'tron', key: 'wal.tron' },
-      { id: 'sol', key: 'wal.sol' },
-      { id: 'ton', key: 'wal.ton' },
-      { id: 'btc', key: 'wal.btc' },
+  async function openWalletModal(prefer) {
+    // Chain names, not wallet names — the row already says which wallet it is.
+    const FAMS = [
+      { id: 'evm', chain: 'EVM' },
+      { id: 'tron', chain: 'Tron' },
+      { id: 'sol', chain: 'Solana' },
+      { id: 'ton', chain: 'TON' },
+      { id: 'btc', chain: 'Bitcoin' },
     ];
-    AistUI.openModal(`
-      <h3 data-i18n="wal.title">${AistUI.t('wal.title')}</h3>
-      ${families.map((f) => `
-        <button class="opt" data-fam="${f.id}">
-          <span data-i18n="${f.key}">${AistUI.t(f.key)}</span>
-          <small>${AistWallets.available(f.id) ? 'ok' : '—'}</small>
-        </button>`).join('')}
-      <p class="hint" data-i18n="wal.none">${AistUI.t('wal.none')}</p>
-    `);
+    AistUI.openModal(`<h3 data-i18n="wal.title">${AistUI.t('wal.title')}</h3>
+      <p class="hint" id="wal-hint">…</p>`);
     AistUI.apply(document.getElementById('sheet'));
-    document.querySelectorAll('.opt[data-fam]').forEach((btn) => {
+
+    // Extensions announce themselves asynchronously; give them a beat.
+    await AistWallets.refresh();
+
+    const order = prefer ? [prefer].concat(FAMS.map((f) => f.id).filter((x) => x !== prefer)) : FAMS.map((f) => f.id);
+    const rows = [];
+    for (const famId of order) {
+      const fam = FAMS.find((f) => f.id === famId);
+      const found = AistWallets.discovered(famId);
+      for (const w of found) {
+        rows.push(`<button class="opt" data-fam="${famId}" data-wallet="${w.id}">
+          <span>${w.icon ? `<img src="${w.icon}" alt="" style="width:20px;height:20px;border-radius:5px;vertical-align:-4px;margin-inline-end:8px">` : ''}${w.name}</span>
+          <small>${fam.chain}</small>
+        </button>`);
+      }
+    }
+
+    document.getElementById('sheet').innerHTML = `
+      <h3 data-i18n="wal.title">${AistUI.t('wal.title')}</h3>
+      ${rows.length ? rows.join('') : ''}
+      <p class="hint" id="wal-hint" ${rows.length ? '' : 'data-i18n="wal.none"'}>${rows.length ? '' : AistUI.t('wal.none')}</p>`;
+
+    document.querySelectorAll('#sheet .opt[data-fam]').forEach((btn) => {
       btn.addEventListener('click', async () => {
+        const hint = document.getElementById('wal-hint');
+        const label = btn.querySelector('span').textContent.trim();
+        if (hint) hint.textContent = label + '…';
+        btn.disabled = true;
         try {
-          await AistWallets.connect(btn.dataset.fam);
+          await AistWallets.connect(btn.dataset.fam, btn.dataset.wallet);
           AistUI.closeModal();
           renderTicket();
         } catch (e) {
-          const hint = document.querySelector('#sheet .hint');
-          if (hint) {
-            let msg = AistUI.t('err.noProvider');
-            if (e && e.message) {
-              if (e.message === 'no-provider') {
-                const fam = btn.dataset.fam;
-                const providers = {
-                  evm: 'MetaMask, Coinbase, or another EVM wallet',
-                  tron: 'TronLink or Tron Web wallet',
-                  sol: 'Phantom, Solflare, or another Solana wallet',
-                  ton: 'Tonkeeper or another TON wallet',
-                  btc: 'Unisat, XFi, Bitget, or OKX Bitcoin wallet'
-                };
-                msg = `Please install ${providers[fam] || 'a wallet extension'} to continue.`;
-              } else {
-                msg = e.message;
-              }
-            }
-            hint.textContent = msg;
+          btn.disabled = false;
+          const code = (e && e.message) || '';
+          let msg;
+          if (e && (e.code === 4001 || /user rejected|user denied/i.test(code))) {
+            msg = 'Request rejected in ' + label + '.';
+          } else if (code === 'no-accounts') {
+            msg = label + ' returned no account. Unlock it and try again.';
+          } else if (code === 'no-provider') {
+            msg = label + ' is no longer reachable. Reload the page.';
+          } else {
+            msg = label + ': ' + (code || 'connection failed');
           }
-          console.error('Wallet connect failed:', e);
+          if (hint) hint.textContent = msg;
+          console.error('Wallet connect failed:', btn.dataset.fam, btn.dataset.wallet, e);
         }
       });
     });
-    if (prefer && ['evm', 'tron', 'sol', 'ton', 'btc'].includes(prefer) && AistWallets.available(prefer)) {
-      /* leave user to tap; autofocus the preferred row */
-      const el = document.querySelector(`.opt[data-fam="${prefer}"]`);
-      if (el) el.style.borderColor = 'var(--lime)';
-    }
   }
 
   async function sendPay(family, ticker, to) {
