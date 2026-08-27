@@ -336,58 +336,74 @@
       { id: 'ton', chain: 'TON' },
       { id: 'btc', chain: 'Bitcoin' },
     ];
-    AistUI.openModal(`<h3 data-i18n="wal.title">${AistUI.t('wal.title')}</h3>
+    const attr = (v) => String(v).replace(/&/g, '&amp;').replace(/"/g, '&quot;')
+      .replace(/</g, '&lt;').replace(/>/g, '&gt;');
+    const esc = (v) => String(v).replace(/[&<>]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;' }[c]));
+
+    AistUI.openModal(`<h3>${esc(AistUI.t('wal.title'))}</h3>
       <p class="hint" id="wal-hint">…</p>`);
-    AistUI.apply(document.getElementById('sheet'));
 
     // Extensions announce themselves asynchronously; give them a beat.
     await AistWallets.refresh();
 
-    const order = prefer ? [prefer].concat(FAMS.map((f) => f.id).filter((x) => x !== prefer)) : FAMS.map((f) => f.id);
+    const order = prefer
+      ? [prefer].concat(FAMS.map((f) => f.id).filter((x) => x !== prefer))
+      : FAMS.map((f) => f.id);
     const rows = [];
     for (const famId of order) {
       const fam = FAMS.find((f) => f.id === famId);
-      const found = AistWallets.discovered(famId);
-      for (const w of found) {
-        rows.push(`<button class="opt" data-fam="${famId}" data-wallet="${w.id}">
-          <span>${w.icon ? `<img src="${w.icon}" alt="" style="width:20px;height:20px;border-radius:5px;vertical-align:-4px;margin-inline-end:8px">` : ''}${w.name}</span>
-          <small>${fam.chain}</small>
+      for (const w of AistWallets.discovered(famId)) {
+        // A wallet-supplied icon when there is one, otherwise a monogram — never
+        // a guessed brand mark. Data-URI icons are escaped, some are raw SVG.
+        const icon = w.icon
+          ? `<img src="${attr(w.icon)}" alt="">`
+          : esc((w.name || '?').trim().charAt(0).toUpperCase());
+        rows.push(`<button class="opt" type="button" data-fam="${attr(famId)}" data-wallet="${attr(w.id)}">
+          <span class="wname"><span class="wicon">${icon}</span><span class="wtext">${esc(w.name)}</span></span>
+          <small>${esc(fam.chain)}</small>
         </button>`);
       }
     }
 
-    document.getElementById('sheet').innerHTML = `
-      <h3 data-i18n="wal.title">${AistUI.t('wal.title')}</h3>
-      ${rows.length ? rows.join('') : ''}
-      <p class="hint" id="wal-hint" ${rows.length ? '' : 'data-i18n="wal.none"'}>${rows.length ? '' : AistUI.t('wal.none')}</p>`;
+    const sheet = document.getElementById('sheet');
+    sheet.innerHTML = `
+      <h3>${esc(AistUI.t('wal.title'))}</h3>
+      ${rows.join('')}
+      <p class="hint" id="wal-hint">${rows.length ? '' : esc(AistUI.t('wal.none'))}</p>`;
 
-    document.querySelectorAll('#sheet .opt[data-fam]').forEach((btn) => {
-      btn.addEventListener('click', async () => {
-        const hint = document.getElementById('wal-hint');
-        const label = btn.querySelector('span').textContent.trim();
-        if (hint) hint.textContent = label + '…';
-        btn.disabled = true;
-        try {
-          await AistWallets.connect(btn.dataset.fam, btn.dataset.wallet);
-          AistUI.closeModal();
-          renderTicket();
-        } catch (e) {
-          btn.disabled = false;
-          const code = (e && e.message) || '';
-          let msg;
-          if (e && (e.code === 4001 || /user rejected|user denied/i.test(code))) {
-            msg = 'Request rejected in ' + label + '.';
-          } else if (code === 'no-accounts') {
-            msg = label + ' returned no account. Unlock it and try again.';
-          } else if (code === 'no-provider') {
-            msg = label + ' is no longer reachable. Reload the page.';
-          } else {
-            msg = label + ': ' + (code || 'connection failed');
-          }
-          if (hint) hint.textContent = msg;
-          console.error('Wallet connect failed:', btn.dataset.fam, btn.dataset.wallet, e);
+    // Delegated: one listener on the sheet, so a re-render can never leave a
+    // row inert.
+    sheet.addEventListener('click', async (ev) => {
+      const btn = ev.target.closest('.opt[data-fam]');
+      if (!btn || btn.dataset.busy) return;
+      const hint = document.getElementById('wal-hint');
+      const label = (btn.querySelector('.wtext') || btn).textContent.trim();
+      btn.dataset.busy = '1';
+      btn.classList.add('busy');
+      if (hint) hint.textContent = AistUI.t('wal.waiting').replace('{w}', label);
+      try {
+        await AistWallets.connect(btn.dataset.fam, btn.dataset.wallet);
+        AistUI.closeModal();
+        renderTicket();
+      } catch (e) {
+        delete btn.dataset.busy;
+        btn.classList.remove('busy');
+        const code = (e && e.message) || '';
+        let msg;
+        if (e && (e.code === 4001 || /user rejected|user denied/i.test(code))) {
+          msg = AistUI.t('wal.rejected').replace('{w}', label);
+        } else if (code.startsWith('wallet-timeout')) {
+          msg = AistUI.t('wal.timeout').replace('{w}', label);
+        } else if (code === 'no-accounts') {
+          msg = AistUI.t('wal.locked').replace('{w}', label);
+        } else if (code === 'no-provider') {
+          msg = AistUI.t('wal.gone').replace('{w}', label);
+        } else {
+          msg = label + ': ' + (code || 'connection failed');
         }
-      });
+        if (hint) hint.textContent = msg;
+        console.error('Wallet connect failed:', btn.dataset.fam, btn.dataset.wallet, e);
+      }
     });
   }
 

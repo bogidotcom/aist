@@ -48,12 +48,40 @@
 
   function probe(list) {
     const out = [];
+    const seen = new Set();
     for (const [id, name, get] of list) {
       let p = null;
       try { p = get(); } catch { p = null; }
-      if (p) out.push({ id, name, provider: p });
+      if (!p || seen.has(p)) continue;   // same object under two globals
+      seen.add(p);
+      out.push({ id, name: walletName(p, name), provider: p, icon: iconOf(p) });
     }
     return out;
+  }
+
+  /* Wallets self-identify inconsistently; prefer what the provider claims so a
+     generic "Injected wallet" row never shadows a wallet we can name. */
+  function walletName(p, fallback) {
+    if (p.isPhantom) return 'Phantom';
+    if (p.isSolflare) return 'Solflare';
+    if (p.isBackpack) return 'Backpack';
+    if (p.isBraveWallet) return 'Brave Wallet';
+    if (p.isOkxWallet || p.isOKExWallet) return 'OKX';
+    return fallback;
+  }
+  function iconOf(p) {
+    return normIcon(p && (p.icon || (p._metadata && p._metadata.icon)));
+  }
+
+  /* Some wallets hand back a raw, unencoded SVG data URI. It has to be
+     percent-encoded or the browser rejects it and the row shows a broken
+     image. */
+  function normIcon(icon) {
+    if (!icon) return '';
+    const m = /^data:image\/svg\+xml,(?!base64)(.*)$/is.exec(icon);
+    if (!m) return icon;
+    try { return 'data:image/svg+xml,' + encodeURIComponent(decodeURIComponent(m[1])); }
+    catch { return 'data:image/svg+xml,' + encodeURIComponent(m[1]); }
   }
 
   /* Every wallet we can actually reach for this family, each individually
@@ -62,7 +90,7 @@
     if (family === 'evm') {
       const out = [];
       for (const [rdns, d] of announced) {
-        out.push({ id: rdns, name: d.info.name || rdns, icon: d.info.icon || '', provider: d.provider });
+        out.push({ id: rdns, name: d.info.name || rdns, icon: normIcon(d.info.icon), provider: d.provider });
       }
       if (!out.length && global.ethereum) {
         const eth = global.ethereum;
@@ -98,11 +126,21 @@
     return (chosen.evm && chosen.evm.provider) || (pick('evm') || {}).provider || global.ethereum || null;
   }
 
+  function withTimeout(promise, ms, label) {
+    let timer;
+    return Promise.race([
+      promise.finally(() => clearTimeout(timer)),
+      new Promise((_, rej) => {
+        timer = setTimeout(() => rej(new Error('wallet-timeout:' + (label || ''))), ms);
+      }),
+    ]);
+  }
+
   async function connect(family, id) {
     if (family === 'evm') {
       const w = pick('evm', id);
       if (!w) throw new Error('no-provider');
-      const acc = await w.provider.request({ method: 'eth_requestAccounts' });
+      const acc = await withTimeout(w.provider.request({ method: 'eth_requestAccounts' }), 45000, w.name);
       if (!acc || !acc.length) throw new Error('no-accounts');
       chosen.evm = w;
       state.evm = acc[0];
@@ -120,7 +158,7 @@
     if (family === 'sol') {
       const w = pick('sol', id);
       if (!w) throw new Error('no-provider');
-      const res = await w.provider.connect();
+      const res = await withTimeout(w.provider.connect(), 45000, w.name);
       const key = (res && res.publicKey) || w.provider.publicKey;
       if (!key) throw new Error('no-accounts');
       state.sol = key.toString();
@@ -153,9 +191,9 @@
       if (!w) throw new Error('no-provider');
       const provider = w.provider;
       try {
-        const accounts = await (provider.requestAccounts
+        const accounts = await withTimeout(provider.requestAccounts
           ? provider.requestAccounts()
-          : provider.connect().then((r) => [r && r.address].filter(Boolean)));
+          : provider.connect().then((r) => [r && r.address].filter(Boolean)), 45000, w.name);
         if (accounts && accounts.length > 0) {
           state.btc = accounts[0];
           return state.btc;
