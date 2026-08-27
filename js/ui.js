@@ -1,5 +1,10 @@
 (function (global) {
-  const LANGS = ['en', 'ru', 'ky', 'cn'];
+  const LANGS = ['en', 'ru', 'ky', 'cn', 'es', 'pt', 'ar', 'fa', 'ur', 'bn'];
+  const LANG_NAME = {
+    en: 'English', ru: 'Русский', ky: 'Кыргызча', cn: '中文', es: 'Español',
+    pt: 'Português', ar: 'العربية', fa: 'فارسی', ur: 'اردو', bn: 'বাংলা',
+  };
+  const RTL = new Set(['ar', 'fa', 'ur']);
 
   function lang() {
     try { return localStorage.getItem('aist_lang') || 'en'; } catch { return 'en'; }
@@ -23,10 +28,10 @@
     (root || document).querySelectorAll('[data-i18n-placeholder]').forEach((el) => {
       el.setAttribute('placeholder', t(el.getAttribute('data-i18n-placeholder')));
     });
-    document.querySelectorAll('.lang button').forEach((b) => {
-      b.classList.toggle('on', b.dataset.lang === lang());
-    });
+    const sel = document.getElementById('langs');
+    if (sel) sel.value = lang();
     document.documentElement.lang = lang();
+    document.documentElement.dir = RTL.has(lang()) ? 'rtl' : 'ltr';
   }
 
   function here() {
@@ -59,7 +64,9 @@
             <a href="https://iamai.kg/docs/#p2p" target="_blank" rel="noopener" data-i18n="nav.docs">Docs</a>
           </nav>
           <div class="top-right">
-            <div class="lang" id="langs">${LANGS.map((l) => `<button type="button" data-lang="${l}">${l.toUpperCase()}</button>`).join('')}</div>
+            <select class="lang" id="langs" aria-label="Language">
+              ${LANGS.map((l) => `<option value="${l}">${LANG_NAME[l]}</option>`).join('')}
+            </select>
             <button class="icon-btn" id="settings-btn" title="Node" aria-label="Node">⚙</button>
             <button class="icon-btn burger" id="burger" aria-label="Menu">☰</button>
           </div>
@@ -69,9 +76,8 @@
     if (foot) {
       foot.innerHTML = `<div class="wrap wrap-wide foot-in"><span data-i18n="foot.tag">AIST Exchange</span><span>${AistApi.apiBase()}</span></div>`;
     }
-    document.getElementById('langs')?.addEventListener('click', (e) => {
-      const b = e.target.closest('button[data-lang]');
-      if (b) setLang(b.dataset.lang);
+    document.getElementById('langs')?.addEventListener('change', (e) => {
+      setLang(e.target.value);
     });
     document.getElementById('burger')?.addEventListener('click', () => {
       document.getElementById('nav')?.classList.toggle('open');

@@ -21,13 +21,14 @@ img,svg{display:block;max-width:100%}
 .brand{display:flex;align-items:center;gap:10px;text-decoration:none;font-family:var(--display);font-weight:700;letter-spacing:-.03em}
 .brand img{width:36px;height:36px}
 .brand span{font-size:15px}
-.nav{display:flex;gap:4px;margin-left:8px}
+.nav{display:flex;gap:4px;margin-inline-start:8px}
 .nav a{padding:8px 12px;border-radius:8px;text-decoration:none;color:var(--mute);font-size:14px}
 .nav a.on,.nav a:hover{color:var(--ink);background:var(--bg-3)}
-.top-right{margin-left:auto;display:flex;align-items:center;gap:8px}
-.lang{display:flex;gap:2px;background:var(--bg-2);border:1px solid var(--line);border-radius:8px;padding:2px}
-.lang button{border:0;background:transparent;color:var(--mute);padding:5px 8px;border-radius:6px;cursor:pointer;font-size:11px;font-weight:700;letter-spacing:.04em}
-.lang button.on{background:var(--bg-3);color:var(--ink)}
+.top-right{margin-inline-start:auto;display:flex;align-items:center;gap:8px}
+.lang{background:var(--bg-2);border:1px solid var(--line);border-radius:8px;padding:7px 10px;
+  color:var(--ink);font-size:13px;cursor:pointer;max-width:150px}
+.lang:hover{border-color:var(--faint)}
+.lang option{background:var(--bg-2);color:var(--ink)}
 .icon-btn{border:1px solid var(--line);background:var(--bg-2);border-radius:8px;width:36px;height:36px;display:grid;place-items:center;cursor:pointer}
 .icon-btn:hover{border-color:var(--faint)}
 .burger{display:none}
@@ -103,7 +104,7 @@ img,svg{display:block;max-width:100%}
 .lvl-3{color:var(--ask);border-color:#4d2626}
 .strat .sum{color:var(--mute);margin:0 0 18px;max-width:70ch}
 .sub{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--faint);font-weight:700;margin:0 0 8px}
-.strat ol.how{margin:0;padding-left:19px;font-size:14.5px}
+.strat ol.how{margin:0;padding-inline-start:19px;font-size:14.5px}
 .strat ol.how li{margin:0 0 7px}
 .strat ol.how li::marker{color:var(--faint);font-family:var(--mono);font-size:12px}
 pre.ex{margin:0;background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:14px;overflow-x:auto;font-family:var(--mono);font-size:12.5px;line-height:1.75;color:var(--mute);white-space:pre}
@@ -125,7 +126,7 @@ pre.ex b{color:var(--lime);font-weight:500}
 .search{flex:1;background:var(--bg-2);border:1px solid var(--line);border-radius:10px;padding:10px 12px}
 .table-wrap{border:1px solid var(--line);border-radius:14px;overflow:auto;background:var(--bg-2);margin:0 0 80px}
 table.pairs{width:100%;border-collapse:collapse;font-size:14px}
-table.pairs th{text-align:left;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--faint);padding:12px 14px;border-bottom:1px solid var(--line);font-weight:600}
+table.pairs th{text-align:start;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--faint);padding:12px 14px;border-bottom:1px solid var(--line);font-weight:600}
 table.pairs td{padding:13px 14px;border-bottom:1px solid var(--line);font-variant-numeric:tabular-nums}
 table.pairs tr:last-child td{border-bottom:0}
 table.pairs tbody tr{cursor:pointer}
@@ -161,7 +162,7 @@ table.pairs tbody tr:hover{background:var(--bg-3)}
 .row.on{outline:1px solid var(--lime)}
 .row .px.ask{color:var(--ask)}
 .row .px.bid{color:var(--bid)}
-.row .sz{color:var(--mute);text-align:right}
+.row .sz{color:var(--mute);text-align:end}
 
 .field{margin:0 0 12px}
 .field label{display:block;font-size:12px;color:var(--faint);letter-spacing:.06em;text-transform:uppercase;margin:0 0 6px;font-weight:700}
@@ -176,7 +177,7 @@ table.pairs tbody tr:hover{background:var(--bg-3)}
 .modal.open{display:grid}
 .sheet{width:min(420px,100%);background:var(--bg-2);border:1px solid var(--line);border-radius:16px;padding:18px}
 .sheet h3{margin:0 0 12px;font-family:var(--display)}
-.opt{display:flex;justify-content:space-between;align-items:center;width:100%;background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:12px;margin:0 0 8px;cursor:pointer;text-align:left}
+.opt{display:flex;justify-content:space-between;align-items:center;width:100%;background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:12px;margin:0 0 8px;cursor:pointer;text-align:start}
 .opt:hover{border-color:var(--faint)}
 .opt small{color:var(--mute)}
 
@@ -203,3 +204,26 @@ table.pairs tbody tr:hover{background:var(--bg-3)}
   .hero h1{font-size:40px}
   .lang button{padding:5px 6px}
 }
+
+/* ---- scripts & direction ---- */
+:root[lang="ar"],:root[lang="fa"]{--sans:'Noto Sans Arabic',system-ui,sans-serif;--display:'Noto Sans Arabic',system-ui,sans-serif}
+:root[lang="ur"]{--sans:'Noto Nastaliq Urdu','Noto Sans Arabic',serif;--display:'Noto Nastaliq Urdu','Noto Sans Arabic',serif}
+:root[lang="bn"]{--sans:'Noto Sans Bengali',system-ui,sans-serif;--display:'Noto Sans Bengali',system-ui,sans-serif}
+:root[lang="ru"],:root[lang="ky"]{--display:'Noto Sans','DM Sans',system-ui,sans-serif}
+:root[lang="ur"]{line-height:2.05}
+:root[lang="ur"] h1,:root[lang="ur"] .hero h1{line-height:1.75}
+:root[lang="ur"] .card p,:root[lang="ur"] .step p,:root[lang="ur"] .sec-h p,
+:root[lang="ur"] .strat .sum,:root[lang="ur"] ol.how li,:root[lang="ur"] .risk,
+:root[lang="ur"] .hero .lead,:root[lang="ur"] .disclaim{line-height:2.05}
+:root[lang="ur"] h2,:root[lang="ur"] h3{line-height:1.7}
+:root[lang="ar"],:root[lang="fa"],:root[lang="bn"]{line-height:1.7}
+:root[lang="ar"] h1,:root[lang="fa"] h1,:root[lang="bn"] h1{line-height:1.25}
+:root[lang="ar"] .hero h1,:root[lang="fa"] .hero h1,:root[lang="bn"] .hero h1{font-size:clamp(30px,6.5vw,52px)}
+
+/* prices, tickers and worked examples read the same in every locale */
+[dir="rtl"] pre,[dir="rtl"] .num,[dir="rtl"] .mesh,[dir="rtl"] .addr,
+[dir="rtl"] .paybox .addr,[dir="rtl"] .tag,[dir="rtl"] .chip,
+[dir="rtl"] .row,[dir="rtl"] table.pairs td.num{direction:ltr;text-align:start}
+[dir="rtl"] .hero::before{inset:-20% auto auto 20%}
+[dir="rtl"] .toc a::before{transform:scaleX(1)}
+[dir="rtl"] .foot-in,[dir="rtl"] .top-in{direction:rtl}
