@@ -43,7 +43,7 @@ img,svg{display:block;max-width:100%}
 .btn[disabled]{opacity:.45;cursor:not-allowed}
 
 /* home */
-.hero{min-height:min(calc(86svh - 60px),780px);display:grid;place-items:center;padding:40px 0 64px;position:relative;overflow:hidden}
+.hero{min-height:calc(100svh - 60px);display:grid;place-items:center;padding:40px 0 64px;position:relative;overflow:hidden}
 .hero::before{content:"";position:absolute;inset:-20% 20% auto;height:50%;background:radial-gradient(closest-side,rgba(61,255,138,.12),transparent 70%);pointer-events:none}
 .hero-in{text-align:center;max-width:640px}
 .hero .stork{width:120px;height:120px;margin:0 auto 22px}
@@ -54,8 +54,8 @@ img,svg{display:block;max-width:100%}
 .mesh{border:1px solid var(--line);background:var(--bg-2);border-radius:12px;padding:12px 14px;font-family:var(--mono);font-size:13px;color:var(--ink);letter-spacing:-.02em}
 
 /* home sections */
-.sec{padding:64px 0;border-top:1px solid var(--line)}
-.sec-h{max-width:62ch;margin:0 0 28px}
+.sec{min-height:100svh;display:flex;flex-direction:column;justify-content:center;padding:96px 0;border-top:1px solid var(--line)}
+.sec-h{max-width:62ch;margin:0 0 40px}
 .sec-h .kicker{color:var(--gold);margin:0 0 10px}
 .sec-h h2{font-family:var(--display);font-size:clamp(26px,4.4vw,38px);line-height:1.05;letter-spacing:-.04em;margin:0 0 10px;font-weight:700}
 .sec-h p{margin:0;color:var(--mute)}
@@ -80,7 +80,7 @@ img,svg{display:block;max-width:100%}
 .chip:hover{color:var(--ink);border-color:var(--faint);background:var(--bg-3)}
 .chip i{font-family:var(--mono);font-style:normal;font-size:11px;color:var(--gold)}
 .cta-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:24px}
-.sec-end{text-align:center;padding:72px 0 84px}
+.sec-end{min-height:100svh;display:flex;flex-direction:column;justify-content:center;text-align:center;padding:96px 0}
 .sec-end h2{font-family:var(--display);font-size:clamp(26px,5vw,40px);letter-spacing:-.04em;margin:0 0 10px}
 .sec-end p{color:var(--mute);margin:0 auto;max-width:46ch}
 .sec-end .cta-row{justify-content:center}
@@ -94,7 +94,8 @@ img,svg{display:block;max-width:100%}
 .toc a:hover{background:var(--bg-3);color:var(--ink)}
 .toc a::before{counter-increment:t;content:counter(t,decimal-leading-zero);font-family:var(--mono);font-size:11px;color:var(--faint)}
 
-.strat{background:var(--bg-2);border:1px solid var(--line);border-radius:16px;padding:20px;margin:0 0 16px;scroll-margin-top:76px}
+.strat{background:var(--bg-2);border:1px solid var(--line);border-radius:16px;padding:36px 32px;margin:0 0 24px;
+  scroll-margin-top:76px;min-height:calc(100svh - 96px);display:flex;flex-direction:column;justify-content:center}
 .strat-head{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;margin:0 0 8px}
 .strat-head .n{font-family:var(--mono);font-size:12px;color:var(--gold)}
 .strat-head h2{font-family:var(--display);font-size:22px;letter-spacing:-.03em;margin:0;font-weight:700;text-transform:none;color:var(--ink)}
@@ -227,3 +228,51 @@ table.pairs tbody tr:hover{background:var(--bg-3)}
 [dir="rtl"] .hero::before{inset:-20% auto auto 20%}
 [dir="rtl"] .toc a::before{transform:scaleX(1)}
 [dir="rtl"] .foot-in,[dir="rtl"] .top-in{direction:rtl}
+
+/* ---- visuals ---- */
+.viz{margin:0;width:100%}
+.viz svg{width:100%;height:auto;display:block;overflow:visible}
+.viz text{font-family:var(--mono);fill:var(--mute)}
+.viz .lbl{font-size:13px}
+.viz .val{fill:var(--ink);font-size:15px}
+.viz .hi{fill:var(--lime)}
+.viz .gold{fill:var(--gold)}
+
+/* asset tiles — glyph, ticker, rails. no paragraph. */
+.tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.tile{background:var(--bg-2);border:1px solid var(--line);border-radius:16px;padding:22px;
+  display:flex;flex-direction:column;gap:14px;min-height:200px}
+.tile .glyph{width:52px;height:52px;color:var(--lime)}
+.tile .glyph svg{width:100%;height:100%;display:block}
+.tile .name{font-family:var(--display);font-size:19px;font-weight:600;letter-spacing:-.02em;margin:0}
+.tile .tick{font-family:var(--mono);font-size:12px;color:var(--gold);letter-spacing:.08em;margin:0}
+.tile .nets{display:flex;flex-wrap:wrap;gap:6px;margin-top:auto}
+
+/* node-chain flow */
+.flow{display:flex;align-items:stretch;gap:0;flex-wrap:wrap}
+.node{flex:1 1 0;min-width:150px;background:var(--bg-2);border:1px solid var(--line);border-radius:14px;
+  padding:20px 18px;display:flex;flex-direction:column;gap:8px}
+.node .n{font-family:var(--mono);font-size:11px;color:var(--gold);letter-spacing:.1em}
+.node .t{font-family:var(--display);font-size:17px;font-weight:600;letter-spacing:-.02em}
+.node .m{font-family:var(--mono);font-size:12.5px;color:var(--mute)}
+.arrow{display:grid;place-items:center;width:44px;color:var(--faint);flex:0 0 44px}
+.arrow svg{width:22px;height:22px}
+
+/* strategy header glyph + flow chain */
+.strat-flow{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:0 0 20px}
+.fnode{font-family:var(--mono);font-size:13px;border:1px solid #2c332a;background:var(--bg);
+  border-radius:10px;padding:9px 14px;color:var(--ink);white-space:nowrap}
+.fnode.acc{border-color:#20502f;color:var(--lime)}
+.farrow{color:var(--faint);font-family:var(--mono);font-size:14px}
+
+@media (max-width:860px){
+  /* diagrams keep their own legible width and scroll, rather than shrinking
+     the labels to nothing */
+  .viz{overflow-x:auto;-webkit-overflow-scrolling:touch}
+  .viz svg{min-width:620px}
+  .tiles{grid-template-columns:1fr}
+  .sec,.sec-end{min-height:auto;padding:72px 0}
+  .strat{min-height:auto;padding:24px 20px}
+  .arrow{width:100%;flex:0 0 auto;height:34px;transform:rotate(90deg)}
+  .node{min-width:0}
+}

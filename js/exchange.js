@@ -131,10 +131,21 @@
       }
       renderBook();
       renderTicket();
-      fillPairSelect(list);
     } catch (e) {
       els.book.innerHTML = `<p class="err">${AistUI.t('err.api')} ${e.message || ''}</p>`;
     }
+  }
+
+  // The picker is built once, from an unfiltered /markets call. load() asks for
+  // ?pair=<current>, which returns that market alone — using it here left the
+  // dropdown with a single entry and nothing to search.
+  async function initPairPicker() {
+    let list = [];
+    try {
+      const all = await AistApi.fetchMarkets();
+      list = all.markets || [];
+    } catch { /* featured fallback below */ }
+    fillPairSelect(list);
   }
 
   function fillPairSelect(list) {
@@ -143,6 +154,7 @@
     const opts = [];
     const have = new Set((list || []).map((m) => m.pair));
     for (const id of featured) if (have.has(id) || !list.length) opts.push(id);
+    if (!opts.length) opts.push.apply(opts, featured);
     for (const m of list || []) if (!opts.includes(m.pair)) opts.push(m.pair);
     if (!opts.includes(parsed.pair)) opts.unshift(parsed.pair);
 
@@ -204,6 +216,14 @@
 
       searchInput.addEventListener('blur', () => {
         setTimeout(() => { dropdown.style.display = 'none'; }, 200);
+      });
+
+      searchInput.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') { dropdown.style.display = 'none'; searchInput.blur(); }
+        if (e.key === 'Enter') {
+          const only = dropdown.querySelector('.pair-opt');
+          if (only && dropdown.children.length === 1) only.click();
+        }
       });
 
       const p = AistApi.parsePair(parsed.pair);
@@ -377,4 +397,5 @@
   }
 
   load();
+  initPairPicker();
 })();
