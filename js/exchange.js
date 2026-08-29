@@ -279,6 +279,9 @@
     const pay = payMethod(selected);
     const canWallet = ['evm', 'tron', 'btc'].includes(giveFam);
     const connected = AistWallets.address(giveFam) || AistWallets.address(getFam);
+    // The maker's method must be the same rail we are about to send on.
+    const netMismatch = !!(pay && pay.network && give && pay.network !== give);
+    const sentRec = sentFor(selected && selected.id);
     const recvDefault = (['evm', 'tron', 'sol', 'ton', 'btc'].includes(getFam) && AistWallets.address(getFam)) || '';
 
     els.ticket.innerHTML = `
@@ -307,10 +310,16 @@
           <div class="row-btns">
             <button class="btn btn-ghost" id="copy-addr" data-i18n="ex.copy">${AistUI.t('ex.copy')}</button>
             <button class="btn btn-ghost" id="connect-btn" data-i18n="ex.connect">${AistUI.t('ex.connect')}</button>
-            ${canWallet ? `<button class="btn btn-lime" id="send-btn" data-i18n="ex.send">${AistUI.t('ex.send')}</button>` : ''}
+            ${canWallet && !netMismatch ? `<button class="btn btn-lime" id="send-btn" data-i18n="ex.send">${AistUI.t('ex.send')}</button>` : ''}
           </div>
           ${connected ? `<p class="hint">${AistUI.t('wal.connected')}: ${connected}</p>` : ''}
+          ${netMismatch ? `<p class="err">${AistUI.t('err.netMismatch').replace('{net}', pay.network).replace('{give}', give)}</p>` : ''}
           <p class="hint" data-i18n="ex.manual">${AistUI.t('ex.manual')}</p>
+          <div class="row-btns" style="margin-top:8px">
+            <button class="btn btn-ghost" id="mark-sent" ${sentRec ? 'disabled' : ''}>${AistUI.t(sentRec ? 'ex.markedSent' : 'ex.markSent')}</button>
+          </div>
+          <p class="hint" id="sent-note"></p>
+          ${sentRec ? `<p class="hint" data-i18n="ex.finishEscrow">${AistUI.t('ex.finishEscrow')}</p>` : ''}
         </div>` : `
         <p class="hint">${selected ? AistUI.t('ex.onchain') : AistUI.t('ex.pickOrder')}</p>
         ${selected ? `<p class="hint" data-i18n="ex.locked">${AistUI.t('ex.locked')}</p>` : ''}
@@ -325,6 +334,14 @@
     });
     document.getElementById('connect-btn')?.addEventListener('click', () => openWalletModal(giveFam === 'other' ? getFam : giveFam));
     document.getElementById('send-btn')?.addEventListener('click', () => sendPay(giveFam, give, pay && pay.address));
+    if (sentRec) renderSent(document.getElementById('sent-note'), sentRec);
+    document.getElementById('mark-sent')?.addEventListener('click', () => {
+      markSent(selected && selected.id, {
+        ticker: give, amount: document.getElementById('amt')?.value,
+        to: pay && pay.address, via: 'manual',
+      });
+      renderTicket();
+    });
   }
 
   async function openWalletModal(prefer) {
@@ -407,16 +424,73 @@
     });
   }
 
+
+  /* The node exposes no "I have paid" endpoint, so this is a local record: it
+     timestamps the transfer for the trader and counts down the escrow window.
+     It does not notify the maker — escrow is still finished in the DAI wallet. */
+  const SENT_KEY = 'aist_sent';
+  function sentLog() {
+    try { return JSON.parse(localStorage.getItem(SENT_KEY) || '{}'); } catch { return {}; }
+  }
+  function markSent(orderId, info) {
+    if (!orderId) return;
+    const all = sentLog();
+    all[orderId] = Object.assign({ at: Date.now() }, info);
+    try { localStorage.setItem(SENT_KEY, JSON.stringify(all)); } catch {}
+  }
+  function sentFor(orderId) {
+    return orderId ? (sentLog()[orderId] || null) : null;
+  }
+  function renderSent(el, rec) {
+    if (!el || !rec) return;
+    const tick = () => {
+      const left = Math.max(0, 15 * 60 * 1000 - (Date.now() - rec.at));
+      const mm = String(Math.floor(left / 60000)).padStart(2, '0');
+      const ss = String(Math.floor((left % 60000) / 1000)).padStart(2, '0');
+      const when = new Date(rec.at).toLocaleTimeString();
+      el.textContent = AistUI.t('ex.sentAt').replace('{time}', when)
+        + (left > 0 ? ' · ' + AistUI.t('ex.escrowLeft').replace('{clock}', mm + ':' + ss)
+                    : ' · ' + AistUI.t('ex.escrowOver'));
+      if (left > 0) el._t = setTimeout(tick, 1000);
+    };
+    clearTimeout(el._t);
+    tick();
+  }
+
+  function evmError(e) {
+    const raw = (e && (e.message || e.data && e.data.message)) || '';
+    if (/^insufficient:/.test(raw)) {
+      const [, bal, tok] = raw.split(':');
+      return AistUI.t('err.insufficient').replace('{bal}', bal).replace('{t}', tok);
+    }
+    if (raw === 'no-gas') return AistUI.t('err.noGas');
+    if (raw === 'bad-address') return AistUI.t('err.badAddress');
+    if (raw === 'bad-amount') return AistUI.t('err.badAmount');
+    if (/^too-many-decimals:/.test(raw)) return AistUI.t('err.tooManyDecimals').replace('{d}', raw.split(':')[1]);
+    if (e && (e.code === 4001 || /user rejected|user denied/i.test(raw))) return AistUI.t('err.rejected');
+    if (/invalid opcode|INVALID|execution reverted/i.test(raw)) return AistUI.t('err.reverted');
+    return AistUI.t('err.send') + (raw ? ' · ' + raw : '');
+  }
+
   async function sendPay(family, ticker, to) {
     const status = document.getElementById('tx-status');
     const amt = document.getElementById('amt')?.value;
     if (!to) return;
+    const btn = document.getElementById('send-btn');
+    if (btn) btn.disabled = true;
+    status.textContent = AistUI.t('ex.sending');
     try {
       if (!AistWallets.address(family)) await AistWallets.connect(family);
       const tx = await AistWallets.send(family, ticker, to, amt);
-      status.textContent = typeof tx === 'string' ? tx : (tx && (tx.txid || tx) || 'ok');
+      const hash = typeof tx === 'string' ? tx : (tx && (tx.txid || tx.hash)) || '';
+      markSent(selected && selected.id, { tx: hash, ticker, amount: amt, to, via: 'wallet' });
+      status.textContent = AistUI.t('ex.sentOk') + (hash ? ' · ' + hash : '');
+      renderTicket();
     } catch (e) {
-      status.textContent = AistUI.t('err.send') + (e && e.message && e.message !== 'no-provider' ? ' · ' + e.message : '');
+      status.textContent = evmError(e);
+      console.error('send failed:', family, ticker, e);
+    } finally {
+      if (btn) btn.disabled = false;
     }
   }
 

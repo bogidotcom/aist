@@ -210,19 +210,63 @@
 
   function disconnect(family) { state[family] = null; }
 
-  function toRaw(ticker, displayAmt) {
-    const d = AistApi.decimals(ticker);
-    const n = Number(String(displayAmt).replace(',', '.'));
-    if (!Number.isFinite(n) || n <= 0) throw new Error('bad-amount');
-    return BigInt(Math.round(n * 10 ** d));
+  /* Exact decimal -> integer conversion. The old version did
+     Math.round(n * 10 ** d), which silently loses precision at 18 decimals and
+     so produced the wrong amount for BEP20 USDT. */
+  function toRaw(ticker, displayAmt, dec) {
+    const d = dec != null ? dec : AistApi.decimals(ticker);
+    const str = String(displayAmt == null ? '' : displayAmt).trim().replace(',', '.');
+    if (!/^\d+(\.\d+)?$/.test(str)) throw new Error('bad-amount');
+    const [whole, frac = ''] = str.split('.');
+    if (frac.length > d) throw new Error('too-many-decimals:' + d);
+    const raw = BigInt(whole + frac.padEnd(d, '0'));
+    if (raw <= 0n) throw new Error('bad-amount');
+    return raw;
   }
 
-  function pad64(hex) {
-    return hex.replace(/^0x/i, '').toLowerCase().padStart(64, '0');
+  /* The token's own decimals, not the display ones. tokenContract() and
+     decimals() disagree for USDT-BEP20 (18 vs 6). */
+  function unitsFor(ticker) {
+    const t = AistApi.tokenContract(ticker);
+    return t && t.decimals != null ? t.decimals : AistApi.decimals(ticker);
+  }
+
+  const EVM_ADDR = /^0x[0-9a-fA-F]{40}$/;
+  function assertEvmAddress(a) {
+    if (!EVM_ADDR.test(String(a == null ? '' : a).trim())) throw new Error('bad-address');
+  }
+
+  /* Left-padding an arbitrary string to 64 chars turns a Tron or BTC address
+     into a well-formed but WRONG EVM address, which would have sent funds into
+     the void. Both halves are validated now. */
+  function word(hex) {
+    const h = String(hex).replace(/^0x/i, '').toLowerCase();
+    if (!/^[0-9a-f]*$/.test(h) || h.length > 64) throw new Error('bad-encoding');
+    return h.padStart(64, '0');
   }
 
   function encodeErc20Transfer(to, raw) {
-    return '0xa9059cbb' + pad64(to) + pad64(raw.toString(16));
+    assertEvmAddress(to);
+    return '0xa9059cbb' + word(to) + word(raw.toString(16));
+  }
+
+  async function evmBalances(provider, from, token) {
+    const out = {};
+    out.native = BigInt(await provider.request({ method: 'eth_getBalance', params: [from, 'latest'] }));
+    if (token) {
+      const r = await provider.request({
+        method: 'eth_call',
+        params: [{ to: token.address, data: '0x70a08231' + word(from) }, 'latest'],
+      });
+      out.token = BigInt(r && r !== '0x' ? r : '0x0');
+    }
+    return out;
+  }
+
+  function fmtUnits(raw, d) {
+    const s = raw.toString().padStart(d + 1, '0');
+    const out = (s.slice(0, s.length - d) + '.' + s.slice(s.length - d)).replace(/\.?0+$/, '');
+    return out || '0';
   }
 
   async function ensureChain(chainId) {
@@ -247,25 +291,48 @@
   }
 
   async function send(family, ticker, to, displayAmt) {
-    const raw = toRaw(ticker, displayAmt);
     if (family === 'evm') {
-      if (!evmProvider()) throw new Error('no-provider');
-      const from = state.evm || (await connect('evm'));
-      const chainId = AistApi.evmChainId(ticker);
-      await ensureChain(chainId);
+      const provider = evmProvider();
+      if (!provider) throw new Error('no-provider');
+      assertEvmAddress(to);
       const token = AistApi.tokenContract(ticker);
+      const dec = unitsFor(ticker);
+      const raw = toRaw(ticker, displayAmt, dec);
+      const from = state.evm || (await connect('evm'));
+      await ensureChain(AistApi.evmChainId(ticker));
+
+      /* Check funds before asking the wallet to build anything. USDT is a
+         Solidity 0.4 contract whose SafeMath uses assert(), so an
+         insufficient-balance transfer reverts as "invalid opcode: INVALID" —
+         which tells the user nothing at all. */
+      let bal;
+      try { bal = await evmBalances(provider, from, ticker === 'ETH' ? null : token); }
+      catch { bal = null; }
+      if (bal) {
+        if (ticker === 'ETH' || !token) {
+          if (bal.native < raw) {
+            throw new Error('insufficient:' + fmtUnits(bal.native, 18) + ':ETH');
+          }
+        } else {
+          if (bal.token < raw) {
+            throw new Error('insufficient:' + fmtUnits(bal.token, dec) + ':' + ticker);
+          }
+          if (bal.native === 0n) throw new Error('no-gas');
+        }
+      }
+
       if (ticker === 'ETH' || !token) {
-        const hex = '0x' + raw.toString(16);
-        return evmProvider().request({
+        return provider.request({
           method: 'eth_sendTransaction',
-          params: [{ from, to, value: hex }],
+          params: [{ from, to, value: '0x' + raw.toString(16) }],
         });
       }
-      return evmProvider().request({
+      return provider.request({
         method: 'eth_sendTransaction',
         params: [{ from, to: token.address, data: encodeErc20Transfer(to, raw), value: '0x0' }],
       });
     }
+    const raw = toRaw(ticker, displayAmt);
     if (family === 'tron') {
       const tw = window.tronWeb || window.tronLink?.tronWeb;
       if (!tw) throw new Error('no-provider');
@@ -291,6 +358,6 @@
 
   global.AistWallets = {
     available, connect, address, disconnect, disconnectAll, send, toRaw,
-    discovered, refresh,
+    discovered, refresh, assertEvmAddress, fmtUnits, unitsFor,
   };
 })(window);
