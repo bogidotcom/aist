@@ -17,7 +17,7 @@ aiETB is now trading on the AIST P2P book.
 
 One aiETB tracks one ETB. Quote it against USDT or KGST, settle through escrow, and cash out through any payment method a maker in Ethiopia accepts.
 
-assetux.com/market
+aist.exchange/market
 ```
 
 **Amharic** — `img/c/et-am/1.png`
@@ -27,7 +27,7 @@ aiETB አሁን በ AIST P2P መዝገብ ላይ እየተገበያየ ነው።
 
 አንድ aiETB አንድ ETBን ይከተላል። ከUSDT ወይም KGST ጋር ዋጋ ስጡት፣ በኤስክሮው አጠናቅቁ፣ እና በኢትዮጵያ ያለ ማንኛውም ሰሪ በሚቀበለው የክፍያ መንገድ አውጡት።
 
-assetux.com/market
+aist.exchange/market
 ```
 
 
@@ -40,7 +40,7 @@ BTC, USDT on five networks, KGST, ETH, SOL and aiETB — all on one book.
 
 Pay by bank transfer, card, mobile wallet or cash. The maker names the method; escrow holds the asset until the money lands.
 
-assetux.com/market
+aist.exchange/market
 ```
 
 **Amharic** — `img/c/et-am/2.png`
@@ -50,7 +50,7 @@ BTC፣ በአምስት አውታረ መረቦች USDT፣ KGST፣ ETH፣ SOL እ�
 
 በባንክ ዝውውር፣ በካርድ፣ በሞባይል ቦርሳ ወይም በጥሬ ገንዘብ ክፈሉ። ሰሪው መንገዱን ይወስናል፤ ገንዘቡ እስኪደርስ ኤስክሮው ንብረቱን ይይዛል።
 
-assetux.com/market
+aist.exchange/market
 ```
 
 
@@ -63,7 +63,7 @@ The same pair, the same minute, two makers who disagree on price.
 
 On a thin book the best ask and the best bid cross more often than they should — the maker leaves a quote up and walks away.
 
-assetux.com/strategies#spread
+aist.exchange/strategies#spread
 ```
 
 **Amharic** — `img/c/et-am/3.png`
@@ -73,7 +73,7 @@ assetux.com/strategies#spread
 
 ቀጭን በሆነ መዝገብ ላይ ምርጡ ሽያጭ እና ምርጡ ግዢ ከሚገባው በላይ ይሻገራሉ፦ ሰሪው ዋጋውን ትቶ ይሄዳል።
 
-assetux.com/strategies#spread
+aist.exchange/strategies#spread
 ```
 
 
@@ -86,7 +86,7 @@ You are not trading against an exchange. You are trading against another person.
 
 You pick their order, escrow locks the asset, you pay them directly, escrow releases. Four steps, nobody holding your money in between.
 
-assetux.com
+aist.exchange
 ```
 
 **Amharic** — `img/c/et-am/4.png`
@@ -96,7 +96,7 @@ assetux.com
 
 ትዕዛዙን ትመርጣላችሁ፣ ኤስክሮው ንብረቱን ይቆልፋል፣ በቀጥታ ትከፍላላችሁ፣ ኤስክሮው ይለቀዋል። አራት ደረጃዎች፣ በመሃል ገንዘባችሁን የሚይዝ የለም።
 
-assetux.com
+aist.exchange
 ```
 
 
@@ -109,7 +109,7 @@ Share your link. They trade on the book. You earn on it.
 
 And the deeper Ethiopia gets, the tighter the spreads for everyone quoting there — including you.
 
-assetux.com
+aist.exchange
 ```
 
 **Amharic** — `img/c/et-am/5.png`
@@ -119,7 +119,7 @@ assetux.com
 
 ኢትዮጵያ በጠለቀ ቁጥር፣ እዚያ ዋጋ ለሚሰጡ ሁሉ ልዩነቱ ይጠባል — እናንተንም ጨምሮ።
 
-assetux.com
+aist.exchange
 ```
 
 
@@ -132,7 +132,7 @@ Every GPU in Ethiopia that takes an AI job gets paid in aiETB.
 
 That payout lands on a book where ETB is already quoted — so the loop from compute to local money closes without leaving the country.
 
-assetux.com
+aist.exchange
 ```
 
 **Amharic** — `img/c/et-am/6.png`
@@ -142,7 +142,7 @@ assetux.com
 
 ያ ክፍያ ETB አስቀድሞ ዋጋ በሚያገኝበት መዝገብ ላይ ያርፋል — ስለዚህ ከስሌት ወደ አገር ውስጥ ገንዘብ ያለው ዑደት አገር ሳይለቅ ይዘጋል።
 
-assetux.com
+aist.exchange
 ```
 
 
@@ -155,7 +155,7 @@ P2P means you and the maker, directly.
 
 No broker taking a cut. No correspondent bank deciding whether your transfer clears. Escrow does the trust, so neither side has to front the other.
 
-assetux.com
+aist.exchange
 ```
 
 **Amharic** — `img/c/et-am/7.png`
@@ -165,7 +165,7 @@ P2P ማለት እናንተ እና ሰሪው፣ በቀጥታ ማለት ነው።
 
 ድርሻ የሚወስድ ደላላ የለም። ዝውውራችሁ ያልፍ አያልፍ የሚወስን ተጓዳኝ ባንክ የለም። እምነቱን ኤስክሮው ይሸከመዋል፤ ስለዚህ ማንም ለሌላው አስቀድሞ አይሰጥም።
 
-assetux.com
+aist.exchange
 ```
 
 
@@ -178,7 +178,7 @@ The same USDT is worth different ETB depending on how the money moves.
 
 Cash is cheap to buy with. Instant bank transfer is expensive. The gap between the two methods is the trade.
 
-assetux.com/strategies#payment
+aist.exchange/strategies#payment
 ```
 
 **Amharic** — `img/c/et-am/8.png`
@@ -188,7 +188,7 @@ assetux.com/strategies#payment
 
 በጥሬ ገንዘብ መግዛት ርካሽ ነው። ፈጣን የባንክ ዝውውር ውድ ነው። በሁለቱ መንገዶች መካከል ያለው ልዩነት ንግዱ ነው።
 
-assetux.com/strategies#payment
+aist.exchange/strategies#payment
 ```
 
 
@@ -206,7 +206,7 @@ aiBTN is now trading on the AIST P2P book.
 
 One aiBTN tracks one BTN. Quote it against USDT or KGST, settle through escrow, and cash out through any payment method a maker in Bhutan accepts.
 
-assetux.com/market
+aist.exchange/market
 ```
 
 
@@ -219,7 +219,7 @@ BTC, USDT on five networks, KGST, ETH, SOL and aiBTN — all on one book.
 
 Pay by bank transfer, card, mobile wallet or cash. The maker names the method; escrow holds the asset until the money lands.
 
-assetux.com/market
+aist.exchange/market
 ```
 
 
@@ -232,7 +232,7 @@ The same pair, the same minute, two makers who disagree on price.
 
 On a thin book the best ask and the best bid cross more often than they should — the maker leaves a quote up and walks away.
 
-assetux.com/strategies#spread
+aist.exchange/strategies#spread
 ```
 
 
@@ -245,7 +245,7 @@ You are not trading against an exchange. You are trading against another person.
 
 You pick their order, escrow locks the asset, you pay them directly, escrow releases. Four steps, nobody holding your money in between.
 
-assetux.com
+aist.exchange
 ```
 
 
@@ -258,7 +258,7 @@ Share your link. They trade on the book. You earn on it.
 
 And the deeper Bhutan gets, the tighter the spreads for everyone quoting there — including you.
 
-assetux.com
+aist.exchange
 ```
 
 
@@ -271,7 +271,7 @@ Every GPU in Bhutan that takes an AI job gets paid in aiBTN.
 
 That payout lands on a book where BTN is already quoted — so the loop from compute to local money closes without leaving the country.
 
-assetux.com
+aist.exchange
 ```
 
 
@@ -284,7 +284,7 @@ P2P means you and the maker, directly.
 
 No broker taking a cut. No correspondent bank deciding whether your transfer clears. Escrow does the trust, so neither side has to front the other.
 
-assetux.com
+aist.exchange
 ```
 
 
@@ -297,7 +297,7 @@ The same USDT is worth different BTN depending on how the money moves.
 
 Cash is cheap to buy with. Instant bank transfer is expensive. The gap between the two methods is the trade.
 
-assetux.com/strategies#payment
+aist.exchange/strategies#payment
 ```
 
 
@@ -315,7 +315,7 @@ KGST is now trading on the AIST P2P book.
 
 One KGST tracks one KGS. Quote it against USDT or KGST, settle through escrow, and cash out through any payment method a maker in Kyrgyzstan accepts.
 
-assetux.com/market
+aist.exchange/market
 ```
 
 **Kyrgyz** — `img/c/kg-ky/1.png`
@@ -325,7 +325,7 @@ KGST эми AIST P2P стаканында сатылат.
 
 Бир KGST бир KGSду ээрчийт. Аны USDT же KGST'ке карата котировкалаңыз, эскроу аркылуу эсептешиңиз жана Кыргызстандагы мейкер кабыл алган каалаган ыкма менен чыгарыңыз.
 
-assetux.com/market
+aist.exchange/market
 ```
 
 
@@ -338,7 +338,7 @@ BTC, USDT on five networks, KGST, ETH, SOL and KGST — all on one book.
 
 Pay by bank transfer, card, mobile wallet or cash. The maker names the method; escrow holds the asset until the money lands.
 
-assetux.com/market
+aist.exchange/market
 ```
 
 **Kyrgyz** — `img/c/kg-ky/2.png`
@@ -348,7 +348,7 @@ BTC, беш тармактагы USDT, KGST, ETH, SOL жана KGST — баар
 
 Банк которуу, карт, мобилдик капчык же нак акча менен төлөңүз. Мейкер ыкманы коёт; акча келгенче эскроу активди кармайт.
 
-assetux.com/market
+aist.exchange/market
 ```
 
 
@@ -361,7 +361,7 @@ The same pair, the same minute, two makers who disagree on price.
 
 On a thin book the best ask and the best bid cross more often than they should — the maker leaves a quote up and walks away.
 
-assetux.com/strategies#spread
+aist.exchange/strategies#spread
 ```
 
 **Kyrgyz** — `img/c/kg-ky/3.png`
@@ -371,7 +371,7 @@ assetux.com/strategies#spread
 
 Ичке стаканда эң жакшы аск менен бид тийиштүүсүнөн көп кесилишет: мейкер котировкасын калтырып кетет.
 
-assetux.com/strategies#spread
+aist.exchange/strategies#spread
 ```
 
 
@@ -384,7 +384,7 @@ You are not trading against an exchange. You are trading against another person.
 
 You pick their order, escrow locks the asset, you pay them directly, escrow releases. Four steps, nobody holding your money in between.
 
-assetux.com
+aist.exchange
 ```
 
 **Kyrgyz** — `img/c/kg-ky/4.png`
@@ -394,7 +394,7 @@ assetux.com
 
 Анын өтүнүчүн тандайсыз, эскроу активди бөгөттөйт, түз төлөйсүз, эскроу ачылат. Төрт кадам, ортодо акчаңызды кармаган эч ким жок.
 
-assetux.com
+aist.exchange
 ```
 
 
@@ -407,7 +407,7 @@ Share your link. They trade on the book. You earn on it.
 
 And the deeper Kyrgyzstan gets, the tighter the spreads for everyone quoting there — including you.
 
-assetux.com
+aist.exchange
 ```
 
 **Kyrgyz** — `img/c/kg-ky/5.png`
@@ -417,7 +417,7 @@ assetux.com
 
 Ал эми Кыргызстан канчалык терең болсо, ал жерде котировка койгондордун баарынын спреди ошончолук тар болот — сиздики да.
 
-assetux.com
+aist.exchange
 ```
 
 
@@ -430,7 +430,7 @@ Every GPU in Kyrgyzstan that takes an AI job gets paid in KGST.
 
 That payout lands on a book where KGS is already quoted — so the loop from compute to local money closes without leaving the country.
 
-assetux.com
+aist.exchange
 ```
 
 **Kyrgyz** — `img/c/kg-ky/6.png`
@@ -440,7 +440,7 @@ assetux.com
 
 Ошол төлөм KGS мурдатан котировкаланган стаканга түшөт — ошентип эсептөөдөн жергиликтүү акчага чейинки айлампа өлкөдөн чыкпай жабылат.
 
-assetux.com
+aist.exchange
 ```
 
 
@@ -453,7 +453,7 @@ P2P means you and the maker, directly.
 
 No broker taking a cut. No correspondent bank deciding whether your transfer clears. Escrow does the trust, so neither side has to front the other.
 
-assetux.com
+aist.exchange
 ```
 
 **Kyrgyz** — `img/c/kg-ky/7.png`
@@ -463,7 +463,7 @@ P2P деген сиз жана мейкер, түз.
 
 Үлүш алган ортомчу жок. Которууңуз өтөбү же жокпу деп чечкен корреспондент банк жок. Ишенимди эскроу көтөрөт, ошондуктан эч ким экинчисине алдын ала бербейт.
 
-assetux.com
+aist.exchange
 ```
 
 
@@ -476,7 +476,7 @@ The same USDT is worth different KGS depending on how the money moves.
 
 Cash is cheap to buy with. Instant bank transfer is expensive. The gap between the two methods is the trade.
 
-assetux.com/strategies#payment
+aist.exchange/strategies#payment
 ```
 
 **Kyrgyz** — `img/c/kg-ky/8.png`
@@ -486,7 +486,7 @@ assetux.com/strategies#payment
 
 Нак акчага сатып алуу арзан. Тез банк которуусу кымбат. Эки ыкманын ортосундагы айырма — бул бүтүм.
 
-assetux.com/strategies#payment
+aist.exchange/strategies#payment
 ```
 
 
@@ -504,7 +504,7 @@ aiVES is now trading on the AIST P2P book.
 
 One aiVES tracks one VES. Quote it against USDT or KGST, settle through escrow, and cash out through any payment method a maker in Venezuela accepts.
 
-assetux.com/market
+aist.exchange/market
 ```
 
 **Spanish** — `img/c/ve-es/1.png`
@@ -514,7 +514,7 @@ aiVES ya se opera en el libro P2P de AIST.
 
 Un aiVES sigue a un VES. Cotízalo contra USDT o KGST, liquida por escrow y cobra con cualquier método que acepte un maker en Venezuela.
 
-assetux.com/market
+aist.exchange/market
 ```
 
 
@@ -527,7 +527,7 @@ BTC, USDT on five networks, KGST, ETH, SOL and aiVES — all on one book.
 
 Pay by bank transfer, card, mobile wallet or cash. The maker names the method; escrow holds the asset until the money lands.
 
-assetux.com/market
+aist.exchange/market
 ```
 
 **Spanish** — `img/c/ve-es/2.png`
@@ -537,7 +537,7 @@ BTC, USDT en cinco redes, KGST, ETH, SOL y aiVES — todo en un solo libro.
 
 Paga por transferencia, tarjeta, billetera móvil o efectivo. El maker define el método; el escrow retiene el activo hasta que llega el dinero.
 
-assetux.com/market
+aist.exchange/market
 ```
 
 
@@ -550,7 +550,7 @@ The same pair, the same minute, two makers who disagree on price.
 
 On a thin book the best ask and the best bid cross more often than they should — the maker leaves a quote up and walks away.
 
-assetux.com/strategies#spread
+aist.exchange/strategies#spread
 ```
 
 **Spanish** — `img/c/ve-es/3.png`
@@ -560,7 +560,7 @@ El mismo par, el mismo minuto, dos makers que no coinciden en el precio.
 
 En un libro delgado el mejor ask y el mejor bid se cruzan más de lo que deberían: el maker deja la orden puesta y se va.
 
-assetux.com/strategies#spread
+aist.exchange/strategies#spread
 ```
 
 
@@ -573,7 +573,7 @@ You are not trading against an exchange. You are trading against another person.
 
 You pick their order, escrow locks the asset, you pay them directly, escrow releases. Four steps, nobody holding your money in between.
 
-assetux.com
+aist.exchange
 ```
 
 **Spanish** — `img/c/ve-es/4.png`
@@ -583,7 +583,7 @@ No operas contra un exchange. Operas contra otra persona.
 
 Eliges su orden, el escrow bloquea el activo, le pagas directo, el escrow libera. Cuatro pasos, sin nadie reteniendo tu dinero en el medio.
 
-assetux.com
+aist.exchange
 ```
 
 
@@ -596,7 +596,7 @@ Share your link. They trade on the book. You earn on it.
 
 And the deeper Venezuela gets, the tighter the spreads for everyone quoting there — including you.
 
-assetux.com
+aist.exchange
 ```
 
 **Spanish** — `img/c/ve-es/5.png`
@@ -606,7 +606,7 @@ Comparte tu enlace. Ellos operan en el libro. Tú ganas con eso.
 
 Y mientras más profundo se pone Venezuela, más ajustados quedan los spreads para todos los que cotizan ahí — incluido tú.
 
-assetux.com
+aist.exchange
 ```
 
 
@@ -619,7 +619,7 @@ Every GPU in Venezuela that takes an AI job gets paid in aiVES.
 
 That payout lands on a book where VES is already quoted — so the loop from compute to local money closes without leaving the country.
 
-assetux.com
+aist.exchange
 ```
 
 **Spanish** — `img/c/ve-es/6.png`
@@ -629,7 +629,7 @@ Cada GPU en Venezuela que toma un trabajo de IA cobra en aiVES.
 
 Ese pago cae en un libro donde el VES ya cotiza, así que el ciclo de cómputo a moneda local cierra sin salir del país.
 
-assetux.com
+aist.exchange
 ```
 
 
@@ -642,7 +642,7 @@ P2P means you and the maker, directly.
 
 No broker taking a cut. No correspondent bank deciding whether your transfer clears. Escrow does the trust, so neither side has to front the other.
 
-assetux.com
+aist.exchange
 ```
 
 **Spanish** — `img/c/ve-es/7.png`
@@ -652,7 +652,7 @@ P2P significa tú y el maker, directo.
 
 Sin bróker llevándose una parte. Sin banco corresponsal decidiendo si pasa tu transferencia. El escrow pone la confianza, así ninguno adelanta al otro.
 
-assetux.com
+aist.exchange
 ```
 
 
@@ -665,7 +665,7 @@ The same USDT is worth different VES depending on how the money moves.
 
 Cash is cheap to buy with. Instant bank transfer is expensive. The gap between the two methods is the trade.
 
-assetux.com/strategies#payment
+aist.exchange/strategies#payment
 ```
 
 **Spanish** — `img/c/ve-es/8.png`
@@ -675,7 +675,7 @@ El mismo USDT vale distintos VES según cómo se mueva el dinero.
 
 Comprar con efectivo sale barato. La transferencia instantánea sale cara. La diferencia entre los dos métodos es la operación.
 
-assetux.com/strategies#payment
+aist.exchange/strategies#payment
 ```
 
 
@@ -693,7 +693,7 @@ aiPYG is now trading on the AIST P2P book.
 
 One aiPYG tracks one PYG. Quote it against USDT or KGST, settle through escrow, and cash out through any payment method a maker in Paraguay accepts.
 
-assetux.com/market
+aist.exchange/market
 ```
 
 **Spanish** — `img/c/py-es/1.png`
@@ -703,7 +703,7 @@ aiPYG ya se opera en el libro P2P de AIST.
 
 Un aiPYG sigue a un PYG. Cotízalo contra USDT o KGST, liquida por escrow y cobra con cualquier método que acepte un maker en Paraguay.
 
-assetux.com/market
+aist.exchange/market
 ```
 
 
@@ -716,7 +716,7 @@ BTC, USDT on five networks, KGST, ETH, SOL and aiPYG — all on one book.
 
 Pay by bank transfer, card, mobile wallet or cash. The maker names the method; escrow holds the asset until the money lands.
 
-assetux.com/market
+aist.exchange/market
 ```
 
 **Spanish** — `img/c/py-es/2.png`
@@ -726,7 +726,7 @@ BTC, USDT en cinco redes, KGST, ETH, SOL y aiPYG — todo en un solo libro.
 
 Paga por transferencia, tarjeta, billetera móvil o efectivo. El maker define el método; el escrow retiene el activo hasta que llega el dinero.
 
-assetux.com/market
+aist.exchange/market
 ```
 
 
@@ -739,7 +739,7 @@ The same pair, the same minute, two makers who disagree on price.
 
 On a thin book the best ask and the best bid cross more often than they should — the maker leaves a quote up and walks away.
 
-assetux.com/strategies#spread
+aist.exchange/strategies#spread
 ```
 
 **Spanish** — `img/c/py-es/3.png`
@@ -749,7 +749,7 @@ El mismo par, el mismo minuto, dos makers que no coinciden en el precio.
 
 En un libro delgado el mejor ask y el mejor bid se cruzan más de lo que deberían: el maker deja la orden puesta y se va.
 
-assetux.com/strategies#spread
+aist.exchange/strategies#spread
 ```
 
 
@@ -762,7 +762,7 @@ You are not trading against an exchange. You are trading against another person.
 
 You pick their order, escrow locks the asset, you pay them directly, escrow releases. Four steps, nobody holding your money in between.
 
-assetux.com
+aist.exchange
 ```
 
 **Spanish** — `img/c/py-es/4.png`
@@ -772,7 +772,7 @@ No operas contra un exchange. Operas contra otra persona.
 
 Eliges su orden, el escrow bloquea el activo, le pagas directo, el escrow libera. Cuatro pasos, sin nadie reteniendo tu dinero en el medio.
 
-assetux.com
+aist.exchange
 ```
 
 
@@ -785,7 +785,7 @@ Share your link. They trade on the book. You earn on it.
 
 And the deeper Paraguay gets, the tighter the spreads for everyone quoting there — including you.
 
-assetux.com
+aist.exchange
 ```
 
 **Spanish** — `img/c/py-es/5.png`
@@ -795,7 +795,7 @@ Comparte tu enlace. Ellos operan en el libro. Tú ganas con eso.
 
 Y mientras más profundo se pone Paraguay, más ajustados quedan los spreads para todos los que cotizan ahí — incluido tú.
 
-assetux.com
+aist.exchange
 ```
 
 
@@ -808,7 +808,7 @@ Every GPU in Paraguay that takes an AI job gets paid in aiPYG.
 
 That payout lands on a book where PYG is already quoted — so the loop from compute to local money closes without leaving the country.
 
-assetux.com
+aist.exchange
 ```
 
 **Spanish** — `img/c/py-es/6.png`
@@ -818,7 +818,7 @@ Cada GPU en Paraguay que toma un trabajo de IA cobra en aiPYG.
 
 Ese pago cae en un libro donde el PYG ya cotiza, así que el ciclo de cómputo a moneda local cierra sin salir del país.
 
-assetux.com
+aist.exchange
 ```
 
 
@@ -831,7 +831,7 @@ P2P means you and the maker, directly.
 
 No broker taking a cut. No correspondent bank deciding whether your transfer clears. Escrow does the trust, so neither side has to front the other.
 
-assetux.com
+aist.exchange
 ```
 
 **Spanish** — `img/c/py-es/7.png`
@@ -841,7 +841,7 @@ P2P significa tú y el maker, directo.
 
 Sin bróker llevándose una parte. Sin banco corresponsal decidiendo si pasa tu transferencia. El escrow pone la confianza, así ninguno adelanta al otro.
 
-assetux.com
+aist.exchange
 ```
 
 
@@ -854,7 +854,7 @@ The same USDT is worth different PYG depending on how the money moves.
 
 Cash is cheap to buy with. Instant bank transfer is expensive. The gap between the two methods is the trade.
 
-assetux.com/strategies#payment
+aist.exchange/strategies#payment
 ```
 
 **Spanish** — `img/c/py-es/8.png`
@@ -864,7 +864,7 @@ El mismo USDT vale distintos PYG según cómo se mueva el dinero.
 
 Comprar con efectivo sale barato. La transferencia instantánea sale cara. La diferencia entre los dos métodos es la operación.
 
-assetux.com/strategies#payment
+aist.exchange/strategies#payment
 ```
 
 
@@ -882,7 +882,7 @@ aiBDT is now trading on the AIST P2P book.
 
 One aiBDT tracks one BDT. Quote it against USDT or KGST, settle through escrow, and cash out through any payment method a maker in Bangladesh accepts.
 
-assetux.com/market
+aist.exchange/market
 ```
 
 **Bengali** — `img/c/bd-bn/1.png`
@@ -892,7 +892,7 @@ aiBDT এখন AIST P2P বুকে ট্রেড হচ্ছে।
 
 একটি aiBDT একটি BDT-কে অনুসরণ করে। USDT বা KGST-র বিপরীতে কোট করুন, এসক্রোতে সেটল করুন, আর বাংলাদেশ-র যেকোনো মেকার যে পদ্ধতি নেয় সেভাবে টাকা তুলুন।
 
-assetux.com/market
+aist.exchange/market
 ```
 
 
@@ -905,7 +905,7 @@ BTC, USDT on five networks, KGST, ETH, SOL and aiBDT — all on one book.
 
 Pay by bank transfer, card, mobile wallet or cash. The maker names the method; escrow holds the asset until the money lands.
 
-assetux.com/market
+aist.exchange/market
 ```
 
 **Bengali** — `img/c/bd-bn/2.png`
@@ -915,7 +915,7 @@ BTC, পাঁচ নেটওয়ার্কে USDT, KGST, ETH, SOL আর 
 
 ব্যাংক ট্রান্সফার, কার্ড, মোবাইল ওয়ালেট বা নগদে দিন। মেকার পদ্ধতি ঠিক করে; টাকা না পৌঁছানো পর্যন্ত এসক্রো অ্যাসেট ধরে রাখে।
 
-assetux.com/market
+aist.exchange/market
 ```
 
 
@@ -928,7 +928,7 @@ The same pair, the same minute, two makers who disagree on price.
 
 On a thin book the best ask and the best bid cross more often than they should — the maker leaves a quote up and walks away.
 
-assetux.com/strategies#spread
+aist.exchange/strategies#spread
 ```
 
 **Bengali** — `img/c/bd-bn/3.png`
@@ -938,7 +938,7 @@ assetux.com/strategies#spread
 
 পাতলা বুকে সেরা ask আর সেরা bid যতটা হওয়ার কথা তার চেয়ে বেশি ক্রস করে: মেকার দর রেখে চলে যায়।
 
-assetux.com/strategies#spread
+aist.exchange/strategies#spread
 ```
 
 
@@ -951,7 +951,7 @@ You are not trading against an exchange. You are trading against another person.
 
 You pick their order, escrow locks the asset, you pay them directly, escrow releases. Four steps, nobody holding your money in between.
 
-assetux.com
+aist.exchange
 ```
 
 **Bengali** — `img/c/bd-bn/4.png`
@@ -961,7 +961,7 @@ assetux.com
 
 তার অর্ডার বাছেন, এসক্রো অ্যাসেট লক করে, আপনি সরাসরি দেন, এসক্রো ছেড়ে দেয়। চার ধাপ, মাঝখানে কেউ আপনার টাকা ধরে রাখে না।
 
-assetux.com
+aist.exchange
 ```
 
 
@@ -974,7 +974,7 @@ Share your link. They trade on the book. You earn on it.
 
 And the deeper Bangladesh gets, the tighter the spreads for everyone quoting there — including you.
 
-assetux.com
+aist.exchange
 ```
 
 **Bengali** — `img/c/bd-bn/5.png`
@@ -984,7 +984,7 @@ assetux.com
 
 আর বাংলাদেশ যত গভীর হবে, ওখানে দর দেওয়া সবার স্প্রেড তত সরু হবে — আপনারটাও।
 
-assetux.com
+aist.exchange
 ```
 
 
@@ -997,7 +997,7 @@ Every GPU in Bangladesh that takes an AI job gets paid in aiBDT.
 
 That payout lands on a book where BDT is already quoted — so the loop from compute to local money closes without leaving the country.
 
-assetux.com
+aist.exchange
 ```
 
 **Bengali** — `img/c/bd-bn/6.png`
@@ -1007,7 +1007,7 @@ assetux.com
 
 সেই আয় এমন এক বুকে আসে যেখানে BDT আগে থেকেই কোট হয় — তাই কম্পিউট থেকে স্থানীয় টাকার চক্রটা দেশ ছাড়া ছাড়াই সম্পূর্ণ হয়।
 
-assetux.com
+aist.exchange
 ```
 
 
@@ -1020,7 +1020,7 @@ P2P means you and the maker, directly.
 
 No broker taking a cut. No correspondent bank deciding whether your transfer clears. Escrow does the trust, so neither side has to front the other.
 
-assetux.com
+aist.exchange
 ```
 
 **Bengali** — `img/c/bd-bn/7.png`
@@ -1030,7 +1030,7 @@ P2P মানে আপনি আর মেকার, সরাসরি।
 
 কোনো দালাল ভাগ নেয় না। কোনো করেসপন্ডেন্ট ব্যাংক ঠিক করে না আপনার ট্রান্সফার যাবে কি না। বিশ্বাসটা এসক্রো দেয়, তাই কাউকে আগে দিতে হয় না।
 
-assetux.com
+aist.exchange
 ```
 
 
@@ -1043,7 +1043,7 @@ The same USDT is worth different BDT depending on how the money moves.
 
 Cash is cheap to buy with. Instant bank transfer is expensive. The gap between the two methods is the trade.
 
-assetux.com/strategies#payment
+aist.exchange/strategies#payment
 ```
 
 **Bengali** — `img/c/bd-bn/8.png`
@@ -1053,7 +1053,7 @@ assetux.com/strategies#payment
 
 নগদে কেনা সস্তা। ইনস্ট্যান্ট ব্যাংক ট্রান্সফার দামি। দুই পদ্ধতির ফারাকটাই ট্রেড।
 
-assetux.com/strategies#payment
+aist.exchange/strategies#payment
 ```
 
 
@@ -1071,7 +1071,7 @@ aiPKR is now trading on the AIST P2P book.
 
 One aiPKR tracks one PKR. Quote it against USDT or KGST, settle through escrow, and cash out through any payment method a maker in Pakistan accepts.
 
-assetux.com/market
+aist.exchange/market
 ```
 
 **Urdu** — `img/c/pk-ur/1.png`
@@ -1081,7 +1081,7 @@ assetux.com/market
 
 ہر aiPKR ایک PKR کا پیچھا کرتا ہے۔ اسے USDT یا KGST کے مقابل قیمت دیں، ایسکرو سے سیٹل کریں، اور پاکستان کے کسی بھی میکر کے قبول کردہ طریقے سے رقم نکالیں۔
 
-assetux.com/market
+aist.exchange/market
 ```
 
 
@@ -1094,7 +1094,7 @@ BTC, USDT on five networks, KGST, ETH, SOL and aiPKR — all on one book.
 
 Pay by bank transfer, card, mobile wallet or cash. The maker names the method; escrow holds the asset until the money lands.
 
-assetux.com/market
+aist.exchange/market
 ```
 
 **Urdu** — `img/c/pk-ur/2.png`
@@ -1104,7 +1104,7 @@ assetux.com/market
 
 بینک ٹرانسفر، کارڈ، موبائل والٹ یا نقد سے ادائیگی کریں۔ میکر طریقہ طے کرتا ہے، ایسکرو رقم پہنچنے تک اثاثہ روکے رکھتا ہے۔
 
-assetux.com/market
+aist.exchange/market
 ```
 
 
@@ -1117,7 +1117,7 @@ The same pair, the same minute, two makers who disagree on price.
 
 On a thin book the best ask and the best bid cross more often than they should — the maker leaves a quote up and walks away.
 
-assetux.com/strategies#spread
+aist.exchange/strategies#spread
 ```
 
 **Urdu** — `img/c/pk-ur/3.png`
@@ -1127,7 +1127,7 @@ assetux.com/strategies#spread
 
 پتلی بُک میں بہترین ask اور bid توقع سے زیادہ کراس ہوتے ہیں: میکر قیمت لگا کر چلا جاتا ہے۔
 
-assetux.com/strategies#spread
+aist.exchange/strategies#spread
 ```
 
 
@@ -1140,7 +1140,7 @@ You are not trading against an exchange. You are trading against another person.
 
 You pick their order, escrow locks the asset, you pay them directly, escrow releases. Four steps, nobody holding your money in between.
 
-assetux.com
+aist.exchange
 ```
 
 **Urdu** — `img/c/pk-ur/4.png`
@@ -1150,7 +1150,7 @@ assetux.com
 
 آپ اُس کا آرڈر چنتے ہیں، ایسکرو اثاثہ لاک کرتا ہے، آپ براہِ راست ادائیگی کرتے ہیں، ایسکرو کھل جاتا ہے۔ چار مرحلے، بیچ میں کوئی آپ کا پیسہ نہیں روکتا۔
 
-assetux.com
+aist.exchange
 ```
 
 
@@ -1163,7 +1163,7 @@ Share your link. They trade on the book. You earn on it.
 
 And the deeper Pakistan gets, the tighter the spreads for everyone quoting there — including you.
 
-assetux.com
+aist.exchange
 ```
 
 **Urdu** — `img/c/pk-ur/5.png`
@@ -1173,7 +1173,7 @@ assetux.com
 
 اور پاکستان جتنا گہرا ہوگا، وہاں قیمت لگانے والے سب کے سپریڈ اُتنے ہی تنگ ہوں گے — آپ سمیت۔
 
-assetux.com
+aist.exchange
 ```
 
 
@@ -1186,7 +1186,7 @@ Every GPU in Pakistan that takes an AI job gets paid in aiPKR.
 
 That payout lands on a book where PKR is already quoted — so the loop from compute to local money closes without leaving the country.
 
-assetux.com
+aist.exchange
 ```
 
 **Urdu** — `img/c/pk-ur/6.png`
@@ -1196,7 +1196,7 @@ assetux.com
 
 وہ کمائی اُس بُک پر آتی ہے جہاں PKR پہلے سے قیمت پاتا ہے — یوں کمپیوٹ سے مقامی پیسے تک کا چکر ملک سے باہر گئے بغیر مکمل ہوتا ہے۔
 
-assetux.com
+aist.exchange
 ```
 
 
@@ -1209,7 +1209,7 @@ P2P means you and the maker, directly.
 
 No broker taking a cut. No correspondent bank deciding whether your transfer clears. Escrow does the trust, so neither side has to front the other.
 
-assetux.com
+aist.exchange
 ```
 
 **Urdu** — `img/c/pk-ur/7.png`
@@ -1219,7 +1219,7 @@ assetux.com
 
 کوئی بروکر حصہ نہیں لیتا۔ کوئی کاریسپانڈنٹ بینک فیصلہ نہیں کرتا کہ آپ کی ٹرانسفر جائے گی یا نہیں۔ اعتماد ایسکرو دیتا ہے، سو کسی کو پیشگی نہیں دینا پڑتا۔
 
-assetux.com
+aist.exchange
 ```
 
 
@@ -1232,7 +1232,7 @@ The same USDT is worth different PKR depending on how the money moves.
 
 Cash is cheap to buy with. Instant bank transfer is expensive. The gap between the two methods is the trade.
 
-assetux.com/strategies#payment
+aist.exchange/strategies#payment
 ```
 
 **Urdu** — `img/c/pk-ur/8.png`
@@ -1242,7 +1242,7 @@ assetux.com/strategies#payment
 
 نقد سے خریدنا سستا ہے۔ فوری بینک ٹرانسفر مہنگی ہے۔ دونوں طریقوں کا فرق ہی ٹریڈ ہے۔
 
-assetux.com/strategies#payment
+aist.exchange/strategies#payment
 ```
 
 
@@ -1260,7 +1260,7 @@ aiEGP is now trading on the AIST P2P book.
 
 One aiEGP tracks one EGP. Quote it against USDT or KGST, settle through escrow, and cash out through any payment method a maker in Egypt accepts.
 
-assetux.com/market
+aist.exchange/market
 ```
 
 **Arabic** — `img/c/eg-ar/1.png`
@@ -1270,7 +1270,7 @@ assetux.com/market
 
 كل aiEGP يتتبع وحدة واحدة من EGP. سعّره مقابل USDT أو KGST، وسوِّ عبر الضمان، واسحب بأي طريقة دفع يقبلها صانع في مصر.
 
-assetux.com/market
+aist.exchange/market
 ```
 
 
@@ -1283,7 +1283,7 @@ BTC, USDT on five networks, KGST, ETH, SOL and aiEGP — all on one book.
 
 Pay by bank transfer, card, mobile wallet or cash. The maker names the method; escrow holds the asset until the money lands.
 
-assetux.com/market
+aist.exchange/market
 ```
 
 **Arabic** — `img/c/eg-ar/2.png`
@@ -1293,7 +1293,7 @@ assetux.com/market
 
 ادفع بحوالة بنكية أو بطاقة أو محفظة موبايل أو نقداً. الصانع يحدد الطريقة، والضمان يحتجز الأصل حتى وصول المال.
 
-assetux.com/market
+aist.exchange/market
 ```
 
 
@@ -1306,7 +1306,7 @@ The same pair, the same minute, two makers who disagree on price.
 
 On a thin book the best ask and the best bid cross more often than they should — the maker leaves a quote up and walks away.
 
-assetux.com/strategies#spread
+aist.exchange/strategies#spread
 ```
 
 **Arabic** — `img/c/eg-ar/3.png`
@@ -1316,7 +1316,7 @@ assetux.com/strategies#spread
 
 في دفتر ضحل يتقاطع أفضل عرض بيع مع أفضل عرض شراء أكثر مما ينبغي: الصانع يترك سعره ويمضي.
 
-assetux.com/strategies#spread
+aist.exchange/strategies#spread
 ```
 
 
@@ -1329,7 +1329,7 @@ You are not trading against an exchange. You are trading against another person.
 
 You pick their order, escrow locks the asset, you pay them directly, escrow releases. Four steps, nobody holding your money in between.
 
-assetux.com
+aist.exchange
 ```
 
 **Arabic** — `img/c/eg-ar/4.png`
@@ -1339,7 +1339,7 @@ assetux.com
 
 تختار أمره، يقفل الضمان الأصل، تدفع له مباشرة، ثم يُفرج الضمان. أربع خطوات، ولا أحد يمسك مالك في المنتصف.
 
-assetux.com
+aist.exchange
 ```
 
 
@@ -1352,7 +1352,7 @@ Share your link. They trade on the book. You earn on it.
 
 And the deeper Egypt gets, the tighter the spreads for everyone quoting there — including you.
 
-assetux.com
+aist.exchange
 ```
 
 **Arabic** — `img/c/eg-ar/5.png`
@@ -1362,7 +1362,7 @@ assetux.com
 
 وكلما ازداد عمق مصر، ضاقت الفوارق لكل من يسعّر هناك — وأنت منهم.
 
-assetux.com
+aist.exchange
 ```
 
 
@@ -1375,7 +1375,7 @@ Every GPU in Egypt that takes an AI job gets paid in aiEGP.
 
 That payout lands on a book where EGP is already quoted — so the loop from compute to local money closes without leaving the country.
 
-assetux.com
+aist.exchange
 ```
 
 **Arabic** — `img/c/eg-ar/6.png`
@@ -1385,7 +1385,7 @@ assetux.com
 
 ذلك العائد يصل إلى دفتر يُسعَّر فيه EGP أصلاً، فتُغلق الدورة من الحوسبة إلى العملة المحلية دون مغادرة البلد.
 
-assetux.com
+aist.exchange
 ```
 
 
@@ -1398,7 +1398,7 @@ P2P means you and the maker, directly.
 
 No broker taking a cut. No correspondent bank deciding whether your transfer clears. Escrow does the trust, so neither side has to front the other.
 
-assetux.com
+aist.exchange
 ```
 
 **Arabic** — `img/c/eg-ar/7.png`
@@ -1408,7 +1408,7 @@ assetux.com
 
 لا وسيط يأخذ حصة. لا بنك مراسل يقرر إن كانت حوالتك ستمر. الضمان يتكفل بالثقة، فلا يُقدّم أحد للآخر.
 
-assetux.com
+aist.exchange
 ```
 
 
@@ -1421,7 +1421,7 @@ The same USDT is worth different EGP depending on how the money moves.
 
 Cash is cheap to buy with. Instant bank transfer is expensive. The gap between the two methods is the trade.
 
-assetux.com/strategies#payment
+aist.exchange/strategies#payment
 ```
 
 **Arabic** — `img/c/eg-ar/8.png`
@@ -1431,7 +1431,7 @@ assetux.com/strategies#payment
 
 الشراء نقداً رخيص. الحوالة الفورية غالية. الفرق بين الطريقتين هو الصفقة.
 
-assetux.com/strategies#payment
+aist.exchange/strategies#payment
 ```
 
 
@@ -1449,7 +1449,7 @@ aiIQD is now trading on the AIST P2P book.
 
 One aiIQD tracks one IQD. Quote it against USDT or KGST, settle through escrow, and cash out through any payment method a maker in Iraq accepts.
 
-assetux.com/market
+aist.exchange/market
 ```
 
 **Arabic** — `img/c/iq-ar/1.png`
@@ -1459,7 +1459,7 @@ assetux.com/market
 
 كل aiIQD يتتبع وحدة واحدة من IQD. سعّره مقابل USDT أو KGST، وسوِّ عبر الضمان، واسحب بأي طريقة دفع يقبلها صانع في العراق.
 
-assetux.com/market
+aist.exchange/market
 ```
 
 
@@ -1472,7 +1472,7 @@ BTC, USDT on five networks, KGST, ETH, SOL and aiIQD — all on one book.
 
 Pay by bank transfer, card, mobile wallet or cash. The maker names the method; escrow holds the asset until the money lands.
 
-assetux.com/market
+aist.exchange/market
 ```
 
 **Arabic** — `img/c/iq-ar/2.png`
@@ -1482,7 +1482,7 @@ assetux.com/market
 
 ادفع بحوالة بنكية أو بطاقة أو محفظة موبايل أو نقداً. الصانع يحدد الطريقة، والضمان يحتجز الأصل حتى وصول المال.
 
-assetux.com/market
+aist.exchange/market
 ```
 
 
@@ -1495,7 +1495,7 @@ The same pair, the same minute, two makers who disagree on price.
 
 On a thin book the best ask and the best bid cross more often than they should — the maker leaves a quote up and walks away.
 
-assetux.com/strategies#spread
+aist.exchange/strategies#spread
 ```
 
 **Arabic** — `img/c/iq-ar/3.png`
@@ -1505,7 +1505,7 @@ assetux.com/strategies#spread
 
 في دفتر ضحل يتقاطع أفضل عرض بيع مع أفضل عرض شراء أكثر مما ينبغي: الصانع يترك سعره ويمضي.
 
-assetux.com/strategies#spread
+aist.exchange/strategies#spread
 ```
 
 
@@ -1518,7 +1518,7 @@ You are not trading against an exchange. You are trading against another person.
 
 You pick their order, escrow locks the asset, you pay them directly, escrow releases. Four steps, nobody holding your money in between.
 
-assetux.com
+aist.exchange
 ```
 
 **Arabic** — `img/c/iq-ar/4.png`
@@ -1528,7 +1528,7 @@ assetux.com
 
 تختار أمره، يقفل الضمان الأصل، تدفع له مباشرة، ثم يُفرج الضمان. أربع خطوات، ولا أحد يمسك مالك في المنتصف.
 
-assetux.com
+aist.exchange
 ```
 
 
@@ -1541,7 +1541,7 @@ Share your link. They trade on the book. You earn on it.
 
 And the deeper Iraq gets, the tighter the spreads for everyone quoting there — including you.
 
-assetux.com
+aist.exchange
 ```
 
 **Arabic** — `img/c/iq-ar/5.png`
@@ -1551,7 +1551,7 @@ assetux.com
 
 وكلما ازداد عمق العراق، ضاقت الفوارق لكل من يسعّر هناك — وأنت منهم.
 
-assetux.com
+aist.exchange
 ```
 
 
@@ -1564,7 +1564,7 @@ Every GPU in Iraq that takes an AI job gets paid in aiIQD.
 
 That payout lands on a book where IQD is already quoted — so the loop from compute to local money closes without leaving the country.
 
-assetux.com
+aist.exchange
 ```
 
 **Arabic** — `img/c/iq-ar/6.png`
@@ -1574,7 +1574,7 @@ assetux.com
 
 ذلك العائد يصل إلى دفتر يُسعَّر فيه IQD أصلاً، فتُغلق الدورة من الحوسبة إلى العملة المحلية دون مغادرة البلد.
 
-assetux.com
+aist.exchange
 ```
 
 
@@ -1587,7 +1587,7 @@ P2P means you and the maker, directly.
 
 No broker taking a cut. No correspondent bank deciding whether your transfer clears. Escrow does the trust, so neither side has to front the other.
 
-assetux.com
+aist.exchange
 ```
 
 **Arabic** — `img/c/iq-ar/7.png`
@@ -1597,7 +1597,7 @@ assetux.com
 
 لا وسيط يأخذ حصة. لا بنك مراسل يقرر إن كانت حوالتك ستمر. الضمان يتكفل بالثقة، فلا يُقدّم أحد للآخر.
 
-assetux.com
+aist.exchange
 ```
 
 
@@ -1610,7 +1610,7 @@ The same USDT is worth different IQD depending on how the money moves.
 
 Cash is cheap to buy with. Instant bank transfer is expensive. The gap between the two methods is the trade.
 
-assetux.com/strategies#payment
+aist.exchange/strategies#payment
 ```
 
 **Arabic** — `img/c/iq-ar/8.png`
@@ -1620,7 +1620,7 @@ assetux.com/strategies#payment
 
 الشراء نقداً رخيص. الحوالة الفورية غالية. الفرق بين الطريقتين هو الصفقة.
 
-assetux.com/strategies#payment
+aist.exchange/strategies#payment
 ```
 
 
@@ -1638,7 +1638,7 @@ aiAOA is now trading on the AIST P2P book.
 
 One aiAOA tracks one AOA. Quote it against USDT or KGST, settle through escrow, and cash out through any payment method a maker in Angola accepts.
 
-assetux.com/market
+aist.exchange/market
 ```
 
 **Portuguese** — `img/c/ao-pt/1.png`
@@ -1648,7 +1648,7 @@ aiAOA já é negociado no livro P2P da AIST.
 
 Um aiAOA acompanha um AOA. Cote contra USDT ou KGST, liquide via escrow e saque por qualquer método que um maker em Angola aceite.
 
-assetux.com/market
+aist.exchange/market
 ```
 
 
@@ -1661,7 +1661,7 @@ BTC, USDT on five networks, KGST, ETH, SOL and aiAOA — all on one book.
 
 Pay by bank transfer, card, mobile wallet or cash. The maker names the method; escrow holds the asset until the money lands.
 
-assetux.com/market
+aist.exchange/market
 ```
 
 **Portuguese** — `img/c/ao-pt/2.png`
@@ -1671,7 +1671,7 @@ BTC, USDT em cinco redes, KGST, ETH, SOL e aiAOA — tudo num livro só.
 
 Pague por transferência, cartão, carteira móvel ou dinheiro. O maker define o método; o escrow segura o ativo até o dinheiro cair.
 
-assetux.com/market
+aist.exchange/market
 ```
 
 
@@ -1684,7 +1684,7 @@ The same pair, the same minute, two makers who disagree on price.
 
 On a thin book the best ask and the best bid cross more often than they should — the maker leaves a quote up and walks away.
 
-assetux.com/strategies#spread
+aist.exchange/strategies#spread
 ```
 
 **Portuguese** — `img/c/ao-pt/3.png`
@@ -1694,7 +1694,7 @@ O mesmo par, o mesmo minuto, dois makers que discordam no preço.
 
 Num livro raso o melhor ask e o melhor bid se cruzam mais do que deveriam: o maker deixa a ordem e vai embora.
 
-assetux.com/strategies#spread
+aist.exchange/strategies#spread
 ```
 
 
@@ -1707,7 +1707,7 @@ You are not trading against an exchange. You are trading against another person.
 
 You pick their order, escrow locks the asset, you pay them directly, escrow releases. Four steps, nobody holding your money in between.
 
-assetux.com
+aist.exchange
 ```
 
 **Portuguese** — `img/c/ao-pt/4.png`
@@ -1717,7 +1717,7 @@ Você não negocia contra uma exchange. Negocia contra outra pessoa.
 
 Você escolhe a ordem dela, o escrow trava o ativo, você paga direto, o escrow libera. Quatro passos, ninguém segurando seu dinheiro no meio.
 
-assetux.com
+aist.exchange
 ```
 
 
@@ -1730,7 +1730,7 @@ Share your link. They trade on the book. You earn on it.
 
 And the deeper Angola gets, the tighter the spreads for everyone quoting there — including you.
 
-assetux.com
+aist.exchange
 ```
 
 **Portuguese** — `img/c/ao-pt/5.png`
@@ -1740,7 +1740,7 @@ Compartilhe seu link. Eles negociam no livro. Você ganha com isso.
 
 E quanto mais fundo Angola fica, mais apertados ficam os spreads para todo mundo que cota ali — inclusive você.
 
-assetux.com
+aist.exchange
 ```
 
 
@@ -1753,7 +1753,7 @@ Every GPU in Angola that takes an AI job gets paid in aiAOA.
 
 That payout lands on a book where AOA is already quoted — so the loop from compute to local money closes without leaving the country.
 
-assetux.com
+aist.exchange
 ```
 
 **Portuguese** — `img/c/ao-pt/6.png`
@@ -1763,7 +1763,7 @@ Cada GPU em Angola que pega uma tarefa de IA recebe em aiAOA.
 
 Esse pagamento cai num livro onde o AOA já é cotado — então o ciclo de computação até moeda local fecha sem sair do país.
 
-assetux.com
+aist.exchange
 ```
 
 
@@ -1776,7 +1776,7 @@ P2P means you and the maker, directly.
 
 No broker taking a cut. No correspondent bank deciding whether your transfer clears. Escrow does the trust, so neither side has to front the other.
 
-assetux.com
+aist.exchange
 ```
 
 **Portuguese** — `img/c/ao-pt/7.png`
@@ -1786,7 +1786,7 @@ P2P significa você e o maker, direto.
 
 Sem corretor levando uma fatia. Sem banco correspondente decidindo se sua transferência passa. O escrow faz a confiança, então nenhum dos dois adianta nada.
 
-assetux.com
+aist.exchange
 ```
 
 
@@ -1799,7 +1799,7 @@ The same USDT is worth different AOA depending on how the money moves.
 
 Cash is cheap to buy with. Instant bank transfer is expensive. The gap between the two methods is the trade.
 
-assetux.com/strategies#payment
+aist.exchange/strategies#payment
 ```
 
 **Portuguese** — `img/c/ao-pt/8.png`
@@ -1809,7 +1809,7 @@ O mesmo USDT vale valores diferentes em AOA conforme o dinheiro se move.
 
 Comprar em dinheiro sai barato. Transferência instantânea sai caro. A diferença entre os dois métodos é a operação.
 
-assetux.com/strategies#payment
+aist.exchange/strategies#payment
 ```
 
 
@@ -1827,7 +1827,7 @@ aiCUP is now trading on the AIST P2P book.
 
 One aiCUP tracks one CUP. Quote it against USDT or KGST, settle through escrow, and cash out through any payment method a maker in Cuba accepts.
 
-assetux.com/market
+aist.exchange/market
 ```
 
 **Spanish** — `img/c/cu-es/1.png`
@@ -1837,7 +1837,7 @@ aiCUP ya se opera en el libro P2P de AIST.
 
 Un aiCUP sigue a un CUP. Cotízalo contra USDT o KGST, liquida por escrow y cobra con cualquier método que acepte un maker en Cuba.
 
-assetux.com/market
+aist.exchange/market
 ```
 
 
@@ -1850,7 +1850,7 @@ BTC, USDT on five networks, KGST, ETH, SOL and aiCUP — all on one book.
 
 Pay by bank transfer, card, mobile wallet or cash. The maker names the method; escrow holds the asset until the money lands.
 
-assetux.com/market
+aist.exchange/market
 ```
 
 **Spanish** — `img/c/cu-es/2.png`
@@ -1860,7 +1860,7 @@ BTC, USDT en cinco redes, KGST, ETH, SOL y aiCUP — todo en un solo libro.
 
 Paga por transferencia, tarjeta, billetera móvil o efectivo. El maker define el método; el escrow retiene el activo hasta que llega el dinero.
 
-assetux.com/market
+aist.exchange/market
 ```
 
 
@@ -1873,7 +1873,7 @@ The same pair, the same minute, two makers who disagree on price.
 
 On a thin book the best ask and the best bid cross more often than they should — the maker leaves a quote up and walks away.
 
-assetux.com/strategies#spread
+aist.exchange/strategies#spread
 ```
 
 **Spanish** — `img/c/cu-es/3.png`
@@ -1883,7 +1883,7 @@ El mismo par, el mismo minuto, dos makers que no coinciden en el precio.
 
 En un libro delgado el mejor ask y el mejor bid se cruzan más de lo que deberían: el maker deja la orden puesta y se va.
 
-assetux.com/strategies#spread
+aist.exchange/strategies#spread
 ```
 
 
@@ -1896,7 +1896,7 @@ You are not trading against an exchange. You are trading against another person.
 
 You pick their order, escrow locks the asset, you pay them directly, escrow releases. Four steps, nobody holding your money in between.
 
-assetux.com
+aist.exchange
 ```
 
 **Spanish** — `img/c/cu-es/4.png`
@@ -1906,7 +1906,7 @@ No operas contra un exchange. Operas contra otra persona.
 
 Eliges su orden, el escrow bloquea el activo, le pagas directo, el escrow libera. Cuatro pasos, sin nadie reteniendo tu dinero en el medio.
 
-assetux.com
+aist.exchange
 ```
 
 
@@ -1919,7 +1919,7 @@ Share your link. They trade on the book. You earn on it.
 
 And the deeper Cuba gets, the tighter the spreads for everyone quoting there — including you.
 
-assetux.com
+aist.exchange
 ```
 
 **Spanish** — `img/c/cu-es/5.png`
@@ -1929,7 +1929,7 @@ Comparte tu enlace. Ellos operan en el libro. Tú ganas con eso.
 
 Y mientras más profundo se pone Cuba, más ajustados quedan los spreads para todos los que cotizan ahí — incluido tú.
 
-assetux.com
+aist.exchange
 ```
 
 
@@ -1942,7 +1942,7 @@ Every GPU in Cuba that takes an AI job gets paid in aiCUP.
 
 That payout lands on a book where CUP is already quoted — so the loop from compute to local money closes without leaving the country.
 
-assetux.com
+aist.exchange
 ```
 
 **Spanish** — `img/c/cu-es/6.png`
@@ -1952,7 +1952,7 @@ Cada GPU en Cuba que toma un trabajo de IA cobra en aiCUP.
 
 Ese pago cae en un libro donde el CUP ya cotiza, así que el ciclo de cómputo a moneda local cierra sin salir del país.
 
-assetux.com
+aist.exchange
 ```
 
 
@@ -1965,7 +1965,7 @@ P2P means you and the maker, directly.
 
 No broker taking a cut. No correspondent bank deciding whether your transfer clears. Escrow does the trust, so neither side has to front the other.
 
-assetux.com
+aist.exchange
 ```
 
 **Spanish** — `img/c/cu-es/7.png`
@@ -1975,7 +1975,7 @@ P2P significa tú y el maker, directo.
 
 Sin bróker llevándose una parte. Sin banco corresponsal decidiendo si pasa tu transferencia. El escrow pone la confianza, así ninguno adelanta al otro.
 
-assetux.com
+aist.exchange
 ```
 
 
@@ -1988,7 +1988,7 @@ The same USDT is worth different CUP depending on how the money moves.
 
 Cash is cheap to buy with. Instant bank transfer is expensive. The gap between the two methods is the trade.
 
-assetux.com/strategies#payment
+aist.exchange/strategies#payment
 ```
 
 **Spanish** — `img/c/cu-es/8.png`
@@ -1998,7 +1998,7 @@ El mismo USDT vale distintos CUP según cómo se mueva el dinero.
 
 Comprar con efectivo sale barato. La transferencia instantánea sale cara. La diferencia entre los dos métodos es la operación.
 
-assetux.com/strategies#payment
+aist.exchange/strategies#payment
 ```
 
 
@@ -2016,7 +2016,7 @@ aiLYD is now trading on the AIST P2P book.
 
 One aiLYD tracks one LYD. Quote it against USDT or KGST, settle through escrow, and cash out through any payment method a maker in Libya accepts.
 
-assetux.com/market
+aist.exchange/market
 ```
 
 **Arabic** — `img/c/ly-ar/1.png`
@@ -2026,7 +2026,7 @@ assetux.com/market
 
 كل aiLYD يتتبع وحدة واحدة من LYD. سعّره مقابل USDT أو KGST، وسوِّ عبر الضمان، واسحب بأي طريقة دفع يقبلها صانع في ليبيا.
 
-assetux.com/market
+aist.exchange/market
 ```
 
 
@@ -2039,7 +2039,7 @@ BTC, USDT on five networks, KGST, ETH, SOL and aiLYD — all on one book.
 
 Pay by bank transfer, card, mobile wallet or cash. The maker names the method; escrow holds the asset until the money lands.
 
-assetux.com/market
+aist.exchange/market
 ```
 
 **Arabic** — `img/c/ly-ar/2.png`
@@ -2049,7 +2049,7 @@ assetux.com/market
 
 ادفع بحوالة بنكية أو بطاقة أو محفظة موبايل أو نقداً. الصانع يحدد الطريقة، والضمان يحتجز الأصل حتى وصول المال.
 
-assetux.com/market
+aist.exchange/market
 ```
 
 
@@ -2062,7 +2062,7 @@ The same pair, the same minute, two makers who disagree on price.
 
 On a thin book the best ask and the best bid cross more often than they should — the maker leaves a quote up and walks away.
 
-assetux.com/strategies#spread
+aist.exchange/strategies#spread
 ```
 
 **Arabic** — `img/c/ly-ar/3.png`
@@ -2072,7 +2072,7 @@ assetux.com/strategies#spread
 
 في دفتر ضحل يتقاطع أفضل عرض بيع مع أفضل عرض شراء أكثر مما ينبغي: الصانع يترك سعره ويمضي.
 
-assetux.com/strategies#spread
+aist.exchange/strategies#spread
 ```
 
 
@@ -2085,7 +2085,7 @@ You are not trading against an exchange. You are trading against another person.
 
 You pick their order, escrow locks the asset, you pay them directly, escrow releases. Four steps, nobody holding your money in between.
 
-assetux.com
+aist.exchange
 ```
 
 **Arabic** — `img/c/ly-ar/4.png`
@@ -2095,7 +2095,7 @@ assetux.com
 
 تختار أمره، يقفل الضمان الأصل، تدفع له مباشرة، ثم يُفرج الضمان. أربع خطوات، ولا أحد يمسك مالك في المنتصف.
 
-assetux.com
+aist.exchange
 ```
 
 
@@ -2108,7 +2108,7 @@ Share your link. They trade on the book. You earn on it.
 
 And the deeper Libya gets, the tighter the spreads for everyone quoting there — including you.
 
-assetux.com
+aist.exchange
 ```
 
 **Arabic** — `img/c/ly-ar/5.png`
@@ -2118,7 +2118,7 @@ assetux.com
 
 وكلما ازداد عمق ليبيا، ضاقت الفوارق لكل من يسعّر هناك — وأنت منهم.
 
-assetux.com
+aist.exchange
 ```
 
 
@@ -2131,7 +2131,7 @@ Every GPU in Libya that takes an AI job gets paid in aiLYD.
 
 That payout lands on a book where LYD is already quoted — so the loop from compute to local money closes without leaving the country.
 
-assetux.com
+aist.exchange
 ```
 
 **Arabic** — `img/c/ly-ar/6.png`
@@ -2141,7 +2141,7 @@ assetux.com
 
 ذلك العائد يصل إلى دفتر يُسعَّر فيه LYD أصلاً، فتُغلق الدورة من الحوسبة إلى العملة المحلية دون مغادرة البلد.
 
-assetux.com
+aist.exchange
 ```
 
 
@@ -2154,7 +2154,7 @@ P2P means you and the maker, directly.
 
 No broker taking a cut. No correspondent bank deciding whether your transfer clears. Escrow does the trust, so neither side has to front the other.
 
-assetux.com
+aist.exchange
 ```
 
 **Arabic** — `img/c/ly-ar/7.png`
@@ -2164,7 +2164,7 @@ assetux.com
 
 لا وسيط يأخذ حصة. لا بنك مراسل يقرر إن كانت حوالتك ستمر. الضمان يتكفل بالثقة، فلا يُقدّم أحد للآخر.
 
-assetux.com
+aist.exchange
 ```
 
 
@@ -2177,7 +2177,7 @@ The same USDT is worth different LYD depending on how the money moves.
 
 Cash is cheap to buy with. Instant bank transfer is expensive. The gap between the two methods is the trade.
 
-assetux.com/strategies#payment
+aist.exchange/strategies#payment
 ```
 
 **Arabic** — `img/c/ly-ar/8.png`
@@ -2187,7 +2187,7 @@ assetux.com/strategies#payment
 
 الشراء نقداً رخيص. الحوالة الفورية غالية. الفرق بين الطريقتين هو الصفقة.
 
-assetux.com/strategies#payment
+aist.exchange/strategies#payment
 ```
 
 
@@ -2205,7 +2205,7 @@ aiSDG is now trading on the AIST P2P book.
 
 One aiSDG tracks one SDG. Quote it against USDT or KGST, settle through escrow, and cash out through any payment method a maker in Sudan accepts.
 
-assetux.com/market
+aist.exchange/market
 ```
 
 **Arabic** — `img/c/sd-ar/1.png`
@@ -2215,7 +2215,7 @@ assetux.com/market
 
 كل aiSDG يتتبع وحدة واحدة من SDG. سعّره مقابل USDT أو KGST، وسوِّ عبر الضمان، واسحب بأي طريقة دفع يقبلها صانع في السودان.
 
-assetux.com/market
+aist.exchange/market
 ```
 
 
@@ -2228,7 +2228,7 @@ BTC, USDT on five networks, KGST, ETH, SOL and aiSDG — all on one book.
 
 Pay by bank transfer, card, mobile wallet or cash. The maker names the method; escrow holds the asset until the money lands.
 
-assetux.com/market
+aist.exchange/market
 ```
 
 **Arabic** — `img/c/sd-ar/2.png`
@@ -2238,7 +2238,7 @@ assetux.com/market
 
 ادفع بحوالة بنكية أو بطاقة أو محفظة موبايل أو نقداً. الصانع يحدد الطريقة، والضمان يحتجز الأصل حتى وصول المال.
 
-assetux.com/market
+aist.exchange/market
 ```
 
 
@@ -2251,7 +2251,7 @@ The same pair, the same minute, two makers who disagree on price.
 
 On a thin book the best ask and the best bid cross more often than they should — the maker leaves a quote up and walks away.
 
-assetux.com/strategies#spread
+aist.exchange/strategies#spread
 ```
 
 **Arabic** — `img/c/sd-ar/3.png`
@@ -2261,7 +2261,7 @@ assetux.com/strategies#spread
 
 في دفتر ضحل يتقاطع أفضل عرض بيع مع أفضل عرض شراء أكثر مما ينبغي: الصانع يترك سعره ويمضي.
 
-assetux.com/strategies#spread
+aist.exchange/strategies#spread
 ```
 
 
@@ -2274,7 +2274,7 @@ You are not trading against an exchange. You are trading against another person.
 
 You pick their order, escrow locks the asset, you pay them directly, escrow releases. Four steps, nobody holding your money in between.
 
-assetux.com
+aist.exchange
 ```
 
 **Arabic** — `img/c/sd-ar/4.png`
@@ -2284,7 +2284,7 @@ assetux.com
 
 تختار أمره، يقفل الضمان الأصل، تدفع له مباشرة، ثم يُفرج الضمان. أربع خطوات، ولا أحد يمسك مالك في المنتصف.
 
-assetux.com
+aist.exchange
 ```
 
 
@@ -2297,7 +2297,7 @@ Share your link. They trade on the book. You earn on it.
 
 And the deeper Sudan gets, the tighter the spreads for everyone quoting there — including you.
 
-assetux.com
+aist.exchange
 ```
 
 **Arabic** — `img/c/sd-ar/5.png`
@@ -2307,7 +2307,7 @@ assetux.com
 
 وكلما ازداد عمق السودان، ضاقت الفوارق لكل من يسعّر هناك — وأنت منهم.
 
-assetux.com
+aist.exchange
 ```
 
 
@@ -2320,7 +2320,7 @@ Every GPU in Sudan that takes an AI job gets paid in aiSDG.
 
 That payout lands on a book where SDG is already quoted — so the loop from compute to local money closes without leaving the country.
 
-assetux.com
+aist.exchange
 ```
 
 **Arabic** — `img/c/sd-ar/6.png`
@@ -2330,7 +2330,7 @@ assetux.com
 
 ذلك العائد يصل إلى دفتر يُسعَّر فيه SDG أصلاً، فتُغلق الدورة من الحوسبة إلى العملة المحلية دون مغادرة البلد.
 
-assetux.com
+aist.exchange
 ```
 
 
@@ -2343,7 +2343,7 @@ P2P means you and the maker, directly.
 
 No broker taking a cut. No correspondent bank deciding whether your transfer clears. Escrow does the trust, so neither side has to front the other.
 
-assetux.com
+aist.exchange
 ```
 
 **Arabic** — `img/c/sd-ar/7.png`
@@ -2353,7 +2353,7 @@ assetux.com
 
 لا وسيط يأخذ حصة. لا بنك مراسل يقرر إن كانت حوالتك ستمر. الضمان يتكفل بالثقة، فلا يُقدّم أحد للآخر.
 
-assetux.com
+aist.exchange
 ```
 
 
@@ -2366,7 +2366,7 @@ The same USDT is worth different SDG depending on how the money moves.
 
 Cash is cheap to buy with. Instant bank transfer is expensive. The gap between the two methods is the trade.
 
-assetux.com/strategies#payment
+aist.exchange/strategies#payment
 ```
 
 **Arabic** — `img/c/sd-ar/8.png`
@@ -2376,7 +2376,7 @@ assetux.com/strategies#payment
 
 الشراء نقداً رخيص. الحوالة الفورية غالية. الفرق بين الطريقتين هو الصفقة.
 
-assetux.com/strategies#payment
+aist.exchange/strategies#payment
 ```
 
 
@@ -2394,7 +2394,7 @@ aiIRR is now trading on the AIST P2P book.
 
 One aiIRR tracks one IRR. Quote it against USDT or KGST, settle through escrow, and cash out through any payment method a maker in Iran accepts.
 
-assetux.com/market
+aist.exchange/market
 ```
 
 **Persian** — `img/c/ir-fa/1.png`
@@ -2404,7 +2404,7 @@ assetux.com/market
 
 هر aiIRR یک واحد IRR را دنبال می‌کند. آن را در برابر USDT یا KGST قیمت بگذارید، با امانی تسویه کنید، و با هر روش پرداختی که یک میکر در ایران قبول دارد برداشت کنید.
 
-assetux.com/market
+aist.exchange/market
 ```
 
 
@@ -2417,7 +2417,7 @@ BTC, USDT on five networks, KGST, ETH, SOL and aiIRR — all on one book.
 
 Pay by bank transfer, card, mobile wallet or cash. The maker names the method; escrow holds the asset until the money lands.
 
-assetux.com/market
+aist.exchange/market
 ```
 
 **Persian** — `img/c/ir-fa/2.png`
@@ -2427,7 +2427,7 @@ assetux.com/market
 
 با حواله بانکی، کارت، کیف پول موبایل یا نقدی بپردازید. میکر روش را تعیین می‌کند؛ امانی دارایی را تا رسیدن پول نگه می‌دارد.
 
-assetux.com/market
+aist.exchange/market
 ```
 
 
@@ -2440,7 +2440,7 @@ The same pair, the same minute, two makers who disagree on price.
 
 On a thin book the best ask and the best bid cross more often than they should — the maker leaves a quote up and walks away.
 
-assetux.com/strategies#spread
+aist.exchange/strategies#spread
 ```
 
 **Persian** — `img/c/ir-fa/3.png`
@@ -2450,7 +2450,7 @@ assetux.com/strategies#spread
 
 در دفتر کم‌عمق بهترین فروش و بهترین خرید بیشتر از حد انتظار همدیگر را قطع می‌کنند: میکر سفارش را می‌گذارد و می‌رود.
 
-assetux.com/strategies#spread
+aist.exchange/strategies#spread
 ```
 
 
@@ -2463,7 +2463,7 @@ You are not trading against an exchange. You are trading against another person.
 
 You pick their order, escrow locks the asset, you pay them directly, escrow releases. Four steps, nobody holding your money in between.
 
-assetux.com
+aist.exchange
 ```
 
 **Persian** — `img/c/ir-fa/4.png`
@@ -2473,7 +2473,7 @@ assetux.com
 
 سفارشش را انتخاب می‌کنید، امانی دارایی را قفل می‌کند، مستقیم به او می‌پردازید، امانی آزاد می‌کند. چهار گام، بدون اینکه کسی وسط، پول شما را نگه دارد.
 
-assetux.com
+aist.exchange
 ```
 
 
@@ -2486,7 +2486,7 @@ Share your link. They trade on the book. You earn on it.
 
 And the deeper Iran gets, the tighter the spreads for everyone quoting there — including you.
 
-assetux.com
+aist.exchange
 ```
 
 **Persian** — `img/c/ir-fa/5.png`
@@ -2496,7 +2496,7 @@ assetux.com
 
 و هرچه ایران عمیق‌تر شود، اسپردها برای همه کسانی که آنجا قیمت می‌دهند باریک‌تر می‌شود — از جمله خودتان.
 
-assetux.com
+aist.exchange
 ```
 
 
@@ -2509,7 +2509,7 @@ Every GPU in Iran that takes an AI job gets paid in aiIRR.
 
 That payout lands on a book where IRR is already quoted — so the loop from compute to local money closes without leaving the country.
 
-assetux.com
+aist.exchange
 ```
 
 **Persian** — `img/c/ir-fa/6.png`
@@ -2519,7 +2519,7 @@ assetux.com
 
 آن درآمد روی دفتری می‌نشیند که IRR از قبل در آن قیمت می‌خورد — پس حلقه از محاسبات تا پول محلی، بدون خروج از کشور بسته می‌شود.
 
-assetux.com
+aist.exchange
 ```
 
 
@@ -2532,7 +2532,7 @@ P2P means you and the maker, directly.
 
 No broker taking a cut. No correspondent bank deciding whether your transfer clears. Escrow does the trust, so neither side has to front the other.
 
-assetux.com
+aist.exchange
 ```
 
 **Persian** — `img/c/ir-fa/7.png`
@@ -2542,7 +2542,7 @@ assetux.com
 
 نه واسطه‌ای که سهم بردارد. نه بانک کارگزاری که تصمیم بگیرد حواله‌تان رد می‌شود یا نه. امانی نقش اعتماد را بازی می‌کند تا هیچ‌کس به دیگری پیش‌پرداخت ندهد.
 
-assetux.com
+aist.exchange
 ```
 
 
@@ -2555,7 +2555,7 @@ The same USDT is worth different IRR depending on how the money moves.
 
 Cash is cheap to buy with. Instant bank transfer is expensive. The gap between the two methods is the trade.
 
-assetux.com/strategies#payment
+aist.exchange/strategies#payment
 ```
 
 **Persian** — `img/c/ir-fa/8.png`
@@ -2565,5 +2565,5 @@ assetux.com/strategies#payment
 
 خرید نقدی ارزان است. حواله فوری گران است. فاصله بین این دو روش، همان معامله است.
 
-assetux.com/strategies#payment
+aist.exchange/strategies#payment
 ```

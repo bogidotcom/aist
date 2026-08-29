@@ -35,9 +35,18 @@ node serve.mjs
 rsync -av --delete --exclude-from=.rsync-exclude ./ root@203.18.98.51:/var/www/aist/
 ```
 
+Live at **https://aist.exchange** (Let's Encrypt, auto-renewing, HTTP/2, HTTP→HTTPS
+redirect). It is also the `default_server`, so an unmatched Host lands there.
+The `assetux.com` / `p2p.assetux.com` config was removed on 2026-08-29; a copy
+is at `/root/nginx-assetux-removed-*.conf` on the server.
+
+The dotfile deny below sits alongside an ACME exemption — `.well-known` starts
+with a dot, so without `location ^~ /.well-known/acme-challenge/` certbot
+renewal fails.
+
 `marketing/` holds campaign assets, not site files — `.rsync-exclude` keeps it
 off the web root. nginx routes `/`, `/market`, `/exchange` and `/strategies`;
-a new page needs a matching `location =` block in `/etc/nginx/sites-available/assetux`.
+a new page needs a matching `location =` block in `/etc/nginx/sites-available/aist.exchange`.
 
 **`.rsync-exclude` does not clean the server.** An excluded path is protected
 from `--delete` as well as from upload, so anything already on the server under

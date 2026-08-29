@@ -85,7 +85,7 @@ def card_html(spec, txt, cfg):
     <div><p class="kicker">%(K)s</p><h1 style="font-size:%(SZ)spx">%(HD)s</h1></div>
     <div>%(R)s</div>
   </div>
-  <div class="foot"><b>assetux.com</b><span>P2P compute forex</span></div>
+  <div class="foot"><b>aist.exchange</b><span>P2P compute forex</span></div>
 </div>""" % {'LOGO': LOGO_URI, 'K': txt['kicker'], 'HD': txt['head'],
              'R': right, 'SZ': size, 'SOLO': solo}
 

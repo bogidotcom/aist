@@ -290,3 +290,15 @@ table.pairs tbody tr:hover{background:var(--bg-3)}
 .opt.busy{opacity:.55;cursor:progress}
 .opt.busy .wicon{animation:pulse 1s ease-in-out infinite}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
+
+/* footer social */
+.foot-in{align-items:center}
+.foot-social{display:flex;gap:9px;align-items:center}
+.foot-social a{display:grid;place-items:center;width:34px;height:34px;border:1px solid var(--line);
+  border-radius:9px;color:var(--mute);text-decoration:none;transition:color .15s,border-color .15s,background .15s}
+.foot-social a:hover{color:var(--lime);border-color:#20502f;background:var(--bg-3)}
+.foot-social svg{width:16px;height:16px;fill:currentColor;display:block}
+.foot-api{font-family:var(--mono);font-size:12px;direction:ltr}
+@media (max-width:600px){
+  .foot-in{justify-content:center;text-align:center;gap:14px}
+}

@@ -3,180 +3,180 @@
   "id": "01",
   "kicker": "P2P COMPUTE FOREX",
   "head": "USDT in.\nCompute out.",
-  "post": "AIST P2P is live.\n\nOne book: BTC, USDT on five networks, KGST, ETH, SOL — and fiat. Bank transfer, card, mobile wallet, cash.\n\nEscrow on every trade. No SWIFT, no listing queue.\n\nassetux.com"
+  "post": "AIST P2P is live.\n\nOne book: BTC, USDT on five networks, KGST, ETH, SOL — and fiat. Bank transfer, card, mobile wallet, cash.\n\nEscrow on every trade. No SWIFT, no listing queue.\n\naist.exchange"
  },
  {
   "id": "02",
   "kicker": "NEW · STRATEGY GUIDE",
   "head": "8 ways to trade\nthe spread",
-  "post": "We wrote the guide we wanted when we started.\n\n8 P2P strategies, each with the steps, a worked example in real numbers, and the risk that actually costs money.\n\nassetux.com/strategies"
+  "post": "We wrote the guide we wanted when we started.\n\n8 P2P strategies, each with the steps, a worked example in real numbers, and the risk that actually costs money.\n\naist.exchange/strategies"
  },
  {
   "id": "03",
   "kicker": "COMPUTE PAYOUT",
   "head": "Withdraw your\ncompute earnings",
-  "post": "Your GPU takes AI jobs and gets paid in compute coins.\n\nThis is where those coins turn into something your bank, your wallet or your landlord accepts.\n\nassetux.com"
+  "post": "Your GPU takes AI jobs and gets paid in compute coins.\n\nThis is where those coins turn into something your bank, your wallet or your landlord accepts.\n\naist.exchange"
  },
  {
   "id": "04",
   "kicker": "STRATEGY 01 · BEGINNER",
   "head": "Simple spread\narbitrage",
-  "post": "The same pair, the same minute, two makers who disagree on price.\n\nOn a thin P2P book the best ask and best bid cross more often than they should — makers leave quotes up and walk away.\n\nassetux.com/strategies#spread"
+  "post": "The same pair, the same minute, two makers who disagree on price.\n\nOn a thin P2P book the best ask and best bid cross more often than they should — makers leave quotes up and walk away.\n\naist.exchange/strategies#spread"
  },
  {
   "id": "05",
   "kicker": "STRATEGY 02 · BEGINNER",
   "head": "Payment method\narbitrage",
-  "post": "The same USDT is worth different money depending on how the money moves.\n\nCash is cheap to buy with. Instant bank transfer is expensive. The gap between them is the trade.\n\nassetux.com/strategies#payment"
+  "post": "The same USDT is worth different money depending on how the money moves.\n\nCash is cheap to buy with. Instant bank transfer is expensive. The gap between them is the trade.\n\naist.exchange/strategies#payment"
  },
  {
   "id": "06",
   "kicker": "STRATEGY 03 · INTERMEDIATE",
   "head": "Cross-exchange\narbitrage",
-  "post": "KGST trades on Binance and on our book at the same time.\n\nTwo venues, two order books, one asset — and no rule that says they must agree.\n\nHold balance on both. Chasing the gap means arriving after it closes.\n\nassetux.com/strategies#cross"
+  "post": "KGST trades on Binance and on our book at the same time.\n\nTwo venues, two order books, one asset — and no rule that says they must agree.\n\nHold balance on both. Chasing the gap means arriving after it closes.\n\naist.exchange/strategies#cross"
  },
  {
   "id": "07",
   "kicker": "STRATEGY 04 · INTERMEDIATE",
   "head": "Geographic\narbitrage",
-  "post": "Stablecoins cost more where the local currency is under pressure.\n\nBishkek, Tbilisi and Addis do not price USDT the same way on the same Tuesday.\n\nassetux.com/strategies#geo"
+  "post": "Stablecoins cost more where the local currency is under pressure.\n\nBishkek, Tbilisi and Addis do not price USDT the same way on the same Tuesday.\n\naist.exchange/strategies#geo"
  },
  {
   "id": "08",
   "kicker": "STRATEGY 05 · INTERMEDIATE",
   "head": "P2P market\nmaking",
-  "post": "Stop hunting for a spread and quote one instead.\n\nYou post both sides, wait, and get paid by whoever is in a hurry. You are not calling direction — you are selling immediacy.\n\nassetux.com/strategies#mm"
+  "post": "Stop hunting for a spread and quote one instead.\n\nYou post both sides, wait, and get paid by whoever is in a hurry. You are not calling direction — you are selling immediacy.\n\naist.exchange/strategies#mm"
  },
  {
   "id": "09",
   "kicker": "STRATEGY 06 · ADVANCED",
   "head": "Inventory and\nvolatility",
-  "post": "Holding a payout for four days instead of selling it Monday is a position, whether you call it one or not.\n\nThis is the only strategy in the guide that can lose your principal rather than your spread.\n\nassetux.com/strategies#inventory"
+  "post": "Holding a payout for four days instead of selling it Monday is a position, whether you call it one or not.\n\nThis is the only strategy in the guide that can lose your principal rather than your spread.\n\naist.exchange/strategies#inventory"
  },
  {
   "id": "10",
   "kicker": "STRATEGY 07 · INTERMEDIATE",
   "head": "P2P liquidity\nproviding",
-  "post": "Market making on one pair, industrialised.\n\nCommit a float across several assets and payment methods, and treat the fills as yield on capital.\n\nassetux.com/strategies#liquidity"
+  "post": "Market making on one pair, industrialised.\n\nCommit a float across several assets and payment methods, and treat the fills as yield on capital.\n\naist.exchange/strategies#liquidity"
  },
  {
   "id": "11",
   "kicker": "STRATEGY 08 · ADVANCED",
   "head": "Triangular\narbitrage",
-  "post": "Three pairs whose prices imply a fourth that does not exist.\n\nWalk the loop. If the implied rate disagrees with the real one, you come back with more than you left with.\n\nassetux.com/strategies#triangular"
+  "post": "Three pairs whose prices imply a fourth that does not exist.\n\nWalk the loop. If the implied rate disagrees with the real one, you come back with more than you left with.\n\naist.exchange/strategies#triangular"
  },
  {
   "id": "12",
   "kicker": "RULE 01",
   "head": "Price the\nround trip",
-  "post": "A 1.4% spread looks like money until you price the whole loop.\n\nTwo on-chain fees and one bank charge can take it under zero on small size.\n\nThe spread is not the profit. The round trip is.\n\nassetux.com/strategies"
+  "post": "A 1.4% spread looks like money until you price the whole loop.\n\nTwo on-chain fees and one bank charge can take it under zero on small size.\n\nThe spread is not the profit. The round trip is.\n\naist.exchange/strategies"
  },
  {
   "id": "13",
   "kicker": "RULE 02",
   "head": "Escrow runs\n15 minutes",
-  "post": "If a leg cannot finish inside the escrow window, it is not one trade.\n\nIt is two positions.\n\nSize and plan accordingly.\n\nassetux.com/strategies"
+  "post": "If a leg cannot finish inside the escrow window, it is not one trade.\n\nIt is two positions.\n\nSize and plan accordingly.\n\naist.exchange/strategies"
  },
  {
   "id": "14",
   "kicker": "RULE 03",
   "head": "Depth beats\nprice",
-  "post": "The best quote for 200 KGST tells you nothing about where 200,000 KGST actually fills.\n\nEveryone screenshots the top of book. The fill happens somewhere else.\n\nassetux.com/strategies"
+  "post": "The best quote for 200 KGST tells you nothing about where 200,000 KGST actually fills.\n\nEveryone screenshots the top of book. The fill happens somewhere else.\n\naist.exchange/strategies"
  },
  {
   "id": "15",
   "kicker": "RULE 04",
   "head": "Keep float on\nboth sides",
-  "post": "An opportunity you have to fund first is usually gone by the time the funding lands.\n\nCapital in the wrong place is the same as no capital.\n\nassetux.com/strategies"
+  "post": "An opportunity you have to fund first is usually gone by the time the funding lands.\n\nCapital in the wrong place is the same as no capital.\n\naist.exchange/strategies"
  },
  {
   "id": "16",
   "kicker": "MAKER RISK",
   "head": "Adverse\nselection",
-  "post": "In a one-way market only your losing side gets hit.\n\nYou buy all the way down and never sell.\n\nWiden or pull the quote when the mid stops oscillating and starts trending.\n\nassetux.com/strategies#mm"
+  "post": "In a one-way market only your losing side gets hit.\n\nYou buy all the way down and never sell.\n\nWiden or pull the quote when the mid stops oscillating and starts trending.\n\naist.exchange/strategies#mm"
  },
  {
   "id": "17",
   "kicker": "MAKER RISK",
   "head": "Idle float is\nthe real cost",
-  "post": "Escrow ties capital up while an order is live.\n\nA book full of your quotes can look busy while most of your money earns nothing.\n\nMeasure return on the whole float, not on the fill.\n\nassetux.com/strategies#liquidity"
+  "post": "Escrow ties capital up while an order is live.\n\nA book full of your quotes can look busy while most of your money earns nothing.\n\nMeasure return on the whole float, not on the fill.\n\naist.exchange/strategies#liquidity"
  },
  {
   "id": "18",
   "kicker": "TRIANGLE RISK",
   "head": "Leg three is\nthe thin one",
-  "post": "Compute-coin books are shallow.\n\nThe rate you multiplied by is often not the rate you get — and the position you are left holding is the hardest one to exit.\n\nMost paper triangles die on leg three.\n\nassetux.com/strategies#triangular"
+  "post": "Compute-coin books are shallow.\n\nThe rate you multiplied by is often not the rate you get — and the position you are left holding is the hardest one to exit.\n\nMost paper triangles die on leg three.\n\naist.exchange/strategies#triangular"
  },
  {
   "id": "19",
   "kicker": "RAILS",
   "head": "USDT on\nfive networks",
-  "post": "Pick the network at the ticket, not at the pair.\n\nTRC20 for cheap settlement. ERC20 when the counterparty insists. BEP20, TON or SOL when the fee matters more than the habit.\n\nassetux.com"
+  "post": "Pick the network at the ticket, not at the pair.\n\nTRC20 for cheap settlement. ERC20 when the counterparty insists. BEP20, TON or SOL when the fee matters more than the habit.\n\naist.exchange"
  },
  {
   "id": "20",
   "kicker": "RAILS",
   "head": "Bitcoin",
-  "post": "Deepest liquidity of any quote on the book.\n\nThe maker posts a receiving address, you send from any wallet, and escrow holds the base side until it lands.\n\nassetux.com"
+  "post": "Deepest liquidity of any quote on the book.\n\nThe maker posts a receiving address, you send from any wallet, and escrow holds the base side until it lands.\n\naist.exchange"
  },
  {
   "id": "21",
   "kicker": "THE RAIL",
   "head": "KGST",
-  "post": "Already listed on Binance, so its price is not ours to invent.\n\nEvery compute coin quotes against it — which is exactly what makes the triangle trades work.\n\nassetux.com"
+  "post": "Already listed on Binance, so its price is not ours to invent.\n\nEvery compute coin quotes against it — which is exactly what makes the triangle trades work.\n\naist.exchange"
  },
  {
   "id": "22",
   "kicker": "RAILS",
   "head": "Fiat methods",
-  "post": "Bank transfer, card-to-card, mobile wallet, cash in person.\n\nThe maker names the method and the window. Escrow only releases once you confirm the money landed.\n\nassetux.com"
+  "post": "Bank transfer, card-to-card, mobile wallet, cash in person.\n\nThe maker names the method and the window. Escrow only releases once you confirm the money landed.\n\naist.exchange"
  },
  {
   "id": "23",
   "kicker": "RAILS",
   "head": "ETH and SOL",
-  "post": "Native ETH straight out of MetaMask — the UI builds the transaction, you sign it.\n\nConnect Phantom on Solana to autofill your receive address. Sub-cent fees make small, frequent arbitrage legs viable.\n\nassetux.com"
+  "post": "Native ETH straight out of MetaMask — the UI builds the transaction, you sign it.\n\nConnect Phantom on Solana to autofill your receive address. Sub-cent fees make small, frequent arbitrage legs viable.\n\naist.exchange"
  },
  {
   "id": "24",
   "kicker": "MINERS",
   "head": "Cash out weekly,\nnot eventually",
-  "post": "No minimum payout. No listing queue. No SWIFT.\n\nA miner earning 4,000 KGST a week cashes out weekly instead of waiting for a threshold that never quite arrives.\n\nassetux.com"
+  "post": "No minimum payout. No listing queue. No SWIFT.\n\nA miner earning 4,000 KGST a week cashes out weekly instead of waiting for a threshold that never quite arrives.\n\naist.exchange"
  },
  {
   "id": "25",
   "kicker": "MINERS",
   "head": "Three steps from\nGPU to bank",
-  "post": "Run the jobs — your node settles AI compute work in KGST or a regional compute coin.\n\nList the payout on the P2P book at your own price.\n\nTake it out in USDT, BTC, ETH, SOL or fiat.\n\nassetux.com"
+  "post": "Run the jobs — your node settles AI compute work in KGST or a regional compute coin.\n\nList the payout on the P2P book at your own price.\n\nTake it out in USDT, BTC, ETH, SOL or fiat.\n\naist.exchange"
  },
  {
   "id": "26",
   "kicker": "MINERS",
   "head": "Minimum payout",
-  "post": "Zero.\n\nNo threshold to reach, no queue to join, no wire to explain to a compliance desk.\n\nYou earned it, you list it, you take it out.\n\nassetux.com"
+  "post": "Zero.\n\nNo threshold to reach, no queue to join, no wire to explain to a compliance desk.\n\nYou earned it, you list it, you take it out.\n\naist.exchange"
  },
  {
   "id": "27",
   "kicker": "COMPUTE COINS",
   "head": "What your node\nreally pays you",
-  "post": "KGST is the rail. aiGEL, aiETB and aiBTN are the regional compute coins.\n\nNothing to claim, nothing to unstake — finished work settles straight into the asset.\n\nassetux.com"
+  "post": "KGST is the rail. aiGEL, aiETB and aiBTN are the regional compute coins.\n\nNothing to claim, nothing to unstake — finished work settles straight into the asset.\n\naist.exchange"
  },
  {
   "id": "28",
   "kicker": "P2P LIQUIDITY",
   "head": "Be the book,\nnot the taker",
-  "post": "Every taker who wants out right now pays someone for the privilege.\n\nProvide the float that lets them, and that payment is your yield — earned on inventory you were holding anyway.\n\nassetux.com/strategies#liquidity"
+  "post": "Every taker who wants out right now pays someone for the privilege.\n\nProvide the float that lets them, and that payment is your yield — earned on inventory you were holding anyway.\n\naist.exchange/strategies#liquidity"
  },
  {
   "id": "29",
   "kicker": "P2P LIQUIDITY",
   "head": "Where the edge\nactually is",
-  "post": "Thin pairs pay the widest edge and fill slowly.\n\nKGST-USDT pays the least and fills constantly.\n\nSplit your float across methods and let the fills come to you.\n\nassetux.com/strategies#liquidity"
+  "post": "Thin pairs pay the widest edge and fill slowly.\n\nKGST-USDT pays the least and fills constantly.\n\nSplit your float across methods and let the fills come to you.\n\naist.exchange/strategies#liquidity"
  },
  {
   "id": "30",
   "kicker": "ESCROW",
   "head": "You never front\na stranger",
-  "post": "The base side locks the moment an order is selected, and stays locked for 15 minutes.\n\nMaking a market on a P2P book does not mean extending credit on good faith.\n\nassetux.com/strategies"
+  "post": "The base side locks the moment an order is selected, and stays locked for 15 minutes.\n\nMaking a market on a P2P book does not mean extending credit on good faith.\n\naist.exchange/strategies"
  }
 ]

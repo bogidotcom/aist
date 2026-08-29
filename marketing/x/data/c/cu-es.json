@@ -3,48 +3,48 @@
   "id": "1",
   "kicker": "NUEVO · Cuba",
   "head": "aiCUP ya está\nen el libro",
-  "post": "aiCUP ya se opera en el libro P2P de AIST.\n\nUn aiCUP sigue a un CUP. Cotízalo contra USDT o KGST, liquida por escrow y cobra con cualquier método que acepte un maker en Cuba.\n\nassetux.com/market"
+  "post": "aiCUP ya se opera en el libro P2P de AIST.\n\nUn aiCUP sigue a un CUP. Cotízalo contra USDT o KGST, liquida por escrow y cobra con cualquier método que acepte un maker en Cuba.\n\naist.exchange/market"
  },
  {
   "id": "2",
   "kicker": "Cuba · P2P",
   "head": "Opera P2P\nen Cuba",
-  "post": "BTC, USDT en cinco redes, KGST, ETH, SOL y aiCUP — todo en un solo libro.\n\nPaga por transferencia, tarjeta, billetera móvil o efectivo. El maker define el método; el escrow retiene el activo hasta que llega el dinero.\n\nassetux.com/market"
+  "post": "BTC, USDT en cinco redes, KGST, ETH, SOL y aiCUP — todo en un solo libro.\n\nPaga por transferencia, tarjeta, billetera móvil o efectivo. El maker define el método; el escrow retiene el activo hasta que llega el dinero.\n\naist.exchange/market"
  },
  {
   "id": "3",
   "kicker": "ESTRATEGIA · Cuba",
   "head": "Arbitraje de\nspread simple",
-  "post": "El mismo par, el mismo minuto, dos makers que no coinciden en el precio.\n\nEn un libro delgado el mejor ask y el mejor bid se cruzan más de lo que deberían: el maker deja la orden puesta y se va.\n\nassetux.com/strategies#spread"
+  "post": "El mismo par, el mismo minuto, dos makers que no coinciden en el precio.\n\nEn un libro delgado el mejor ask y el mejor bid se cruzan más de lo que deberían: el maker deja la orden puesta y se va.\n\naist.exchange/strategies#spread"
  },
  {
   "id": "4",
   "kicker": "BÁSICOS",
   "head": "¿Qué es el\ntrading P2P?",
-  "post": "No operas contra un exchange. Operas contra otra persona.\n\nEliges su orden, el escrow bloquea el activo, le pagas directo, el escrow libera. Cuatro pasos, sin nadie reteniendo tu dinero en el medio.\n\nassetux.com"
+  "post": "No operas contra un exchange. Operas contra otra persona.\n\nEliges su orden, el escrow bloquea el activo, le pagas directo, el escrow libera. Cuatro pasos, sin nadie reteniendo tu dinero en el medio.\n\naist.exchange"
  },
  {
   "id": "5",
   "kicker": "REFERIDOS",
   "head": "Trae un trader,\ngana con eso",
-  "post": "Comparte tu enlace. Ellos operan en el libro. Tú ganas con eso.\n\nY mientras más profundo se pone Cuba, más ajustados quedan los spreads para todos los que cotizan ahí — incluido tú.\n\nassetux.com"
+  "post": "Comparte tu enlace. Ellos operan en el libro. Tú ganas con eso.\n\nY mientras más profundo se pone Cuba, más ajustados quedan los spreads para todos los que cotizan ahí — incluido tú.\n\naist.exchange"
  },
  {
   "id": "6",
   "kicker": "COMUNIDAD · Cuba",
   "head": "Cuba corre\ncómputo de IA",
-  "post": "Cada GPU en Cuba que toma un trabajo de IA cobra en aiCUP.\n\nEse pago cae en un libro donde el CUP ya cotiza, así que el ciclo de cómputo a moneda local cierra sin salir del país.\n\nassetux.com"
+  "post": "Cada GPU en Cuba que toma un trabajo de IA cobra en aiCUP.\n\nEse pago cae en un libro donde el CUP ya cotiza, así que el ciclo de cómputo a moneda local cierra sin salir del país.\n\naist.exchange"
  },
  {
   "id": "7",
   "kicker": "POR QUÉ P2P",
   "head": "Sin bróker.\nSin giro.",
-  "post": "P2P significa tú y el maker, directo.\n\nSin bróker llevándose una parte. Sin banco corresponsal decidiendo si pasa tu transferencia. El escrow pone la confianza, así ninguno adelanta al otro.\n\nassetux.com"
+  "post": "P2P significa tú y el maker, directo.\n\nSin bróker llevándose una parte. Sin banco corresponsal decidiendo si pasa tu transferencia. El escrow pone la confianza, así ninguno adelanta al otro.\n\naist.exchange"
  },
  {
   "id": "8",
   "kicker": "ESTRATEGIA · Cuba",
   "head": "Arbitraje de\nmétodo de pago",
-  "post": "El mismo USDT vale distintos CUP según cómo se mueva el dinero.\n\nComprar con efectivo sale barato. La transferencia instantánea sale cara. La diferencia entre los dos métodos es la operación.\n\nassetux.com/strategies#payment"
+  "post": "El mismo USDT vale distintos CUP según cómo se mueva el dinero.\n\nComprar con efectivo sale barato. La transferencia instantánea sale cara. La diferencia entre los dos métodos es la operación.\n\naist.exchange/strategies#payment"
  }
 ]
