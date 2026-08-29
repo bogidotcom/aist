@@ -39,6 +39,19 @@ rsync -av --delete --exclude-from=.rsync-exclude ./ root@203.18.98.51:/var/www/a
 off the web root. nginx routes `/`, `/market`, `/exchange` and `/strategies`;
 a new page needs a matching `location =` block in `/etc/nginx/sites-available/assetux`.
 
+**`.rsync-exclude` does not clean the server.** An excluded path is protected
+from `--delete` as well as from upload, so anything already on the server under
+one of those names stays there. That is how a `.git` from the original deploy
+clone sat in the web root serving the whole history to scanners until
+2026-08-29. nginx now refuses every dotfile:
+
+```nginx
+location ~ /\. { deny all; access_log off; log_not_found off; return 404; }
+```
+
+Present in both TLS server blocks. Keep it there, and check `ls -a` on the web
+root after any deploy that changes the exclude list.
+
 Default API: `http://127.0.0.1:3456` on localhost, otherwise `https://miner.iamai.kg`.
 Change it with the gear control or `?api=http://127.0.0.1:3456`.
 
