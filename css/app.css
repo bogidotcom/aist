@@ -302,3 +302,29 @@ table.pairs tbody tr:hover{background:var(--bg-3)}
 @media (max-width:600px){
   .foot-in{justify-content:center;text-align:center;gap:14px}
 }
+
+/* ---- remote signer pairing ---- */
+.pair-indicator{margin:0 0 10px;display:flex;justify-content:flex-end;min-height:30px}
+.btn-sm{padding:7px 12px;font-size:13px}
+.pair-chip{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:12px;
+  border:1px solid #20502f;background:var(--bg-2);border-radius:999px;padding:6px 8px 6px 12px;color:var(--ink)}
+.pair-dot{width:7px;height:7px;border-radius:50%;background:var(--lime);flex:0 0 7px}
+.pair-x{border:0;background:transparent;color:var(--faint);cursor:pointer;font-size:16px;line-height:1;padding:0 4px}
+.pair-x:hover{color:var(--ask)}
+.pair-qr{display:grid;place-items:center;padding:16px;background:var(--bg-2);border:1px solid var(--line);border-radius:14px}
+.pair-qr canvas{display:block;image-rendering:pixelated;border-radius:6px}
+.pair-link{background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:10px 12px;margin-top:6px}
+.pair-link code{font-family:var(--mono);font-size:11px;word-break:break-all;color:var(--mute);direction:ltr;display:block}
+.pair-warn{color:var(--gold);margin-top:10px}
+
+/* trade state, driven only by the node */
+.trade-state{display:flex;align-items:center;gap:10px;margin-top:10px;padding:10px 12px;
+  background:var(--bg);border:1px solid var(--line);border-radius:10px}
+.ts-dot{width:9px;height:9px;border-radius:50%;flex:0 0 9px;background:var(--faint)}
+.ts-selected{background:var(--gold)}
+.ts-payment_sent{background:#6ea8ff}
+.ts-completed{background:var(--lime)}
+.ts-cancelled,.ts-expired{background:var(--faint)}
+.ts-disputed{background:var(--ask)}
+.ts-label{font-weight:600;font-size:14px}
+.ts-id{margin-inline-start:auto;font-family:var(--mono);font-size:11px;color:var(--faint)}

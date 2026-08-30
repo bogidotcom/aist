@@ -281,7 +281,11 @@
     const connected = AistWallets.address(giveFam) || AistWallets.address(getFam);
     // The maker's method must be the same rail we are about to send on.
     const netMismatch = !!(pay && pay.network && give && pay.network !== give);
-    const sentRec = sentFor(selected && selected.id);
+    const paired = AistPairing.status();
+    const me = paired.address || null;
+    const tr = liveTrade && liveTrade.trade;
+    const trOrder = liveTrade && liveTrade.order;
+    const next = tr ? AistP2P.nextAction(tr, trOrder, me) : null;
     const recvDefault = (['evm', 'tron', 'sol', 'ton', 'btc'].includes(getFam) && AistWallets.address(getFam)) || '';
 
     els.ticket.innerHTML = `
@@ -315,11 +319,24 @@
           ${connected ? `<p class="hint">${AistUI.t('wal.connected')}: ${connected}</p>` : ''}
           ${netMismatch ? `<p class="err">${AistUI.t('err.netMismatch').replace('{net}', pay.network).replace('{give}', give)}</p>` : ''}
           <p class="hint" data-i18n="ex.manual">${AistUI.t('ex.manual')}</p>
-          <div class="row-btns" style="margin-top:8px">
-            <button class="btn btn-ghost" id="mark-sent" ${sentRec ? 'disabled' : ''}>${AistUI.t(sentRec ? 'ex.markedSent' : 'ex.markSent')}</button>
-          </div>
-          <p class="hint" id="sent-note"></p>
-          ${sentRec ? `<p class="hint" data-i18n="ex.finishEscrow">${AistUI.t('ex.finishEscrow')}</p>` : ''}
+          ${tr ? `
+            <div class="trade-state">
+              <span class="ts-dot ts-${tr.status}"></span>
+              <span class="ts-label">${AistP2P.stateLabel(tr.status)}</span>
+              <span class="ts-id">${tr.id.slice(0, 8)}</span>
+            </div>
+            <div class="row-btns" style="margin-top:10px">
+              ${next === 'payment-sent' ? `<button class="btn btn-lime" id="act-paid">${AistUI.t('ex.confirmPaid')}</button>` : ''}
+              ${next === 'release' ? `<button class="btn btn-lime" id="act-release">${AistUI.t('ex.release')}</button>` : ''}
+              ${(tr.status === 'selected' || tr.status === 'payment_sent') ? `
+                <button class="btn btn-ghost" id="act-dispute">${AistUI.t('ex.dispute')}</button>` : ''}
+            </div>` : `
+            <div class="row-btns" style="margin-top:8px">
+              <button class="btn btn-lime" id="act-take" ${!selected ? 'disabled' : ''}>${AistUI.t('ex.takeOrder')}</button>
+            </div>`}
+          <p class="hint" id="trade-note">${paired.state === 'paired'
+            ? AistUI.t('ex.signingAs').replace('{a}', paired.address.slice(0, 12) + '…')
+            : AistUI.t('ex.needSigner')}</p>
         </div>` : `
         <p class="hint">${selected ? AistUI.t('ex.onchain') : AistUI.t('ex.pickOrder')}</p>
         ${selected ? `<p class="hint" data-i18n="ex.locked">${AistUI.t('ex.locked')}</p>` : ''}
@@ -334,13 +351,40 @@
     });
     document.getElementById('connect-btn')?.addEventListener('click', () => openWalletModal(giveFam === 'other' ? getFam : giveFam));
     document.getElementById('send-btn')?.addEventListener('click', () => sendPay(giveFam, give, pay && pay.address));
-    if (sentRec) renderSent(document.getElementById('sent-note'), sentRec);
-    document.getElementById('mark-sent')?.addEventListener('click', () => {
-      markSent(selected && selected.id, {
-        ticker: give, amount: document.getElementById('amt')?.value,
-        to: pay && pay.address, via: 'manual',
+    const note = () => document.getElementById('trade-note');
+    async function act(fn, args) {
+      const el = note();
+      if (!AistPairing.isLive()) {
+        const ok = await AistPairUI.connect();
+        if (!ok) return;
+      }
+      if (el) el.textContent = AistUI.t('ex.approveOnSigner');
+      try {
+        const res = await fn(args);
+        const id = res.trade?.id || args.tradeId;
+        await refreshTrade(id);
+        if (note()) note().textContent = '';
+      } catch (e) {
+        if (el) el.textContent = signerError(e);
+      }
+    }
+
+    document.getElementById('act-take')?.addEventListener('click', () => {
+      if (!selected) return;
+      act(AistP2P.selectOrder, {
+        orderId: selected.id,
+        daiAmount: selected.daiAmount,
+        quoteAmount: Number(document.getElementById('amt')?.value || selected.quoteAmount),
+        order: selected,
       });
-      renderTicket();
+    });
+    document.getElementById('act-paid')?.addEventListener('click', () =>
+      act(AistP2P.markPaymentSent, { tradeId: tr.id, trade: tr, order: trOrder }));
+    document.getElementById('act-release')?.addEventListener('click', () =>
+      act(AistP2P.releaseTrade, { tradeId: tr.id, trade: tr, order: trOrder }));
+    document.getElementById('act-dispute')?.addEventListener('click', () => {
+      const reason = prompt(AistUI.t('ex.disputeReason'));
+      if (reason) act(AistP2P.disputeTrade, { tradeId: tr.id, reason });
     });
   }
 
@@ -425,36 +469,42 @@
   }
 
 
-  /* The node exposes no "I have paid" endpoint, so this is a local record: it
-     timestamps the transfer for the trader and counts down the escrow window.
-     It does not notify the maker — escrow is still finished in the DAI wallet. */
-  const SENT_KEY = 'aist_sent';
-  function sentLog() {
-    try { return JSON.parse(localStorage.getItem(SENT_KEY) || '{}'); } catch { return {}; }
+  /* Trade state comes from the node and nowhere else.
+     The previous version wrote an "I've sent it" flag to localStorage and told
+     the user the maker had been notified. Nothing left the browser: the trade
+     never transitioned, escrow never released, and a buyer could send real fiat
+     against a trade the seller never saw. GET /api/p2p/trades/:id is the only
+     authority here. */
+  let liveTrade = null;      // { trade, order } from the node
+  let tradePoll = null;
+
+  function stopTradePoll() {
+    if (tradePoll) { clearTimeout(tradePoll); tradePoll = null; }
   }
-  function markSent(orderId, info) {
-    if (!orderId) return;
-    const all = sentLog();
-    all[orderId] = Object.assign({ at: Date.now() }, info);
-    try { localStorage.setItem(SENT_KEY, JSON.stringify(all)); } catch {}
+
+  async function refreshTrade(tradeId, { loop = true } = {}) {
+    if (!tradeId) return null;
+    try {
+      const res = await AistP2P.getTrade(tradeId);
+      liveTrade = res;
+      renderTicket();
+      const terminal = ['completed', 'cancelled', 'expired'].includes(res.trade?.status);
+      if (loop && !terminal) {
+        stopTradePoll();
+        tradePoll = setTimeout(() => refreshTrade(tradeId), 5000);
+      }
+      return res;
+    } catch { return null; }
   }
-  function sentFor(orderId) {
-    return orderId ? (sentLog()[orderId] || null) : null;
-  }
-  function renderSent(el, rec) {
-    if (!el || !rec) return;
-    const tick = () => {
-      const left = Math.max(0, 15 * 60 * 1000 - (Date.now() - rec.at));
-      const mm = String(Math.floor(left / 60000)).padStart(2, '0');
-      const ss = String(Math.floor((left % 60000) / 1000)).padStart(2, '0');
-      const when = new Date(rec.at).toLocaleTimeString();
-      el.textContent = AistUI.t('ex.sentAt').replace('{time}', when)
-        + (left > 0 ? ' · ' + AistUI.t('ex.escrowLeft').replace('{clock}', mm + ':' + ss)
-                    : ' · ' + AistUI.t('ex.escrowOver'));
-      if (left > 0) el._t = setTimeout(tick, 1000);
-    };
-    clearTimeout(el._t);
-    tick();
+
+  function signerError(e) {
+    const m = (e && e.message) || '';
+    if (m === 'rejected') return AistUI.t('ex.signerRejected');
+    if (m === 'timeout') return AistUI.t('ex.signerTimeout');
+    if (m === 'revoked') return AistUI.t('ex.signerRevoked');
+    if (m === 'no-session') return AistUI.t('ex.needSigner');
+    if (m === 'address-mismatch') return AistUI.t('ex.signerMismatch');
+    return AistUI.t('err.send') + (m ? ' · ' + m : '');
   }
 
   function evmError(e) {
@@ -483,7 +533,8 @@
       if (!AistWallets.address(family)) await AistWallets.connect(family);
       const tx = await AistWallets.send(family, ticker, to, amt);
       const hash = typeof tx === 'string' ? tx : (tx && (tx.txid || tx.hash)) || '';
-      markSent(selected && selected.id, { tx: hash, ticker, amount: amt, to, via: 'wallet' });
+      // An on-chain send is not a trade transition. The node only learns of it
+      // when the payer signs payment-sent, which is a separate, explicit step.
       status.textContent = AistUI.t('ex.sentOk') + (hash ? ' · ' + hash : '');
       renderTicket();
     } catch (e) {
@@ -496,4 +547,6 @@
 
   load();
   initPairPicker();
+  AistPairUI.mountIndicator(document.getElementById('pair-indicator'));
+  AistPairing.onChange(() => renderTicket());
 })();
