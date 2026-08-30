@@ -354,9 +354,14 @@
     const note = () => document.getElementById('trade-note');
     async function act(fn, args) {
       const el = note();
+      // aist:// connect-wallet prompt — disabled.
+      // if (!AistPairing.isLive()) {
+      //   const ok = await AistPairUI.connect();
+      //   if (!ok) return;
+      // }
       if (!AistPairing.isLive()) {
-        const ok = await AistPairUI.connect();
-        if (!ok) return;
+        if (el) el.textContent = AistUI.t('ex.needSigner');
+        return;
       }
       if (el) el.textContent = AistUI.t('ex.approveOnSigner');
       try {
@@ -547,6 +552,7 @@
 
   load();
   initPairPicker();
-  AistPairUI.mountIndicator(document.getElementById('pair-indicator'));
-  AistPairing.onChange(() => renderTicket());
+  // aist:// "Connect signer" chip — disabled.
+  // AistPairUI.mountIndicator(document.getElementById('pair-indicator'));
+  // AistPairing.onChange(() => renderTicket());
 })();

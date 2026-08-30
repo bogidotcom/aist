@@ -60,7 +60,9 @@
 
   /** Open the pairing modal and resolve true once a signer is attached. */
   async function connect() {
-    if (AistPairing.isLive()) return true;
+    // aist:// connect-wallet flow (QR + deep link) is commented out.
+    return false;
+    /* if (AistPairing.isLive()) return true;
     const { uri, waitForSigner } = AistPairing.begin();
     renderPairing(uri);
 
@@ -91,12 +93,15 @@
       }
       resolveConnect = null;
       return false;
-    }
+    } */
   }
 
   /** Small header control: shows the paired address and allows revoking it. */
   function mountIndicator(host) {
-    if (!host) return;
+    // aist:// "Connect signer" button — disabled.
+    if (host) host.innerHTML = '';
+    return;
+    /* if (!host) return;
     const draw = () => {
       const st = AistPairing.status();
       if (st.state !== 'paired') {
@@ -115,6 +120,7 @@
     };
     draw();
     AistPairing.onChange(draw);
+    */
   }
 
   global.AistPairUI = { connect, mountIndicator };

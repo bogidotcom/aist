@@ -159,9 +159,11 @@
       expiresAt: Date.now() + HELLO_TIMEOUT_MS,
       abort: new AbortController(),
     };
-    session.uri = 'aist://pair?' + new URLSearchParams({
-      v: String(PROTOCOL), relay, topic, k: b64.enc(kp.publicKey),
-    }).toString();
+    // aist:// connect-wallet URI — disabled for now (QR / deep-link to the DAI signer).
+    // session.uri = 'aist://pair?' + new URLSearchParams({
+    //   v: String(PROTOCOL), relay, topic, k: b64.enc(kp.publicKey),
+    // }).toString();
+    session.uri = '';
     emit();
     return { uri: session.uri, topic, waitForSigner: waitForSigner() };
   }
