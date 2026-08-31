@@ -12,7 +12,57 @@ img/c/<cc>-<lang>/N.png   country cards
 ```
 
 Regenerate: `python3 countries.py && python3 gen.py <langs>` then
-`python3 gen.py country <cc>:<lang> …` and `python3 export.py`.
+`python3 gen.py country <cc>:<lang> …`, `python3 export.py` and `python3 plan.py`.
+
+## The plan page
+
+`plan.py` builds a single page with every post laid out next to its card, a copy
+button on each one, a language filter and a search box.
+
+| File | What it is |
+|---|---|
+| [`index.html`](index.html) | The plan, opened straight off disk — images come from `img/`. `xdg-open index.html` |
+| `web.html` | The same page, self-contained: every card inlined as a small WebP, ~3.8 MB, one file to send or host |
+| `build/artifact.html` | The body of `web.html` without the `<html>` skeleton — what gets published |
+
+Published copy, readable in a browser (and by the Claude Chrome extension):
+**<https://claude.ai/code/artifact/8d736b0b-c557-4972-ac12-4ee91336b26f>**
+
+```bash
+python3 plan.py            # index.html + web.html + build/artifact.html
+python3 plan.py --local    # index.html only, skips the thumbnail pass
+```
+
+Thumbnails are cached in `build/thumbs/`, so a rebuild after a copy edit is
+instant; only cards whose PNG actually changed are re-encoded. Republish by
+handing `build/artifact.html` back to the Artifact tool with that URL.
+
+## Hashtags
+
+Every post ends with `#p2p`. A post that is actually going out also carries the
+countries it targets — the global set tags every campaign country that speaks its
+language, a country post tags its own country:
+
+```
+es → #Venezuela #Paraguay #Cuba      ur → #Pakistan
+ar → #Egypt #Iraq #Libya #Sudan      bn → #Bangladesh
+pt → #Angola                         am → #Ethiopia
+fa → #Iran                           ky → #Kyrgyzstan
+```
+
+English is review copy and carries `#p2p` alone — both the global English set and
+the fourteen English country masters. Bhutan is the exception: English is the
+language it posts in, so its set carries `#p2p #Bhutan`.
+
+Arabic, Persian and Urdu posts carry a left-to-right mark (U+200E) in front of
+the tag line. Without it the leading `#` is a neutral at the start of an RTL
+line, so bidi paints it at the far end and `#p2p #Egypt #Iraq #Libya #Sudan`
+reads as `p2p #Egypt #Iraq #Libya #Sudan#` — on the page and in the tweet. The
+mark is invisible and costs one character.
+
+The tags are appended in `export.py` (`tags()` / `tagged()`), so they land in
+`posts.json`, `posts.csv` and the two markdown files but never on the rendered
+cards. Change the rule there and re-run `python3 export.py && python3 plan.py`.
 
 ## Global set — 30 posts
 
@@ -94,4 +144,5 @@ Fonts: Sora / DM Sans / IBM Plex Mono for Latin, Noto Sans Arabic (Arabic,
 Persian), Noto Nastaliq Urdu, Noto Sans Bengali, Noto Sans Ethiopic, Noto Sans
 for Kyrgyz Cyrillic.
 
-All 426 posts are under 280 characters, so none of them need X Premium.
+All 426 posts are under 280 characters with their hashtags included, so none of
+them need X Premium. `export.py` prints anything that crosses the limit.

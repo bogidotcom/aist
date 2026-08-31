@@ -17,6 +17,8 @@ One book: BTC, USDT on five networks, KGST, ETH, SOL — and fiat. Bank transfer
 Escrow on every trade. No SWIFT, no listing queue.
 
 aist.exchange
+
+#p2p
 ```
 
 **Spanish** — `img/es/01.png`
@@ -29,6 +31,8 @@ Un solo libro: BTC, USDT en cinco redes, KGST, ETH, SOL — y fiat. Transferenci
 Escrow en cada operación. Sin SWIFT.
 
 aist.exchange
+
+#p2p #Venezuela #Paraguay #Cuba
 ```
 
 **Portuguese** — `img/pt/01.png`
@@ -41,6 +45,8 @@ Um único livro: BTC, USDT em cinco redes, KGST, ETH, SOL — e fiat. Transferê
 Escrow em toda operação. Sem SWIFT.
 
 aist.exchange
+
+#p2p #Angola
 ```
 
 **Arabic** — `img/ar/01.png`
@@ -53,6 +59,8 @@ aist.exchange
 ضمان في كل صفقة. بدون SWIFT.
 
 aist.exchange
+
+‎#p2p #Egypt #Iraq #Libya #Sudan
 ```
 
 **Persian** — `img/fa/01.png`
@@ -65,6 +73,8 @@ aist.exchange
 امانی روی هر معامله. بدون SWIFT.
 
 aist.exchange
+
+‎#p2p #Iran
 ```
 
 **Urdu** — `img/ur/01.png`
@@ -77,6 +87,8 @@ aist.exchange
 ہر ٹریڈ پر ایسکرو۔ SWIFT کے بغیر۔
 
 aist.exchange
+
+‎#p2p #Pakistan
 ```
 
 **Bengali** — `img/bn/01.png`
@@ -89,6 +101,8 @@ AIST P2P এখন লাইভ।
 প্রতি ট্রেডে এসক্রো। SWIFT ছাড়াই।
 
 aist.exchange
+
+#p2p #Bangladesh
 ```
 
 
@@ -104,6 +118,8 @@ We wrote the guide we wanted when we started.
 8 P2P strategies, each with the steps, a worked example in real numbers, and the risk that actually costs money.
 
 aist.exchange/strategies
+
+#p2p
 ```
 
 **Spanish** — `img/es/02.png`
@@ -114,6 +130,8 @@ Escribimos la guía que nos hubiera servido al empezar.
 8 estrategias P2P, cada una con los pasos, un ejemplo resuelto en números reales y el riesgo que de verdad cuesta dinero.
 
 aist.exchange/strategies
+
+#p2p #Venezuela #Paraguay #Cuba
 ```
 
 **Portuguese** — `img/pt/02.png`
@@ -124,6 +142,8 @@ Escrevemos o guia que queríamos ter quando começamos.
 8 estratégias P2P, cada uma com os passos, um exemplo resolvido em números reais e o risco que realmente custa dinheiro.
 
 aist.exchange/strategies
+
+#p2p #Angola
 ```
 
 **Arabic** — `img/ar/02.png`
@@ -134,6 +154,8 @@ aist.exchange/strategies
 ٨ استراتيجيات P2P، كل واحدة بخطواتها ومثال محلول بأرقام حقيقية والمخاطرة التي تكلّف مالاً فعلاً.
 
 aist.exchange/strategies
+
+‎#p2p #Egypt #Iraq #Libya #Sudan
 ```
 
 **Persian** — `img/fa/02.png`
@@ -144,6 +166,8 @@ aist.exchange/strategies
 ۸ استراتژی P2P، هرکدام با گام‌ها، یک مثال حل‌شده با اعداد واقعی، و ریسکی که واقعاً پول می‌برد.
 
 aist.exchange/strategies
+
+‎#p2p #Iran
 ```
 
 **Urdu** — `img/ur/02.png`
@@ -154,6 +178,8 @@ aist.exchange/strategies
 ۸ P2P حکمتِ عملیاں، ہر ایک کے ساتھ مراحل، اصل اعداد میں حل شدہ مثال، اور وہ خطرہ جو واقعی پیسے لے جاتا ہے۔
 
 aist.exchange/strategies
+
+‎#p2p #Pakistan
 ```
 
 **Bengali** — `img/bn/02.png`
@@ -164,6 +190,8 @@ aist.exchange/strategies
 ৮টি P2P কৌশল, প্রতিটিতে ধাপ, বাস্তব সংখ্যায় সমাধান করা উদাহরণ, আর যে ঝুঁকিটা আসলেই টাকা নিয়ে যায়।
 
 aist.exchange/strategies
+
+#p2p #Bangladesh
 ```
 
 
@@ -179,6 +207,8 @@ Your GPU takes AI jobs and gets paid in compute coins.
 This is where those coins turn into something your bank, your wallet or your landlord accepts.
 
 aist.exchange
+
+#p2p
 ```
 
 **Spanish** — `img/es/03.png`
@@ -189,6 +219,8 @@ Tu GPU procesa trabajos de IA y cobra en compute coins.
 Aquí es donde esas monedas se convierten en algo que tu banco, tu billetera o tu casero aceptan.
 
 aist.exchange
+
+#p2p #Venezuela #Paraguay #Cuba
 ```
 
 **Portuguese** — `img/pt/03.png`
@@ -199,6 +231,8 @@ Sua GPU processa tarefas de IA e recebe em compute coins.
 É aqui que essas moedas viram algo que seu banco, sua carteira ou seu locador aceitam.
 
 aist.exchange
+
+#p2p #Angola
 ```
 
 **Arabic** — `img/ar/03.png`
@@ -209,6 +243,8 @@ aist.exchange
 هنا تتحول تلك العملات إلى شيء يقبله بنكك أو محفظتك أو صاحب البيت.
 
 aist.exchange
+
+‎#p2p #Egypt #Iraq #Libya #Sudan
 ```
 
 **Persian** — `img/fa/03.png`
@@ -219,6 +255,8 @@ aist.exchange
 اینجا همان جایی است که آن کوین‌ها به چیزی تبدیل می‌شوند که بانک یا صاحبخانه‌تان قبول دارد.
 
 aist.exchange
+
+‎#p2p #Iran
 ```
 
 **Urdu** — `img/ur/03.png`
@@ -229,6 +267,8 @@ aist.exchange
 یہیں وہ کوائنز اُس چیز میں بدلتے ہیں جو آپ کا بینک، والٹ یا مالک مکان قبول کرتا ہے۔
 
 aist.exchange
+
+‎#p2p #Pakistan
 ```
 
 **Bengali** — `img/bn/03.png`
@@ -239,6 +279,8 @@ aist.exchange
 এখানেই সেই কয়েন এমন কিছুতে বদলায় যা আপনার ব্যাংক, ওয়ালেট বা বাড়িওয়ালা নেয়।
 
 aist.exchange
+
+#p2p #Bangladesh
 ```
 
 
@@ -254,6 +296,8 @@ The same pair, the same minute, two makers who disagree on price.
 On a thin P2P book the best ask and best bid cross more often than they should — makers leave quotes up and walk away.
 
 aist.exchange/strategies#spread
+
+#p2p
 ```
 
 **Spanish** — `img/es/04.png`
@@ -264,6 +308,8 @@ El mismo par, el mismo minuto, dos makers que no coinciden en el precio.
 En un libro P2P delgado el mejor ask y el mejor bid se cruzan más de lo que deberían: el maker deja la orden puesta y se va.
 
 aist.exchange/strategies#spread
+
+#p2p #Venezuela #Paraguay #Cuba
 ```
 
 **Portuguese** — `img/pt/04.png`
@@ -274,6 +320,8 @@ O mesmo par, o mesmo minuto, dois makers que discordam no preço.
 Num livro P2P raso o melhor ask e o melhor bid se cruzam mais do que deveriam: o maker deixa a ordem e vai embora.
 
 aist.exchange/strategies#spread
+
+#p2p #Angola
 ```
 
 **Arabic** — `img/ar/04.png`
@@ -284,6 +332,8 @@ aist.exchange/strategies#spread
 في دفتر P2P ضحل يتقاطع أفضل عرض بيع مع أفضل عرض شراء أكثر مما ينبغي: الصانع يترك أمره ويمضي.
 
 aist.exchange/strategies#spread
+
+‎#p2p #Egypt #Iraq #Libya #Sudan
 ```
 
 **Persian** — `img/fa/04.png`
@@ -294,6 +344,8 @@ aist.exchange/strategies#spread
 در دفتر کم‌عمق P2P بهترین فروش و بهترین خرید بیشتر از حد انتظار همدیگر را قطع می‌کنند: میکر سفارش را می‌گذارد و می‌رود.
 
 aist.exchange/strategies#spread
+
+‎#p2p #Iran
 ```
 
 **Urdu** — `img/ur/04.png`
@@ -304,6 +356,8 @@ aist.exchange/strategies#spread
 پتلی P2P بُک میں بہترین ask اور bid توقع سے زیادہ کراس ہوتے ہیں: میکر آرڈر لگا کر چلا جاتا ہے۔
 
 aist.exchange/strategies#spread
+
+‎#p2p #Pakistan
 ```
 
 **Bengali** — `img/bn/04.png`
@@ -314,6 +368,8 @@ aist.exchange/strategies#spread
 পাতলা P2P বুকে সেরা ask আর সেরা bid যতটা হওয়ার কথা তার চেয়ে বেশি ক্রস করে: মেকার অর্ডার রেখে চলে যায়।
 
 aist.exchange/strategies#spread
+
+#p2p #Bangladesh
 ```
 
 
@@ -329,6 +385,8 @@ The same USDT is worth different money depending on how the money moves.
 Cash is cheap to buy with. Instant bank transfer is expensive. The gap between them is the trade.
 
 aist.exchange/strategies#payment
+
+#p2p
 ```
 
 **Spanish** — `img/es/05.png`
@@ -339,6 +397,8 @@ El mismo USDT vale distinto según cómo se mueve el dinero.
 Comprar con efectivo sale barato. La transferencia instantánea sale cara. La diferencia entre las dos es la operación.
 
 aist.exchange/strategies#payment
+
+#p2p #Venezuela #Paraguay #Cuba
 ```
 
 **Portuguese** — `img/pt/05.png`
@@ -349,6 +409,8 @@ O mesmo USDT vale valores diferentes conforme o dinheiro se move.
 Comprar em dinheiro sai barato. Transferência instantânea sai caro. A diferença entre os dois é a operação.
 
 aist.exchange/strategies#payment
+
+#p2p #Angola
 ```
 
 **Arabic** — `img/ar/05.png`
@@ -359,6 +421,8 @@ aist.exchange/strategies#payment
 الشراء نقداً رخيص. الحوالة الفورية غالية. الفرق بينهما هو الصفقة.
 
 aist.exchange/strategies#payment
+
+‎#p2p #Egypt #Iraq #Libya #Sudan
 ```
 
 **Persian** — `img/fa/05.png`
@@ -369,6 +433,8 @@ aist.exchange/strategies#payment
 خرید نقدی ارزان است. حواله فوری گران است. فاصله بین این دو همان معامله است.
 
 aist.exchange/strategies#payment
+
+‎#p2p #Iran
 ```
 
 **Urdu** — `img/ur/05.png`
@@ -379,6 +445,8 @@ aist.exchange/strategies#payment
 نقد سے خریدنا سستا ہے۔ فوری بینک ٹرانسفر مہنگی ہے۔ دونوں کا فرق ہی ٹریڈ ہے۔
 
 aist.exchange/strategies#payment
+
+‎#p2p #Pakistan
 ```
 
 **Bengali** — `img/bn/05.png`
@@ -389,6 +457,8 @@ aist.exchange/strategies#payment
 নগদে কেনা সস্তা। ইনস্ট্যান্ট ব্যাংক ট্রান্সফার দামি। এই দুইয়ের ফারাকটাই ট্রেড।
 
 aist.exchange/strategies#payment
+
+#p2p #Bangladesh
 ```
 
 
@@ -406,6 +476,8 @@ Two venues, two order books, one asset — and no rule that says they must agree
 Hold balance on both. Chasing the gap means arriving after it closes.
 
 aist.exchange/strategies#cross
+
+#p2p
 ```
 
 **Spanish** — `img/es/06.png`
@@ -418,6 +490,8 @@ Dos plazas, dos libros, un activo — y ninguna regla que los obligue a coincidi
 Ten saldo en ambas: perseguir el hueco es llegar tarde.
 
 aist.exchange/strategies#cross
+
+#p2p #Venezuela #Paraguay #Cuba
 ```
 
 **Portuguese** — `img/pt/06.png`
@@ -430,6 +504,8 @@ Duas praças, dois livros, um ativo — e nenhuma regra dizendo que precisam con
 Mantenha saldo nas duas: correr atrás do gap é chegar tarde.
 
 aist.exchange/strategies#cross
+
+#p2p #Angola
 ```
 
 **Arabic** — `img/ar/06.png`
@@ -442,6 +518,8 @@ aist.exchange/strategies#cross
 احتفظ برصيد على الاثنين: مطاردة الفجوة تعني الوصول متأخراً.
 
 aist.exchange/strategies#cross
+
+‎#p2p #Egypt #Iraq #Libya #Sudan
 ```
 
 **Persian** — `img/fa/06.png`
@@ -454,6 +532,8 @@ aist.exchange/strategies#cross
 روی هر دو موجودی نگه دارید: دنبال شکاف دویدن یعنی دیر رسیدن.
 
 aist.exchange/strategies#cross
+
+‎#p2p #Iran
 ```
 
 **Urdu** — `img/ur/06.png`
@@ -466,6 +546,8 @@ aist.exchange/strategies#cross
 دونوں پر بیلنس رکھیں: فرق کے پیچھے بھاگنا یعنی دیر سے پہنچنا۔
 
 aist.exchange/strategies#cross
+
+‎#p2p #Pakistan
 ```
 
 **Bengali** — `img/bn/06.png`
@@ -478,6 +560,8 @@ KGST একই সময়ে Binance আর আমাদের বুক—দ
 দুই জায়গাতেই ব্যালান্স রাখুন: গ্যাপের পিছে ছোটা মানে দেরিতে পৌঁছানো।
 
 aist.exchange/strategies#cross
+
+#p2p #Bangladesh
 ```
 
 
@@ -493,6 +577,8 @@ Stablecoins cost more where the local currency is under pressure.
 Bishkek, Tbilisi and Addis do not price USDT the same way on the same Tuesday.
 
 aist.exchange/strategies#geo
+
+#p2p
 ```
 
 **Spanish** — `img/es/07.png`
@@ -503,6 +589,8 @@ Las stablecoins cuestan más donde la moneda local está bajo presión.
 Bishkek, Tiflis y Adís Abeba no le ponen el mismo precio al USDT el mismo martes.
 
 aist.exchange/strategies#geo
+
+#p2p #Venezuela #Paraguay #Cuba
 ```
 
 **Portuguese** — `img/pt/07.png`
@@ -513,6 +601,8 @@ Stablecoins custam mais onde a moeda local está sob pressão.
 Bishkek, Tbilisi e Adis Abeba não precificam o USDT do mesmo jeito na mesma terça-feira.
 
 aist.exchange/strategies#geo
+
+#p2p #Angola
 ```
 
 **Arabic** — `img/ar/07.png`
@@ -523,6 +613,8 @@ aist.exchange/strategies#geo
 بيشكيك وتبليسي وأديس أبابا لا تسعّر الـUSDT بنفس الطريقة في نفس الثلاثاء.
 
 aist.exchange/strategies#geo
+
+‎#p2p #Egypt #Iraq #Libya #Sudan
 ```
 
 **Persian** — `img/fa/07.png`
@@ -533,6 +625,8 @@ aist.exchange/strategies#geo
 بیشکک، تفلیس و آدیس‌آبابا در یک سه‌شنبه واحد USDT را یکسان قیمت نمی‌گذارند.
 
 aist.exchange/strategies#geo
+
+‎#p2p #Iran
 ```
 
 **Urdu** — `img/ur/07.png`
@@ -543,6 +637,8 @@ aist.exchange/strategies#geo
 بشکیک، تبلیسی اور عدیس ابابا ایک ہی منگل کو USDT کی قیمت ایک جیسی نہیں لگاتے۔
 
 aist.exchange/strategies#geo
+
+‎#p2p #Pakistan
 ```
 
 **Bengali** — `img/bn/07.png`
@@ -553,6 +649,8 @@ aist.exchange/strategies#geo
 বিশকেক, তিবিলিসি আর আদ্দিস আবাবা একই মঙ্গলবারে USDT-র দাম এক রকম দেয় না।
 
 aist.exchange/strategies#geo
+
+#p2p #Bangladesh
 ```
 
 
@@ -568,6 +666,8 @@ Stop hunting for a spread and quote one instead.
 You post both sides, wait, and get paid by whoever is in a hurry. You are not calling direction — you are selling immediacy.
 
 aist.exchange/strategies#mm
+
+#p2p
 ```
 
 **Spanish** — `img/es/08.png`
@@ -578,6 +678,8 @@ Deja de buscar el spread y cotízalo tú.
 Pones las dos puntas, esperas, y te paga quien tiene prisa. No estás apostando dirección: estás vendiendo inmediatez.
 
 aist.exchange/strategies#mm
+
+#p2p #Venezuela #Paraguay #Cuba
 ```
 
 **Portuguese** — `img/pt/08.png`
@@ -588,6 +690,8 @@ Pare de caçar o spread e cote você mesmo.
 Você coloca as duas pontas, espera, e quem está com pressa te paga. Você não está apostando direção: está vendendo imediatismo.
 
 aist.exchange/strategies#mm
+
+#p2p #Angola
 ```
 
 **Arabic** — `img/ar/08.png`
@@ -598,6 +702,8 @@ aist.exchange/strategies#mm
 تضع الجانبين، تنتظر، ويدفع لك من هو في عجلة. أنت لا تراهن على الاتجاه — أنت تبيع الفورية.
 
 aist.exchange/strategies#mm
+
+‎#p2p #Egypt #Iraq #Libya #Sudan
 ```
 
 **Persian** — `img/fa/08.png`
@@ -608,6 +714,8 @@ aist.exchange/strategies#mm
 هر دو سمت را می‌گذارید، صبر می‌کنید، و هرکس عجله دارد به شما پول می‌دهد. شما جهت را حدس نمی‌زنید — فوریت می‌فروشید.
 
 aist.exchange/strategies#mm
+
+‎#p2p #Iran
 ```
 
 **Urdu** — `img/ur/08.png`
@@ -618,6 +726,8 @@ aist.exchange/strategies#mm
 آپ دونوں طرف آرڈر رکھتے ہیں، انتظار کرتے ہیں، اور جسے جلدی ہے وہ آپ کو ادا کرتا ہے۔ آپ سمت کا اندازہ نہیں لگا رہے — آپ فوری دستیابی بیچ رہے ہیں۔
 
 aist.exchange/strategies#mm
+
+‎#p2p #Pakistan
 ```
 
 **Bengali** — `img/bn/08.png`
@@ -628,6 +738,8 @@ aist.exchange/strategies#mm
 দুই দিকেই অর্ডার রাখেন, অপেক্ষা করেন, আর যার তাড়া আছে সে আপনাকে দেয়। আপনি দিক আন্দাজ করছেন না — তাৎক্ষণিকতা বিক্রি করছেন।
 
 aist.exchange/strategies#mm
+
+#p2p #Bangladesh
 ```
 
 
@@ -643,6 +755,8 @@ Holding a payout for four days instead of selling it Monday is a position, wheth
 This is the only strategy in the guide that can lose your principal rather than your spread.
 
 aist.exchange/strategies#inventory
+
+#p2p
 ```
 
 **Spanish** — `img/es/09.png`
@@ -653,6 +767,8 @@ Aguantar un cobro cuatro días en vez de venderlo el lunes es una posición, la 
 Es la única estrategia de la guía que puede costarte el principal, no el spread.
 
 aist.exchange/strategies#inventory
+
+#p2p #Venezuela #Paraguay #Cuba
 ```
 
 **Portuguese** — `img/pt/09.png`
@@ -663,6 +779,8 @@ Segurar um pagamento por quatro dias em vez de vender na segunda é uma posiçã
 É a única estratégia do guia que pode custar o principal, não o spread.
 
 aist.exchange/strategies#inventory
+
+#p2p #Angola
 ```
 
 **Arabic** — `img/ar/09.png`
@@ -673,6 +791,8 @@ aist.exchange/strategies#inventory
 هي الاستراتيجية الوحيدة في الدليل التي قد تكلّفك رأس المال لا الفارق.
 
 aist.exchange/strategies#inventory
+
+‎#p2p #Egypt #Iraq #Libya #Sudan
 ```
 
 **Persian** — `img/fa/09.png`
@@ -683,6 +803,8 @@ aist.exchange/strategies#inventory
 تنها استراتژی راهنماست که می‌تواند اصل سرمایه را ببرد، نه اسپرد را.
 
 aist.exchange/strategies#inventory
+
+‎#p2p #Iran
 ```
 
 **Urdu** — `img/ur/09.png`
@@ -693,6 +815,8 @@ aist.exchange/strategies#inventory
 گائیڈ میں یہی واحد حکمتِ عملی ہے جو سپریڈ نہیں، اصل رقم لے جا سکتی ہے۔
 
 aist.exchange/strategies#inventory
+
+‎#p2p #Pakistan
 ```
 
 **Bengali** — `img/bn/09.png`
@@ -703,6 +827,8 @@ aist.exchange/strategies#inventory
 গাইডের এটাই একমাত্র কৌশল যা স্প্রেড নয়, মূলধন কেড়ে নিতে পারে।
 
 aist.exchange/strategies#inventory
+
+#p2p #Bangladesh
 ```
 
 
@@ -718,6 +844,8 @@ Market making on one pair, industrialised.
 Commit a float across several assets and payment methods, and treat the fills as yield on capital.
 
 aist.exchange/strategies#liquidity
+
+#p2p
 ```
 
 **Spanish** — `img/es/10.png`
@@ -728,6 +856,8 @@ Market making en un par, pero industrializado.
 Comprometes un float en varios activos y métodos de pago, y tratas las ejecuciones como rendimiento sobre capital.
 
 aist.exchange/strategies#liquidity
+
+#p2p #Venezuela #Paraguay #Cuba
 ```
 
 **Portuguese** — `img/pt/10.png`
@@ -738,6 +868,8 @@ Market making num par, mas industrializado.
 Você aloca um float em vários ativos e métodos de pagamento e trata as execuções como rendimento sobre capital.
 
 aist.exchange/strategies#liquidity
+
+#p2p #Angola
 ```
 
 **Arabic** — `img/ar/10.png`
@@ -748,6 +880,8 @@ aist.exchange/strategies#liquidity
 تخصّص رأس مال عبر عدة أصول وطرق دفع، وتتعامل مع التنفيذات كعائد على رأس المال.
 
 aist.exchange/strategies#liquidity
+
+‎#p2p #Egypt #Iraq #Libya #Sudan
 ```
 
 **Persian** — `img/fa/10.png`
@@ -758,6 +892,8 @@ aist.exchange/strategies#liquidity
 سرمایه‌ای را روی چند دارایی و چند روش پرداخت اختصاص می‌دهید و پرشدن سفارش‌ها را بازده سرمایه می‌بینید.
 
 aist.exchange/strategies#liquidity
+
+‎#p2p #Iran
 ```
 
 **Urdu** — `img/ur/10.png`
@@ -768,6 +904,8 @@ aist.exchange/strategies#liquidity
 آپ کئی اثاثوں اور ادائیگی کے طریقوں پر سرمایہ لگاتے ہیں اور بھرنے والے آرڈرز کو سرمائے پر منافع سمجھتے ہیں۔
 
 aist.exchange/strategies#liquidity
+
+‎#p2p #Pakistan
 ```
 
 **Bengali** — `img/bn/10.png`
@@ -778,6 +916,8 @@ aist.exchange/strategies#liquidity
 কয়েকটি অ্যাসেট আর পেমেন্ট মেথডে পুঁজি ছড়িয়ে দেন, আর ফিলগুলোকে পুঁজির রিটার্ন হিসেবে দেখেন।
 
 aist.exchange/strategies#liquidity
+
+#p2p #Bangladesh
 ```
 
 
@@ -793,6 +933,8 @@ Three pairs whose prices imply a fourth that does not exist.
 Walk the loop. If the implied rate disagrees with the real one, you come back with more than you left with.
 
 aist.exchange/strategies#triangular
+
+#p2p
 ```
 
 **Spanish** — `img/es/11.png`
@@ -803,6 +945,8 @@ Tres pares cuyos precios implican un cuarto que no existe.
 Recorre el ciclo. Si la tasa implícita no coincide con la real, vuelves con más de lo que saliste.
 
 aist.exchange/strategies#triangular
+
+#p2p #Venezuela #Paraguay #Cuba
 ```
 
 **Portuguese** — `img/pt/11.png`
@@ -813,6 +957,8 @@ Três pares cujos preços implicam um quarto que não existe.
 Percorra o ciclo. Se a taxa implícita discorda da real, você volta com mais do que saiu.
 
 aist.exchange/strategies#triangular
+
+#p2p #Angola
 ```
 
 **Arabic** — `img/ar/11.png`
@@ -823,6 +969,8 @@ aist.exchange/strategies#triangular
 امشِ الدورة كاملة. إذا اختلف السعر الضمني عن الحقيقي، تعود بأكثر مما بدأت.
 
 aist.exchange/strategies#triangular
+
+‎#p2p #Egypt #Iraq #Libya #Sudan
 ```
 
 **Persian** — `img/fa/11.png`
@@ -833,6 +981,8 @@ aist.exchange/strategies#triangular
 حلقه را کامل طی کنید. اگر نرخ ضمنی با نرخ واقعی نخواند، با بیشتر از آنچه رفتید برمی‌گردید.
 
 aist.exchange/strategies#triangular
+
+‎#p2p #Iran
 ```
 
 **Urdu** — `img/ur/11.png`
@@ -843,6 +993,8 @@ aist.exchange/strategies#triangular
 پورا چکر مکمل کریں۔ اگر ظاہری شرح اصل سے نہ ملے تو آپ گئے سے زیادہ لے کر لوٹتے ہیں۔
 
 aist.exchange/strategies#triangular
+
+‎#p2p #Pakistan
 ```
 
 **Bengali** — `img/bn/11.png`
@@ -853,6 +1005,8 @@ aist.exchange/strategies#triangular
 পুরো চক্রটা ঘুরুন। অনুমিত রেট আসলটার সাথে না মিললে যা নিয়ে বেরিয়েছিলেন তার বেশি নিয়ে ফেরেন।
 
 aist.exchange/strategies#triangular
+
+#p2p #Bangladesh
 ```
 
 
@@ -870,6 +1024,8 @@ Two on-chain fees and one bank charge can take it under zero on small size.
 The spread is not the profit. The round trip is.
 
 aist.exchange/strategies
+
+#p2p
 ```
 
 **Spanish** — `img/es/12.png`
@@ -882,6 +1038,8 @@ Dos comisiones on-chain y un cargo bancario lo pueden dejar bajo cero en tamaño
 El spread no es la ganancia. El ciclo sí.
 
 aist.exchange/strategies
+
+#p2p #Venezuela #Paraguay #Cuba
 ```
 
 **Portuguese** — `img/pt/12.png`
@@ -894,6 +1052,8 @@ Duas taxas on-chain e uma tarifa bancária podem levar isso abaixo de zero em ta
 O spread não é o lucro. O ciclo é.
 
 aist.exchange/strategies
+
+#p2p #Angola
 ```
 
 **Arabic** — `img/ar/12.png`
@@ -906,6 +1066,8 @@ aist.exchange/strategies
 الفارق ليس الربح. الدورة هي الربح.
 
 aist.exchange/strategies
+
+‎#p2p #Egypt #Iraq #Libya #Sudan
 ```
 
 **Persian** — `img/fa/12.png`
@@ -918,6 +1080,8 @@ aist.exchange/strategies
 اسپرد سود نیست. چرخه سود است.
 
 aist.exchange/strategies
+
+‎#p2p #Iran
 ```
 
 **Urdu** — `img/ur/12.png`
@@ -930,6 +1094,8 @@ aist.exchange/strategies
 سپریڈ منافع نہیں۔ چکر منافع ہے۔
 
 aist.exchange/strategies
+
+‎#p2p #Pakistan
 ```
 
 **Bengali** — `img/bn/12.png`
@@ -942,6 +1108,8 @@ aist.exchange/strategies
 স্প্রেড লাভ নয়। চক্রটাই লাভ।
 
 aist.exchange/strategies
+
+#p2p #Bangladesh
 ```
 
 
@@ -959,6 +1127,8 @@ It is two positions.
 Size and plan accordingly.
 
 aist.exchange/strategies
+
+#p2p
 ```
 
 **Spanish** — `img/es/13.png`
@@ -971,6 +1141,8 @@ Son dos posiciones.
 Dimensiona y planifica en consecuencia.
 
 aist.exchange/strategies
+
+#p2p #Venezuela #Paraguay #Cuba
 ```
 
 **Portuguese** — `img/pt/13.png`
@@ -983,6 +1155,8 @@ São duas posições.
 Dimensione e planeje de acordo.
 
 aist.exchange/strategies
+
+#p2p #Angola
 ```
 
 **Arabic** — `img/ar/13.png`
@@ -995,6 +1169,8 @@ aist.exchange/strategies
 حدّد الحجم وخطّط على هذا الأساس.
 
 aist.exchange/strategies
+
+‎#p2p #Egypt #Iraq #Libya #Sudan
 ```
 
 **Persian** — `img/fa/13.png`
@@ -1007,6 +1183,8 @@ aist.exchange/strategies
 حجم و برنامه را بر همین اساس ببندید.
 
 aist.exchange/strategies
+
+‎#p2p #Iran
 ```
 
 **Urdu** — `img/ur/13.png`
@@ -1019,6 +1197,8 @@ aist.exchange/strategies
 حجم اور منصوبہ اسی حساب سے رکھیں۔
 
 aist.exchange/strategies
+
+‎#p2p #Pakistan
 ```
 
 **Bengali** — `img/bn/13.png`
@@ -1031,6 +1211,8 @@ aist.exchange/strategies
 সাইজ আর পরিকল্পনা সেভাবেই করুন।
 
 aist.exchange/strategies
+
+#p2p #Bangladesh
 ```
 
 
@@ -1046,6 +1228,8 @@ The best quote for 200 KGST tells you nothing about where 200,000 KGST actually 
 Everyone screenshots the top of book. The fill happens somewhere else.
 
 aist.exchange/strategies
+
+#p2p
 ```
 
 **Spanish** — `img/es/14.png`
@@ -1056,6 +1240,8 @@ La mejor cotización para 200 KGST no te dice nada sobre dónde se ejecutan 200.
 Todos capturan el tope del libro. La ejecución ocurre en otro sitio.
 
 aist.exchange/strategies
+
+#p2p #Venezuela #Paraguay #Cuba
 ```
 
 **Portuguese** — `img/pt/14.png`
@@ -1066,6 +1252,8 @@ A melhor cotação para 200 KGST não diz nada sobre onde 200.000 KGST realmente
 Todo mundo printa o topo do livro. A execução acontece em outro lugar.
 
 aist.exchange/strategies
+
+#p2p #Angola
 ```
 
 **Arabic** — `img/ar/14.png`
@@ -1076,6 +1264,8 @@ aist.exchange/strategies
 الجميع يصوّر قمة الدفتر. التنفيذ يحدث في مكان آخر.
 
 aist.exchange/strategies
+
+‎#p2p #Egypt #Iraq #Libya #Sudan
 ```
 
 **Persian** — `img/fa/14.png`
@@ -1086,6 +1276,8 @@ aist.exchange/strategies
 همه از سر دفتر اسکرین‌شات می‌گیرند. پرشدن جای دیگری اتفاق می‌افتد.
 
 aist.exchange/strategies
+
+‎#p2p #Iran
 ```
 
 **Urdu** — `img/ur/14.png`
@@ -1096,6 +1288,8 @@ aist.exchange/strategies
 سب بُک کا اوپری حصہ دکھاتے ہیں۔ آرڈر کہیں اور بھرتا ہے۔
 
 aist.exchange/strategies
+
+‎#p2p #Pakistan
 ```
 
 **Bengali** — `img/bn/14.png`
@@ -1106,6 +1300,8 @@ aist.exchange/strategies
 সবাই বুকের উপরটা স্ক্রিনশট নেয়। ফিল হয় অন্য কোথাও।
 
 aist.exchange/strategies
+
+#p2p #Bangladesh
 ```
 
 
@@ -1121,6 +1317,8 @@ An opportunity you have to fund first is usually gone by the time the funding la
 Capital in the wrong place is the same as no capital.
 
 aist.exchange/strategies
+
+#p2p
 ```
 
 **Spanish** — `img/es/15.png`
@@ -1131,6 +1329,8 @@ Una oportunidad que primero tienes que fondear suele desaparecer antes de que ll
 Capital en el lugar equivocado es lo mismo que no tener capital.
 
 aist.exchange/strategies
+
+#p2p #Venezuela #Paraguay #Cuba
 ```
 
 **Portuguese** — `img/pt/15.png`
@@ -1141,6 +1341,8 @@ Uma oportunidade que você precisa financiar primeiro geralmente some antes de o
 Capital no lugar errado é o mesmo que capital nenhum.
 
 aist.exchange/strategies
+
+#p2p #Angola
 ```
 
 **Arabic** — `img/ar/15.png`
@@ -1151,6 +1353,8 @@ aist.exchange/strategies
 رأس مال في المكان الخطأ يساوي لا رأس مال.
 
 aist.exchange/strategies
+
+‎#p2p #Egypt #Iraq #Libya #Sudan
 ```
 
 **Persian** — `img/fa/15.png`
@@ -1161,6 +1365,8 @@ aist.exchange/strategies
 سرمایه در جای اشتباه، مساوی است با نداشتن سرمایه.
 
 aist.exchange/strategies
+
+‎#p2p #Iran
 ```
 
 **Urdu** — `img/ur/15.png`
@@ -1171,6 +1377,8 @@ aist.exchange/strategies
 غلط جگہ پڑا سرمایہ اور نہ ہونا برابر ہے۔
 
 aist.exchange/strategies
+
+‎#p2p #Pakistan
 ```
 
 **Bengali** — `img/bn/15.png`
@@ -1181,6 +1389,8 @@ aist.exchange/strategies
 ভুল জায়গায় পড়ে থাকা পুঁজি আর পুঁজি না থাকা এক কথা।
 
 aist.exchange/strategies
+
+#p2p #Bangladesh
 ```
 
 
@@ -1198,6 +1408,8 @@ You buy all the way down and never sell.
 Widen or pull the quote when the mid stops oscillating and starts trending.
 
 aist.exchange/strategies#mm
+
+#p2p
 ```
 
 **Spanish** — `img/es/16.png`
@@ -1210,6 +1422,8 @@ Compras todo el camino hacia abajo y nunca vendes.
 Abre o retira la cotización cuando el mid deja de oscilar y arranca en tendencia.
 
 aist.exchange/strategies#mm
+
+#p2p #Venezuela #Paraguay #Cuba
 ```
 
 **Portuguese** — `img/pt/16.png`
@@ -1222,6 +1436,8 @@ Você compra o caminho inteiro para baixo e nunca vende.
 Abra ou retire a cotação quando o mid parar de oscilar e virar tendência.
 
 aist.exchange/strategies#mm
+
+#p2p #Angola
 ```
 
 **Arabic** — `img/ar/16.png`
@@ -1234,6 +1450,8 @@ aist.exchange/strategies#mm
 وسّع السعر أو اسحبه حين يتوقف المنتصف عن التذبذب ويبدأ الاتجاه.
 
 aist.exchange/strategies#mm
+
+‎#p2p #Egypt #Iraq #Libya #Sudan
 ```
 
 **Persian** — `img/fa/16.png`
@@ -1246,6 +1464,8 @@ aist.exchange/strategies#mm
 وقتی میانه از نوسان افتاد و روند گرفت، قیمت را بازتر کنید یا بردارید.
 
 aist.exchange/strategies#mm
+
+‎#p2p #Iran
 ```
 
 **Urdu** — `img/ur/16.png`
@@ -1258,6 +1478,8 @@ aist.exchange/strategies#mm
 جب درمیانی قیمت جھولنا چھوڑ کر رجحان پکڑ لے تو قیمت کھولیں یا ہٹا لیں۔
 
 aist.exchange/strategies#mm
+
+‎#p2p #Pakistan
 ```
 
 **Bengali** — `img/bn/16.png`
@@ -1270,6 +1492,8 @@ aist.exchange/strategies#mm
 মিড যখন দুলতে বন্ধ করে ট্রেন্ড ধরে, দর চওড়া করুন বা তুলে নিন।
 
 aist.exchange/strategies#mm
+
+#p2p #Bangladesh
 ```
 
 
@@ -1287,6 +1511,8 @@ A book full of your quotes can look busy while most of your money earns nothing.
 Measure return on the whole float, not on the fill.
 
 aist.exchange/strategies#liquidity
+
+#p2p
 ```
 
 **Spanish** — `img/es/17.png`
@@ -1299,6 +1525,8 @@ Un libro lleno de tus órdenes puede parecer activo mientras la mayor parte de t
 Mide el retorno sobre todo el float.
 
 aist.exchange/strategies#liquidity
+
+#p2p #Venezuela #Paraguay #Cuba
 ```
 
 **Portuguese** — `img/pt/17.png`
@@ -1311,6 +1539,8 @@ Um livro cheio das suas ordens pode parecer movimentado enquanto a maior parte d
 Meça o retorno sobre o float inteiro.
 
 aist.exchange/strategies#liquidity
+
+#p2p #Angola
 ```
 
 **Arabic** — `img/ar/17.png`
@@ -1323,6 +1553,8 @@ aist.exchange/strategies#liquidity
 قِس العائد على رأس المال كله.
 
 aist.exchange/strategies#liquidity
+
+‎#p2p #Egypt #Iraq #Libya #Sudan
 ```
 
 **Persian** — `img/fa/17.png`
@@ -1335,6 +1567,8 @@ aist.exchange/strategies#liquidity
 بازده را روی کل سرمایه بسنجید.
 
 aist.exchange/strategies#liquidity
+
+‎#p2p #Iran
 ```
 
 **Urdu** — `img/ur/17.png`
@@ -1347,6 +1581,8 @@ aist.exchange/strategies#liquidity
 منافع پورے سرمائے پر ناپیں۔
 
 aist.exchange/strategies#liquidity
+
+‎#p2p #Pakistan
 ```
 
 **Bengali** — `img/bn/17.png`
@@ -1359,6 +1595,8 @@ aist.exchange/strategies#liquidity
 রিটার্ন মাপুন পুরো পুঁজির উপর।
 
 aist.exchange/strategies#liquidity
+
+#p2p #Bangladesh
 ```
 
 
@@ -1376,6 +1614,8 @@ The rate you multiplied by is often not the rate you get — and the position yo
 Most paper triangles die on leg three.
 
 aist.exchange/strategies#triangular
+
+#p2p
 ```
 
 **Spanish** — `img/es/18.png`
@@ -1386,6 +1626,8 @@ Los libros de compute coins son poco profundos.
 La tasa por la que multiplicaste no suele ser la que consigues, y la posición que te queda es la más difícil de soltar.
 
 aist.exchange/strategies#triangular
+
+#p2p #Venezuela #Paraguay #Cuba
 ```
 
 **Portuguese** — `img/pt/18.png`
@@ -1396,6 +1638,8 @@ Os livros de compute coins são rasos.
 A taxa pela qual você multiplicou muitas vezes não é a que você consegue — e a posição que sobra é a mais difícil de sair.
 
 aist.exchange/strategies#triangular
+
+#p2p #Angola
 ```
 
 **Arabic** — `img/ar/18.png`
@@ -1406,6 +1650,8 @@ aist.exchange/strategies#triangular
 السعر الذي ضربت به غالباً ليس السعر الذي تحصل عليه — والمركز الذي يبقى معك هو الأصعب في الخروج.
 
 aist.exchange/strategies#triangular
+
+‎#p2p #Egypt #Iraq #Libya #Sudan
 ```
 
 **Persian** — `img/fa/18.png`
@@ -1416,6 +1662,8 @@ aist.exchange/strategies#triangular
 نرخی که در آن ضرب کردید اغلب نرخی نیست که می‌گیرید — و پوزیشنی که برایتان می‌ماند سخت‌ترین برای خروج است.
 
 aist.exchange/strategies#triangular
+
+‎#p2p #Iran
 ```
 
 **Urdu** — `img/ur/18.png`
@@ -1426,6 +1674,8 @@ aist.exchange/strategies#triangular
 جس شرح سے آپ نے ضرب دی وہ اکثر وہ نہیں ہوتی جو ملتی ہے — اور جو پوزیشن بچ جاتی ہے، اُس سے نکلنا سب سے مشکل ہے۔
 
 aist.exchange/strategies#triangular
+
+‎#p2p #Pakistan
 ```
 
 **Bengali** — `img/bn/18.png`
@@ -1436,6 +1686,8 @@ aist.exchange/strategies#triangular
 যে রেট দিয়ে গুণ করেছেন সেটা প্রায়ই পাওয়া রেট নয় — আর যে পজিশনটা হাতে থেকে যায়, সেটা থেকে বেরোনোই সবচেয়ে কঠিন।
 
 aist.exchange/strategies#triangular
+
+#p2p #Bangladesh
 ```
 
 
@@ -1451,6 +1703,8 @@ Pick the network at the ticket, not at the pair.
 TRC20 for cheap settlement. ERC20 when the counterparty insists. BEP20, TON or SOL when the fee matters more than the habit.
 
 aist.exchange
+
+#p2p
 ```
 
 **Spanish** — `img/es/19.png`
@@ -1461,6 +1715,8 @@ Elige la red en el ticket, no en el par.
 TRC20 para liquidar barato. ERC20 cuando la contraparte insiste. BEP20, TON o SOL cuando la comisión pesa más que la costumbre.
 
 aist.exchange
+
+#p2p #Venezuela #Paraguay #Cuba
 ```
 
 **Portuguese** — `img/pt/19.png`
@@ -1471,6 +1727,8 @@ Escolha a rede no ticket, não no par.
 TRC20 para liquidar barato. ERC20 quando a contraparte insiste. BEP20, TON ou SOL quando a taxa pesa mais que o hábito.
 
 aist.exchange
+
+#p2p #Angola
 ```
 
 **Arabic** — `img/ar/19.png`
@@ -1481,6 +1739,8 @@ aist.exchange
 ‏TRC20 للتسوية الرخيصة. ERC20 حين يصرّ الطرف الآخر. BEP20 أو TON أو SOL حين تكون الرسوم أهم من العادة.
 
 aist.exchange
+
+‎#p2p #Egypt #Iraq #Libya #Sudan
 ```
 
 **Persian** — `img/fa/19.png`
@@ -1491,6 +1751,8 @@ aist.exchange
 ‏TRC20 برای تسویه ارزان. ERC20 وقتی طرف مقابل اصرار دارد. BEP20، TON یا SOL وقتی کارمزد از عادت مهم‌تر است.
 
 aist.exchange
+
+‎#p2p #Iran
 ```
 
 **Urdu** — `img/ur/19.png`
@@ -1501,6 +1763,8 @@ aist.exchange
 سستی سیٹلمنٹ کے لیے TRC20۔ فریقِ ثانی کے اصرار پر ERC20۔ فیس عادت سے زیادہ اہم ہو تو BEP20، TON یا SOL۔
 
 aist.exchange
+
+‎#p2p #Pakistan
 ```
 
 **Bengali** — `img/bn/19.png`
@@ -1511,6 +1775,8 @@ aist.exchange
 সস্তা সেটলমেন্টে TRC20। প্রতিপক্ষ জেদ ধরলে ERC20। ফি অভ্যাসের চেয়ে বড় হলে BEP20, TON বা SOL।
 
 aist.exchange
+
+#p2p #Bangladesh
 ```
 
 
@@ -1526,6 +1792,8 @@ Deepest liquidity of any quote on the book.
 The maker posts a receiving address, you send from any wallet, and escrow holds the base side until it lands.
 
 aist.exchange
+
+#p2p
 ```
 
 **Spanish** — `img/es/20.png`
@@ -1536,6 +1804,8 @@ La liquidez más profunda de todo el libro.
 El maker publica una dirección de cobro, tú envías desde cualquier billetera y el escrow retiene el lado base hasta que llega.
 
 aist.exchange
+
+#p2p #Venezuela #Paraguay #Cuba
 ```
 
 **Portuguese** — `img/pt/20.png`
@@ -1546,6 +1816,8 @@ A liquidez mais profunda do livro inteiro.
 O maker publica um endereço de recebimento, você envia de qualquer carteira, e o escrow segura o lado base até chegar.
 
 aist.exchange
+
+#p2p #Angola
 ```
 
 **Arabic** — `img/ar/20.png`
@@ -1556,6 +1828,8 @@ aist.exchange
 الصانع ينشر عنوان الاستلام، أنت ترسل من أي محفظة، والضمان يحتجز الجانب الأساسي حتى الوصول.
 
 aist.exchange
+
+‎#p2p #Egypt #Iraq #Libya #Sudan
 ```
 
 **Persian** — `img/fa/20.png`
@@ -1566,6 +1840,8 @@ aist.exchange
 میکر آدرس دریافت را می‌گذارد، شما از هر کیف پولی می‌فرستید، و امانی سمت پایه را تا رسیدن نگه می‌دارد.
 
 aist.exchange
+
+‎#p2p #Iran
 ```
 
 **Urdu** — `img/ur/20.png`
@@ -1576,6 +1852,8 @@ aist.exchange
 میکر وصولی کا پتہ دیتا ہے، آپ کسی بھی والٹ سے بھیجتے ہیں، اور ایسکرو بنیادی رخ روکے رکھتا ہے۔
 
 aist.exchange
+
+‎#p2p #Pakistan
 ```
 
 **Bengali** — `img/bn/20.png`
@@ -1586,6 +1864,8 @@ aist.exchange
 মেকার রিসিভিং ঠিকানা দেয়, আপনি যেকোনো ওয়ালেট থেকে পাঠান, আর এসক্রো বেস দিকটা ধরে রাখে।
 
 aist.exchange
+
+#p2p #Bangladesh
 ```
 
 
@@ -1601,6 +1881,8 @@ Already listed on Binance, so its price is not ours to invent.
 Every compute coin quotes against it — which is exactly what makes the triangle trades work.
 
 aist.exchange
+
+#p2p
 ```
 
 **Spanish** — `img/es/21.png`
@@ -1611,6 +1893,8 @@ Ya cotiza en Binance, así que el precio no lo inventamos nosotros.
 Cada compute coin cotiza contra él, que es justo lo que hace funcionar los triángulos.
 
 aist.exchange
+
+#p2p #Venezuela #Paraguay #Cuba
 ```
 
 **Portuguese** — `img/pt/21.png`
@@ -1621,6 +1905,8 @@ Já listado na Binance, então o preço não é invenção nossa.
 Cada compute coin cota contra ele — que é exatamente o que faz os triângulos funcionarem.
 
 aist.exchange
+
+#p2p #Angola
 ```
 
 **Arabic** — `img/ar/21.png`
@@ -1631,6 +1917,8 @@ aist.exchange
 كل عملة حوسبة تُسعَّر مقابله — وهذا بالضبط ما يجعل صفقات المثلث تعمل.
 
 aist.exchange
+
+‎#p2p #Egypt #Iraq #Libya #Sudan
 ```
 
 **Persian** — `img/fa/21.png`
@@ -1641,6 +1929,8 @@ aist.exchange
 هر کامپیوت‌کوین در برابر آن قیمت می‌خورد — و دقیقاً همین است که معاملات مثلثی را ممکن می‌کند.
 
 aist.exchange
+
+‎#p2p #Iran
 ```
 
 **Urdu** — `img/ur/21.png`
@@ -1651,6 +1941,8 @@ aist.exchange
 ہر کمپیوٹ کوائن اسی کے مقابلے میں قیمت پاتا ہے — اور یہی تکونی ٹریڈز کو ممکن بناتا ہے۔
 
 aist.exchange
+
+‎#p2p #Pakistan
 ```
 
 **Bengali** — `img/bn/21.png`
@@ -1661,6 +1953,8 @@ aist.exchange
 প্রতিটি কম্পিউট কয়েন এর বিপরীতে কোট হয় — ত্রিভুজ ট্রেড ঠিক এ কারণেই কাজ করে।
 
 aist.exchange
+
+#p2p #Bangladesh
 ```
 
 
@@ -1676,6 +1970,8 @@ Bank transfer, card-to-card, mobile wallet, cash in person.
 The maker names the method and the window. Escrow only releases once you confirm the money landed.
 
 aist.exchange
+
+#p2p
 ```
 
 **Spanish** — `img/es/22.png`
@@ -1686,6 +1982,8 @@ Transferencia bancaria, tarjeta a tarjeta, billetera móvil, efectivo en persona
 El maker define el método y la ventana. El escrow solo libera cuando tú confirmas que el dinero llegó.
 
 aist.exchange
+
+#p2p #Venezuela #Paraguay #Cuba
 ```
 
 **Portuguese** — `img/pt/22.png`
@@ -1696,6 +1994,8 @@ Transferência bancária, cartão para cartão, carteira móvel, dinheiro na mã
 O maker define o método e a janela. O escrow só libera quando você confirma que o dinheiro caiu.
 
 aist.exchange
+
+#p2p #Angola
 ```
 
 **Arabic** — `img/ar/22.png`
@@ -1706,6 +2006,8 @@ aist.exchange
 الصانع يحدد الطريقة والمهلة. الضمان لا يُفرج إلا بعد تأكيدك وصول المال.
 
 aist.exchange
+
+‎#p2p #Egypt #Iraq #Libya #Sudan
 ```
 
 **Persian** — `img/fa/22.png`
@@ -1716,6 +2018,8 @@ aist.exchange
 میکر روش و مهلت را تعیین می‌کند. امانی فقط پس از تأیید شما آزاد می‌شود.
 
 aist.exchange
+
+‎#p2p #Iran
 ```
 
 **Urdu** — `img/ur/22.png`
@@ -1726,6 +2030,8 @@ aist.exchange
 میکر طریقہ اور مدت طے کرتا ہے۔ ایسکرو تبھی کھلتا ہے جب آپ رقم ملنے کی تصدیق کریں۔
 
 aist.exchange
+
+‎#p2p #Pakistan
 ```
 
 **Bengali** — `img/bn/22.png`
@@ -1736,6 +2042,8 @@ aist.exchange
 মেকার পদ্ধতি আর সময়সীমা ঠিক করে। আপনি টাকা পাওয়ার নিশ্চিত করলে তবেই এসক্রো ছাড়ে।
 
 aist.exchange
+
+#p2p #Bangladesh
 ```
 
 
@@ -1751,6 +2059,8 @@ Native ETH straight out of MetaMask — the UI builds the transaction, you sign 
 Connect Phantom on Solana to autofill your receive address. Sub-cent fees make small, frequent arbitrage legs viable.
 
 aist.exchange
+
+#p2p
 ```
 
 **Spanish** — `img/es/23.png`
@@ -1761,6 +2071,8 @@ ETH nativo directo desde MetaMask: la interfaz arma la transacción, tú la firm
 Conecta Phantom en Solana para autocompletar tu dirección de cobro. Comisiones de centavos hacen viables las patas pequeñas y frecuentes.
 
 aist.exchange
+
+#p2p #Venezuela #Paraguay #Cuba
 ```
 
 **Portuguese** — `img/pt/23.png`
@@ -1771,6 +2083,8 @@ ETH nativo direto do MetaMask: a interface monta a transação, você assina.
 Conecte a Phantom na Solana para preencher seu endereço de recebimento. Taxas de centavos tornam viáveis pernas pequenas e frequentes.
 
 aist.exchange
+
+#p2p #Angola
 ```
 
 **Arabic** — `img/ar/23.png`
@@ -1781,6 +2095,8 @@ aist.exchange
 اربط Phantom على Solana لملء عنوان الاستلام تلقائياً. رسوم أقل من سنت تجعل السيقان الصغيرة المتكررة مجدية.
 
 aist.exchange
+
+‎#p2p #Egypt #Iraq #Libya #Sudan
 ```
 
 **Persian** — `img/fa/23.png`
@@ -1791,6 +2107,8 @@ aist.exchange
 فانتوم را روی سولانا وصل کنید تا آدرس دریافتتان خودکار پر شود. کارمزد زیر یک سنت پاهای کوچک و پرتکرار را به‌صرفه می‌کند.
 
 aist.exchange
+
+‎#p2p #Iran
 ```
 
 **Urdu** — `img/ur/23.png`
@@ -1801,6 +2119,8 @@ aist.exchange
 سولانا پر Phantom جوڑیں تاکہ وصولی کا پتہ خودکار بھر جائے۔ ایک سینٹ سے کم فیس چھوٹی، بار بار کی ٹانگیں قابلِ عمل بناتی ہے۔
 
 aist.exchange
+
+‎#p2p #Pakistan
 ```
 
 **Bengali** — `img/bn/23.png`
@@ -1811,6 +2131,8 @@ MetaMask থেকে সরাসরি নেটিভ ETH: ইন্টার
 সোলানায় Phantom যুক্ত করলে রিসিভ ঠিকানা নিজেই বসে। এক সেন্টের কম ফি ছোট, ঘন ঘন লেগ লাভজনক করে।
 
 aist.exchange
+
+#p2p #Bangladesh
 ```
 
 
@@ -1826,6 +2148,8 @@ No minimum payout. No listing queue. No SWIFT.
 A miner earning 4,000 KGST a week cashes out weekly instead of waiting for a threshold that never quite arrives.
 
 aist.exchange
+
+#p2p
 ```
 
 **Spanish** — `img/es/24.png`
@@ -1836,6 +2160,8 @@ Sin pago mínimo. Sin cola de listado. Sin SWIFT.
 Un minero que gana 4.000 KGST por semana cobra cada semana, en vez de esperar un umbral que nunca termina de llegar.
 
 aist.exchange
+
+#p2p #Venezuela #Paraguay #Cuba
 ```
 
 **Portuguese** — `img/pt/24.png`
@@ -1846,6 +2172,8 @@ Sem pagamento mínimo. Sem fila de listagem. Sem SWIFT.
 Um minerador que ganha 4.000 KGST por semana saca toda semana, em vez de esperar um limite que nunca chega.
 
 aist.exchange
+
+#p2p #Angola
 ```
 
 **Arabic** — `img/ar/24.png`
@@ -1856,6 +2184,8 @@ aist.exchange
 معدّن يربح ٤٬٠٠٠ KGST أسبوعياً يسحب كل أسبوع، بدل انتظار حد لا يصل أبداً.
 
 aist.exchange
+
+‎#p2p #Egypt #Iraq #Libya #Sudan
 ```
 
 **Persian** — `img/fa/24.png`
@@ -1866,6 +2196,8 @@ aist.exchange
 ماینری که هفته‌ای ۴٬۰۰۰ KGST درمی‌آورد هر هفته برداشت می‌کند، نه اینکه منتظر آستانه‌ای بماند که نمی‌رسد.
 
 aist.exchange
+
+‎#p2p #Iran
 ```
 
 **Urdu** — `img/ur/24.png`
@@ -1876,6 +2208,8 @@ aist.exchange
 ہفتے کے ۴٬۰۰۰ KGST کمانے والا مائنر ہر ہفتے نکالتا ہے، نہ کہ کسی حد کا انتظار کرتا ہے۔
 
 aist.exchange
+
+‎#p2p #Pakistan
 ```
 
 **Bengali** — `img/bn/24.png`
@@ -1886,6 +2220,8 @@ aist.exchange
 সপ্তাহে ৪,০০০ KGST আয় করা মাইনার প্রতি সপ্তাহেই তোলে, কোনো থ্রেশহোল্ডের অপেক্ষায় বসে থাকে না।
 
 aist.exchange
+
+#p2p #Bangladesh
 ```
 
 
@@ -1903,6 +2239,8 @@ List the payout on the P2P book at your own price.
 Take it out in USDT, BTC, ETH, SOL or fiat.
 
 aist.exchange
+
+#p2p
 ```
 
 **Spanish** — `img/es/25.png`
@@ -1915,6 +2253,8 @@ Publica el cobro en el libro P2P a tu precio.
 Retíralo en USDT, BTC, ETH, SOL o fiat.
 
 aist.exchange
+
+#p2p #Venezuela #Paraguay #Cuba
 ```
 
 **Portuguese** — `img/pt/25.png`
@@ -1927,6 +2267,8 @@ Publique o pagamento no livro P2P ao seu preço.
 Saque em USDT, BTC, ETH, SOL ou fiat.
 
 aist.exchange
+
+#p2p #Angola
 ```
 
 **Arabic** — `img/ar/25.png`
@@ -1939,6 +2281,8 @@ aist.exchange
 اسحبه بـUSDT أو BTC أو ETH أو SOL أو نقداً.
 
 aist.exchange
+
+‎#p2p #Egypt #Iraq #Libya #Sudan
 ```
 
 **Persian** — `img/fa/25.png`
@@ -1951,6 +2295,8 @@ aist.exchange
 با USDT، BTC، ETH، SOL یا فیات بردارید.
 
 aist.exchange
+
+‎#p2p #Iran
 ```
 
 **Urdu** — `img/ur/25.png`
@@ -1963,6 +2309,8 @@ aist.exchange
 ‏USDT، BTC، ETH، SOL یا فیاٹ میں نکالیں۔
 
 aist.exchange
+
+‎#p2p #Pakistan
 ```
 
 **Bengali** — `img/bn/25.png`
@@ -1975,6 +2323,8 @@ aist.exchange
 USDT, BTC, ETH, SOL বা ফিয়াটে বের করুন।
 
 aist.exchange
+
+#p2p #Bangladesh
 ```
 
 
@@ -1992,6 +2342,8 @@ No threshold to reach, no queue to join, no wire to explain to a compliance desk
 You earned it, you list it, you take it out.
 
 aist.exchange
+
+#p2p
 ```
 
 **Spanish** — `img/es/26.png`
@@ -2004,6 +2356,8 @@ Sin umbral que alcanzar, sin cola a la que sumarse, sin transferencia que explic
 Lo ganaste, lo publicas, lo retiras.
 
 aist.exchange
+
+#p2p #Venezuela #Paraguay #Cuba
 ```
 
 **Portuguese** — `img/pt/26.png`
@@ -2016,6 +2370,8 @@ Sem limite para atingir, sem fila para entrar, sem transferência para explicar 
 Você ganhou, você publica, você saca.
 
 aist.exchange
+
+#p2p #Angola
 ```
 
 **Arabic** — `img/ar/26.png`
@@ -2028,6 +2384,8 @@ aist.exchange
 ربحته، تعرضه، تسحبه.
 
 aist.exchange
+
+‎#p2p #Egypt #Iraq #Libya #Sudan
 ```
 
 **Persian** — `img/fa/26.png`
@@ -2040,6 +2398,8 @@ aist.exchange
 درآوردید، می‌گذارید، برمی‌دارید.
 
 aist.exchange
+
+‎#p2p #Iran
 ```
 
 **Urdu** — `img/ur/26.png`
@@ -2052,6 +2412,8 @@ aist.exchange
 آپ نے کمایا، آپ نے رکھا، آپ نے نکالا۔
 
 aist.exchange
+
+‎#p2p #Pakistan
 ```
 
 **Bengali** — `img/bn/26.png`
@@ -2064,6 +2426,8 @@ aist.exchange
 আপনি কামিয়েছেন, আপনি তুলেছেন, আপনি নিয়েছেন।
 
 aist.exchange
+
+#p2p #Bangladesh
 ```
 
 
@@ -2079,6 +2443,8 @@ KGST is the rail. aiGEL, aiETB and aiBTN are the regional compute coins.
 Nothing to claim, nothing to unstake — finished work settles straight into the asset.
 
 aist.exchange
+
+#p2p
 ```
 
 **Spanish** — `img/es/27.png`
@@ -2089,6 +2455,8 @@ KGST es el riel. aiGEL, aiETB y aiBTN son los compute coins regionales.
 Nada que reclamar, nada que desbloquear: el trabajo terminado liquida directo en el activo.
 
 aist.exchange
+
+#p2p #Venezuela #Paraguay #Cuba
 ```
 
 **Portuguese** — `img/pt/27.png`
@@ -2099,6 +2467,8 @@ KGST é o trilho. aiGEL, aiETB e aiBTN são os compute coins regionais.
 Nada para reivindicar, nada para dessaquear: o trabalho concluído liquida direto no ativo.
 
 aist.exchange
+
+#p2p #Angola
 ```
 
 **Arabic** — `img/ar/27.png`
@@ -2109,6 +2479,8 @@ aist.exchange
 لا شيء تطالب به، لا شيء تفك رهنه: العمل المنتهي يُسوّى مباشرة في الأصل.
 
 aist.exchange
+
+‎#p2p #Egypt #Iraq #Libya #Sudan
 ```
 
 **Persian** — `img/fa/27.png`
@@ -2119,6 +2491,8 @@ aist.exchange
 نه چیزی برای کلیم، نه چیزی برای آنستیک: کار تمام‌شده مستقیم در همان دارایی تسویه می‌شود.
 
 aist.exchange
+
+‎#p2p #Iran
 ```
 
 **Urdu** — `img/ur/27.png`
@@ -2129,6 +2503,8 @@ aist.exchange
 نہ کچھ کلیم کرنا، نہ اَن سٹیک: مکمل شدہ کام سیدھا اسی اثاثے میں طے ہوتا ہے۔
 
 aist.exchange
+
+‎#p2p #Pakistan
 ```
 
 **Bengali** — `img/bn/27.png`
@@ -2139,6 +2515,8 @@ KGST হলো মূল রেল। aiGEL, aiETB আর aiBTN হলো আঞ
 ক্লেইম করার কিছু নেই, আনস্টেক করারও নেই: শেষ হওয়া কাজ সরাসরি সেই অ্যাসেটেই সেটল হয়।
 
 aist.exchange
+
+#p2p #Bangladesh
 ```
 
 
@@ -2154,6 +2532,8 @@ Every taker who wants out right now pays someone for the privilege.
 Provide the float that lets them, and that payment is your yield — earned on inventory you were holding anyway.
 
 aist.exchange/strategies#liquidity
+
+#p2p
 ```
 
 **Spanish** — `img/es/28.png`
@@ -2164,6 +2544,8 @@ Todo el que quiere salir ahora mismo le paga a alguien por el privilegio.
 Pon el float que se lo permite y ese pago es tu rendimiento, ganado sobre inventario que ya tenías.
 
 aist.exchange/strategies#liquidity
+
+#p2p #Venezuela #Paraguay #Cuba
 ```
 
 **Portuguese** — `img/pt/28.png`
@@ -2174,6 +2556,8 @@ Todo mundo que quer sair agora paga alguém pelo privilégio.
 Coloque o float que permite isso, e esse pagamento é o seu rendimento — ganho sobre estoque que você já tinha.
 
 aist.exchange/strategies#liquidity
+
+#p2p #Angola
 ```
 
 **Arabic** — `img/ar/28.png`
@@ -2184,6 +2568,8 @@ aist.exchange/strategies#liquidity
 وفّر رأس المال الذي يتيح له هذا، وذلك الدفع هو عائدك — على مخزون كنت تحتفظ به أصلاً.
 
 aist.exchange/strategies#liquidity
+
+‎#p2p #Egypt #Iraq #Libya #Sudan
 ```
 
 **Persian** — `img/fa/28.png`
@@ -2194,6 +2580,8 @@ aist.exchange/strategies#liquidity
 سرمایه‌ای را که این را ممکن می‌کند فراهم کنید؛ آن پرداخت بازده شماست — روی موجودی‌ای که از قبل داشتید.
 
 aist.exchange/strategies#liquidity
+
+‎#p2p #Iran
 ```
 
 **Urdu** — `img/ur/28.png`
@@ -2204,6 +2592,8 @@ aist.exchange/strategies#liquidity
 وہ سرمایہ فراہم کریں جو یہ ممکن بناتا ہے — وہی ادائیگی آپ کا منافع ہے، اُسی مال پر جو آپ پہلے سے رکھے تھے۔
 
 aist.exchange/strategies#liquidity
+
+‎#p2p #Pakistan
 ```
 
 **Bengali** — `img/bn/28.png`
@@ -2214,6 +2604,8 @@ aist.exchange/strategies#liquidity
 যে পুঁজি সেটা সম্ভব করে সেটা দিন — ওই পেমেন্টই আপনার রিটার্ন, যে স্টক আপনি এমনিতেও ধরে রেখেছিলেন তার উপর।
 
 aist.exchange/strategies#liquidity
+
+#p2p #Bangladesh
 ```
 
 
@@ -2231,6 +2623,8 @@ KGST-USDT pays the least and fills constantly.
 Split your float across methods and let the fills come to you.
 
 aist.exchange/strategies#liquidity
+
+#p2p
 ```
 
 **Spanish** — `img/es/29.png`
@@ -2243,6 +2637,8 @@ KGST-USDT paga lo mínimo y se ejecuta sin parar.
 Reparte tu float entre métodos y deja que las ejecuciones lleguen solas.
 
 aist.exchange/strategies#liquidity
+
+#p2p #Venezuela #Paraguay #Cuba
 ```
 
 **Portuguese** — `img/pt/29.png`
@@ -2255,6 +2651,8 @@ KGST-USDT paga o mínimo e executa o tempo todo.
 Divida seu float entre métodos e deixe as execuções virem até você.
 
 aist.exchange/strategies#liquidity
+
+#p2p #Angola
 ```
 
 **Arabic** — `img/ar/29.png`
@@ -2267,6 +2665,8 @@ aist.exchange/strategies#liquidity
 وزّع رأس مالك على الطرق ودع التنفيذات تأتيك.
 
 aist.exchange/strategies#liquidity
+
+‎#p2p #Egypt #Iraq #Libya #Sudan
 ```
 
 **Persian** — `img/fa/29.png`
@@ -2279,6 +2679,8 @@ aist.exchange/strategies#liquidity
 سرمایه را بین روش‌ها پخش کنید و بگذارید سفارش‌ها خودشان بیایند.
 
 aist.exchange/strategies#liquidity
+
+‎#p2p #Iran
 ```
 
 **Urdu** — `img/ur/29.png`
@@ -2291,6 +2693,8 @@ aist.exchange/strategies#liquidity
 سرمایہ طریقوں میں بانٹیں اور آرڈرز کو خود آنے دیں۔
 
 aist.exchange/strategies#liquidity
+
+‎#p2p #Pakistan
 ```
 
 **Bengali** — `img/bn/29.png`
@@ -2303,6 +2707,8 @@ KGST-USDT দেয় সবচেয়ে কম, ফিল হয় অব�
 পুঁজি পদ্ধতির মধ্যে ভাগ করুন আর ফিল নিজে আসতে দিন।
 
 aist.exchange/strategies#liquidity
+
+#p2p #Bangladesh
 ```
 
 
@@ -2318,6 +2724,8 @@ The base side locks the moment an order is selected, and stays locked for 15 min
 Making a market on a P2P book does not mean extending credit on good faith.
 
 aist.exchange/strategies
+
+#p2p
 ```
 
 **Spanish** — `img/es/30.png`
@@ -2328,6 +2736,8 @@ El lado base se bloquea en cuanto se selecciona la orden, y queda bloqueado 15 m
 Hacer mercado en un libro P2P no significa dar crédito de buena fe.
 
 aist.exchange/strategies
+
+#p2p #Venezuela #Paraguay #Cuba
 ```
 
 **Portuguese** — `img/pt/30.png`
@@ -2338,6 +2748,8 @@ O lado base trava no momento em que a ordem é selecionada, e fica travado por 1
 Fazer mercado num livro P2P não significa dar crédito na boa-fé.
 
 aist.exchange/strategies
+
+#p2p #Angola
 ```
 
 **Arabic** — `img/ar/30.png`
@@ -2348,6 +2760,8 @@ aist.exchange/strategies
 صناعة السوق على دفتر P2P لا تعني منح ائتمان بحسن نية.
 
 aist.exchange/strategies
+
+‎#p2p #Egypt #Iraq #Libya #Sudan
 ```
 
 **Persian** — `img/fa/30.png`
@@ -2358,6 +2772,8 @@ aist.exchange/strategies
 بازارگردانی روی دفتر P2P یعنی اعتبار دادن با حسن نیت نیست.
 
 aist.exchange/strategies
+
+‎#p2p #Iran
 ```
 
 **Urdu** — `img/ur/30.png`
@@ -2368,6 +2784,8 @@ aist.exchange/strategies
 ‏P2P بُک پر مارکیٹ بنانے کا مطلب اعتماد پر اُدھار دینا نہیں۔
 
 aist.exchange/strategies
+
+‎#p2p #Pakistan
 ```
 
 **Bengali** — `img/bn/30.png`
@@ -2378,4 +2796,6 @@ aist.exchange/strategies
 P2P বুকে মার্কেট মেকিং মানে বিশ্বাসে ধার দেওয়া নয়।
 
 aist.exchange/strategies
+
+#p2p #Bangladesh
 ```
