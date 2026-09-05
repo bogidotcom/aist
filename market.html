@@ -21,11 +21,14 @@
     <div class="tools">
       <input class="search" id="q" data-i18n-placeholder="mkt.search" placeholder="Filter pairs">
     </div>
-    <div style="margin-top:16px">
-      <div id="currency-filters" style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px"></div>
-      <div id="network-filters-wrapper" style="display:none">
-        <small style="color:var(--muted);display:block;margin-bottom:8px">Network</small>
-        <div id="network-filters" style="display:flex;gap:6px;flex-wrap:wrap"></div>
+    <div class="mkt-filters">
+      <div class="filter-row">
+        <label class="filter-label" for="currency-picker" data-i18n="mkt.currency">Currency</label>
+        <div id="currency-picker"></div>
+      </div>
+      <div id="network-filters-wrapper" class="filter-row" style="display:none">
+        <span class="filter-label" data-i18n="mkt.network">Network</span>
+        <div id="network-filters" class="chips"></div>
       </div>
     </div>
     <div id="markets"></div>
@@ -34,9 +37,11 @@
   <script src="js/i18n.js"></script>
   <script src="js/i18n.strategies.js"></script>
   <script src="js/i18n.more.js"></script>
+  <script src="js/currencies.js"></script>
   <script src="js/api.js"></script>
   <script src="js/wallets.js"></script>
   <script src="js/ui.js"></script>
+  <script src="js/picker.js"></script>
   <script src="js/market.js"></script>
 </body>
 </html>

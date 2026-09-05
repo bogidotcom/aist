@@ -3,16 +3,20 @@
   const box = document.getElementById('markets');
   const search = document.getElementById('q');
   const note = document.getElementById('note');
-  const currencyFiltersEl = document.getElementById('currency-filters');
+  const currencyPickerEl = document.getElementById('currency-picker');
   const networkFiltersEl = document.getElementById('network-filters');
   let rows = [];
-  let selectedCurrency = null;
+  let selectedCurrency = null;   // a wire ticker (aiBTN), not a display label
   let selectedNetwork = null;
-  let currencyGroups = {}; // { base: [{ network, pair }, ...], ... }
+  let currencyGroups = {}; // { ticker: [{ network, pair }, ...], ... }
+  let picker = null;
 
+  /* Pinned to the top of the table when present. aiGEL was here until the
+     chain dropped it; a pair that does not exist is skipped, so a stale entry
+     costs nothing but shows nothing either. */
   const FEATURED = [
     'KGST-USDT-TRC20', 'KGST-USDT-ERC20', 'KGST-USDT-BEP20', 'KGST-USDT-TON', 'KGST-USDT-SOL',
-    'aiGEL-KGST', 'aiETB-KGST', 'aiBTN-KGST', 'aiGEL-USDT-TRC20', 'DAI-USDT-TRC20',
+    'DAI-USDT-TRC20', 'aiETB-KGST', 'aiBTN-KGST', 'aiBDT-KGST', 'aiPKR-KGST',
   ];
 
   // Extract network from pair (e.g., "USDT-TRC20" -> "TRC20", "aiGEL-KGST" -> null/on-chain)
@@ -28,33 +32,56 @@
   }
 
   // Build currency groups from rows
+  /* Keyed by wire ticker. The old version keyed on the display string, which
+     works right up until two currencies share one — and it meant the filter
+     compared rendered text rather than identity. */
   function buildCurrencyGroups() {
     currencyGroups = {};
     for (const m of rows) {
-      const base = AistApi.displayOf(m.base);
-      if (!currencyGroups[base]) currencyGroups[base] = [];
+      if (!currencyGroups[m.base]) currencyGroups[m.base] = [];
       const network = getNetworkFromPair(m.pair);
       if (network) {
-        currencyGroups[base].push({ network, pair: m.pair });
+        currencyGroups[m.base].push({ network, pair: m.pair });
       }
     }
   }
 
-  function renderCurrencyFilters() {
-    const currencies = Object.keys(currencyGroups).sort();
-    currencyFiltersEl.innerHTML = currencies.map((base) => {
-      const isActive = selectedCurrency === base;
-      return `<button class="filter-btn${isActive ? ' active' : ''}" data-currency="${base}" style="padding:6px 12px;border-radius:6px;border:1px solid var(--line);background:${isActive ? 'var(--accent)' : 'transparent'};color:${isActive ? '#000' : 'inherit'};cursor:pointer;font-weight:${isActive ? '600' : '400'}">${base}</button>`;
-    }).join('');
-    currencyFiltersEl.querySelectorAll('[data-currency]').forEach((btn) => {
-      btn.addEventListener('click', () => {
-        selectedCurrency = selectedCurrency === btn.dataset.currency ? null : btn.dataset.currency;
-        selectedNetwork = null; // Reset network when currency changes
-        renderCurrencyFilters();
-        renderNetworkFilters();
-        render(search.value);
-      });
+  /* Options carry the currency's name and countries as a subtitle, so the
+     search box matches "Bhutan" and "ngultrum", not only "aiBTN". */
+  function currencyOptions() {
+    const C = window.AistCurrencies;
+    return Object.keys(currencyGroups).sort((a, b) =>
+      AistApi.displayOf(a).localeCompare(AistApi.displayOf(b))
+    ).map((ticker) => {
+      const rec = C && C.meta(ticker);
+      return {
+        value: ticker,
+        label: AistApi.displayOf(ticker),
+        sub: rec ? C.subtitle(ticker) : '',
+        keywords: ticker + (rec ? ' ' + rec.iso : ''),
+      };
     });
+  }
+
+  function renderCurrencyFilters() {
+    const options = currencyOptions();
+    if (!picker) {
+      picker = AistPicker.mount(currencyPickerEl, {
+        items: options,
+        value: selectedCurrency,
+        allLabel: AistUI.t('mkt.allCurrencies'),
+        placeholder: AistUI.t('mkt.searchCurrency'),
+        empty: AistUI.t('mkt.noCurrency'),
+        onChange: (v) => {
+          selectedCurrency = v;
+          selectedNetwork = null; // Reset network when currency changes
+          renderNetworkFilters();
+          render(search.value);
+        },
+      });
+      return;
+    }
+    picker.setItems(options);
   }
 
   function renderNetworkFilters() {
@@ -65,16 +92,20 @@
       return;
     }
 
-    const networks = Array.from(new Set(currencyGroups[selectedCurrency].map(x => x.network))).sort();
+    const networks = Array.from(new Set(currencyGroups[selectedCurrency].map((x) => x.network))).sort();
     if (networks.length <= 1) {
       wrapper.style.display = 'none';
       return;
     }
 
     wrapper.style.display = 'block';
+    /* --accent and --muted were never defined in app.css, so the "active" chip
+       rendered with a transparent background and black text on black. These are
+       real classes now, styled off the palette that exists. */
     networkFiltersEl.innerHTML = networks.map((net) => {
       const isActive = selectedNetwork === net;
-      return `<button class="filter-btn${isActive ? ' active' : ''}" data-network="${net}" style="padding:6px 12px;border-radius:6px;border:1px solid var(--line);background:${isActive ? 'var(--accent)' : 'transparent'};color:${isActive ? '#000' : 'inherit'};cursor:pointer;font-weight:${isActive ? '600' : '400'}">${net}</button>`;
+      return `<button class="net-chip${isActive ? ' on' : ''}" type="button"
+        aria-pressed="${isActive}" data-network="${net}">${net}</button>`;
     }).join('');
     networkFiltersEl.querySelectorAll('[data-network]').forEach((btn) => {
       btn.addEventListener('click', () => {
@@ -86,11 +117,17 @@
 
   function render(filter) {
     const f = (filter || '').trim().toLowerCase();
-    let list = rows.filter((m) => !f || m.pair.toLowerCase().includes(f) || AistApi.displayOf(m.base).toLowerCase().includes(f));
+    const C = window.AistCurrencies;
+    let list = rows.filter((m) => !f
+      || m.pair.toLowerCase().includes(f)
+      || AistApi.displayOf(m.base).toLowerCase().includes(f)
+      || AistApi.displayOf(m.quote).toLowerCase().includes(f)
+      // "Ethiopia" and "birr" should find αιETB pairs, not just "aiETB".
+      || (C && (C.matches(m.base, f) || C.matches(m.quote, f))));
 
     // Apply currency filter
     if (selectedCurrency) {
-      list = list.filter((m) => AistApi.displayOf(m.base) === selectedCurrency);
+      list = list.filter((m) => m.base === selectedCurrency);
     }
 
     // Apply network filter

@@ -286,7 +286,13 @@
     const tr = liveTrade && liveTrade.trade;
     const trOrder = liveTrade && liveTrade.order;
     const next = tr ? AistP2P.nextAction(tr, trOrder, me) : null;
-    const recvDefault = (['evm', 'tron', 'sol', 'ton', 'btc'].includes(getFam) && AistWallets.address(getFam)) || '';
+    /* A DAI-network asset can never be autofilled. The connected wallet is a
+       MetaMask or a Phantom — it holds a secp256k1 or ed25519 key for someone
+       else's chain, and has no DAI address to offer. Only the off-chain
+       families have an address worth prefilling here. */
+    const recvIsDai = getFam === 'dai';
+    const recvDefault = (!recvIsDai && ['evm', 'tron', 'sol', 'ton', 'btc'].includes(getFam)
+      && AistWallets.address(getFam)) || '';
 
     els.ticket.innerHTML = `
       <div class="field">
@@ -302,9 +308,15 @@
         <input id="amt" inputmode="decimal" value="${defaultAmount()}" placeholder="0.00">
       </div>
       <div class="field">
-        <label data-i18n="ex.receiveAddr">${AistUI.t('ex.receiveAddr')}</label>
-        <input id="recv" value="${recvDefault}" placeholder="…">
-        <p class="hint" data-i18n="ex.receiveHint">${AistUI.t('ex.receiveHint')}</p>
+        <label>${recvIsDai
+          ? AistUI.t('ex.receiveDaiAddr')
+          : AistUI.t('ex.receiveAddr')}</label>
+        <input id="recv" value="${recvDefault}" spellcheck="false" autocomplete="off"
+               placeholder="${recvIsDai ? 'dai…' : '…'}">
+        <p class="hint">${recvIsDai
+          ? AistUI.t('ex.receiveDaiHint').replace('{asset}', AistApi.displayOf(get))
+          : AistUI.t('ex.receiveHint')}</p>
+        <p class="err" id="recv-err" hidden></p>
       </div>
       ${selected && pay && pay.address ? `
         <div class="paybox">
@@ -344,6 +356,25 @@
       `}
       <p class="hint" id="tx-status"></p>
     `;
+
+    /* Catch the wrong-chain paste before it costs anyone anything. Pasting a
+       MetaMask 0x… here is the obvious mistake to make, and the field it is
+       being pasted into decides where an asset gets sent. */
+    if (recvIsDai) {
+      const recvEl = document.getElementById('recv');
+      const errEl = document.getElementById('recv-err');
+      const checkRecv = () => {
+        const v = (recvEl.value || '').trim();
+        let key = '';
+        if (!v) key = '';
+        else if (/^0x[0-9a-fA-F]{40}$/.test(v)) key = 'err.recvEvm';
+        else if (!/^dai[0-9a-f]{40}$/i.test(v)) key = 'err.recvNotDai';
+        errEl.hidden = !key;
+        errEl.textContent = key ? AistUI.t(key) : '';
+      };
+      recvEl.addEventListener('input', checkRecv);
+      recvEl.addEventListener('blur', checkRecv);
+    }
 
     document.getElementById('copy-addr')?.addEventListener('click', async (e) => {
       await AistUI.copy(pay.address);
@@ -395,13 +426,7 @@
 
   async function openWalletModal(prefer) {
     // Chain names, not wallet names — the row already says which wallet it is.
-    const FAMS = [
-      { id: 'evm', chain: 'EVM' },
-      { id: 'tron', chain: 'Tron' },
-      { id: 'sol', chain: 'Solana' },
-      { id: 'ton', chain: 'TON' },
-      { id: 'btc', chain: 'Bitcoin' },
-    ];
+    const CHAIN = { evm: 'EVM', tron: 'Tron', sol: 'Solana', ton: 'TON', btc: 'Bitcoin' };
     const attr = (v) => String(v).replace(/&/g, '&amp;').replace(/"/g, '&quot;')
       .replace(/</g, '&lt;').replace(/>/g, '&gt;');
     const esc = (v) => String(v).replace(/[&<>]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;' }[c]));
@@ -412,38 +437,36 @@
     // Extensions announce themselves asynchronously; give them a beat.
     await AistWallets.refresh();
 
-    const order = prefer
-      ? [prefer].concat(FAMS.map((f) => f.id).filter((x) => x !== prefer))
-      : FAMS.map((f) => f.id);
-    const rows = [];
-    for (const famId of order) {
-      const fam = FAMS.find((f) => f.id === famId);
-      for (const w of AistWallets.discovered(famId)) {
-        // A wallet-supplied icon when there is one, otherwise a monogram — never
-        // a guessed brand mark. Data-URI icons are escaped, some are raw SVG.
-        const icon = w.icon
-          ? `<img src="${attr(w.icon)}" alt="">`
-          : esc((w.name || '?').trim().charAt(0).toUpperCase());
-        rows.push(`<button class="opt" type="button" data-fam="${attr(famId)}" data-wallet="${attr(w.id)}">
-          <span class="wname"><span class="wicon">${icon}</span><span class="wtext">${esc(w.name)}</span></span>
-          <small>${esc(fam.chain)}</small>
-        </button>`);
-      }
-    }
+    /* One row per wallet. A multi-chain wallet gets a chip per chain instead of
+       a row per chain, so Phantom stops appearing twice under its own name. */
+    const rows = AistWallets.groups(prefer).map((g) => {
+      // A wallet-supplied icon when there is one, otherwise a monogram — never
+      // a guessed brand mark. Data-URI icons are escaped, some are raw SVG.
+      const icon = g.icon
+        ? `<img src="${attr(g.icon)}" alt="">`
+        : esc((g.name || '?').trim().charAt(0).toUpperCase());
+      const chips = g.chains.map((c, i) => `<button class="wchain${i === 0 ? ' first' : ''}" type="button"
+          data-fam="${attr(c.family)}" data-wallet="${attr(c.walletId)}"
+          data-label="${attr(g.name)}">${esc(CHAIN[c.family] || c.family)}</button>`).join('');
+      return `<div class="opt opt-group">
+        <span class="wname"><span class="wicon">${icon}</span><span class="wtext">${esc(g.name)}</span></span>
+        <span class="wchains">${chips}</span>
+      </div>`;
+    });
 
     const sheet = document.getElementById('sheet');
     sheet.innerHTML = `
       <h3>${esc(AistUI.t('wal.title'))}</h3>
       ${rows.join('')}
-      <p class="hint" id="wal-hint">${rows.length ? '' : esc(AistUI.t('wal.none'))}</p>`;
+      <p class="hint" id="wal-hint">${rows.length ? esc(AistUI.t('wal.pickChain')) : esc(AistUI.t('wal.none'))}</p>`;
 
     // Delegated: one listener on the sheet, so a re-render can never leave a
     // row inert.
     sheet.addEventListener('click', async (ev) => {
-      const btn = ev.target.closest('.opt[data-fam]');
+      const btn = ev.target.closest('.wchain[data-fam]');
       if (!btn || btn.dataset.busy) return;
       const hint = document.getElementById('wal-hint');
-      const label = (btn.querySelector('.wtext') || btn).textContent.trim();
+      const label = btn.dataset.label || '';
       btn.dataset.busy = '1';
       btn.classList.add('busy');
       if (hint) hint.textContent = AistUI.t('wal.waiting').replace('{w}', label);

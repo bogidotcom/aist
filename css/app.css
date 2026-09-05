@@ -293,6 +293,41 @@ table.pairs tbody tr:hover{background:var(--bg-3)}
   .node{min-width:0}
 }
 
+/* searchable picker — a select that survives 155 currencies */
+.picker{position:relative;min-width:220px}
+.picker-btn{display:flex;align-items:center;justify-content:space-between;gap:10px;width:100%;
+  background:var(--bg-2);border:1px solid var(--line);border-radius:10px;padding:9px 12px;
+  cursor:pointer;text-align:start}
+.picker-btn:hover{border-color:var(--faint)}
+.picker-btn[aria-expanded="true"]{border-color:var(--lime)}
+.picker-btn.picked .picker-val{color:var(--ink)}
+.picker-val{color:var(--mute);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.picker-caret{color:var(--faint);font-size:11px;flex:0 0 auto}
+.picker-pop{position:absolute;z-index:30;top:calc(100% + 4px);inset-inline-start:0;min-width:100%;
+  width:max-content;max-width:min(420px,90vw);background:var(--bg-2);border:1px solid var(--line);
+  border-radius:12px;box-shadow:0 16px 40px rgba(0,0,0,.55);overflow:hidden}
+.picker-search{width:100%;background:var(--bg);border:0;border-bottom:1px solid var(--line);
+  padding:10px 12px;outline:none}
+.picker-search::placeholder{color:var(--faint)}
+.picker-list{max-height:320px;overflow-y:auto;overscroll-behavior:contain}
+.picker-opt{display:flex;flex-direction:column;gap:1px;padding:8px 12px;cursor:pointer}
+.picker-opt.active{background:var(--bg-3)}
+.picker-opt.on .picker-opt-label{color:var(--lime)}
+.picker-opt-label{font-family:var(--mono);font-size:14px}
+.picker-opt-sub{color:var(--faint);font-size:12px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.picker-empty{color:var(--faint);padding:14px 12px;margin:0;font-size:13px}
+
+/* market filter rail */
+.mkt-filters{display:flex;flex-wrap:wrap;gap:18px;align-items:flex-start;margin:16px 0 4px}
+.filter-row{display:flex;flex-direction:column;gap:6px}
+.filter-label{color:var(--mute);font-family:var(--mono);font-size:11px;letter-spacing:.09em;
+  text-transform:uppercase}
+/* .chip is already taken by the strategy pills, which are links, not toggles. */
+.net-chip{background:transparent;border:1px solid var(--line);border-radius:8px;padding:7px 12px;
+  cursor:pointer;font-family:var(--mono);font-size:13px;color:var(--mute)}
+.net-chip:hover{border-color:var(--faint);color:var(--ink)}
+.net-chip.on{background:var(--lime);border-color:var(--lime);color:#07110b;font-weight:600}
+
 /* wallet rows: icon and name on one line. the global img{display:block} would
    otherwise push the name onto its own line. */
 .opt{gap:12px}
@@ -303,6 +338,15 @@ table.pairs tbody tr:hover{background:var(--bg-3)}
 .opt .wicon img{width:100%;height:100%;display:block;object-fit:contain;border-radius:7px}
 .opt .wtext{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .opt small{flex:0 0 auto;color:var(--faint)}
+/* one row per wallet, one chip per chain it offers — the chip is the button,
+   so a multi-chain wallet connects the chain the user actually names. */
+.opt-group{cursor:default}
+.wchains{display:flex;gap:6px;flex:0 0 auto}
+.wchain{background:var(--bg-3);border:1px solid var(--line);border-radius:7px;padding:5px 9px;
+  cursor:pointer;font-family:var(--mono);font-size:12px;color:var(--mute);white-space:nowrap}
+.wchain:hover{border-color:var(--lime);color:var(--lime)}
+.wchain.first{color:var(--ink)}
+.wchain.busy{opacity:.55;cursor:progress}
 .opt.busy{opacity:.55;cursor:progress}
 .opt.busy .wicon{animation:pulse 1s ease-in-out infinite}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}

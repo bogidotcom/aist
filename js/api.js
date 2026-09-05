@@ -1,6 +1,29 @@
 /* Public P2P reads — only endpoints in P2P-API-FOR-AIST.md */
 (function (global) {
-  const ONCHAIN = ['DAI', 'aiGEL', 'KGST', 'aiETB', 'aiBTN'];
+  /* Fallback only. The chain decides what exists — every stablecoin is minted
+     in the genesis snapshot — so /api/p2p/currencies is authoritative and this
+     list is what we show when the node cannot be reached. It was three
+     currencies behind for a while (still listing aiGEL, which the chain
+     dropped, and missing ten that shipped), which is why decimals() and
+     family() below no longer key off it alone. */
+  const ONCHAIN = [
+    'DAI', 'KGST', 'aiETB', 'aiBTN', 'aiVES', 'aiPYG', 'aiBDT', 'aiPKR',
+    'aiEGP', 'aiIQD', 'aiAOA', 'aiCUP', 'aiLYD', 'aiSDG', 'aiIRR',
+  ];
+
+  /* Grows to whatever the node reports, so a currency added to the chain needs
+     no frontend release to be priced and formatted correctly. */
+  let _onchain = new Set(ONCHAIN);
+
+  /* Is this a DAI-network asset? True for anything the node listed, and for any
+     ai+ISO ticker in the currency table even when this node has not listed it —
+     the alternative is falling through to the 6-decimal default and printing a
+     stablecoin balance a factor of 10000 wrong. */
+  function isOnchain(ticker) {
+    if (_onchain.has(ticker)) return true;
+    const C = global.AistCurrencies;
+    return !!(C && C.meta(ticker));
+  }
   const OFFCHAIN = [
     'USDT-ERC20', 'USDT-TRC20', 'USDT-TON', 'USDT-SOL', 'USDT-BEP20',
     'USDC-ERC20', 'BTC', 'ETH', 'SOL', 'Bank Transfer',
@@ -143,6 +166,8 @@
     }
   }
 
+  /* Quotes can contain hyphens (USDT-TRC20), so the pair slug is split by
+     longest matching suffix, never by split('-')[0]. */
   function parsePair(s) {
     if (!s) return null;
     const raw = String(s).trim();
@@ -155,6 +180,18 @@
         if (base && quote) return { pair: base + '-' + quote, base, quote };
       }
     }
+    /* A currency the node added after this build shipped is not in ALL_QUOTES,
+       and returning null there silently sends the page back to the default
+       pair. On-chain tickers never contain a hyphen, so the last segment is
+       unambiguous: accept it when the registry recognises it. */
+    const cut = raw.lastIndexOf('-');
+    if (cut > 0) {
+      const base = normalizeTicker(raw.slice(0, cut));
+      const quote = normalizeTicker(raw.slice(cut + 1));
+      if (base && quote && base !== quote && isOnchain(quote) && isOnchain(base)) {
+        return { pair: base + '-' + quote, base, quote };
+      }
+    }
     return null;
   }
 
@@ -162,7 +199,9 @@
 
   function decimals(ticker) {
     if (ticker === 'DAI') return 9;
-    if (ONCHAIN.includes(ticker)) return 2;
+    // Every mirrored currency is 2 on-chain, whatever CLDR says the fiat uses.
+    // aiIQD and aiPYG are 0-decimal currencies in the real world and 2 here.
+    if (isOnchain(ticker)) return 2;
     if (ticker === 'ETH') return 18;
     if (ticker === 'SOL') return 9;
     if (ticker === 'BTC') return 8;
@@ -170,13 +209,17 @@
     return 6;
   }
 
+  /* ai+ISO is the wire form, αι+ISO is the display form — one rule for all 155
+     rather than a line per currency, which is how aiVES and the nine others
+     that shipped after this function was written ended up rendering raw. */
   function displayOf(ticker) {
     const t = normalizeTicker(ticker) || ticker;
-    if (t === 'aiGEL') return 'αιGEL';
-    if (t === 'aiETB') return 'αιETB';
-    if (t === 'aiBTN') return 'αιBTN';
-    if (t === 'KGST') return 'KGST';
-    return t;
+    const C = global.AistCurrencies;
+    if (C) {
+      const rec = C.meta(t);
+      if (rec) return rec.display;
+    }
+    return /^ai[A-Z]{3}$/.test(t) ? 'αι' + t.slice(2) : t;
   }
 
   function family(ticker) {
@@ -186,7 +229,7 @@
     if (ticker === 'USDT-TON') return 'ton';
     if (ticker === 'BTC') return 'btc';
     if (ticker === 'Bank Transfer') return 'bank';
-    if (ONCHAIN.includes(ticker)) return 'dai';
+    if (isOnchain(ticker)) return 'dai';
     return 'other';
   }
 
@@ -238,10 +281,12 @@
   async function fetchCurrencies() {
     const cur = await getJSON('/api/p2p/currencies');
     noteLegacy(cur.onchain || cur.baseAssets);
+    const onchain = canonList(cur.onchain || cur.baseAssets || ONCHAIN);
+    if (onchain.length) _onchain = new Set(onchain);
     return {
       currencies: cur.currencies || OFFCHAIN,
       quote: cur.quote || cur.currencies || OFFCHAIN,
-      onchain: canonList(cur.onchain || cur.baseAssets || ONCHAIN),
+      onchain,
       baseAssets: canonList(cur.baseAssets || cur.onchain || ONCHAIN),
     };
   }
@@ -328,7 +373,7 @@
   global.AistApi = {
     ONCHAIN, OFFCHAIN, ALL_QUOTES, DEFAULT_API,
     apiBase, setApiBase, resolveApi, getJSON, parsePair, pairId,
-    normalizeTicker, decimals, displayOf, family, evmChainId, tokenContract,
+    normalizeTicker, decimals, displayOf, family, isOnchain, evmChainId, tokenContract,
     formatRaw, formatPrice, orderBase, orderSizeDisplay, orderPrice,
     fetchCurrencies, fetchMarkets, fetchOrders, fetchOrder, fetchCandles,
   };

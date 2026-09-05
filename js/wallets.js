@@ -4,7 +4,13 @@
    race to own window.ethereum, and the winner is often a shim that cannot
    actually connect — that is what "MetaMask extension not found" means when
    MetaMask is installed and working. EIP-6963 lets every wallet announce
-   itself separately so we can hold a handle on the one the user picked. */
+   itself separately so we can hold a handle on the one the user picked.
+
+   Bitcoin has the same problem and the same shape of answer: WBIP-004 asks
+   wallets to push { id, name, icon } onto window.btc_providers instead of
+   fighting over a global. Probing window.unisat and friends by hand, as this
+   file used to do alone, finds the wallet but not its name or its icon — which
+   is why the Bitcoin rows were the two in the picker with no logo. */
 (function (global) {
   const state = { evm: null, tron: null, sol: null, ton: null, btc: null };
   const chosen = { evm: null };            // the announced provider in use
@@ -45,6 +51,44 @@
     ['tonkeeper', 'Tonkeeper', () => global.tonkeeper],
     ['ton', 'TON wallet', () => global.ton],
   ];
+
+  /* WBIP-004: wallets announce themselves on window.btc_providers, and the id
+     is a dotted path to the provider object ("XverseProviders.BitcoinProvider").
+     Resolved rather than eval'd, and only across plain object hops. */
+  function atPath(path) {
+    let cur = global;
+    for (const part of String(path || '').split('.')) {
+      if (!cur || typeof cur !== 'object' || !(part in cur)) return null;
+      cur = cur[part];
+    }
+    return cur || null;
+  }
+  function btcAnnounced() {
+    const list = Array.isArray(global.btc_providers) ? global.btc_providers : [];
+    const out = [];
+    for (const d of list) {
+      if (!d || !d.id) continue;
+      const provider = atPath(d.id) || (typeof d.getProvider === 'function' ? null : d.provider);
+      if (!provider) continue;
+      out.push({ id: d.id, name: d.name || d.id, provider, icon: normIcon(d.icon) });
+    }
+    return out;
+  }
+
+  /* A wallet that announces an icon on one chain is the same wallet on every
+     other. Phantom ships its logo over EIP-6963 and says nothing about it on
+     window.phantom.solana; OKX, Bitget and XDEFI do the same. Remembering the
+     icon under the wallet's name lets the Solana and Bitcoin rows show the mark
+     the wallet itself published, rather than a mark we invented. */
+  const iconByName = new Map();
+  function rememberIcon(name, icon) {
+    const k = nameKey(name);
+    if (k && icon && !iconByName.has(k)) iconByName.set(k, icon);
+  }
+  function nameKey(name) {
+    return String(name || '').toLowerCase().replace(/\b(wallet|extension)\b/g, '').replace(/[^a-z0-9]/g, '');
+  }
+  function knownIcon(name) { return iconByName.get(nameKey(name)) || ''; }
 
   function probe(list) {
     const out = [];
@@ -106,7 +150,13 @@
       return out;
     }
     if (family === 'sol') return probe(SOL_WALLETS);
-    if (family === 'btc') return probe(BTC_WALLETS);
+    if (family === 'btc') {
+      const out = btcAnnounced();
+      const seen = new Set(out.map((w) => w.provider));
+      // Unisat and older builds announce nothing; keep probing for them.
+      for (const w of probe(BTC_WALLETS)) if (!seen.has(w.provider)) out.push(w);
+      return out;
+    }
     if (family === 'tron') return probe(TRON_WALLETS);
     if (family === 'ton') return probe(TON_WALLETS);
     return [];
@@ -114,6 +164,43 @@
 
   function available(family) {
     return discovered(family).length > 0;
+  }
+
+  /* One row per wallet, not per wallet-chain pair.
+     Phantom speaks EVM and Solana, so it announced itself twice and the picker
+     listed "Phantom" above "Phantom" — two rows with the same name and the same
+     logo, distinguished only by a chain label on the far right. Grouping by
+     wallet turns that into one Phantom offering two chains, and hands every
+     chain the icon the wallet published on whichever chain carried it.
+
+     `families` is ordered: the caller's preferred chain first, so the chain the
+     trade actually needs is the one a plain click connects. */
+  function groups(preferred) {
+    const FAMILIES = ['evm', 'tron', 'sol', 'ton', 'btc'];
+    const order = preferred && FAMILIES.includes(preferred)
+      ? [preferred].concat(FAMILIES.filter((f) => f !== preferred))
+      : FAMILIES;
+
+    const found = order.map((fam) => [fam, discovered(fam)]);
+    for (const [, list] of found) for (const w of list) rememberIcon(w.name, w.icon);
+
+    const byKey = new Map();
+    for (const [fam, list] of found) {
+      for (const w of list) {
+        const key = nameKey(w.name) || fam + ':' + w.id;
+        let g = byKey.get(key);
+        if (!g) {
+          g = { key, name: w.name, icon: '', chains: [] };
+          byKey.set(key, g);
+        }
+        if (!g.icon) g.icon = w.icon || knownIcon(w.name);
+        // Same wallet, same chain, announced twice — keep the first.
+        if (!g.chains.some((c) => c.family === fam)) {
+          g.chains.push({ family: fam, walletId: w.id });
+        }
+      }
+    }
+    return Array.from(byKey.values());
   }
 
   function pick(family, id) {
@@ -358,6 +445,6 @@
 
   global.AistWallets = {
     available, connect, address, disconnect, disconnectAll, send, toRaw,
-    discovered, refresh, assertEvmAddress, fmtUnits, unitsFor,
+    discovered, groups, refresh, assertEvmAddress, fmtUnits, unitsFor,
   };
 })(window);
