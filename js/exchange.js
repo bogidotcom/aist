@@ -142,15 +142,28 @@
   async function initPairPicker() {
     let list = [];
     try {
-      const all = await AistApi.fetchMarkets();
-      list = all.markets || [];
+      /* Markets that actually have a book, plus a capped page of the rest.
+         Asking for everything used to be fine at 360 markets; the same call
+         returns ~25,000 once the currency list expands, to populate a dropdown
+         nobody scrolls past the first screen of. */
+      const [withBook, head] = await Promise.all([
+        AistApi.fetchMarkets({ hasBook: true, limit: 200 }).catch(() => ({ markets: [] })),
+        AistApi.fetchMarkets({ limit: 300 }).catch(() => ({ markets: [] })),
+      ]);
+      const seen = new Set();
+      for (const m of (withBook.markets || []).concat(head.markets || [])) {
+        if (seen.has(m.pair)) continue;
+        seen.add(m.pair);
+        list.push(m);
+      }
     } catch { /* featured fallback below */ }
     fillPairSelect(list);
   }
 
   function fillPairSelect(list) {
     if (!els.pairSelect || els.pairSelect.dataset.ready) return;
-    const featured = ['KGST-USDT-TRC20', 'KGST-USDT-ERC20', 'aiGEL-KGST', 'aiETB-KGST', 'aiBTN-KGST', 'DAI-USDT-TRC20'];
+    // aiGEL was dropped from the chain; a pair that does not exist is skipped.
+    const featured = ['KGST-USDT-TRC20', 'KGST-USDT-ERC20', 'DAI-USDT-TRC20', 'aiETB-KGST', 'aiBTN-KGST', 'aiBDT-KGST'];
     const opts = [];
     const have = new Set((list || []).map((m) => m.pair));
     for (const id of featured) if (have.has(id) || !list.length) opts.push(id);

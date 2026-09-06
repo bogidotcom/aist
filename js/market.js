@@ -5,7 +5,11 @@
   const note = document.getElementById('note');
   const currencyPickerEl = document.getElementById('currency-picker');
   const networkFiltersEl = document.getElementById('network-filters');
-  let rows = [];
+  const PAGE = 150;
+  let rows = [];                 // the pages fetched so far, never "everything"
+  let cursor = null;             // resume token from the node; null once drained
+  let total = null;              // matching markets on the node, all pages
+  let loading = false;
   let selectedCurrency = null;   // a wire ticker (aiBTN), not a display label
   let selectedNetwork = null;
   let currencyGroups = {}; // { ticker: [{ network, pair }, ...], ... }
@@ -34,7 +38,11 @@
   // Build currency groups from rows
   /* Keyed by wire ticker. The old version keyed on the display string, which
      works right up until two currencies share one — and it meant the filter
-     compared rendered text rather than identity. */
+     compared rendered text rather than identity.
+
+     Built from the rows on screen, so it only informs the network chips. The
+     currency list itself comes from /currencies, which is one small response
+     whatever the pair count is. */
   function buildCurrencyGroups() {
     currencyGroups = {};
     for (const m of rows) {
@@ -48,9 +56,10 @@
 
   /* Options carry the currency's name and countries as a subtitle, so the
      search box matches "Bhutan" and "ngultrum", not only "aiBTN". */
+  let baseAssets = [];
   function currencyOptions() {
     const C = window.AistCurrencies;
-    return Object.keys(currencyGroups).sort((a, b) =>
+    return baseAssets.slice().sort((a, b) =>
       AistApi.displayOf(a).localeCompare(AistApi.displayOf(b))
     ).map((ticker) => {
       const rec = C && C.meta(ticker);
@@ -75,8 +84,9 @@
         onChange: (v) => {
           selectedCurrency = v;
           selectedNetwork = null; // Reset network when currency changes
-          renderNetworkFilters();
-          render(search.value);
+          // The node filters by base, so picking a currency is a new query, not
+          // a narrowing of what happens to be downloaded.
+          reload();
         },
       });
       return;
@@ -125,7 +135,10 @@
       // "Ethiopia" and "birr" should find αιETB pairs, not just "aiETB".
       || (C && (C.matches(m.base, f) || C.matches(m.quote, f))));
 
-    // Apply currency filter
+    /* The node filters by base, so on 0.4.35+ every row already matches and
+       this is a no-op. A node older than that ignores ?base= and answers with
+       every market, and without this the currency picker would appear to do
+       nothing at all. */
     if (selectedCurrency) {
       list = list.filter((m) => m.base === selectedCurrency);
     }
@@ -173,24 +186,87 @@
     box.querySelectorAll('tr[data-href]').forEach((tr) => {
       tr.addEventListener('click', () => { location.href = tr.dataset.href; });
     });
+    renderMore(ordered.length);
   }
 
-  try {
-    const data = await AistApi.fetchMarkets();
-    rows = data.markets || [];
-    if (data.synthesized) {
-      note.hidden = false;
-      note.textContent = AistUI.t('mkt.stale');
+  /* Progress and a way to keep going. Showing "150 of 25,420" matters more than
+     it looks: without it a filtered-looking table reads as the whole market. */
+  function renderMore(shown) {
+    const host = document.getElementById('more');
+    if (!host) return;
+    if (total == null || total <= rows.length) {
+      host.innerHTML = rows.length > shown
+        ? `<p class="hint">${AistUI.t('mkt.filtered').replace('{n}', shown).replace('{all}', rows.length)}</p>`
+        : '';
+      return;
     }
-    buildCurrencyGroups();
-    renderCurrencyFilters();
-    renderNetworkFilters();
-    render(search.value);
-  } catch (e) {
-    note.hidden = false;
-    note.className = 'err';
-    note.textContent = AistUI.t('err.api') + ' ' + (e.message || '');
+    host.innerHTML = `
+      <p class="hint">${AistUI.t('mkt.showing')
+        .replace('{n}', rows.length.toLocaleString()).replace('{all}', total.toLocaleString())}</p>
+      ${cursor ? `<button class="btn btn-ghost" id="more-btn" ${loading ? 'disabled' : ''}>${
+        loading ? AistUI.t('mkt.loading') : AistUI.t('mkt.more')}</button>` : ''}`;
+    const btn = document.getElementById('more-btn');
+    if (btn) btn.onclick = () => loadPage();
   }
+
+  /** Fetch one more page and append it. */
+  async function loadPage() {
+    if (loading || (rows.length && !cursor)) return;
+    loading = true;
+    renderMore(rows.length);
+    try {
+      const data = await AistApi.fetchMarkets({
+        base: selectedCurrency || undefined,
+        limit: PAGE,
+        cursor: cursor || undefined,
+      });
+      rows = rows.concat(data.markets || []);
+      cursor = data.nextCursor;
+      total = data.total;
+      if (data.synthesized) {
+        note.hidden = false;
+        note.textContent = AistUI.t('mkt.stale');
+      }
+      buildCurrencyGroups();
+      renderNetworkFilters();
+      render(search.value);
+    } catch (e) {
+      note.hidden = false;
+      note.className = 'err';
+      note.textContent = AistUI.t('err.api') + ' ' + (e.message || '');
+    } finally {
+      loading = false;
+      renderMore(rows.length);
+    }
+  }
+
+  /** Start over — a changed filter is a different query, not a smaller slice. */
+  function reload() {
+    rows = []; cursor = null; total = null;
+    box.innerHTML = `<p class="empty">${AistUI.t('mkt.loading')}</p>`;
+    return loadPage();
+  }
+
+  /* Currencies first. It is one small response no matter how many pairs exist,
+     and it is what the picker needs — deriving the currency list from the
+     market rows would mean downloading every market to populate a dropdown. */
+  try {
+    const cur = await AistApi.fetchCurrencies();
+    baseAssets = cur.onchain || [];
+  } catch { baseAssets = AistApi.ONCHAIN.slice(); }
+  renderCurrencyFilters();
+  await loadPage();
 
   search.addEventListener('input', () => render(search.value));
+
+  /* Load the next page as the last one comes into view. The button stays for
+     keyboard users and for browsers without an observer. */
+  if ('IntersectionObserver' in window) {
+    const sentinel = document.getElementById('more');
+    if (sentinel) {
+      new IntersectionObserver((entries) => {
+        if (entries.some((e) => e.isIntersecting) && cursor && !loading) loadPage();
+      }, { rootMargin: '400px' }).observe(sentinel);
+    }
+  }
 })();

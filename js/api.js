@@ -293,32 +293,72 @@
     };
   }
 
-  async function fetchMarkets(pair) {
-    const want = pair ? (parsePair(pair) || { pair }) : null;
-    const qCanon = want ? '?pair=' + encodeURIComponent(want.pair) : '';
-    const qWire = want ? '?pair=' + encodeURIComponent(wirePair(want.pair)) : '';
+  /**
+   * Markets, one page at a time.
+   *
+   * The pair count is the currency list squared: 15 on-chain currencies give
+   * 360 markets, 155 give 25,420 and a response near 4 MB. Nothing here should
+   * ever ask for all of them — pass a filter, or follow `nextCursor`.
+   *
+   * Accepts a pair string for the old one-market call, or an options object:
+   *   { pair, base, quote, hasBook, limit, cursor }
+   * Returns { markets, nextCursor, total, synthesized }.
+   */
+  async function fetchMarkets(opts) {
+    const o = typeof opts === 'string' || opts == null ? { pair: opts } : opts;
+    const want = o.pair ? (parsePair(o.pair) || { pair: o.pair }) : null;
+
+    const query = (pairStr) => {
+      const q = new URLSearchParams();
+      if (pairStr) q.set('pair', pairStr);
+      if (o.base) q.set('base', wireTicker(o.base));
+      if (o.quote) q.set('quote', wireTicker(o.quote));
+      if (o.hasBook) q.set('hasBook', '1');
+      if (o.limit) q.set('limit', String(o.limit));
+      if (o.cursor) q.set('cursor', o.cursor);
+      const str = q.toString();
+      return str ? '?' + str : '';
+    };
+    const shape = (data) => ({
+      markets: dedupeMarkets((data.markets || []).map(canonMarket).filter(Boolean)),
+      /* A node older than 0.4.35 ignores limit/cursor and answers with
+         everything. No nextCursor then, which reads correctly as "one page,
+         no more to fetch" — the caller stops rather than looping. */
+      nextCursor: data.nextCursor || null,
+      total: data.total == null ? null : data.total,
+      synthesized: false,
+    });
+
+    const qWire = query(want ? wirePair(want.pair) : '');
+    const qCanon = query(want ? want.pair : '');
     try {
-      const data = await getJSON('/api/p2p/markets' + qWire);
-      return { markets: dedupeMarkets((data.markets || []).map(canonMarket).filter(Boolean)), synthesized: false };
+      return shape(await getJSON('/api/p2p/markets' + qWire));
     } catch (e) {
       if (e.status === 400 && qWire !== qCanon) {
-        try {
-          const data = await getJSON('/api/p2p/markets' + qCanon);
-          return { markets: dedupeMarkets((data.markets || []).map(canonMarket).filter(Boolean)), synthesized: false };
-        } catch { /* fall through */ }
+        try { return shape(await getJSON('/api/p2p/markets' + qCanon)); }
+        catch { /* fall through */ }
       }
       if (e.status !== 404 && e.status !== 400) throw e;
-      return synthesizeMarkets();
+      return synthesizeMarkets(o);
     }
   }
 
-  async function synthesizeMarkets() {
+  /* Fallback for a node with no /markets at all. Honours the same filters and
+     page size, so an old node cannot be turned into a 25,000-row response by a
+     client that was careful about asking the new one. */
+  async function synthesizeMarkets(o) {
+    const opts = o || {};
     let cur;
     try { cur = await fetchCurrencies(); } catch { cur = { onchain: ONCHAIN, quote: OFFCHAIN }; }
-    const bases = (cur.onchain || ONCHAIN).slice();
-    const quotes = (cur.quote || OFFCHAIN).concat(bases);
+    const bases = (cur.onchain || ONCHAIN).slice().filter((b) => !opts.base || b === opts.base);
+    const quotes = (cur.quote || OFFCHAIN).concat(cur.onchain || ONCHAIN)
+      .filter((q) => !opts.quote || q === opts.quote);
+    const limit = Math.min(Number(opts.limit) || 500, 1000);
+    const start = Number(opts.cursor) || 0;
     const seen = new Set();
     const markets = [];
+    let n = 0;
+    let nextCursor = null;
     for (const rawBase of bases) {
       for (const rawQuote of quotes) {
         const m = canonMarket({
@@ -329,10 +369,13 @@
         });
         if (!m || seen.has(m.pair)) continue;
         seen.add(m.pair);
+        n++;
+        if (n <= start) continue;
+        if (markets.length >= limit) { if (!nextCursor) nextCursor = String(n - 1); continue; }
         markets.push(m);
       }
     }
-    return { markets, synthesized: true };
+    return { markets, nextCursor, total: n, synthesized: true };
   }
 
   /** On-chain balances for a dai… address: native DAI plus every stablecoin. */

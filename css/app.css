@@ -293,6 +293,9 @@ table.pairs tbody tr:hover{background:var(--bg-3)}
   .node{min-width:0}
 }
 
+.more-row{display:flex;flex-direction:column;align-items:center;gap:10px;padding:20px 0 40px}
+.more-row .hint{margin:0}
+
 /* make-an-offer panel */
 .offer-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:12px}
 .offer-head h2{margin:0}
