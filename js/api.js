@@ -244,6 +244,8 @@
       'USDC-ERC20': { address: '0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48', decimals: 6 },
       'USDT-BEP20': { address: '0x55d398326f99059fF775485246999027B3197955', decimals: 18 },
       'USDT-TRC20': { address: 'TR7NHqjeKQxGTCi8q8ZY4pL8otSzgjLj6t', decimals: 6 },
+      // SPL mint, needed to read a Solana USDT balance before posting an offer.
+      'USDT-SOL': { address: 'Es9vMFrzaCERmJfrF4H2FYD4KCoNkY11McCe8BenwNYB', decimals: 6 },
     }[ticker] || null;
   }
 
@@ -333,6 +335,20 @@
     return { markets, synthesized: true };
   }
 
+  /** On-chain balances for a dai… address: native DAI plus every stablecoin. */
+  async function fetchBalance(address) {
+    const d = await getJSON('/api/wallet/balance?address=' + encodeURIComponent(address));
+    return { address: d.address, dai: d.balance || 0, assets: d.assets || {} };
+  }
+
+  /** Raw units of `ticker` held by a dai… address. */
+  function heldRaw(bal, ticker) {
+    if (!bal) return 0;
+    if (ticker === 'DAI') return bal.dai || 0;
+    const a = bal.assets && bal.assets[ticker];
+    return a ? a.raw || 0 : 0;
+  }
+
   async function fetchOrders(pair) {
     const p = parsePair(pair);
     const id = p ? p.pair : pair;
@@ -376,5 +392,6 @@
     normalizeTicker, decimals, displayOf, family, isOnchain, evmChainId, tokenContract,
     formatRaw, formatPrice, orderBase, orderSizeDisplay, orderPrice,
     fetchCurrencies, fetchMarkets, fetchOrders, fetchOrder, fetchCandles,
+    fetchBalance, heldRaw,
   };
 })(window);

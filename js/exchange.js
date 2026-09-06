@@ -281,7 +281,7 @@
     const connected = AistWallets.address(giveFam) || AistWallets.address(getFam);
     // The maker's method must be the same rail we are about to send on.
     const netMismatch = !!(pay && pay.network && give && pay.network !== give);
-    const paired = AistPairing.status();
+    const paired = AistP2P.signerStatus();
     const me = paired.address || null;
     const tr = liveTrade && liveTrade.trade;
     const trOrder = liveTrade && liveTrade.order;
@@ -346,9 +346,9 @@
             <div class="row-btns" style="margin-top:8px">
               <button class="btn btn-lime" id="act-take" ${!selected ? 'disabled' : ''}>${AistUI.t('ex.takeOrder')}</button>
             </div>`}
-          <p class="hint" id="trade-note">${paired.state === 'paired'
+          <p class="hint" id="trade-note">${paired.address
             ? AistUI.t('ex.signingAs').replace('{a}', paired.address.slice(0, 12) + '…')
-            : AistUI.t('ex.needSigner')}</p>
+            : AistUI.t('off.willCreateIdentity')}</p>
         </div>` : `
         <p class="hint">${selected ? AistUI.t('ex.onchain') : AistUI.t('ex.pickOrder')}</p>
         ${selected ? `<p class="hint" data-i18n="ex.locked">${AistUI.t('ex.locked')}</p>` : ''}
@@ -380,21 +380,25 @@
       await AistUI.copy(pay.address);
       AistUI.toast(e.currentTarget, 'ex.copied');
     });
+    renderOffer();
     document.getElementById('connect-btn')?.addEventListener('click', () => openWalletModal(giveFam === 'other' ? getFam : giveFam));
     document.getElementById('send-btn')?.addEventListener('click', () => sendPay(giveFam, give, pay && pay.address));
     const note = () => document.getElementById('trade-note');
     async function act(fn, args) {
       const el = note();
-      // aist:// connect-wallet prompt — disabled.
-      // if (!AistPairing.isLive()) {
-      //   const ok = await AistPairUI.connect();
-      //   if (!ok) return;
-      // }
-      if (!AistPairing.isLive()) {
-        if (el) el.textContent = AistUI.t('ex.needSigner');
-        return;
+      /* Signing no longer requires the aist:// pairing flow, which is still
+         commented out. If no key exists yet, AistIdentity generates one and
+         registers it with the node on first use — see js/identity.js for what
+         that costs in safety. */
+      if (!AistP2P.canSign()) {
+        if (el) el.textContent = AistUI.t('off.creatingIdentity');
+        try { await AistIdentity.ensure(); }
+        catch (e) { if (el) el.textContent = offerError(e); return; }
       }
-      if (el) el.textContent = AistUI.t('ex.approveOnSigner');
+      if (el) {
+        el.textContent = AistP2P.signerStatus().kind === 'paired'
+          ? AistUI.t('ex.approveOnSigner') : AistUI.t('off.signing');
+      }
       try {
         const res = await fn(args);
         const id = res.trade?.id || args.tradeId;
@@ -411,6 +415,8 @@
         orderId: selected.id,
         daiAmount: selected.daiAmount,
         quoteAmount: Number(document.getElementById('amt')?.value || selected.quoteAmount),
+        // Where the taker wants their side sent. Signed as of 0.4.35.
+        takerPayoutAddress: (document.getElementById('recv')?.value || '').trim() || null,
         order: selected,
       });
     });
@@ -422,6 +428,217 @@
       const reason = prompt(AistUI.t('ex.disputeReason'));
       if (reason) act(AistP2P.disputeTrade, { tradeId: tr.id, reason });
     });
+  }
+
+  /* ── make an offer ─────────────────────────────────────────────────────
+     "I give USDT-ERC20, I want DAI" is a BUY of DAI quoted in USDT-ERC20.
+     The node escrows only ever the on-chain leg: a sell locks the maker's base
+     at creation, a buy locks the taker's base when they take it. So the maker's
+     off-chain funds are never held by anyone, and the balance check below is a
+     warning shown to the person posting — not a promise to whoever fills it. */
+
+  const offer = { side: 'buy', open: false, checking: false, check: null };
+
+  function offerQuoteAmount() {
+    const amt = Number(document.getElementById('offer-amt')?.value || 0);
+    const price = Number(document.getElementById('offer-price')?.value || 0);
+    if (!(amt > 0) || !(price > 0)) return 0;
+    return amt * price;
+  }
+
+  /* What the maker must be able to hand over if this offer is filled in full.
+     A sell escrows the base on the DAI chain the moment it is posted; a buy
+     pays the quote later, from a wallet on that quote's own chain. */
+  function offerObligation() {
+    const isSell = offer.side === 'sell';
+    return isSell
+      ? { ticker: parsed.base, family: 'dai', amount: Number(document.getElementById('offer-amt')?.value || 0) }
+      : { ticker: parsed.quote, family: AistApi.family(parsed.quote), amount: offerQuoteAmount() };
+  }
+
+  async function checkOfferFunds() {
+    const need = offerObligation();
+    offer.check = null;
+    if (!(need.amount > 0)) return null;
+
+    if (need.family === 'dai') {
+      const who = AistP2P.signerStatus().address;
+      if (!who) return { unknown: true, reason: 'no-identity', ...need };
+      try {
+        const bal = await AistApi.fetchBalance(who);
+        const have = BigInt(AistApi.heldRaw(bal, need.ticker));
+        const raw = AistWallets.toRaw(need.ticker, String(need.amount), AistApi.decimals(need.ticker));
+        return { ok: have >= raw, have, need: raw, dec: AistApi.decimals(need.ticker), ticker: need.ticker };
+      } catch (e) {
+        return { unknown: true, reason: (e && e.message) || 'lookup-failed', ...need };
+      }
+    }
+    if (need.family === 'bank' || need.family === 'other') {
+      // Nothing to read — a bank transfer has no chain to ask.
+      return { unknown: true, reason: 'offchain-rail', ...need };
+    }
+    if (!AistWallets.address(need.family)) {
+      return { unknown: true, reason: 'not-connected', family: need.family, ...need };
+    }
+    return AistWallets.hasBalance(need.family, need.ticker, String(need.amount));
+  }
+
+  function fundsLine(check) {
+    if (!check) return '';
+    const esc = (v) => String(v).replace(/[&<>]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;' }[c]));
+    if (check.unknown) {
+      const key = {
+        'not-connected': 'off.needWallet',
+        'offchain-rail': 'off.noCheck',
+        'no-identity': 'off.needIdentity',
+      }[check.reason] || 'off.checkFailed';
+      return `<p class="hint">${esc(AistUI.t(key))}</p>`;
+    }
+    const have = AistWallets.fmtUnits(check.have, check.dec);
+    if (check.ok) {
+      return `<p class="hint ok">${esc(AistUI.t('off.funded').replace('{have}', have)
+        .replace('{t}', AistApi.displayOf(check.ticker)))}</p>`;
+    }
+    return `<p class="err">${esc(AistUI.t('off.short').replace('{have}', have)
+      .replace('{t}', AistApi.displayOf(check.ticker)))}</p>`;
+  }
+
+  function renderOffer() {
+    const host = document.getElementById('offer');
+    if (!host) return;
+    const isSell = offer.side === 'sell';
+    const give = isSell ? parsed.base : parsed.quote;
+    const get = isSell ? parsed.quote : parsed.base;
+    const signerSt = AistP2P.signerStatus();
+
+    if (!offer.open) {
+      host.innerHTML = `<button class="btn btn-ghost btn-wide" id="offer-open">${AistUI.t('off.make')}</button>`;
+      document.getElementById('offer-open').onclick = () => { offer.open = true; renderOffer(); };
+      return;
+    }
+
+    /* The node refuses a buy whose quote is itself on-chain: both sides must
+       authorise at the moment funds move, which only the sell shape gives it.
+       Say so here rather than letting the post fail with a 400. */
+    const onchainQuote = AistApi.family(parsed.quote) === 'dai';
+    const blocked = onchainQuote && !isSell;
+
+    host.innerHTML = `
+      <div class="offer-head">
+        <h2>${AistUI.t('off.title')}</h2>
+        <button class="btn-x" id="offer-close" aria-label="${AistUI.t('off.close')}">×</button>
+      </div>
+      <div class="seg" role="tablist">
+        <button type="button" role="tab" class="${!isSell ? 'on' : ''}" data-side="buy"
+          aria-selected="${!isSell}">${AistUI.t('off.buy').replace('{b}', AistApi.displayOf(parsed.base))}</button>
+        <button type="button" role="tab" class="${isSell ? 'on' : ''}" data-side="sell"
+          aria-selected="${isSell}">${AistUI.t('off.sell').replace('{b}', AistApi.displayOf(parsed.base))}</button>
+      </div>
+      <p class="hint">${AistUI.t('off.shape')
+        .replace('{give}', AistApi.displayOf(give)).replace('{get}', AistApi.displayOf(get))}</p>
+      ${blocked ? `<p class="err">${AistUI.t('off.onchainBuy')
+        .replace('{q}', AistApi.displayOf(parsed.quote)).replace('{b}', AistApi.displayOf(parsed.base))}</p>` : `
+      <div class="field">
+        <label>${AistUI.t('off.amount').replace('{b}', AistApi.displayOf(parsed.base))}</label>
+        <input id="offer-amt" inputmode="decimal" placeholder="0.00">
+      </div>
+      <div class="field">
+        <label>${AistUI.t('off.price').replace('{b}', AistApi.displayOf(parsed.base))
+          .replace('{q}', AistApi.displayOf(parsed.quote))}</label>
+        <input id="offer-price" inputmode="decimal" placeholder="0.00">
+      </div>
+      <div class="field">
+        <label>${AistUI.t('off.total').replace('{q}', AistApi.displayOf(parsed.quote))}</label>
+        <input id="offer-total" disabled value="—">
+      </div>
+      ${isSell ? `
+        <div class="field">
+          <label>${AistUI.t('off.payTo').replace('{q}', AistApi.displayOf(parsed.quote))}</label>
+          <input id="offer-payto" spellcheck="false" autocomplete="off"
+                 value="${AistWallets.address(AistApi.family(parsed.quote)) || ''}" placeholder="…">
+          <p class="hint">${AistUI.t('off.payToHint')}</p>
+        </div>` : ''}
+      <div id="offer-funds">${offer.checking ? `<p class="hint">${AistUI.t('off.checking')}</p>` : fundsLine(offer.check)}</div>
+      <div class="row-btns">
+        <button class="btn btn-ghost" id="offer-check">${AistUI.t('off.check')}</button>
+        <button class="btn btn-lime" id="offer-post">${AistUI.t('off.post')}</button>
+      </div>
+      <p class="hint" id="offer-note">${signerSt.address
+        ? AistUI.t('ex.signingAs').replace('{a}', signerSt.address.slice(0, 12) + '…')
+        : AistUI.t('off.willCreateIdentity')}</p>`}`;
+
+    document.getElementById('offer-close').onclick = () => { offer.open = false; renderOffer(); };
+    host.querySelectorAll('[data-side]').forEach((b) => {
+      b.onclick = () => { offer.side = b.dataset.side; offer.check = null; renderOffer(); };
+    });
+    if (blocked) return;
+
+    const recalc = () => {
+      const t = offerQuoteAmount();
+      document.getElementById('offer-total').value = t ? String(Number(t.toFixed(8))) : '—';
+      // Any edit invalidates a check that was run against the old numbers.
+      if (offer.check) { offer.check = null; document.getElementById('offer-funds').innerHTML = ''; }
+    };
+    document.getElementById('offer-amt').addEventListener('input', recalc);
+    document.getElementById('offer-price').addEventListener('input', recalc);
+
+    document.getElementById('offer-check').onclick = async () => {
+      offer.checking = true;
+      document.getElementById('offer-funds').innerHTML = `<p class="hint">${AistUI.t('off.checking')}</p>`;
+      offer.check = await checkOfferFunds();
+      offer.checking = false;
+      document.getElementById('offer-funds').innerHTML = fundsLine(offer.check);
+    };
+
+    document.getElementById('offer-post').onclick = async () => {
+      const note = document.getElementById('offer-note');
+      const amt = Number(document.getElementById('offer-amt').value || 0);
+      const price = Number(document.getElementById('offer-price').value || 0);
+      if (!(amt > 0) || !(price > 0)) { note.textContent = AistUI.t('off.needNumbers'); return; }
+
+      const payTo = isSell ? (document.getElementById('offer-payto').value || '').trim() : '';
+      if (isSell && !payTo) { note.textContent = AistUI.t('off.needPayTo'); return; }
+
+      /* Check funds before asking anyone to sign. A short balance is a warning,
+         not a block — the maker may be about to fund the account, and only they
+         know that — but it must be seen and dismissed, never skipped silently. */
+      if (!offer.check) {
+        note.textContent = AistUI.t('off.checking');
+        offer.check = await checkOfferFunds();
+        document.getElementById('offer-funds').innerHTML = fundsLine(offer.check);
+        if (offer.check && offer.check.ok === false) {
+          note.textContent = AistUI.t('off.confirmShort');
+          return;
+        }
+      }
+
+      note.textContent = AistUI.t('off.posting');
+      try {
+        const res = await AistP2P.createOrder({
+          side: offer.side,
+          baseAsset: parsed.base,
+          quoteCurrency: parsed.quote,
+          daiAmount: Number(AistWallets.toRaw(parsed.base, String(amt), AistApi.decimals(parsed.base))),
+          pricePerDAI: price,
+          paymentMethods: isSell ? [{ network: parsed.quote, address: payTo }] : [{ network: parsed.quote }],
+        });
+        note.textContent = AistUI.t('off.posted').replace('{id}', (res.order && res.order.id || '').slice(0, 8));
+        offer.open = false;
+        await load();
+      } catch (e) {
+        note.textContent = offerError(e);
+      }
+    };
+  }
+
+  function offerError(e) {
+    const msg = (e && e.message) || '';
+    if (/insufficient/i.test(msg)) return AistUI.t('off.errEscrow') + ' ' + msg;
+    if (/sell-side only/i.test(msg)) return AistUI.t('off.onchainBuy')
+      .replace('{q}', AistApi.displayOf(parsed.quote)).replace('{b}', AistApi.displayOf(parsed.base));
+    if (/wallet not found/i.test(msg)) return AistUI.t('off.errNoWallet');
+    if (msg === 'nacl-missing') return AistUI.t('off.errNoCrypto');
+    return AistUI.t('off.errPost') + ' ' + msg;
   }
 
   async function openWalletModal(prefer) {

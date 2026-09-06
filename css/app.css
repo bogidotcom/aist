@@ -293,6 +293,18 @@ table.pairs tbody tr:hover{background:var(--bg-3)}
   .node{min-width:0}
 }
 
+/* make-an-offer panel */
+.offer-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:12px}
+.offer-head h2{margin:0}
+.btn-x{background:none;border:0;color:var(--faint);font-size:22px;line-height:1;cursor:pointer;padding:0 4px}
+.btn-x:hover{color:var(--ink)}
+.seg{display:flex;gap:0;border:1px solid var(--line);border-radius:10px;overflow:hidden;margin-bottom:12px}
+.seg button{flex:1;background:transparent;border:0;padding:9px 10px;cursor:pointer;color:var(--mute);
+  font-family:var(--mono);font-size:13px}
+.seg button:hover{color:var(--ink);background:var(--bg-3)}
+.seg button.on{background:var(--lime);color:#07110b;font-weight:600}
+.hint.ok{color:var(--lime)}
+
 /* searchable picker — a select that survives 155 currencies */
 .picker{position:relative;min-width:220px}
 .picker-btn{display:flex;align-items:center;justify-content:space-between;gap:10px;width:100%;
