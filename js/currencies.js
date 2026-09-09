@@ -13,7 +13,8 @@
  * currency the node has never heard of simply never appears in the UI.
  *
  * Source: CLDR territory_currencies, tender-only, filtered to those legal
- * tender somewhere today. 155 rows — fewer than the ~195 countries, because
+ * tender somewhere today, plus six that have no ISO code at all. 161 rows —
+ * fewer than the ~195 countries, because
  * the euro, the US dollar and the two CFA francs are each shared by many.
  *
  * Columns: ISO code, sign, English name, countries that use it.
@@ -175,6 +176,22 @@
     ['YER', 'ر.ي.‏', 'Yemeni Rial', 'Yemen'],
     ['ZAR', 'R', 'South African Rand', 'Lesotho, Namibia, South Africa'],
     ['ZMW', 'K', 'Zambian Kwacha', 'Zambia'],
+
+    /* No ISO 4217 code, so absent from CLDR — appended rather than interleaved
+       so nobody mistakes these for assigned codes. The codes below are the
+       widely-used unofficial ones and cannot collide with ISO, which never
+       assigns them.
+
+       The first three are issued by unrecognised states and circulate at their
+       own rate. The last three are 1:1 local issues of a currency already in
+       this table (AUD, AUD, DKK) — the same money under a local design, not a
+       separate float, which matters if anyone trades them against the parent. */
+    ['PRB', 'р.', 'Transnistrian Ruble', 'Transnistria'],
+    ['SLS', 'Sl',  'Somaliland Shilling', 'Somaliland'],
+    ['APS', 'ა',   'Abkhazian Apsar', 'Abkhazia'],
+    ['KID', '$',   'Kiribati Dollar', 'Kiribati'],
+    ['TVD', '$',   'Tuvaluan Dollar', 'Tuvalu'],
+    ['FOK', 'kr',  'Faroese Króna', 'Faroe Islands'],
   ];
 
   /* KGS predates the ai-prefix convention and is KGST on-chain. Anything else
