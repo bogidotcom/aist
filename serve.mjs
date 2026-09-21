@@ -37,7 +37,14 @@ createServer((req, res) => {
   let file = ROUTES[pathOnly];
   if (!file) {
     const abs = safe(pathOnly);
-    if (existsSync(abs) && statSync(abs).isFile()) file = abs.slice(root.length + 1);
+    if (existsSync(abs) && statSync(abs).isFile()) {
+      file = abs.slice(root.length + 1);
+    } else if (existsSync(abs) && statSync(abs).isDirectory()) {
+      // Only /blog/ nests real files under a directory today; resolve its
+      // index.html the way a static host would rather than 404ing on it.
+      const idx = join(abs, 'index.html');
+      if (existsSync(idx)) file = idx.slice(root.length + 1);
+    }
   }
   if (!file) {
     res.writeHead(404, { 'content-type': 'text/plain' });

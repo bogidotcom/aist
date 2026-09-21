@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Your first trade: simple spread arbitrage — AIST Exchange</title>
+  <meta name="description" content="Two makers who disagree on price, on the same pair, in the same minute. Why a crossed book survives on a P2P market, and the four ways taking it still loses money.">
+  <meta property="og:title" content="Your first trade: simple spread arbitrage">
+  <meta property="og:description" content="Why a crossed book survives here, the worked example line by line, the fee floor, and the four ways it loses money.">
+  <meta property="og:type" content="article">
+  <link rel="icon" href="../assets/stork.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,600;0,9..40,700&family=IBM+Plex+Mono:wght@400;500&family=Sora:wght@600;700&family=Noto+Sans+Arabic:wght@400;600;700&family=Noto+Sans+Bengali:wght@400;600;700&family=Noto+Nastaliq+Urdu:wght@400;700&family=Noto+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/app.css">
+</head>
+<body data-page="blog">
+  <header class="top" id="top"></header>
+
+  <main class="wrap">
+    <article class="post">
+      <a class="back" href="./" data-i18n="blog.back">← Blog</a>
+
+      <div class="post-meta">
+        <span class="tag" data-i18n="blog.tag.strategy">Strategy</span>
+        <span class="tag" data-i18n="blog.tag.beginner">Beginner</span>
+        <span class="when" data-i18n="b2.date">21 September 2026</span>
+      </div>
+
+      <h1 data-i18n="b2.title">Your first trade: simple spread arbitrage</h1>
+
+      <p class="lede" data-i18n="b2.lede">The same pair, the same minute, two makers who disagree on price. You buy the low ask and sell the high bid before either of them notices. That is the whole strategy — everything below is about the four ways it goes wrong and how to stop each one.</p>
+
+      <section class="sect">
+        <p class="kicker" data-i18n="b2.s1.k">Why it exists</p>
+        <h2 data-i18n="b2.s1.h">A crossed book cannot survive on a centralised exchange. Here it can.</h2>
+        <div data-i18n-html="b2.s1.b">
+          <p>A matching engine crosses a bid above an ask automatically, in microseconds, and the two orders annihilate before a human can see them. A crossed book on Binance lasts about as long as it takes to print.</p>
+          <p><strong>AIST has no matching engine.</strong> Nothing crosses automatically. A trade only happens because a taker deliberately selected a specific maker's offer.</p>
+          <p>So when a maker posts a bid at 0.01243, goes to make tea, and another maker posts an ask at 0.01188 four minutes later, the book is now crossed — and it stays crossed until a human does something about it. Orders live 24 hours. The tea can be quite long.</p>
+          <p>Three structural facts make this recur rather than being a freak event. <strong>Makers post and walk away</strong> — nothing re-prices their quote against the mid. <strong>Miners are price-insensitive sellers</strong> — a node operator cashing out a weekly payout wants it gone, not optimised, and posts below the bid without checking. And <strong>nobody is watching every pair</strong> — there are hundreds of pairs and a handful of active traders.</p>
+          <p class="pull">Your edge is not intelligence. It is being the one who looked.</p>
+        </div>
+      </section>
+
+      <section class="sect">
+        <p class="kicker" data-i18n="b2.s2.k">Worked example</p>
+        <h2 data-i18n="b2.s2.h">The trade, line by line</h2>
+        <pre class="ex">pair       KGST-USDT-TRC20
+best ask   0.01188    size 60,000
+best bid   0.01243    size 50,000
+────────────────────────────────────
+buy    50,000 KGST @ 0.01188 =  594.00
+sell   50,000 KGST @ 0.01243 =  621.50
+fees   2× TRC20                  -2.00
+net    <b>+25.50 USDT</b>   (4.3%)</pre>
+        <div data-i18n-html="b2.s2.b">
+          <p>Somebody will sell you up to 60,000 KGST at 0.01188. Somebody else will buy up to 50,000 from you at 0.01243. The bid is <em>above</em> the ask. On a normal exchange that is impossible; here it is Tuesday.</p>
+          <p><strong>Note the size: 50,000, not 60,000.</strong> This is the part beginners get wrong, and it is the difference between an arbitrage and a gamble. You can buy 60,000 — but you can only sell 50,000. Buy the full ask and you are left holding 10,000 KGST at a price nobody has quoted. Your closed trade just became an open position.</p>
+          <p class="pull">The sizing rule: the smaller side sets the trade. Always.</p>
+          <p>The fees are two on-chain transfers, roughly 1.00 USDT each in this illustration — one to pay for the buy, one on the sell side. Two legs, two fees. Net 25.50 USDT on 594.00 deployed, which is 4.3%, in a window measured in minutes.</p>
+          <p><strong>That percentage misleads in both directions.</strong> It is not a rate of return you can annualise — you cannot do this trade on demand, only when the book is crossed, which might be twice this week and not at all next week. But it also understates the edge, because the capital was at risk for minutes. What matters is opportunities per week × average edge × the size you can clear.</p>
+        </div>
+      </section>
+
+      <section class="sect">
+        <p class="kicker" data-i18n="b2.s3.k">Arithmetic</p>
+        <h2 data-i18n="b2.s3.h">From gross spread to net profit, in five steps</h2>
+        <div data-i18n-html="b2.s3.b1">
+          <ol>
+            <li><strong>Gross spread.</strong> (bid − ask) ÷ ask. Here: (0.01243 − 0.01188) ÷ 0.01188 = 4.63%.</li>
+            <li><strong>Tradeable size.</strong> The smaller of the two sizes, then capped by your own float and by the makers' trade limits.</li>
+            <li><strong>Gross profit.</strong> size × (bid − ask) = 50,000 × 0.00055 = 27.50 USDT.</li>
+            <li><strong>Subtract every fee.</strong> Two on-chain sends here. Add bank charges, withdrawal fees, or a third transfer if your float is not already on the right rail.</li>
+            <li><strong>Check the floor.</strong> If net profit is under a few USDT, the trade is not worth the fifteen-minute window and the attention. Skip it.</li>
+          </ol>
+          <p>Because fees are fixed per leg while profit scales with size, there is a minimum size below which a given spread cannot pay at all. At 2.00 USDT of round-trip fees:</p>
+        </div>
+        <div class="tbl-wrap">
+          <table class="post-tbl">
+            <thead>
+              <tr>
+                <th data-i18n="b2.tbl.spread">Gross spread</th>
+                <th data-i18n="b2.tbl.be">Break-even size (KGST at ~0.012)</th>
+                <th data-i18n="b2.tbl.ten">Size for a 10 USDT profit</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>0.5%</td><td>~33,000</td><td>~200,000</td></tr>
+              <tr><td>1.0%</td><td>~17,000</td><td>~100,000</td></tr>
+              <tr><td>2.0%</td><td>~8,500</td><td>~50,000</td></tr>
+              <tr><td>4.6%</td><td>~3,700</td><td>~22,000</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div data-i18n-html="b2.s3.b2">
+          <p>Read the first row again. <strong>A 0.5% spread on 20,000 KGST is a loss.</strong> Small spreads are not small profits; below the fee floor they are negative. This is the most common way a new trader turns a real edge into a real loss.</p>
+        </div>
+      </section>
+
+      <section class="sect">
+        <p class="kicker" data-i18n="b2.s4.k">Execution</p>
+        <h2 data-i18n="b2.s4.h">Doing it, click by click</h2>
+        <div data-i18n-html="b2.s4.b">
+          <p><strong>Before you start, pre-position your float.</strong> You need both sides funded before you go looking. USDT on the rail the pair quotes in — TRC20 for a TRC20 pair; USDT on ERC20 does not help you, and bridging takes longer than the opportunity lasts. And a DAI wallet already known to the node, because escrow lock is refused for an address the chain has never seen. An opportunity you have to fund first is an opportunity someone else takes.</p>
+          <ol>
+            <li><strong>Pick the pair.</strong> Start with KGST-USDT-TRC20: the deepest pair on the board, cheap TRC20 fees, and an outside reference price on Binance to sanity-check the level. Remember the slug is base KGST, quote USDT-TRC20 — the quote contains a hyphen.</li>
+            <li><strong>Compare top of book.</strong> You are looking for best bid above best ask, not merely a narrow spread. Note the size next to each, not just the price.</li>
+            <li><strong>Check the maker's limits.</strong> Each order carries a min and max trade in quote currency. Your tradeable size is the smallest of: ask size, bid size, both maximums, and your own float.</li>
+            <li><strong>Take the ask.</strong> Select the sell order, enter your size, confirm. Escrow locks and your 15-minute clock starts. Pay at the address in the ticket — it was signed with the offer, so it cannot have been tampered with. Mark payment sent; the maker sees it land and releases.</li>
+            <li><strong>Sell into the bid immediately.</strong> Same session. Do not step away to make tea — that is what the person on the other side of this trade did, and it is why you are here.</li>
+            <li><strong>Reconcile.</strong> Write down what you paid, what you received, what the fees actually were, and how long it took. Your first ten trades are how you learn what fees really cost on your rails, because the estimate in your head is always optimistic.</li>
+          </ol>
+        </div>
+      </section>
+
+      <section class="sect">
+        <p class="kicker" data-i18n="b2.s5.k">Risk</p>
+        <h2 data-i18n="b2.s5.h">The four ways this loses money</h2>
+        <div data-i18n-html="b2.s5.b">
+          <p><strong>1. The second leg vanishes.</strong> This is the risk that defines the strategy. You buy 50,000 KGST at 0.01188, turn to sell into the 0.01243 bid — and it is gone; the maker woke up and cancelled. You now own 50,000 KGST and the best remaining bid is 0.01150. Your 25.50 USDT profit is a 21 USDT loss, and you are holding inventory in a thin asset.</p>
+          <p>What you can actually do about it: size the first leg to what the second side can absorb, not to what you can afford. Check the bid's age — an old quote is more likely to be abandoned, which cuts both ways, because abandoned means mispriced <em>and</em> means the maker may never respond at all. Prefer the tighter but fresher cross when you have the choice. And know your fallback exit before you take the first leg: if that bid disappears, what is the second-best bid, and does it still leave you whole? If the answer is "I don't know", you are not arbitraging.</p>
+          <p><strong>2. The 15-minute window.</strong> If your off-chain payment does not land and confirm inside it, the trade can be cancelled or disputed. That is why a bank transfer as the buy-side method on a two-leg arbitrage is usually a mistake — clearing time alone can eat the window — and why TRC20 is the friendly rail here: cheap and fast. ERC20 at a congestion spike can miss the window on fee grounds alone.</p>
+          <p><strong>3. Depth you did not check.</strong> The top of book is one order. The bid for 50,000 might be followed by nothing until 0.01150. That is fine while you only take the top, and fatal the moment you size above it and assume the rest fills nearby. On a thin compute-coin book, level two can be a long way down.</p>
+          <p><strong>4. Fees you estimated instead of measured.</strong> The failure mode is behavioural: you see 4.6%, feel good, and skip the subtraction because the number looked big. Do it every time. It takes ten seconds, and it is the only step that turns a number on a screen into money in an account.</p>
+        </div>
+      </section>
+
+      <section class="sect">
+        <p class="kicker" data-i18n="b2.s6.k">Checklist</p>
+        <h2 data-i18n="b2.s6.h">Before every trade</h2>
+        <div data-i18n-html="b2.s6.b">
+          <ul class="check">
+            <li>Both sides of my float are funded, on the correct rails, right now</li>
+            <li>My DAI address is registered with the node</li>
+            <li>Best bid is genuinely above best ask, not just a narrow spread</li>
+            <li>I have written down both sizes and taken the smaller</li>
+            <li>Both makers' trade limits allow my size</li>
+            <li>Gross profit = size × (bid − ask), calculated, not guessed</li>
+            <li>All fees subtracted</li>
+            <li>Net is above my minimum-worth-doing floor</li>
+            <li>Both legs can complete inside 15 minutes on these rails</li>
+            <li>I know my fallback bid if leg two disappears</li>
+          </ul>
+          <p>Any unchecked box: do not trade. The book will cross again.</p>
+        </div>
+      </section>
+
+      <section class="sect">
+        <p class="kicker" data-i18n="b2.s7.k">Expectations</p>
+        <h2 data-i18n="b2.s7.h">What a realistic first month looks like</h2>
+        <div data-i18n-html="b2.s7.b">
+          <p>Assuming you check the book a few times a day rather than running a bot: a handful of genuine crossed books per week across the pairs you watch, most of them small. Start at a fifth of what the arithmetic allows — the first trades are for learning where your real costs are, not for earning. Expect to abort more trades than you take; walking away from one whose second leg looks shaky is the skill, not a failure.</p>
+          <p>The real return is not the 4.3% headline. It is total net profit divided by the float you had to keep parked to catch these — and parked float has a cost of its own.</p>
+          <p>If that sounds modest, it is. Simple spread arbitrage is the <em>safest</em> strategy on the board, and safe and lucrative are not the same word. Its actual value is that it teaches you the mechanics — escrow timing, depth, fee floors, sizing to the smaller side — with the smallest possible downside. Every other strategy assumes you already have that in your hands.</p>
+        </div>
+      </section>
+
+      <section class="sect">
+        <p class="kicker" data-i18n="b2.s8.k">Next</p>
+        <h2 data-i18n="b2.s8.h">Where to go once the checklist is automatic</h2>
+        <div data-i18n-html="b2.s8.b">
+          <ul>
+            <li><strong>Payment Method Arbitrage</strong> (beginner) — the same asset across different fiat rails. Cash is cheap to buy with, instant transfer pays the most. Adds method risk, which is a genuinely different animal: a reversed card payment or a frozen transfer costs you the float, not the spread.</li>
+            <li><strong>Cross-Exchange Arbitrage</strong> (intermediate) — KGST trades on Binance and here. Same idea, two venues, and transfer latency becomes the enemy.</li>
+            <li><strong>P2P Market Making</strong> (intermediate) — stop hunting crosses and post both sides yourself. You stop being the one who arrives late.</li>
+          </ul>
+        </div>
+        <div class="cta-row">
+          <a class="btn btn-lime" id="cta-strat" data-i18n="st.cta">Open the market</a>
+          <a class="btn btn-ghost" id="cta-market" data-i18n="home.cta2">Arbitrage strategies</a>
+        </div>
+      </section>
+
+      <section class="sect">
+        <p class="disclaim" data-i18n="blog.disclaim">Education, not investment advice. P2P settlement carries counterparty risk that escrow reduces but never removes. Every figure here is an illustration — check the live book before you size a trade.</p>
+      </section>
+    </article>
+  </main>
+
+  <footer class="foot" id="foot"></footer>
+  <script src="../js/i18n.js"></script>
+  <script src="../js/i18n.strategies.js"></script>
+  <script src="../js/i18n.more.js"></script>
+  <script src="i18n.blog.js"></script>
+  <script src="i18n.blog.more.js"></script>
+  <script src="../js/currencies.js"></script>
+  <script src="../js/api.js"></script>
+  <script src="../js/wallets.js"></script>
+  <script src="../js/ui.js"></script>
+  <script>
+    AistUI.mountChrome();
+    document.getElementById('cta-strat').href = AistUI.href('market');
+    document.getElementById('cta-market').href = AistUI.href('strategies');
+  </script>
+</body>
+</html>

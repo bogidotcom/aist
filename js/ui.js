@@ -18,15 +18,27 @@
     const pack = window.AIST_I18N || {};
     return (pack[lang()] && pack[lang()][key]) || (pack.en && pack.en[key]) || key;
   }
+  /* Is this key translated anywhere at all? Blog posts carry their English in
+     the markup — for crawlers and for no-JS — and ship only the nine
+     translations in a pack, so apply() must leave the element alone rather
+     than paint the raw key over a paragraph that is already correct. */
+  function known(key) {
+    const pack = window.AIST_I18N || {};
+    return (pack[lang()] && pack[lang()][key] != null)
+        || (pack.en && pack.en[key] != null);
+  }
   function apply(root) {
     (root || document).querySelectorAll('[data-i18n]').forEach((el) => {
-      el.textContent = t(el.getAttribute('data-i18n'));
+      const k = el.getAttribute('data-i18n');
+      if (known(k)) el.textContent = t(k);
     });
     (root || document).querySelectorAll('[data-i18n-html]').forEach((el) => {
-      el.innerHTML = t(el.getAttribute('data-i18n-html'));
+      const k = el.getAttribute('data-i18n-html');
+      if (known(k)) el.innerHTML = t(k);
     });
     (root || document).querySelectorAll('[data-i18n-placeholder]').forEach((el) => {
-      el.setAttribute('placeholder', t(el.getAttribute('data-i18n-placeholder')));
+      const k = el.getAttribute('data-i18n-placeholder');
+      if (known(k)) el.setAttribute('placeholder', t(k));
     });
     const sel = document.getElementById('langs');
     if (sel) sel.value = lang();
@@ -36,16 +48,26 @@
 
   function here() {
     const p = location.pathname.replace(/\/+$/, '') || '/';
+    if (/\/blog(\/|$)/.test(p)) return 'blog';
     if (p.endsWith('/market') || p.endsWith('/market.html')) return 'market';
     if (p.endsWith('/exchange') || p.endsWith('/exchange.html')) return 'exchange';
     if (p.endsWith('/strategies') || p.endsWith('/strategies.html')) return 'strategies';
     return 'home';
   }
 
+  /* Blog pages live one directory down, so every asset and page link the
+     chrome builds has to climb back out. Nothing else on the site is nested. */
+  function root() {
+    return /\/blog\//.test(location.pathname) ? '../' : '';
+  }
+
   function href(page) {
-    const file = page === 'home' ? 'index.html' : page + '.html';
-    if (location.protocol === 'file:') return file;
+    if (location.protocol === 'file:') {
+      if (page === 'blog') return root() ? 'index.html' : 'blog/index.html';
+      return root() + (page === 'home' ? 'index.html' : page + '.html');
+    }
     if (page === 'home') return '/';
+    if (page === 'blog') return '/blog/';
     return '/' + page;
   }
 
@@ -56,11 +78,12 @@
     if (header) {
       header.innerHTML = `
         <div class="wrap wrap-wide top-in">
-          <a class="brand" href="${href('home')}"><img src="assets/stork.svg" alt=""><span>AIST</span></a>
+          <a class="brand" href="${href('home')}"><img src="${root()}assets/stork.svg" alt=""><span>AIST</span></a>
           <nav class="nav" id="nav">
             <a href="${href('market')}" class="${page === 'market' ? 'on' : ''}" data-i18n="nav.market">Market</a>
             <a href="${href('exchange')}" class="${page === 'exchange' ? 'on' : ''}" data-i18n="nav.exchange">Exchange</a>
             <a href="${href('strategies')}" class="${page === 'strategies' ? 'on' : ''}" data-i18n="nav.strategies">Strategies</a>
+            <a href="${href('blog')}" class="${page === 'blog' ? 'on' : ''}" data-i18n="nav.blog">Blog</a>
             <a href="https://iamai.kg/docs/#p2p" target="_blank" rel="noopener" data-i18n="nav.docs">Docs</a>
           </nav>
           <div class="top-right">
@@ -77,6 +100,7 @@
       foot.innerHTML = `
         <div class="wrap wrap-wide foot-in">
           <span data-i18n="foot.tag">AIST Exchange</span>
+          <a class="foot-link" href="${href('blog')}" data-i18n="nav.blog">Blog</a>
           <div class="foot-social">
             <a href="https://x.com/aist_exchange" target="_blank" rel="noopener me" aria-label="X" title="X">
               <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>

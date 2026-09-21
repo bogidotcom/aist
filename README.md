@@ -8,6 +8,7 @@ Web P2P market for compute coins. Talks only to the endpoints in
 /market           all pairs, last, 24h (null until a sampler)
 /strategies       arbitrage tutorials (static, no API calls)
 /exchange?pair=   chart (coming) + book + pay ticket
+/blog/            long-form posts (static, no API calls)
 ```
 
 Pair slug is `BASE-QUOTE` with **wire** tickers. Quotes can contain hyphens:
@@ -47,6 +48,10 @@ renewal fails.
 `marketing/` holds campaign assets, not site files — `.rsync-exclude` keeps it
 off the web root. nginx routes `/`, `/market`, `/exchange` and `/strategies`;
 a new page needs a matching `location =` block in `/etc/nginx/sites-available/aist.exchange`.
+`/blog/` is a directory, not a single page — it needs a `location /blog/`
+(or `location ^~ /blog/`) block instead, so `/blog/`, its two post pages and
+its two `i18n.blog*.js` files all resolve. Not yet added to the deployed
+config as of this writing.
 
 **`.rsync-exclude` does not clean the server.** An excluded path is protected
 from `--delete` as well as from upload, so anything already on the server under
@@ -94,6 +99,26 @@ and prices, which read the same in every locale. Only the labels around them
 go through i18n.
 
 Cards re-render on the `aist:lang` window event, which `AistUI.setLang` fires.
+
+## Blog
+
+Static long-form posts, no node calls, listed at `/blog/`. Each post is its
+own HTML file with the English copy written directly into the markup (so it
+reads correctly with JS off and is what search crawlers see); translations
+for the other nine site languages live in `blog/i18n.blog.js` (ru / ky / cn)
+and `blog/i18n.blog.more.js` (es / pt / ar / fa / ur / bn), merged into the
+same `window.AIST_I18N` object the rest of the site uses.
+
+`AistUI.apply()` only overwrites an element's `data-i18n[-html]` content when
+a translation for it actually exists (`known()` in `js/ui.js`) — English has
+no entries of its own in these blog packs, so switching to `en` just leaves
+the inline markup alone instead of stamping the key name over it. A new post
+needs entries for every key in **all nine** non-English languages, or it
+half-translates depending on which language the visitor has selected.
+
+The nav/footer "Blog" link and page-chrome routing live in `js/ui.js`
+(`here()`, `href()`, `root()`) — `root()` is what lets pages one directory
+down (`blog/*.html`) resolve `assets/`, `market`, etc. back through `../`.
 
 ## Not in v1
 

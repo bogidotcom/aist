@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>A P2P market where AI compute turns into money people accept — AIST Exchange</title>
+  <meta name="description" content="What AIST is, what it deliberately is not, the six rails it settles on, and exactly what happens between selecting an order and escrow releasing.">
+  <meta property="og:title" content="A P2P market where AI compute turns into money people accept">
+  <meta property="og:description" content="What AIST is, what it is not, the six rails, the trade lifecycle, and the honest limitations.">
+  <meta property="og:type" content="article">
+  <link rel="icon" href="../assets/stork.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,600;0,9..40,700&family=IBM+Plex+Mono:wght@400;500&family=Sora:wght@600;700&family=Noto+Sans+Arabic:wght@400;600;700&family=Noto+Sans+Bengali:wght@400;600;700&family=Noto+Nastaliq+Urdu:wght@400;700&family=Noto+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/app.css">
+</head>
+<body data-page="blog">
+  <header class="top" id="top"></header>
+
+  <main class="wrap">
+    <article class="post">
+      <a class="back" href="./" data-i18n="blog.back">← Blog</a>
+
+      <div class="post-meta">
+        <span class="tag" data-i18n="blog.tag.guide">Guide</span>
+        <span class="tag" data-i18n="blog.tag.basics">Basics</span>
+        <span class="when" data-i18n="b1.date">21 September 2026</span>
+      </div>
+
+      <h1 data-i18n="b1.title">A P2P market where AI compute turns into money people accept</h1>
+
+      <p class="lede" data-i18n="b1.lede">A GPU finishes an AI job and the DAI network settles the payout on-chain — in KGST, or in a regional compute coin like aiETB or aiBTN. That is a real payment. It is also completely useless to a landlord. AIST Exchange is the door between the two.</p>
+
+      <section class="sect">
+        <p class="kicker" data-i18n="b1.s1.k">The problem</p>
+        <h2 data-i18n="b1.s1.h">Between earning and spending there is normally a wall</h2>
+        <div data-i18n-html="b1.s1.b">
+          <p>A listing queue on a centralised exchange. A KYC process. A minimum withdrawal threshold. A SWIFT corridor that does not serve the country the miner actually lives in. Most compute-coin payouts die against one of those.</p>
+          <p>AIST is a peer-to-peer market where the person who earned a compute coin meets the person who wants one, prices it themselves, and settles with an on-chain escrow holding the trade together. No KYC. No listing committee. No minimum payout.</p>
+        </div>
+      </section>
+
+      <section class="sect">
+        <p class="kicker" data-i18n="b1.s2.k">Definitions</p>
+        <h2 data-i18n="b1.s2.h">What AIST is, and what it deliberately is not</h2>
+        <div data-i18n-html="b1.s2.b">
+          <p><strong>It is a P2P order board with escrow.</strong> Makers post offers. Takers select them. The DAI chain locks the on-chain leg while the off-chain leg — a bank transfer, a USDT send, cash across a counter — is settled by the two humans involved.</p>
+          <p><strong>It is not a matching engine.</strong> Nothing crosses automatically. A trade happens because a taker chose a specific maker's specific offer. This matters far more than it sounds like it does, and the last two sections explain why.</p>
+          <p><strong>It is not a custodian.</strong> AIST never holds your USDT, your BTC or your bank balance. The only thing held is the on-chain side, and it is held by the chain's escrow address, not by a company.</p>
+          <p><strong>It is not the source of truth for what exists.</strong> The site is a client. The DAI node decides which currencies exist, which pairs have books, and the state of every trade. Point the UI at a different node with the gear control and you are looking at a different view of the same network.</p>
+        </div>
+      </section>
+
+      <section class="sect">
+        <p class="kicker" data-i18n="b1.s3.k">Assets &amp; rails</p>
+        <h2 data-i18n="b1.s3.h">Six rails on one book</h2>
+        <p data-i18n="b1.s3.p">Crypto settles on-chain, fiat settles through the maker's own payment method. The escrow is identical either way — only the thing that moves on the other side changes.</p>
+        <div class="tbl-wrap">
+          <table class="post-tbl">
+            <thead>
+              <tr>
+                <th data-i18n="b1.tbl.rail">Rail</th>
+                <th data-i18n="b1.tbl.what">What it is</th>
+                <th data-i18n="b1.tbl.how">How it settles</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>BTC</td><td data-i18n="b1.r.btc.a">Bitcoin — the deepest liquidity of any quote here</td><td data-i18n="b1.r.btc.b">The maker posts a receiving address; you send from any wallet</td></tr>
+              <tr><td>USDT</td><td data-i18n="b1.r.usdt.a">Tether on five networks: TRC20, ERC20, BEP20, TON, SOL</td><td data-i18n="b1.r.usdt.b">The network is chosen at the ticket, not at the pair</td></tr>
+              <tr><td>KGST</td><td data-i18n="b1.r.kgst.a">The Kyrgyz som on the DAI chain, already listed on Binance</td><td data-i18n="b1.r.kgst.b">On-chain; the quote asset every compute coin prices against</td></tr>
+              <tr><td>ETH</td><td data-i18n="b1.r.eth.a">Native ether</td><td data-i18n="b1.r.eth.b">MetaMask builds the transaction, you sign it</td></tr>
+              <tr><td>SOL</td><td data-i18n="b1.r.sol.a">Solana and USDT-SOL</td><td data-i18n="b1.r.sol.b">Phantom autofills the receive address; the send is copy-paste</td></tr>
+              <tr><td>FIAT</td><td data-i18n="b1.r.fiat.a">Bank transfer, card-to-card, mobile wallet, cash in person</td><td data-i18n="b1.r.fiat.b">The maker names the method and the window</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div data-i18n-html="b1.s3.b">
+          <p>Alongside them sit the on-chain stablecoins themselves: DAI, KGST, and the whole <span class="num">ai</span>+ISO family — aiETB, aiBTN, aiVES, aiPYG, aiBDT, aiPKR, aiEGP, aiIQD and the rest of what the chain minted at genesis.</p>
+        </div>
+      </section>
+
+      <section class="sect">
+        <p class="kicker" data-i18n="b1.s4.k">The rail</p>
+        <h2 data-i18n="b1.s4.h">Why KGST is the asset everything else hangs off</h2>
+        <div data-i18n-html="b1.s4.b">
+          <p>KGST is the Kyrgyz som on the DAI chain. It shipped before the <span class="num">ai</span>+ISO naming convention existed, so it kept its original ticker while every later currency became aiETB, aiBTN and so on.</p>
+          <p>It is also the one compute coin with an outside price. KGST trades on Binance, which means AIST does not get to invent what it is worth — and it means every <strong>compute coin → KGST → USDT</strong> route has a reference rate at the middle leg. That single fact is what makes the triangle strategies tradeable rather than theoretical.</p>
+          <p>Around it, the currency table carries 161 rows: every ISO 4217 currency that is legal tender somewhere today, plus six that have no ISO code at all. Each row has the code, the local sign, the English name and the countries that use it, so a search for "Bhutan", "ngultrum" or "BTN" all find the same asset.</p>
+          <p>Two things to be clear about. <strong>The table is naming metadata, not a listing</strong> — a currency appears only if the node reports it, and a row for something the chain never minted simply never renders. And <strong>tickers are ASCII on the wire</strong>, because they travel through transaction hashes, APIs and SDKs; the <span class="num">αι</span> form is for display only.</p>
+        </div>
+      </section>
+
+      <section class="sect">
+        <p class="kicker" data-i18n="b1.s5.k">Mechanics</p>
+        <h2 data-i18n="b1.s5.h">What actually happens during a trade</h2>
+
+        <h3 data-i18n="b1.s5.h1">The maker posts</h3>
+        <div data-i18n-html="b1.s5.b1">
+          <p>An offer carries a side, a base asset, a quote currency, a size, a price per unit, optional min and max trade limits, and the payment methods the maker accepts — each with the address takers should send to.</p>
+          <p>The whole thing is signed with an ed25519 key before it goes anywhere. Not a hash of it — the actual payload, field by field, in a fixed order:</p>
+        </div>
+        <pre class="ex">JSON.stringify({ address, timestamp, action, side, baseAsset,
+                 quoteCurrency, daiAmount, pricePerDAI, paymentMethods })</pre>
+        <div data-i18n-html="b1.s5.b2">
+          <p>The node rebuilds that exact object and re-serialises it to verify, so key order is load-bearing. The practical consequence for a trader: <strong>nobody can swap the pay-to address in transit.</strong> It is inside the signature.</p>
+          <p>If the maker is selling an on-chain asset, their side locks in escrow the moment the offer is posted. The offer is not a promise; it is funded.</p>
+        </div>
+
+        <h3 data-i18n="b1.s5.h2">The taker selects, and a clock starts</h3>
+        <div data-i18n-html="b1.s5.b3">
+          <p>Selecting an order creates the trade and locks escrow. The node checks — server-side — that the order is still open, that the taker is not the maker, that the quoted amount matches the order's price, and that the size sits inside the maker's advertised limits. That last check matters: a client-side check is a courtesy, not a control, because any other client can ignore it. The node is where it holds.</p>
+          <p>The order flips to locked. Nobody else can take it. And the trade is created with a payment deadline of <strong>15 minutes</strong>.</p>
+          <p class="pull">Fifteen minutes is the most important number on this exchange. If a leg cannot finish inside that window, it is not one trade — it is two positions.</p>
+        </div>
+
+        <h3 data-i18n="b1.s5.h3">The off-chain leg moves, and escrow releases</h3>
+        <div data-i18n-html="b1.s5.b4">
+          <p>The taker pays the maker through the listed method and marks the payment sent. The maker — who can see the money arrive in their own bank or wallet — releases escrow. Release is seller-only, and the node enforces it. Either party can raise a dispute while the trade is still open.</p>
+          <p><strong>The atomic exception:</strong> when both legs are on-chain, there is no payment step at all. The trade settles in a single chain transition — no payment-sent, no confirm, no deadline, no counterparty risk. This is also why the node refuses a buy order whose quote is itself on-chain: those pairs are sell-side only, so that both authorisations exist at the moment funds move. Post the mirror sell instead; it is the same trade, expressed so escrow can hold both legs.</p>
+          <p><strong>It reaches the chain even if you are not mining.</strong> A lock or release updates the originating node's memory immediately, but the ledger only moves when a block carries the transition. So the node gossips the signed transition to its peers and any miner can include it. Receiving nodes verify the signature against the address derived from the signing key — they do not need your wallet file.</p>
+          <p>Open orders live 24 hours. Stale quotes are the raw material of spread arbitrage, but they do not sit there forever.</p>
+        </div>
+      </section>
+
+      <section class="sect">
+        <p class="kicker" data-i18n="b1.s6.k">Reading the book</p>
+        <h2 data-i18n="b1.s6.h">The market page, and the one syntax trap</h2>
+        <div data-i18n-html="b1.s6.b1">
+          <p><strong>Last is the book mid</strong>, not the last traded price — there is no trade tape yet. <strong>24h change is not sampled yet</strong> either; it stays empty until a node has been recording long enough, so do not read meaning into a blank column. Pairs come from the node's market list where it has one; older nodes do not, and the UI falls back to building the pair list from the currency list, which gives you names but no prices.</p>
+          <p>A pair id is <strong>BASE-QUOTE</strong> using wire tickers — and quotes can contain hyphens:</p>
+        </div>
+        <div class="tbl-wrap">
+          <table class="post-tbl">
+            <thead>
+              <tr><th data-i18n="b1.tbl.slug">Slug</th><th data-i18n="b1.tbl.mean">Meaning</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>KGST-USDT-TRC20</td><td data-i18n="b1.p.1">KGST quoted in Tron USDT</td></tr>
+              <tr><td>KGST-USDT-ERC20</td><td data-i18n="b1.p.2">KGST quoted in Ethereum USDT</td></tr>
+              <tr><td>DAI-USDT-TRC20</td><td data-i18n="b1.p.3">DAI quoted in Tron USDT</td></tr>
+              <tr><td>aiGEL-KGST</td><td data-i18n="b1.p.4">αιGEL quoted in KGST — on-chain, so sell-side only</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div data-i18n-html="b1.s6.b2">
+          <p><span class="num">KGST-USDT-TRC20</span> is <em>not</em> "KGST vs USDT vs TRC20". If you are scripting against the API, never split on the first hyphen — parse against the known base list, longest first.</p>
+          <p>Candles are sampled from the book mid every 60 seconds while a book exists, so a pair nobody has quoted has no history. Empty is normal on a new pair, not a bug.</p>
+        </div>
+      </section>
+
+      <section class="sect">
+        <p class="kicker" data-i18n="b1.s7.k">Wallets</p>
+        <h2 data-i18n="b1.s7.h">What is automated, and what is copy-paste</h2>
+        <div data-i18n-html="b1.s7.b">
+          <p>The connect modal covers EVM wallets (MetaMask and anything else using EIP-6963 discovery, so multiple extensions stop blocking each other), TronLink, Phantom, and TON by address.</p>
+          <ul>
+            <li><strong>USDT-ERC20 / BEP20 and ETH</strong> — MetaMask sends it; the UI builds the transaction and you sign.</li>
+            <li><strong>USDT-TRC20</strong> — TronLink contract transfer.</li>
+            <li><strong>Solana and TON</strong> — connect to autofill your receive address; the send itself is copy-paste. There is no SPL or TON SDK in this tree.</li>
+            <li><strong>Anything at all</strong> — copy the maker's address and send manually. This always works.</li>
+          </ul>
+          <p>One asymmetry worth internalising: <strong>on-chain compute coins settle to a DAI address</strong>, which starts with <span class="num">dai</span> followed by 40 hex characters. A MetaMask or Phantom address is not a substitute — those wallets have no DAI address to offer, and the UI will tell you when you have pasted the wrong kind.</p>
+          <p>To trade the on-chain side at all, your DAI wallet must already be known to the node: escrow lock is refused for an address the chain has never seen. Create the wallet and let it register before you need it, not during.</p>
+        </div>
+      </section>
+
+      <section class="sect">
+        <p class="kicker" data-i18n="b1.s8.k">Consequences</p>
+        <h2 data-i18n="b1.s8.h">What a thin book without a matching engine means for you</h2>
+        <div data-i18n-html="b1.s8.b">
+          <p>Four things follow, and every strategy on the site is shaped by them.</p>
+          <ul>
+            <li><strong>Quotes go stale.</strong> Makers post and walk away. On a centralised book an algorithm pulls a mispriced quote in milliseconds; here a human has to come back and edit it. A best bid above the best ask is not a glitch — and taking it is the first strategy in the guide.</li>
+            <li><strong>Depth is the real constraint.</strong> The best price tells you nothing about where size fills. A beautiful quote for 200 KGST is irrelevant if you need to move 200,000.</li>
+            <li><strong>Fees are per leg, and legs are the unit.</strong> A 1.4% spread with two on-chain transfers and a bank charge can net below zero on small size. Always price the round trip.</li>
+            <li><strong>Capital has to be pre-positioned.</strong> An opportunity you have to fund first is usually gone by the time the funding lands — and escrow ties money up while an order is live, so a book full of your quotes can look busy while most of your float earns nothing.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="sect">
+        <p class="kicker" data-i18n="b1.s9.k">Honesty</p>
+        <h2 data-i18n="b1.s9.h">The limitations, listed on purpose</h2>
+        <div data-i18n-html="b1.s9.b">
+          <p>A market that hides these is worse than one that does not have them.</p>
+          <ul>
+            <li><strong>No matching engine.</strong> You pick a counterparty; nothing crosses for you.</li>
+            <li><strong>No 24h statistics yet</strong>, and no trade tape — "last" is the book mid, not a print.</li>
+            <li><strong>GELt is not listed.</strong> It is external — Tether plus the Government of Georgia — and is not on the book.</li>
+            <li><strong>Counterparty risk is reduced, not removed.</strong> Escrow protects the on-chain leg. It cannot un-freeze a bank account or un-reverse a card payment. Method risk is a different animal from price risk, and it can cost you the whole float rather than the spread.</li>
+            <li><strong>Books are thin.</strong> Slippage on compute coins is real, and the leg you cannot exit is always the third one.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="sect">
+        <p class="kicker" data-i18n="b1.s10.k">Start here</p>
+        <h2 data-i18n="b1.s10.h">Five steps to a first trade</h2>
+        <div data-i18n-html="b1.s10.b">
+          <ol>
+            <li>Get a <a class="inline" href="https://iamai.kg/wallet/" target="_blank" rel="noopener">DAI Wallet</a>.</li>
+            <li>Get the <a class="inline" href="https://iamai.kg/miner.html" target="_blank" rel="noopener">DAI Miner</a> if you want to earn compute coins rather than buy them.</li>
+            <li>Open the market and find a pair with real depth on both sides. KGST-USDT-TRC20 is the usual starting point.</li>
+            <li>Read the strategy guide — eight strategies, worked examples, and the risks in plain language.</li>
+            <li>Size your first trade to what the second side can absorb, not to what you can afford.</li>
+          </ol>
+          <p>The spread is the product. The escrow is the trust. The rest is arithmetic.</p>
+        </div>
+        <div class="cta-row">
+          <a class="btn btn-lime" id="cta-market" data-i18n="home.cta">Open market</a>
+          <a class="btn btn-ghost" id="cta-strat" data-i18n="home.cta2">Arbitrage strategies</a>
+        </div>
+      </section>
+
+      <section class="sect">
+        <p class="disclaim" data-i18n="blog.disclaim">Education, not investment advice. P2P settlement carries counterparty risk that escrow reduces but never removes. Every figure in the strategy guide is an illustration — check the live book before you size a trade.</p>
+      </section>
+    </article>
+  </main>
+
+  <footer class="foot" id="foot"></footer>
+  <script src="../js/i18n.js"></script>
+  <script src="../js/i18n.strategies.js"></script>
+  <script src="../js/i18n.more.js"></script>
+  <script src="i18n.blog.js"></script>
+  <script src="i18n.blog.more.js"></script>
+  <script src="../js/currencies.js"></script>
+  <script src="../js/api.js"></script>
+  <script src="../js/wallets.js"></script>
+  <script src="../js/ui.js"></script>
+  <script>
+    AistUI.mountChrome();
+    document.getElementById('cta-market').href = AistUI.href('market');
+    document.getElementById('cta-strat').href = AistUI.href('strategies');
+  </script>
+</body>
+</html>

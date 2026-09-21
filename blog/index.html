@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Blog — AIST Exchange</title>
+  <meta name="description" content="How the AIST P2P book works, and how to trade it. Guides, strategy walk-throughs and notes from the exchange.">
+  <link rel="icon" href="../assets/stork.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,600;0,9..40,700&family=IBM+Plex+Mono:wght@400;500&family=Sora:wght@600;700&family=Noto+Sans+Arabic:wght@400;600;700&family=Noto+Sans+Bengali:wght@400;600;700&family=Noto+Nastaliq+Urdu:wght@400;700&family=Noto+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/app.css">
+</head>
+<body data-page="blog">
+  <header class="top" id="top"></header>
+
+  <main class="wrap">
+    <div class="blog-head">
+      <p class="kicker" data-i18n="blog.kicker">From the exchange</p>
+      <h1 data-i18n="blog.h">Blog</h1>
+      <p data-i18n="blog.sub">How the book works, and how to trade it. Written for miners cashing out a payout and for traders looking for the spread.</p>
+    </div>
+
+    <div class="posts">
+
+      <a class="post-card" href="what-is-aist-exchange.html">
+        <div class="post-meta">
+          <span class="tag" data-i18n="blog.tag.guide">Guide</span>
+          <span class="tag" data-i18n="blog.tag.basics">Basics</span>
+          <span class="when" data-i18n="b1.date">21 September 2026</span>
+        </div>
+        <h2 data-i18n="b1.title">A P2P market where AI compute turns into money people accept</h2>
+        <p class="excerpt" data-i18n="b1.excerpt">What AIST is, what it deliberately is not, the six rails it settles on, and exactly what happens between selecting an order and the escrow releasing. Including the limitations, because a market that hides those is worse than one that does not have them.</p>
+        <span class="more" data-i18n="blog.read">Read the post →</span>
+      </a>
+
+      <a class="post-card" href="first-trade-spread-arbitrage.html">
+        <div class="post-meta">
+          <span class="tag" data-i18n="blog.tag.strategy">Strategy</span>
+          <span class="tag" data-i18n="blog.tag.beginner">Beginner</span>
+          <span class="when" data-i18n="b2.date">21 September 2026</span>
+        </div>
+        <h2 data-i18n="b2.title">Your first trade: simple spread arbitrage</h2>
+        <p class="excerpt" data-i18n="b2.excerpt">Two makers who disagree on price, in the same minute, on the same pair. Why a crossed book survives here when it cannot survive anywhere else — and the four ways taking it still loses money.</p>
+        <span class="more" data-i18n="blog.read">Read the post →</span>
+      </a>
+
+    </div>
+  </main>
+
+  <footer class="foot" id="foot"></footer>
+  <script src="../js/i18n.js"></script>
+  <script src="../js/i18n.strategies.js"></script>
+  <script src="../js/i18n.more.js"></script>
+  <script src="i18n.blog.js"></script>
+  <script src="i18n.blog.more.js"></script>
+  <script src="../js/currencies.js"></script>
+  <script src="../js/api.js"></script>
+  <script src="../js/wallets.js"></script>
+  <script src="../js/ui.js"></script>
+  <script>AistUI.mountChrome();</script>
+</body>
+</html>
