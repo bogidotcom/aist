@@ -46,12 +46,14 @@ with a dot, so without `location ^~ /.well-known/acme-challenge/` certbot
 renewal fails.
 
 `marketing/` holds campaign assets, not site files — `.rsync-exclude` keeps it
-off the web root. nginx routes `/`, `/market`, `/exchange` and `/strategies`;
-a new page needs a matching `location =` block in `/etc/nginx/sites-available/aist.exchange`.
-`/blog/` is a directory, not a single page — it needs a `location /blog/`
-(or `location ^~ /blog/`) block instead, so `/blog/`, its two post pages and
-its two `i18n.blog*.js` files all resolve. Not yet added to the deployed
-config as of this writing.
+off the web root. `/market`, `/exchange` and `/strategies` are pseudo-routes —
+each maps to a differently-named file (`market.html`, etc.) — so a new one of
+those needs a matching `location =` block in
+`/etc/nginx/sites-available/aist.exchange`. `/blog/` needed no such block: it
+is a real directory with a real `index.html` inside it, so the generic
+`location / { try_files $uri $uri/ /index.html; }` already serves it —
+`/blog`, `/blog/`, `/blog/<post>.html` and the two `i18n.blog*.js` files all
+resolve through the catch-all.
 
 **`.rsync-exclude` does not clean the server.** An excluded path is protected
 from `--delete` as well as from upload, so anything already on the server under
