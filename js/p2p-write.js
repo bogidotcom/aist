@@ -99,14 +99,24 @@
    * preserves insertion order — so these keys must be listed in that order or
    * every signature fails.
    */
-  function createOrder({ side, baseAsset, quoteCurrency, daiAmount, pricePerDAI, paymentMethods }) {
+  function createOrder({ side, baseAsset, quoteCurrency, daiAmount, pricePerDAI, paymentMethods, minTrade, maxTrade, baseDecimals }) {
+    const base = baseAsset || 'DAI';
+    /* The node signs minTrade, maxTrade and baseDecimals too (0.4.35+), filling
+       0 / null / null when the client omits them — so a client that leaves them
+       out signs a shorter payload than the one the node rebuilds, and every
+       create-order fails with "invalid signature". Send them explicitly, in the
+       node's order. baseDecimals also matters on its own: without it the node
+       assumes 2 decimals for any non-DAI asset and mis-sizes the order limits. */
     const fields = {
       side,
-      baseAsset: baseAsset || 'DAI',
+      baseAsset: base,
       quoteCurrency,
       daiAmount,
       pricePerDAI,
       paymentMethods: paymentMethods || [],
+      minTrade: minTrade ?? 0,
+      maxTrade: maxTrade ?? null,
+      baseDecimals: baseDecimals ?? A().decimals(base),
     };
     const asset = A().displayOf(fields.baseAsset);
     const size = A().formatRaw(fields.baseAsset, daiAmount);
