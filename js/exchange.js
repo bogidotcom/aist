@@ -284,6 +284,11 @@
     return AistApi.formatRaw(AistApi.orderBase(selected), selected.daiAmount);
   }
 
+  function shortAddr(a) {
+    a = String(a);
+    return a.length > 16 ? a.slice(0, 6) + '…' + a.slice(-4) : a;
+  }
+
   function renderTicket() {
     const give = giveTicker();
     const get = getTicker();
@@ -291,7 +296,6 @@
     const getFam = AistApi.family(get);
     const pay = payMethod(selected);
     const canWallet = ['evm', 'tron', 'btc'].includes(giveFam);
-    const connected = AistWallets.address(giveFam) || AistWallets.address(getFam);
     // The maker's method must be the same rail we are about to send on.
     const netMismatch = !!(pay && pay.network && give && pay.network !== give);
     const paired = AistP2P.signerStatus();
@@ -306,6 +310,17 @@
     const recvIsDai = getFam === 'dai';
     const recvDefault = (!recvIsDai && ['evm', 'tron', 'sol', 'ton', 'btc'].includes(getFam)
       && AistWallets.address(getFam)) || '';
+
+    /* Once a wallet is connected the button gives way to its address; a
+       disconnect × keeps it possible to switch wallets. */
+    const connectedFam = AistWallets.address(giveFam) ? giveFam : (AistWallets.address(getFam) ? getFam : null);
+    const connectControl = connectedFam
+      ? `<span class="pair-chip" id="wallet-chip" title="${AistWallets.address(connectedFam)}">
+           <span class="pair-dot"></span>${shortAddr(AistWallets.address(connectedFam))}
+           <button class="pair-x" id="wallet-disconnect" type="button"
+                   aria-label="${AistUI.t('wal.disconnect')}" title="${AistUI.t('wal.disconnect')}">×</button>
+         </span>`
+      : `<button class="btn btn-ghost" id="connect-btn" data-i18n="ex.connect">${AistUI.t('ex.connect')}</button>`;
 
     els.ticket.innerHTML = `
       <div class="field">
@@ -338,10 +353,9 @@
           <div class="addr" id="pay-addr">${pay.address}</div>
           <div class="row-btns">
             <button class="btn btn-ghost" id="copy-addr" data-i18n="ex.copy">${AistUI.t('ex.copy')}</button>
-            <button class="btn btn-ghost" id="connect-btn" data-i18n="ex.connect">${AistUI.t('ex.connect')}</button>
+            ${connectControl}
             ${canWallet && !netMismatch ? `<button class="btn btn-lime" id="send-btn" data-i18n="ex.send">${AistUI.t('ex.send')}</button>` : ''}
           </div>
-          ${connected ? `<p class="hint">${AistUI.t('wal.connected')}: ${connected}</p>` : ''}
           ${netMismatch ? `<p class="err">${AistUI.t('err.netMismatch').replace('{net}', pay.network).replace('{give}', give)}</p>` : ''}
           <p class="hint" data-i18n="ex.manual">${AistUI.t('ex.manual')}</p>
           ${tr ? `
@@ -365,7 +379,7 @@
         </div>` : `
         <p class="hint">${selected ? AistUI.t('ex.onchain') : AistUI.t('ex.pickOrder')}</p>
         ${selected ? `<p class="hint" data-i18n="ex.locked">${AistUI.t('ex.locked')}</p>` : ''}
-        <button class="btn btn-ghost btn-wide" id="connect-btn" data-i18n="ex.connect">${AistUI.t('ex.connect')}</button>
+        ${connectControl}
       `}
       <p class="hint" id="tx-status"></p>
     `;
@@ -394,6 +408,10 @@
       AistUI.toast(e.currentTarget, 'ex.copied');
     });
     renderOffer();
+    document.getElementById('wallet-disconnect')?.addEventListener('click', () => {
+      AistWallets.disconnect(connectedFam);
+      renderTicket();
+    });
     document.getElementById('connect-btn')?.addEventListener('click', () => openWalletModal(giveFam === 'other' ? getFam : giveFam));
     document.getElementById('send-btn')?.addEventListener('click', () => sendPay(giveFam, give, pay && pay.address));
     const note = () => document.getElementById('trade-note');
